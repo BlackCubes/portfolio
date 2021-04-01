@@ -1,5 +1,9 @@
 .about-section {
-  background: $color-dark-cyan url('../../img/collage.png') no-repeat;
+  background-color: $color-dark-cyan;
+  background-image: url('../../img/collage.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
   &__wrapper {
     padding-top: 11rem;
