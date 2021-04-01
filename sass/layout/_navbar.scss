@@ -2,4 +2,12 @@
   &-logo {
     width: 5rem;
   }
+
+  &-link {
+    color: $color-white;
+
+    &:hover {
+      color: $color-dark-red;
+    }
+  }
 }
