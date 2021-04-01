@@ -14,8 +14,9 @@
     &[value='Styled-Components']:checked ~ .filters label[for='Styled-Components'] {
       color: $color-white;
       background-color: rgba(0, 124, 161, 0.17);
-      border-top-color: rgba($color-dark-cyan, 0.17);
-      border-bottom-color: rgba($color-dark-cyan, 0.17);
+      border-top: 1px solid rgba($color-dark-cyan, 0.17);
+      border-bottom: 1px solid rgba($color-dark-cyan, 0.17);
+      border-radius: 2rem;
     }
 
     &[value='All']:checked ~ .gallery li[data-category] {
