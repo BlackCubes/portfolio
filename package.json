@@ -18,7 +18,7 @@
   "homepage": "https://github.com/BlackCubes/portfolio#readme",
   "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^9.8.6",
     "concat": "^1.0.3",
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -30,7 +30,7 @@
     "eslint-plugin-react": "^7.23.1",
     "node-sass": "^5.0.0",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^8.3.1",
+    "postcss-cli": "^7.1.2",
     "prettier": "^2.2.1"
   }
 }
