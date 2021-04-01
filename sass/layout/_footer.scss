@@ -5,6 +5,19 @@
 
   &__follow {
     background-color: $color-dark-cyan;
+
+    & a {
+      background-color: $color-black;
+
+      & .fa {
+        &-github,
+        &-linkedin {
+          font-size: 2.9rem;
+          width: 2.8rem;
+          height: 2.8rem;
+        }
+      }
+    }
   }
 
   & a {
