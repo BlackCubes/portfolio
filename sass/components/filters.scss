@@ -1,5 +1,6 @@
 .filters {
   &__item {
+    min-width: 5rem;
     cursor: pointer;
     transition: all 0.1s;
   }
