@@ -14,3 +14,8 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
 }
+
+::selection {
+  color: $color-white;
+  background-color: $color-dark-cyan;
+}
