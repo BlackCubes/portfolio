@@ -2,5 +2,33 @@
   &-filters {
     position: absolute;
     left: -999rem;
+
+    &[value='All']:checked ~ .filters__item[for='All'],
+    &[value='NodeJS']:checked ~ .filters__item[for='NodeJS'],
+    &[value='PHP']:checked ~ .filters__item[for='PHP'],
+    &[value='MongoDB']:checked ~ .filters__item[for='MongoDB'],
+    &[value='MySQL']:checked ~ .filters__item[for='MySQL'],
+    &[value='ReactJS']:checked ~ .filters__item[for='ReactJS'],
+    &[value='VanillaJS']:checked ~ .filters__item[for='VanillaJS'],
+    &[value='Sass']:checked ~ .filters__item[for='Sass'],
+    &[value='Styled-Components']:checked ~ .filters__item[for='Styled-Components'] {
+      color: $color-white;
+      background-color: darkcyan;
+    }
+
+    &[value='All']:checked ~ .gallery li[data-category] {
+      display: block;
+    }
+
+    &[value='NodeJS']:checked ~ .gallery li:not([data-category~='NodeJS']),
+    &[value='PHP']:checked ~ .gallery li:not([data-category~='PHP']),
+    &[value='MongoDB']:checked ~ .gallery li:not([data-category~='MongoDB']),
+    &[value='MySQL']:checked ~ .gallery li:not([data-category~='MySQL']),
+    &[value='ReactJS']:checked ~ .gallery li:not([data-category~='ReactJS']),
+    &[value='VanillaJS']:checked ~ .gallery li:not([data-category~='VanillaJS']),
+    &[value='Sass']:checked ~ .gallery li:not([data-category~='Sass']),
+    &[value='Styled-Components']:checked ~ .gallery li:not([data-category~='Styled-Components']) {
+      display: none;
+    }
   }
 }
