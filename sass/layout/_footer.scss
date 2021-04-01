@@ -1,0 +1,18 @@
+.footer {
+  font-family: inherit;
+  color: $color-white;
+  background-color: $color-black;
+
+  &__follow {
+    background-color: $color-dark-cyan;
+  }
+
+  & a {
+    color: $color-white;
+
+    &:hover {
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+}
