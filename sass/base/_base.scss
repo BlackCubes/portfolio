@@ -15,7 +15,30 @@ body {
   box-sizing: border-box;
 }
 
+// TEXT SELECTION
 ::selection {
   color: $color-white;
   background-color: $color-dark-cyan;
+}
+
+// SCROLLBAR
+// -- for firefox
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $color-dark-cyan transparent;
+}
+
+// -- for chrome, edge, and safari
+*::-webkit-scrollbar {
+  width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $color-dark-cyan;
+  border-radius: 2rem;
+  border: 3px solid transparent;
 }
