@@ -5,6 +5,7 @@
 
   &-link {
     color: $color-white;
+    transition: color 0.3s ease 0s;
 
     &:hover {
       color: $color-dark-red;
