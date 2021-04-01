@@ -1,0 +1,14 @@
+.nav__portfolio {
+  &-logo {
+    width: 5rem;
+  }
+
+  &-link {
+    color: $color-white;
+    transition: color 0.3s ease 0s;
+
+    &:hover {
+      color: $color-dark-cyan;
+    }
+  }
+}

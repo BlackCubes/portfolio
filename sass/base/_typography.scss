@@ -1,0 +1,24 @@
+body {
+  font-family: 'Noto Sans JP', 'Open Sans', 'Roboto', sans-serif;
+}
+
+.heading-primary {
+  font-size: $font-size-primary;
+  color: $color-dark-cyan;
+}
+
+.heading-secondary {
+  font-size: $font-size-secondary;
+  letter-spacing: 0.25rem;
+}
+
+.heading-tertiary {
+  font-size: $font-size-tertiary;
+  font-weight: 200;
+  color: $color-dark-red;
+  letter-spacing: 0.2rem;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+}

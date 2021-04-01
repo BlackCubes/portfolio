@@ -1,0 +1,19 @@
+.about-section {
+  background-color: $color-dark-cyan;
+  background-image: url('../../img/collage.png');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &__wrapper {
+    padding-top: 11rem;
+    padding-bottom: 11rem;
+  }
+
+  & h2 {
+    color: $color-dark-red--shade;
+  }
+
+  & p {
+    color: $color-white;
+  }
+}

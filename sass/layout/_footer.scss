@@ -1,0 +1,33 @@
+.footer {
+  font-family: inherit;
+  color: $color-white;
+  background-color: $color-black;
+
+  &__follow {
+    background-color: $color-dark-cyan;
+
+    & a {
+      background-color: $color-black;
+
+      & .fa {
+        &-github,
+        &-linkedin,
+        &-vimeo,
+        &-facebook {
+          font-size: 2.9rem;
+          width: 2.8rem;
+          height: 2.8rem;
+        }
+      }
+    }
+  }
+
+  & a {
+    color: $color-white;
+
+    &:hover {
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+}

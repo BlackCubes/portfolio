@@ -1,0 +1,37 @@
+.input__radio {
+  &-filters {
+    position: absolute;
+    left: -999rem;
+
+    &[value='All']:checked ~ .filters label[for='All'],
+    &[value='NodeJS']:checked ~ .filters label[for='NodeJS'],
+    &[value='PHP']:checked ~ .filters label[for='PHP'],
+    &[value='MongoDB']:checked ~ .filters label[for='MongoDB'],
+    &[value='MySQL']:checked ~ .filters label[for='MySQL'],
+    &[value='ReactJS']:checked ~ .filters label[for='ReactJS'],
+    &[value='VanillaJS']:checked ~ .filters label[for='VanillaJS'],
+    &[value='Sass']:checked ~ .filters label[for='Sass'],
+    &[value='Styled-Components']:checked ~ .filters label[for='Styled-Components'] {
+      color: rgba(9, 37, 46, 0.30);
+      background-color: rgba(0, 124, 161, 0.17);
+      border-top: 1px solid rgba($color-dark-cyan, 0.17);
+      border-bottom: 1px solid rgba($color-dark-cyan, 0.17);
+      border-radius: 2rem;
+    }
+
+    &[value='All']:checked ~ .gallery li[data-category] {
+      display: block;
+    }
+
+    &[value='NodeJS']:checked ~ .gallery li:not([data-category~='NodeJS']),
+    &[value='PHP']:checked ~ .gallery li:not([data-category~='PHP']),
+    &[value='MongoDB']:checked ~ .gallery li:not([data-category~='MongoDB']),
+    &[value='MySQL']:checked ~ .gallery li:not([data-category~='MySQL']),
+    &[value='ReactJS']:checked ~ .gallery li:not([data-category~='ReactJS']),
+    &[value='VanillaJS']:checked ~ .gallery li:not([data-category~='VanillaJS']),
+    &[value='Sass']:checked ~ .gallery li:not([data-category~='Sass']),
+    &[value='Styled-Components']:checked ~ .gallery li:not([data-category~='Styled-Components']) {
+      display: none;
+    }
+  }
+}

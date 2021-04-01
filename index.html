@@ -23,13 +23,15 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/compile/styles.css" />
 
-    <title>Elias Gutierrez | Software Engineer & Full-Stack Developer</title>
+    <title>
+      Elias Gutierrez | Software Engineer & Full-Stack Web Developer
+    </title>
   </head>
   <body class="d-flex flex-column">
     <!-- HEADER -->
-    <header>
+    <header class="header">
       <!-- NAVBAR -->
       <nav class="nav__porfolio navbar">
         <div class="container justify-content-between">
@@ -45,19 +47,23 @@
 
           <ul class="navbar-nav flex-row">
             <li class="nav-item">
-              <a href="#" class="nav-link p-3">Portfolio</a>
+              <a href="#portfolio" class="nav__portfolio-link nav-link p-3"
+                >Portfolio</a
+              >
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link p-3">About</a>
+              <a href="#about" class="nav__portfolio-link nav-link p-3"
+                >About</a
+              >
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link p-3">Contact</a>
+              <a href="#" class="nav__portfolio-link nav-link p-3">Contact</a>
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link p-3">Resume</a>
+              <a href="https://docs.google.com/document/d/1vllJAqf62EALCMJjZ-haBh8pkwMnMUOvWLUZyWPkEj0/edit?usp=sharing" class="nav__portfolio-link nav-link p-3" target="_blank"">Resume</a>
             </li>
           </ul>
         </div>
@@ -65,7 +71,21 @@
 
       <!-- JUMBOTRON -->
       <div class="main-hero jumbotron text-center position-relative">
-        <h1 class="display-4 m-0 text-uppercase">Elias Gutierrez</h1>
+        <h1
+          class="heading-primary display-4 m-0 pt-5 text-uppercase position-relative"
+        >
+          Elias Gutierrez
+        </h1>
+
+        <div class="main-hero__description mx-auto mt-4 pt-5 position-relative">
+          <h3 class="heading-tertiary mb-0 text-left">
+            Full-Stack Web Developer
+          </h3>
+          <h3 class="heading-tertiary mb-0 mt-4 text-right">
+            Software Engineer
+          </h3>
+          <h3 class="heading-tertiary mb-0 mt-4">Based in California</h3>
+        </div>
 
         <div class="main-hero__img position-absolute">
           <img src="img/logospectrum.png" alt="Hero Brand" class="img-fluid" />
@@ -76,8 +96,8 @@
     <!-- MAIN -->
     <main class="mt-auto">
       <!-- PORTFOLIO SECtION -->
-      <section class="portfolio-section">
-        <div class="container text-center">
+      <section class="portfolio-section" id="portfolio">
+        <div class="portfolio-section__wrapper container text-center">
           <h2 class="heading-secondary mb-3 text-uppercase">Portfolio</h2>
 
           <p class="paragraph mt-3 mb-0">
@@ -90,74 +110,121 @@
             <input
               type="radio"
               name="categories"
+              class="input__radio-filters"
               id="All"
               value="All"
               checked
             />
-            <input type="radio" name="categories" id="NodeJS" value="NodeJS" />
-            <input type="radio" name="categories" id="PHP" value="PHP" />
             <input
               type="radio"
               name="categories"
+              class="input__radio-filters"
+              id="NodeJS"
+              value="NodeJS"
+            />
+            <input
+              type="radio"
+              name="categories"
+              class="input__radio-filters"
+              id="PHP"
+              value="PHP"
+            />
+            <input
+              type="radio"
+              name="categories"
+              class="input__radio-filters"
               id="MongoDB"
               value="MongoDB"
             />
-            <input type="radio" name="categories" id="MySQL" value="MySQL" />
             <input
               type="radio"
               name="categories"
+              class="input__radio-filters"
+              id="MySQL"
+              value="MySQL"
+            />
+            <input
+              type="radio"
+              name="categories"
+              class="input__radio-filters"
               id="ReactJS"
               value="ReactJS"
             />
             <input
               type="radio"
               name="categories"
+              class="input__radio-filters"
               id="VanillaJS"
               value="VanillaJS"
             />
-            <input type="radio" name="categories" id="Sass" value="Sass" />
             <input
               type="radio"
               name="categories"
+              class="input__radio-filters"
+              id="Sass"
+              value="Sass"
+            />
+            <input
+              type="radio"
+              name="categories"
+              class="input__radio-filters"
               id="Styled-Components"
               value="Styled-Components"
             />
 
-            <ol class="filters row mb-0 list-unstyled">
+            <ol class="filters row mb-0 p-3 list-unstyled">
               <li class="filters__list col">
-                <label for="All" class="filters__item">All</label>
+                <label for="All" class="filters__item mb-1 py-2 px-3"
+                  >All</label
+                >
               </li>
 
               <li class="filters__list col">
-                <label for="NodeJS" class="filters__item">NodeJS</label>
+                <label for="NodeJS" class="filters__item mb-1 py-2 px-3"
+                  >NodeJS</label
+                >
               </li>
 
               <li class="filters__list col">
-                <label for="PHP" class="filters__item">PHP</label>
+                <label for="PHP" class="filters__item mb-1 py-2 px-3"
+                  >PHP</label
+                >
               </li>
 
               <li class="filters__list col">
-                <label for="MongoDB" class="filters__item">MongoDB</label>
+                <label for="MongoDB" class="filters__item mb-1 py-2 px-3"
+                  >MongoDB</label
+                >
               </li>
 
               <li class="filters__list col">
-                <label for="MySQL" class="filters__item">MySQL</label>
+                <label for="MySQL" class="filters__item mb-1 py-2 px-3"
+                  >MySQL</label
+                >
               </li>
 
               <li class="filters__list col">
-                <label for="ReactJS" class="filters__item">ReactJS</label>
+                <label for="ReactJS" class="filters__item mb-1 py-2 px-3"
+                  >ReactJS</label
+                >
               </li>
 
               <li class="filters__list col">
-                <label for="VanillaJS" class="filters__item">VanillaJS</label>
+                <label for="VanillaJS" class="filters__item mb-1 py-2 px-3"
+                  >VanillaJS</label
+                >
               </li>
 
               <li class="filters__list col">
-                <label for="Sass" class="filters__item">Sass</label>
+                <label for="Sass" class="filters__item mb-1 py-2 px-3"
+                  >Sass</label
+                >
               </li>
 
               <li class="filters__list col">
-                <label for="Styled-Components" class="filters__item"
+                <label
+                  for="Styled-Components"
+                  class="filters__item mb-1 py-2 px-3"
                   >Styled-Components</label
                 >
               </li>
@@ -165,45 +232,123 @@
 
             <ol class="gallery row row-cols-2 mb-0 list-unstyled">
               <li
-                class="gallery__card col position-relative"
+                class="gallery__card col my-2 position-relative"
                 data-category="ReactJS MongoDB NodeJS Styled-Components"
               >
-                <div class="gallery__card-img"></div>
+                <div class="gallery__card-img">
+                  <img
+                    src="img/gallery/errezshop.png"
+                    alt="Errez Shop"
+                    class="img-fluid"
+                  />
+                </div>
 
-                <a href="https://errezshop.netlify.app/" class="btn">Explore</a>
+                <div class="gallery__card-info text-center position-absolute">
+                  <p class="gallery__card-info-header paragraph mb-0">
+                    Errez Shop
+                  </p>
+
+                  <p class="gallery__card-info-highlight paragraph mb-0">
+                    NodeJS | MongoDB | ReactJS | Styled-Components
+                  </p>
+                </div>
+
+                <a
+                  href="https://errezshop.netlify.app/"
+                  class="btn__custom btn mx-auto position-absolute"
+                  target="_blank"
+                  >Explore</a
+                >
               </li>
 
               <li
-                class="gallery__card col position-relative"
+                class="gallery__card col my-2 position-relative"
                 data-category="ReactJS Sass"
               >
-                <div class="gallery__card-img"></div>
+                <div class="gallery__card-img">
+                  <img
+                    src="img/gallery/weatherapp.png"
+                    alt="Weather App"
+                    class="img-fluid"
+                  />
+                </div>
+
+                <div class="gallery__card-info text-center position-absolute">
+                  <p class="gallery__card-info-header paragraph mb-0">
+                    Weather App
+                  </p>
+
+                  <p class="gallery__card-info-highlight paragraph mb-0">
+                    ReactJS | Sass
+                  </p>
+                </div>
 
                 <a
                   href="https://blackcubes.github.io/react-weather/"
-                  class="btn"
+                  class="btn__custom btn mx-auto position-absolute"
+                  target="_blank"
                   >Explore</a
                 >
               </li>
 
               <li
-                class="gallery__card col position-relative"
+                class="gallery__card col my-2 position-relative"
                 data-category="VanillaJS MongoDB NodeJS Sass"
               >
-                <div class="gallery__card-img"></div>
+                <div class="gallery__card-img">
+                  <img
+                    src="img/gallery/kinetotickets.png"
+                    alt="Kinetotickets"
+                    class="img-fluid"
+                  />
+                </div>
 
-                <a href="https://kinetotickets.herokuapp.com/" class="btn"
+                <div class="gallery__card-info text-center position-absolute">
+                  <p class="gallery__card-info-header paragraph mb-0">
+                    Kinetotickets
+                  </p>
+
+                  <p class="gallery__card-info-highlight paragraph mb-0">
+                    NodeJS | MongoDB | VanillaJS | Sass
+                  </p>
+                </div>
+
+                <a
+                  href="https://kinetotickets.herokuapp.com/"
+                  class="btn__custom btn mx-auto position-absolute"
+                  target="_blank"
                   >Explore</a
                 >
               </li>
 
               <li
-                class="gallery__card col position-relative"
+                class="gallery__card col my-2 position-relative"
                 data-category="MySQL PHP"
               >
-                <div class="gallery__card-img"></div>
+                <div class="gallery__card-img">
+                  <img
+                    src="img/gallery/filmecommerce.png"
+                    alt="Film eCommerce"
+                    class="img-fluid"
+                  />
+                </div>
 
-                <a href="https://filmecommerce.com/" class="btn">Explore</a>
+                <div class="gallery__card-info text-center position-absolute">
+                  <p class="gallery__card-info-header paragraph mb-0">
+                    Film eCommerce
+                  </p>
+
+                  <p class="gallery__card-info-highlight paragraph mb-0">
+                    PHP | MySQL
+                  </p>
+                </div>
+
+                <a
+                  href="https://filmecommerce.com/"
+                  class="btn__custom btn mx-auto position-absolute"
+                  target="_blank"
+                  >Explore</a
+                >
               </li>
             </ol>
           </div>
@@ -211,12 +356,12 @@
       </section>
 
       <!-- ABOUT SECTION -->
-      <section class="about-section py-5">
-        <div class="container text-center">
+      <section class="about-section py-5" id="about">
+        <div class="about-section__wrapper container text-center">
           <h2 class="heading-secondary mb-3 text-uppercase">About Me</h2>
 
           <p class="paragraph mt-3 mb-0">
-            I'm a Software Engineer and Full-Stack Developer interested on
+            I'm a Software Engineer and Full-Stack Web Developer interested on
             combining the art and mathematical model of nature into a beautiful
             user experience. I also have experience with Data Science, and have
             a B.S. degree in Physics at UCLA.
@@ -224,7 +369,7 @@
 
           <p class="paragraph mt-3 mb-0">
             When I'm not drinking too much coffee or typing, I like to read,
-            study math/physics, workout, and analyze films.
+            study math/physics, workout, analyze films, and spending time with friends and families.
           </p>
         </div>
       </section>
@@ -253,6 +398,24 @@
               class="d-block mx-3 p-2 rounded-circle text-decoration-none"
             >
               <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+
+          <li class="d-inline-block">
+            <a
+              href="https://vimeo.com/blackcubes"
+              class="d-block mx-3 p-2 rounded-circle text-decoration-none"
+            >
+              <i class="fab fa-vimeo"></i>
+            </a>
+          </li>
+
+          <li class="d-inline-block">
+            <a
+              href="https://www.facebook.com/elias.gutierrez.5283/"
+              class="d-block mx-3 p-2 rounded-circle text-decoration-none"
+            >
+              <i class="fab fa-facebook"></i>
             </a>
           </li>
         </ul>

@@ -1,0 +1,53 @@
+.gallery {
+  &__card {
+    &-img {
+      transition: opacity 0.5s;
+    }
+
+    &-info {
+      width: 100%;
+      top: 0;
+      left: 0;
+
+      &-header {
+        font-weight: 800;
+        color: $color-dark-cyan;
+      }
+
+      &-highlight {
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: $color-dark-red;
+      }
+    }
+
+    & a {
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &-info,
+    & a {
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      z-index: 2;
+    }
+
+    &:hover {
+      .gallery__card-img {
+        opacity: 0;
+      }
+
+      .gallery__card-info {
+        top: 24%;
+        opacity: 1;
+      }
+
+      a {
+        bottom: 24%;
+        opacity: 1;
+      }
+    }
+  }
+}

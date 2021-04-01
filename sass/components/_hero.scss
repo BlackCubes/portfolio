@@ -1,0 +1,21 @@
+.main-hero {
+  background-color: $color-black;
+
+  & .heading-primary {
+    z-index: 2;
+  }
+
+  &__description {
+    width: 43rem;
+    z-index: 2;
+  }
+
+  &__img {
+    width: 25rem;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.2;
+    z-index: 1;
+  }
+}

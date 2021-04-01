@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+// TEXT SELECTION
+::selection {
+  color: $color-white;
+  background-color: $color-dark-cyan;
+}
+
+// SCROLLBAR
+// -- for firefox
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $color-dark-cyan transparent;
+}
+
+// -- for chrome, edge, and safari
+*::-webkit-scrollbar {
+  width: 0.35rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $color-dark-cyan;
+  border-radius: 1rem;
+  border: 3px solid transparent;
+}
