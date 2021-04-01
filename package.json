@@ -1,4 +1,5 @@
 {
+  "homepage": "https://blackcubes.github.io/portfolio",
   "name": "portfolio",
   "version": "1.0.0",
   "description": "A portfolio website to showcase my skillsets and projects",
@@ -22,7 +23,6 @@
   "bugs": {
     "url": "https://github.com/BlackCubes/portfolio/issues"
   },
-  "homepage": "https://github.com/BlackCubes/portfolio#readme",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^9.8.6",
