@@ -12,7 +12,7 @@
     &[value='VanillaJS']:checked ~ .filters label[for='VanillaJS'],
     &[value='Sass']:checked ~ .filters label[for='Sass'],
     &[value='Styled-Components']:checked ~ .filters label[for='Styled-Components'] {
-      color: $color-white;
+      color: rgba(9, 37, 46, 0.30);
       background-color: rgba(0, 124, 161, 0.17);
       border-top: 1px solid rgba($color-dark-cyan, 0.17);
       border-bottom: 1px solid rgba($color-dark-cyan, 0.17);
