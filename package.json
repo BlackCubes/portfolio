@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/BlackCubes/portfolio/issues"
   },
-  "homepage": "https://github.com/BlackCubes/portfolio#readme"
+  "homepage": "https://github.com/BlackCubes/portfolio#readme",
+  "dependencies": {
+    "autoprefixer": "^10.2.5",
+    "concat": "^1.0.3",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^8.3.1"
+  }
 }
