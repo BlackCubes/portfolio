@@ -13,7 +13,9 @@
     &[value='Sass']:checked ~ .filters label[for='Sass'],
     &[value='Styled-Components']:checked ~ .filters label[for='Styled-Components'] {
       color: $color-white;
-      background-color: darkcyan;
+      background-color: rgba(0, 124, 161, 0.17);
+      border-top-color: rgba($color-dark-cyan, 0.17);
+      border-bottom-color: rgba($color-dark-cyan, 0.17);
     }
 
     &[value='All']:checked ~ .gallery li[data-category] {
