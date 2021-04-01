@@ -3,5 +3,13 @@
     min-width: 5rem;
     cursor: pointer;
     transition: all 0.1s;
+
+    &:hover {
+      color: rgba(9, 37, 46, 0.30);
+      background-color: rgba(0, 124, 161, 0.17);
+      border-top: 1px solid rgba($color-dark-cyan, 0.17);
+      border-bottom: 1px solid rgba($color-dark-cyan, 0.17);
+      border-radius: 2rem;
+    }
   }
 }
