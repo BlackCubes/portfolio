@@ -2,18 +2,304 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="img/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="img/logo192.png" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/7e5f392f21.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Bootstrap CSS File -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700;900&family=Open+Sans&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css" />
 
-    <title>Bootstrap Boilerplate</title>
+    <title>Elias Gutierrez | Software Engineer & Full-Stack Developer</title>
   </head>
-  <body>
-    <h1>Welcome to the Boilerplate Land!</h1>
+  <body class="d-flex flex-column">
+    <!-- HEADER -->
+    <header>
+      <!-- NAVBAR -->
+      <nav class="nav__porfolio navbar">
+        <div class="container justify-content-between">
+          <div class="nav__portfolio-logo">
+            <a href="/" class="navbar-brand">
+              <img
+                src="img/logobw.png"
+                alt="Portfolio Brand"
+                class="img-fluid"
+              />
+            </a>
+          </div>
+
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item">
+              <a href="#" class="nav-link p-3">Portfolio</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link p-3">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link p-3">Contact</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link p-3">Resume</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- JUMBOTRON -->
+      <div class="main-hero jumbotron text-center position-relative">
+        <h1 class="display-4 m-0 text-uppercase">Elias Gutierrez</h1>
+
+        <div class="main-hero__img position-absolute">
+          <img src="img/logospectrum.png" alt="Hero Brand" class="img-fluid" />
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="mt-auto">
+      <!-- PORTFOLIO SECtION -->
+      <section class="portfolio-section">
+        <div class="container text-center">
+          <h2 class="heading-secondary mb-3 text-uppercase">Portfolio</h2>
+
+          <p class="paragraph mt-3 mb-0">
+            React.JS, Sass, MySQL, Node.JS and others: Multiple ways to create
+            beautiful websites while abstracting the logic. Here are my projects
+            that I worked on.
+          </p>
+
+          <div class="container mt-5">
+            <input
+              type="radio"
+              name="categories"
+              id="All"
+              value="All"
+              checked
+            />
+            <input type="radio" name="categories" id="NodeJS" value="NodeJS" />
+            <input type="radio" name="categories" id="PHP" value="PHP" />
+            <input
+              type="radio"
+              name="categories"
+              id="MongoDB"
+              value="MongoDB"
+            />
+            <input type="radio" name="categories" id="MySQL" value="MySQL" />
+            <input
+              type="radio"
+              name="categories"
+              id="ReactJS"
+              value="ReactJS"
+            />
+            <input
+              type="radio"
+              name="categories"
+              id="VanillaJS"
+              value="VanillaJS"
+            />
+            <input type="radio" name="categories" id="Sass" value="Sass" />
+            <input
+              type="radio"
+              name="categories"
+              id="Styled-Components"
+              value="Styled-Components"
+            />
+
+            <ol class="filters row mb-0 list-unstyled">
+              <li class="filters__list col">
+                <label for="All" class="filters__item">All</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="NodeJS" class="filters__item">NodeJS</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="PHP" class="filters__item">PHP</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="MongoDB" class="filters__item">MongoDB</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="MySQL" class="filters__item">MySQL</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="ReactJS" class="filters__item">ReactJS</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="VanillaJS" class="filters__item">VanillaJS</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="Sass" class="filters__item">Sass</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="Styled-Components" class="filters__item"
+                  >Styled-Components</label
+                >
+              </li>
+            </ol>
+
+            <ol class="gallery row row-cols-2 mb-0 list-unstyled">
+              <li
+                class="gallery__card col position-relative"
+                data-category="ReactJS MongoDB NodeJS Styled-Components"
+              >
+                <div class="gallery__card-img"></div>
+
+                <a href="https://errezshop.netlify.app/" class="btn">Explore</a>
+              </li>
+
+              <li
+                class="gallery__card col position-relative"
+                data-category="ReactJS Sass"
+              >
+                <div class="gallery__card-img"></div>
+
+                <a
+                  href="https://blackcubes.github.io/react-weather/"
+                  class="btn"
+                  >Explore</a
+                >
+              </li>
+
+              <li
+                class="gallery__card col position-relative"
+                data-category="VanillaJS MongoDB NodeJS Sass"
+              >
+                <div class="gallery__card-img"></div>
+
+                <a href="https://kinetotickets.herokuapp.com/" class="btn"
+                  >Explore</a
+                >
+              </li>
+
+              <li
+                class="gallery__card col position-relative"
+                data-category="MySQL PHP"
+              >
+                <div class="gallery__card-img"></div>
+
+                <a href="https://filmecommerce.com/" class="btn">Explore</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section class="about-section py-5">
+        <div class="container text-center">
+          <h2 class="heading-secondary mb-3 text-uppercase">About Me</h2>
+
+          <p class="paragraph mt-3 mb-0">
+            I'm a Software Engineer and Full-Stack Developer interested on
+            combining the art and mathematical model of nature into a beautiful
+            user experience. I also have experience with Data Science, and have
+            a B.S. degree in Physics at UCLA.
+          </p>
+
+          <p class="paragraph mt-3 mb-0">
+            When I'm not drinking too much coffee or typing, I like to read,
+            study math/physics, workout, and analyze films.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer mt-auto">
+      <div class="footer__follow p-4 text-center">
+        <div class="footer__follow-name pb-3">
+          <p class="paragraph m-0 text-uppercase">Follow Elias Gutierrez</p>
+        </div>
+
+        <ul class="m-0 p-0">
+          <li class="d-inline-block">
+            <a
+              href="https://github.com/blackcubes"
+              class="d-block mx-3 p-2 rounded-circle text-decoration-none"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+
+          <li class="d-inline-block">
+            <a
+              href="https://www.linkedin.com/in/eliasgutierrez1991/"
+              class="d-block mx-3 p-2 rounded-circle text-decoration-none"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__lower pb-4">
+        <div class="footer__copyright container pt-4">
+          <div class="footer__copyright-wrapper py-2 text-center">
+            <small class="footer__copyright-content">
+              Email:
+              <a
+                href="mailto:gutierrezelias1991@gmail.com"
+                class="text-decoration-none"
+                >gutierrezelias1991@gmail.com</a
+              >&nbsp;&nbsp;|&nbsp;&nbsp;Phone:
+              <a href="tel:5595953839" class="text-decoration-none"
+                >559-595-3839</a
+              >
+              <br />
+              10am - 8pm PST Mon-Fri&nbsp;&nbsp;|&nbsp;&nbsp;10am - 4pm PST
+              Sat&Sun
+            </small>
+          </div>
+
+          <div class="footer__copyright-wrapper py-2 text-center">
+            <small class="footer__copyright-content">
+              Icons by &copy; Font Awesome from
+              <a href="https://fontawesome.com/" class="text-decoration-none"
+                >fontawesome.com</a
+              >. Open-source CSS framework by &copy; Bootstrap from
+              <a href="https://getbootstrap.com/" class="text-decoration-none"
+                >getbootstrap.com</a
+              >. Fonts by &copy; Google Fonts from
+              <a href="https://fonts.google.com/" class="text-decoration-none"
+                >fonts.google.com</a
+              >.
+            </small>
+          </div>
+
+          <div class="footer__copyright-wrapper py-2 text-center">
+            <small class="footer__copyright-content">
+              &copy; 2021 Elias Gutierrez
+            </small>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
     <script
