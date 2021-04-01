@@ -10,11 +10,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  // Defines what 1rem is i.e. 1rem = 10px (10/16 = 62.5%)
-  font-size: 62.5%;
-}
-
 body {
   min-height: 100vh;
   box-sizing: border-box;
