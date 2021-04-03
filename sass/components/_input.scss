@@ -9,6 +9,10 @@
     border-bottom: 3px solid $color-dark-red;
     border-radius: 2px;
     transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__textarea {
