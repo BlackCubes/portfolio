@@ -24,7 +24,7 @@
       border-bottom: 3px solid $color-dark-red--shade;
     }
 
-    &:focus:invalid ~ span:nth-child(2) {
+    &:focus:invalid ~ .form__custom-message {
       color: $color-dark-red--shade;
     }
   }
