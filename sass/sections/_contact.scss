@@ -13,5 +13,10 @@
 
   & p {
     color: #056d6a;
+
+    & a,
+    & a:hover {
+      color: $color-black;
+    }
   }
 }
