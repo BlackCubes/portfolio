@@ -26,6 +26,7 @@
     "url": "https://github.com/BlackCubes/portfolio/issues"
   },
   "dependencies": {
+    "@snowpack/plugin-run-script": "^2.3.0",
     "@snowpack/plugin-sass": "^1.4.0"
   },
   "devDependencies": {
