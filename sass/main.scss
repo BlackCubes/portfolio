@@ -1,19 +1,19 @@
-@import '@sass/abstracts/variables';
+@import './abstracts/variables';
 
-@import '@sass/base/base';
-@import '@sass/base/typography';
+@import './base/base';
+@import './base/typography';
 
-@import '@sass/components/button';
-@import '@sass/components/filters';
-@import '@sass/components/form';
-@import '@sass/components/gallery';
-@import '@sass/components/hero';
-@import '@sass/components/input';
+@import './components/button';
+@import './components/filters';
+@import './components/form';
+@import './components/gallery';
+@import './components/hero';
+@import './components/input';
 
-@import '@sass/layout/footer';
-@import '@sass/layout/header';
-@import '@sass/layout/navbar';
+@import './layout/footer';
+@import './layout/header';
+@import './layout/navbar';
 
-@import '@sass/sections/about';
-@import '@sass/sections/contact';
-@import '@sass/sections/portfolio';
+@import './sections/about';
+@import './sections/contact';
+@import './sections/portfolio';
