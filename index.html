@@ -404,7 +404,7 @@
 
           <form class="form__custom mx-auto" id="contactForm" spellcheck="false" novalidate>
             <div class="form__custom-group mt-4">
-              <label for="name" class="form__custom-label w-100">
+              <label for="name" class="form__custom-label w-100 position-relative">
                 <input
                   type="text"
                   name="name"
@@ -413,14 +413,14 @@
                   required
                 />
 
-                <span class="form__custom-placeholder" data-text="name"></span>
+                <span class="form__custom-placeholder position-absolute" data-text="name"></span>
 
                 <span class="form__custom-message"></span>
               </label>
             </div>
 
             <div class="form__custom-group mt-4">
-              <label for="email" class="form__custom-label w-100">
+              <label for="email" class="form__custom-label w-100 position-relative">
                 <input
                   type="email"
                   name="email"
@@ -429,7 +429,7 @@
                   required
                 />
 
-                <span class="form__custom-placeholder" data-text="email"></span>
+                <span class="form__custom-placeholder position-absolute" data-text="email"></span>
 
                 <span class="form__custom-message"></span>
               </label>
@@ -437,7 +437,7 @@
             </div>
 
             <div class="form__custom-group mt-4">
-              <label for="message" class="form__custom-label w-100">
+              <label for="message" class="form__custom-label w-100 position-relative">
                 <textarea
                   name="message"
                   class="input__textarea mx-auto""
@@ -448,7 +448,7 @@
                   required
                 ></textarea>
 
-                <span class="form__custom-placeholder" data-text="message"></span>
+                <span class="form__custom-placeholder position-absolute" data-text="message"></span>
 
                 <span class="form__custom-message"></span>
               </label>
