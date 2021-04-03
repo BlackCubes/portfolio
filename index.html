@@ -34,7 +34,8 @@
     <link rel="manifest" href="manifest.json" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/bundle/styles.min.css" />
+    <link rel="stylesheet" href="css/compile/styles.css" />
+    <!-- <link rel="stylesheet" href="css/bundle/styles.min.css" /> -->
 
     <title>
       Elias Gutierrez | Software Engineer & Full-Stack Web Developer
@@ -70,7 +71,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav__portfolio-link nav-link p-3">Contact</a>
+              <a href="#contact" class="nav__portfolio-link nav-link p-3">Contact</a>
             </li>
 
             <li class="nav-item">
@@ -382,6 +383,77 @@
             When I'm not drinking too much coffee or typing, I like to read,
             study math/physics, workout, analyze films, and spending time with friends and families.
           </p>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section class="contact-section" id="contact">
+        <div class="contact-section__wrapper container text-center">
+          <h2 class="heading-secondary mb-3 text-uppercase">Contact</h2>
+
+          <p class="paragraph mt-3 mb-0">
+            If you like to contact me, then don't be afraid to shoot me an email!
+            <a
+              href="mailto:gutierrezelias1991@gmail.com"
+              class="btn__custom--static btn"
+              >gutierrezelias1991@gmail.com</a
+            >
+          </p>
+
+          <p class="paragraph mt-3 mb-0">You could also fill out the form below, if you prefer.</p>
+
+          <form class="form__custom" id="contactForm" novalidate>
+            <div class="form__custom-group">
+              <label for="name" class="form__custom-label">
+                <input
+                  type="text"
+                  name="name"
+                  class="input__default"
+                  id="name"
+                  required
+                />
+
+                <span class="form__custom-placeholder" data-text="Name"></span>
+
+                <span class="form__custom-message"></span>
+              </label>
+            </div>
+
+            <div class="form__custom-group">
+              <label for="email" class="form__custom-label">
+                <input
+                  type="email"
+                  name="email"
+                  class="input__default"
+                  id="email"
+                  required
+                />
+
+                <span class="form__custom-placeholder" data-text="Email"></span>
+
+                <span class="form__custom-message"></span>
+              </label>
+              </label>
+            </div>
+
+            <div class="form__custom-group">
+              <label for="message" class="form__custom-label">
+                <textarea
+                  name="message"
+                  class="input__textarea"
+                  id="message"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="on"
+                  required
+                ></textarea>
+
+                <span class="form__custom-placeholder" data-text="Message"></span>
+
+                <span class="form__custom-message"></span>
+              </label>
+            </div>
+          </form>
         </div>
       </section>
     </main>

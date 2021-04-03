@@ -1,0 +1,17 @@
+.contact-section {
+  background-color: #690A26;
+  background-image: linear-gradient(0, $color-dark-cyan, transparent);
+
+  &__wrapper {
+    padding-top: 11rem;
+    padding-bottom: 11rem;
+  }
+
+  & h2 {
+    color: #06807C;
+  }
+
+  & p {
+    color: #056d6a;
+  }
+}
