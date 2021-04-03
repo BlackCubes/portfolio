@@ -1,3 +1,15 @@
 .form__custom {
   width: 27rem;
+
+  &-placeholder {
+    top: -2px;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+    pointer-events: none;
+
+    &::after {
+      content: attr(data-text);
+      pointer-events: none;
+    }
+  }
 }
