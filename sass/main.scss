@@ -1,19 +1,19 @@
-@import 'abstracts/variables';
+@import './abstracts/variables';
 
-@import 'base/base';
-@import 'base/typography';
+@import './base/base';
+@import './base/typography';
 
-@import 'components/button';
-@import 'components/filters';
-@import 'components/form';
-@import 'components/gallery';
-@import 'components/hero';
-@import 'components/input';
+@import './components/button';
+@import './components/filters';
+@import './components/form';
+@import './components/gallery';
+@import './components/hero';
+@import './components/input';
 
-@import 'layout/footer';
-@import 'layout/header';
-@import 'layout/navbar';
+@import './layout/footer';
+@import './layout/header';
+@import './layout/navbar';
 
-@import 'sections/about';
-@import 'sections/contact';
-@import 'sections/portfolio';
+@import './sections/about';
+@import './sections/contact';
+@import './sections/portfolio';
