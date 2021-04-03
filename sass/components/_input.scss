@@ -15,6 +15,18 @@
       outline: none;
       border-bottom: 3px solid #00769b;
     }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-dark-red--shade;
+    }
+
+    &.error {
+      border-bottom: 3px solid $color-dark-red--shade;
+    }
+
+    &:focus:invalid ~ span:nth-child(2) {
+      color: $color-dark-red--shade;
+    }
   }
 
   &__textarea {
