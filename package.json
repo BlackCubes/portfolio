@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@snowpack/plugin-dotenv": "^2.1.0",
+    "@snowpack/plugin-postcss": "^1.2.2",
     "autoprefixer": "^9.8.6",
     "concat": "^1.0.3",
     "eslint": "^7.23.0",
