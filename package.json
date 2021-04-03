@@ -5,6 +5,8 @@
   "description": "A portfolio website to showcase my skillsets and projects",
   "main": "index.js",
   "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
     "watch:sass": "node-sass sass/main.scss css/compile/styles.css -w",
     "devserver": "live-server",
     "dev:sass": "npm-run-all --parallel devserver watch:sass",
