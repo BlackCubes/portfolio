@@ -1,10 +1,20 @@
 .btn__custom {
   width: 17rem;
-  color: #1b242f;
+  color: $color-dark-cyan;
   border: 2px solid $color-dark-cyan;
 
   &:hover {
     color: $color-white;
     background-color: $color-dark-cyan;
+  }
+
+  &--black {
+    color: $color-black;
+    border: 2px solid $color-black;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-black;
+    }
   }
 }
