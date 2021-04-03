@@ -2,6 +2,7 @@
   width: 27rem;
 
   &-placeholder {
+    color: $color-black;
     top: -2px;
     text-transform: uppercase;
     transition: all 0.25s ease-in-out;
@@ -11,5 +12,10 @@
       content: attr(data-text);
       pointer-events: none;
     }
+  }
+
+  &-placeholder,
+  &-message {
+    font-size: 1.3rem;
   }
 }
