@@ -1,4 +1,8 @@
 module.exports = {
+  mount: {
+    public: '/',
+    src: '/build',
+  },
   plugins: [
     '@snowpack/plugin-sass',
     '@snowpack/plugin-dotenv',
@@ -14,5 +18,16 @@ module.exports = {
   ],
   devOptions: {
     port: 3000,
+  },
+  buildOptions: {
+    baseUrl: './',
+    out: 'build',
+  },
+  optimize: {
+    minify: true,
+    bundle: true,
+    splitting: true,
+    treeshake: true,
+    target: 'es2018',
   },
 };
