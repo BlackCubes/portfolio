@@ -25,7 +25,9 @@
   "bugs": {
     "url": "https://github.com/BlackCubes/portfolio/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@snowpack/plugin-sass": "^1.4.0"
+  },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
     "concat": "^1.0.3",
