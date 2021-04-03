@@ -14,6 +14,11 @@
     &:focus {
       outline: none;
       border-bottom: 3px solid #00769b;
+
+      & ~ .form__custom-placeholder {
+        font-size: 0.9rem;
+        top: -1.4rem;
+      }
     }
 
     &:focus:invalid {
