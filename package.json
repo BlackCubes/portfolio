@@ -29,6 +29,7 @@
     "@snowpack/plugin-sass": "^1.4.0"
   },
   "devDependencies": {
+    "@snowpack/plugin-dotenv": "^2.1.0",
     "autoprefixer": "^9.8.6",
     "concat": "^1.0.3",
     "eslint": "^7.23.0",
