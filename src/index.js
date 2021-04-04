@@ -10,7 +10,7 @@ const contactForm = document.getElementById('contactForm');
 // DELEGATION
 // -- contact form
 if (contactForm) {
-  const errorStack = {};
+  const errorStack = { name: '', email: '', message: '' };
 
   // Validate name, email, and message inputs
   inputController(document.getElementById('name'), errorStack);
