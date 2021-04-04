@@ -1,4 +1,5 @@
+import formReset from './formReset';
 import inputController from './inputController';
 import submitController from './submitController';
 
-export { inputController, submitController };
+export { formReset, inputController, submitController };
