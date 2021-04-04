@@ -1,8 +1,4 @@
 module.exports = {
-  mount: {
-    public: '/',
-    src: '/',
-  },
   plugins: [
     '@snowpack/plugin-sass',
     '@snowpack/plugin-dotenv',
