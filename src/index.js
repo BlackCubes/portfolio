@@ -32,7 +32,7 @@ if (contactForm) {
     if (checkErrors(errorStack)) {
       document.getElementById('contactFormBtn').textContent = 'Submitting...';
 
-      await sendEmail(e);
+      await sendEmail(e.target);
 
       document.getElementById('contactFormBtn').textContent = 'Send';
 
