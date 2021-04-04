@@ -30,19 +30,9 @@ if (contactForm) {
     );
 
     if (checkErrors(errorStack)) {
-      const form = new FormData();
-
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-
-      form.append('name', name);
-      form.append('email', email);
-      form.append('message', message);
-
       document.getElementById('contactFormBtn').textContent = 'Submitting...';
 
-      await sendEmail(form);
+      await sendEmail(e);
 
       document.getElementById('contactFormBtn').textContent = 'Send';
 
