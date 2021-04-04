@@ -6,6 +6,12 @@ const inputController = (element, errorStack) => {
   element.addEventListener('input', (e) => {
     const { name, value } = e.target;
 
+    if (value.length > 0) {
+      e.target.classList.add('not-empty');
+    } else {
+      e.target.classList.remove('not-empty');
+    }
+
     validateForm(name, value, errorStack);
 
     if (checkErrors(errorStack)) {
