@@ -9,10 +9,10 @@ const inputController = (element, errorStack) => {
     validateForm(name, value, errorStack);
 
     if (checkErrors(errorStack)) {
-      name.classList.remove('error');
+      e.target.classList.remove('error');
       messageElement.textContent = 'Noice!';
     } else {
-      name.classList.add('error');
+      e.target.classList.add('error');
       messageElement.textContent = errorStack[name];
     }
   });
