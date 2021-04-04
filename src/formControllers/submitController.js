@@ -8,8 +8,9 @@ const submitController = (errorStack, ...elements) => {
     validateForm(name, value, errorStack);
 
     if (checkErrors(errorStack)) {
-      element.classList.remove('error');
       messageElement.textContent = 'Noice!';
+      element.classList.remove('error');
+      element.target.classList.add('success');
     } else {
       element.classList.add('error');
       messageElement.textContent = errorStack[name];
