@@ -1,3 +1,5 @@
+import envJs from './env';
+
 module.exports = {
   plugins: [
     '@snowpack/plugin-sass',
@@ -20,9 +22,9 @@ module.exports = {
     out: 'build',
   },
   env: {
-    EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
-    EMAILJS_USER_ID: process.env.EMAILJS_USER_ID,
-    EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
+    EMAILJS_TEMPLATE_ID: envJs.EMAILJS_TEMPLATE_ID,
+    EMAILJS_USER_ID: envJs.EMAILJS_USER_ID,
+    EMAILJS_SERVICE_ID: envJs.EMAILJS_SERVICE_ID,
   },
   optimize: {
     minify: true,
