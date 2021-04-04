@@ -14,6 +14,9 @@ const formReset = (...elements) => {
     element.classList.remove('success');
     messageElement.classList.remove('success');
 
+    // Reset the custom message
+    messageElement.textContent = '';
+
     // Reset input values
     element.value = '';
   });
