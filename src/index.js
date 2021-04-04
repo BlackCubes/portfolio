@@ -45,6 +45,11 @@ if (contactForm) {
       await sendEmail(form);
 
       document.getElementById('contactFormBtn').textContent = 'Send';
+
+      // Reset the input values
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('message').value = '';
     }
   });
 }
