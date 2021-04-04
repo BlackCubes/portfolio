@@ -13,6 +13,7 @@ const inputController = (element, errorStack) => {
       e.target.classList.remove('error');
       e.target.classList.add('success');
     } else {
+      e.target.classList.remove('success');
       e.target.classList.add('error');
       messageElement.textContent = errorStack[name];
     }
