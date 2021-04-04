@@ -2,7 +2,7 @@
 ##########
 node_modules/
 *.env
-.env.dev
+env.js
 .eslintcache
 .cache/#
 .vscode/
