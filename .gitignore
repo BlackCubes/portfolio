@@ -9,7 +9,7 @@ node_modules/
 debug.log
 
 # compiled css files
-public/css/compile/
+css/compile/
 
 # dependencies
 /node_modules
