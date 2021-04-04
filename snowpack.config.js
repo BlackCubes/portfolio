@@ -6,10 +6,9 @@ module.exports = {
     [
       '@snowpack/plugin-run-script',
       {
-        cmd:
-          'sass public/sass/main.scss:public/css/bundle/styles.min.css --no-source-map',
+        cmd: 'sass sass/main.scss:css/bundle/styles.min.css --no-source-map',
         watch:
-          'sass --watch public/sass/main.scss:public/css/compile/styles.css --no-source-map',
+          'sass --watch sass/main.scss:css/compile/styles.css --no-source-map',
       },
     ],
   ],
