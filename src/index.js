@@ -1,7 +1,11 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-import { inputController, submitController } from './formControllers';
+import {
+  formReset,
+  inputController,
+  submitController,
+} from './formControllers';
 import { checkErrors, sendEmail } from './utils';
 
 // DOM ELEMENTS
@@ -36,10 +40,12 @@ if (contactForm) {
 
       document.getElementById('contactFormBtn').textContent = 'Send';
 
-      // Reset the input values
-      document.getElementById('name').value = '';
-      document.getElementById('email').value = '';
-      document.getElementById('message').value = '';
+      // Reset form elements
+      formReset(
+        document.getElementById('name'),
+        document.getElementById('email'),
+        document.getElementById('message')
+      );
     }
   });
 }
