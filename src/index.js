@@ -12,40 +12,39 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   const errorStack = { name: '', email: '', message: '' };
 
-  // Validate name, email, and message inputs
-  inputController(document.getElementById('name'), errorStack);
-  inputController(document.getElementById('email'), errorStack);
-  inputController(document.getElementById('message'), errorStack);
+  // Check if the input values are empty/not empty
+  // This is used for styling the custom placeholder
+  inputController(document.getElementById('name'));
+  inputController(document.getElementById('email'));
+  inputController(document.getElementById('message'));
 
-  if (checkErrors(errorStack)) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      // Validate the form
-      submitController(
-        errorStack,
-        document.getElementById('name'),
-        document.getElementById('email'),
-        document.getElementById('message')
-      );
+    // Validate the form
+    submitController(
+      errorStack,
+      document.getElementById('name'),
+      document.getElementById('email'),
+      document.getElementById('message')
+    );
 
-      if (checkErrors(errorStack)) {
-        const form = new FormData();
+    if (checkErrors(errorStack)) {
+      const form = new FormData();
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
 
-        form.append('name', name);
-        form.append('email', email);
-        form.append('message', message);
+      form.append('name', name);
+      form.append('email', email);
+      form.append('message', message);
 
-        document.getElementById('contactFormBtn').textContent = 'Submitting...';
+      document.getElementById('contactFormBtn').textContent = 'Submitting...';
 
-        await sendEmail(form);
+      await sendEmail(form);
 
-        document.getElementById('contactFormBtn').textContent = 'Send';
-      }
-    });
-  }
+      document.getElementById('contactFormBtn').textContent = 'Send';
+    }
+  });
 }
