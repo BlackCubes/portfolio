@@ -6,10 +6,10 @@ const sendEmail = async (templateParams) => {
 
   try {
     const res = await emailjs.sendForm(
-      process.env.SNOWPACK_PUBLIC_EMAILJS_SERVICE_ID,
-      process.env.SNOWPACK_PUBLIC_EMAILJS_TEMPLATE_ID,
+      import.meta.env.SNOWPACK_PUBLIC_EMAILJS_SERVICE_ID,
+      import.meta.env.SNOWPACK_PUBLIC_EMAILJS_TEMPLATE_ID,
       templateParams,
-      process.env.SNOWPACK_PUBLIC_EMAILJS_USER_ID
+      import.meta.env.SNOWPACK_PUBLIC_EMAILJS_USER_ID
     );
 
     console.log('In try block: ', res);
