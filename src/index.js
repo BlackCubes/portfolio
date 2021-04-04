@@ -13,9 +13,9 @@ if (contactForm) {
   const errorStack = { name: '', email: '', message: '' };
 
   // Validate name, email, and message inputs
-  inputController(document.getElementById('name'), errorStack);
-  inputController(document.getElementById('email'), errorStack);
-  inputController(document.getElementById('message'), errorStack);
+  inputController(document.getElementById('name'));
+  inputController(document.getElementById('email'));
+  inputController(document.getElementById('message'));
 
   if (checkErrors(errorStack)) {
     contactForm.addEventListener('submit', async (e) => {
