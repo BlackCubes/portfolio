@@ -11,6 +11,7 @@ const inputController = (element, errorStack) => {
     if (checkErrors(errorStack)) {
       messageElement.textContent = 'Noice!';
       e.target.classList.remove('error');
+      e.target.classList.add('success');
     } else {
       e.target.classList.add('error');
       messageElement.textContent = errorStack[name];
