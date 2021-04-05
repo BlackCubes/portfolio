@@ -15,10 +15,12 @@
   }
 
   & h2 {
-    color: $color-dark-red--shade;
+    color: $color-white;
+    text-shadow: 0px 0px 1.4px $color-black;
   }
 
   & p {
-    color: $color-white;
+    color: #d7ecff;
+    text-shadow: 0px 0px 2px $color-black;
   }
 }
