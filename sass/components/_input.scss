@@ -2,7 +2,7 @@
   &__default,
   &__textarea {
     display: block;
-    font-size: 1.3rem;
+    font-size: $default-font-size;
     color: #056d6a;
     width: 100%;
     background-color: transparent;
@@ -36,6 +36,18 @@
 
     &:focus:invalid ~ .form__custom-message {
       color: $color-dark-red--shade;
+    }
+
+    @include respond(above_576) {
+      font-size: $default-font-size--576px;
+    }
+
+    @include respond(above_768) {
+      font-size: $default-font-size--768px;
+    }
+
+    @include respond(above_1200) {
+      font-size: $default-font-size--1200px;
     }
   }
 
