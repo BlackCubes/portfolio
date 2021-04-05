@@ -1,14 +1,23 @@
 .nav__portfolio {
   &-logo {
-    width: 5rem;
+    width: 4rem;
+
+    @include respond(above_576) {
+      width: 5rem;
+    }
   }
 
   &-link {
+    font-size: 0.8rem;
     color: $color-white;
     transition: color 0.3s ease 0s;
 
     &:hover {
       color: $color-dark-cyan;
+    }
+
+    @include respond(above_576) {
+      font-size: 1rem;
     }
   }
 }
