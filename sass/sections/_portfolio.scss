@@ -1,6 +1,11 @@
 .portfolio-section {
   &__wrapper {
-    padding-top: 11rem;
-    padding-bottom: 11rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+
+    @include respond(above_576) {
+      padding-top: 11rem;
+      padding-bottom: 11rem;
+    }
   }
 }
