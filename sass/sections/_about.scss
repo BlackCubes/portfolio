@@ -1,9 +1,12 @@
 .about-section {
   background-color: $color-dark-cyan;
+  background-image: url('../../img/collage.png');
+  background-repeat: no-repeat;
+  background-position: center;
 
   &__wrapper {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 
     @include respond(above_576) {
       padding-top: 11rem;
@@ -17,11 +20,5 @@
 
   & p {
     color: $color-white;
-  }
-
-  @include respond(above_576) {
-    background-image: url('../../img/collage.png');
-    background-repeat: no-repeat;
-    background-position: center;
   }
 }
