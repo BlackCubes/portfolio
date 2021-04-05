@@ -18,8 +18,35 @@
     }
   }
 
-  &-placeholder,
+  &-placeholder {
+    font-size: $default-font-size;
+
+    @include respond(above_576) {
+      font-size: $default-font-size--576px;
+    }
+
+    @include respond(above_768) {
+      font-size: $default-font-size--768px;
+    }
+
+    @include respond(above_1200) {
+      font-size: $default-font-size--1200px;
+    }
+  }
+
   &-message {
-    font-size: 1.3rem;
+    font-size: 0.95rem;
+
+    @include respond(above_576) {
+      font-size: 1rem;
+    }
+
+    @include respond(above_768) {
+      font-size: 1.05rem;
+    }
+
+    @include respond(above_1200) {
+      font-size: 1.1rem;
+    }
   }
 }
