@@ -5,11 +5,35 @@ body {
 .heading-primary {
   font-size: $font-size-primary;
   color: $color-dark-cyan;
+
+  @include respond(above_576) {
+    font-size: $font-size-primary--576px;
+  }
+
+  @include respond(above_768) {
+    font-size: $font-size-primary--768px;
+  }
+
+  @include respond(above_1200) {
+    font-size: $font-size-primary--1200px;
+  }
 }
 
 .heading-secondary {
   font-size: $font-size-secondary;
   letter-spacing: 0.25rem;
+
+  @include respond(above_576) {
+    font-size: $font-size-secondary--576px;
+  }
+
+  @include respond(above_768) {
+    font-size: $font-size-secondary--768px;
+  }
+
+  @include respond(above_1200) {
+    font-size: $font-size-secondary--1200px;
+  }
 }
 
 .heading-tertiary {
@@ -17,8 +41,32 @@ body {
   font-weight: 200;
   color: $color-dark-red;
   letter-spacing: 0.2rem;
+
+  @include respond(above_576) {
+    font-size: $font-size-tertiary--576px;
+  }
+
+  @include respond(above_768) {
+    font-size: $font-size-tertiary--768px;
+  }
+
+  @include respond(above_1200) {
+    font-size: $font-size-tertiary--1200px;
+  }
 }
 
 .paragraph {
   font-size: $default-font-size;
+
+  @include respond(above_576) {
+    font-size: $default-font-size--576px;
+  }
+
+  @include respond(above_768) {
+    font-size: $default-font-size--768px;
+  }
+
+  @include respond(above_1200) {
+    font-size: $default-font-size--1200px;
+  }
 }
