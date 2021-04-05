@@ -20,6 +20,10 @@
       border-bottom: 3px solid $color-dark-red--shade;
     }
 
+    &.success {
+      border-bottom: 3px solid #00769b;
+    }
+
     &:focus {
       outline: none;
       border-bottom: 3px solid #00769b;
