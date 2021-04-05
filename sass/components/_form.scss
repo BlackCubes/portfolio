@@ -1,5 +1,9 @@
 .form__custom {
-  width: 27rem;
+  width: 90%;
+
+  @include respond(above_576) {
+    width: 27rem;
+  }
 
   &-placeholder {
     color: $color-black;
