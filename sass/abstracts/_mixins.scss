@@ -2,6 +2,11 @@
 /*
   Mobile-First
 
+  Normal Style in use: [380px - 575px]
+
+  $breakpoint argument choice: below_379
+  Responsive Range: [0 - 379px]
+
   $breakpoint argument choice: above_576
   Responsive Range: [576px - 767px]
 
@@ -15,6 +20,11 @@
   Responsive Range: [1200px - infinite]
 */
 @mixin respond($breakpoint) {
+  @if $breakpoint == below_379 {
+    @media only screen and (max-width: 379px) {
+      @content;
+    }
+  }
   @if $breakpoint == above_576 {
     @media only screen and (min-width: 576px) {
       @content;
