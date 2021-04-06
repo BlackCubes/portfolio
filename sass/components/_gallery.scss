@@ -18,6 +18,10 @@
         font-size: 0.9rem;
         font-weight: 300;
         color: $color-dark-red;
+
+        @include respond(below_379) {
+          font-size: 0.73rem;
+        }
       }
     }
 
@@ -42,11 +46,19 @@
       .gallery__card-info {
         top: 24%;
         opacity: 1;
+
+        @include respond(below_379) {
+          top: 15%;
+        }
       }
 
       a {
         bottom: 24%;
         opacity: 1;
+
+        @include respond(below_379) {
+          top: 15%;
+        }
       }
     }
   }
