@@ -330,7 +330,7 @@ body {
 }
 @media only screen and (max-width: 379px) {
   .gallery__card:hover a {
-    top: 15%;
+    bottom: 15%;
   }
 }
 
