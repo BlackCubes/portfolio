@@ -45,7 +45,7 @@
     <!-- HEADER -->
     <header class="header">
       <!-- NAVBAR -->
-      <nav class="nav__porfolio navbar">
+      <nav class="nav__porfolio navbar navbar-expand-sm">
         <div class="container justify-content-between">
           <div class="nav__portfolio-logo">
             <a href="/" class="navbar-brand">
@@ -59,23 +59,23 @@
 
           <ul class="navbar-nav flex-row">
             <li class="nav-item">
-              <a href="#portfolio" class="nav__portfolio-link nav-link p-3"
+              <a href="#portfolio" class="nav__portfolio-link nav-link p-2 p-sm-3"
                 >Portfolio</a
               >
             </li>
 
             <li class="nav-item">
-              <a href="#about" class="nav__portfolio-link nav-link p-3"
+              <a href="#about" class="nav__portfolio-link nav-link p-2 p-sm-3"
                 >About</a
               >
             </li>
 
             <li class="nav-item">
-              <a href="#contact" class="nav__portfolio-link nav-link p-3">Contact</a>
+              <a href="#contact" class="nav__portfolio-link nav-link p-2 p-sm-3">Contact</a>
             </li>
 
             <li class="nav-item">
-              <a href="https://docs.google.com/document/d/1vllJAqf62EALCMJjZ-haBh8pkwMnMUOvWLUZyWPkEj0/edit?usp=sharing" class="nav__portfolio-link nav-link p-3" target="_blank"">Resume</a>
+              <a href="https://docs.google.com/document/d/1vllJAqf62EALCMJjZ-haBh8pkwMnMUOvWLUZyWPkEj0/edit?usp=sharing" class="nav__portfolio-link nav-link p-2 p-sm-3" target="_blank"">Resume</a>
             </li>
           </ul>
         </div>
@@ -90,10 +90,10 @@
         </h1>
 
         <div class="main-hero__description mx-auto mt-4 pt-5 position-relative">
-          <h3 class="heading-tertiary mb-0 text-left">
+          <h3 class="heading-tertiary mb-0 text-sm-left">
             Full-Stack Web Developer
           </h3>
-          <h3 class="heading-tertiary mb-0 mt-4 text-right">
+          <h3 class="heading-tertiary mb-0 mt-4 text-sm-right">
             Software Engineer
           </h3>
           <h3 class="heading-tertiary mb-0 mt-4">Based in California</h3>
@@ -112,13 +112,13 @@
         <div class="portfolio-section__wrapper container text-center">
           <h2 class="heading-secondary mb-3 text-uppercase">Portfolio</h2>
 
-          <p class="paragraph mt-3 mb-0">
+          <p class="paragraph mt-3 mb-0 px-3 px-sm-0">
             React.JS, Sass, MySQL, Node.JS and others: Multiple ways to create
             beautiful websites while abstracting the logic. Here are my projects
             that I worked on.
           </p>
 
-          <div class="container mt-5">
+          <div class="portfolio-section__gallery-wrapper container mt-5">
             <input
               type="radio"
               name="categories"
@@ -184,7 +184,7 @@
               value="Styled-Components"
             />
 
-            <ol class="filters row mb-0 p-3 list-unstyled">
+            <ol class="filters row mx-md-4 mb-0 p-3 list-unstyled">
               <li class="filters__list col">
                 <label for="All" class="filters__item mb-1 py-2 px-3"
                   >All</label
@@ -242,7 +242,7 @@
               </li>
             </ol>
 
-            <ol class="gallery row row-cols-2 mb-0 list-unstyled">
+            <ol class="gallery row row-cols-1 row-cols-lg-2 mb-0 list-unstyled">
               <li
                 class="gallery__card col my-2 position-relative"
                 data-category="ReactJS MongoDB NodeJS Styled-Components"
@@ -391,7 +391,7 @@
         <div class="contact-section__wrapper container">
           <h2 class="heading-secondary mb-3 text-uppercase text-center">Contact</h2>
 
-          <p class="paragraph mt-3 mb-0 text-center">
+          <p class="paragraph mt-3 mb-0 text-center px-3 px-sm-0">
             If you like to contact me, then don't be afraid to shoot me an email!
             <a
               href="mailto:gutierrezelias1991@gmail.com"
@@ -400,9 +400,9 @@
             >
           </p>
 
-          <p class="paragraph mt-2 mb-0 text-center">You could also fill out the form below, if you prefer.</p>
+          <p class="paragraph mt-2 mb-0 text-center px-3 px-sm-0">You could also fill out the form below, if you prefer.</p>
 
-          <form class="form__custom mx-auto" id="contactForm" spellcheck="false" novalidate>
+          <form class="form__custom mt-5 mx-auto" id="contactForm" spellcheck="false" novalidate>
             <div class="form__custom-group mt-4">
               <label for="name" class="form__custom-label w-100 position-relative">
                 <input

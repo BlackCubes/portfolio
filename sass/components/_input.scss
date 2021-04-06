@@ -2,7 +2,7 @@
   &__default,
   &__textarea {
     display: block;
-    font-size: 1.3rem;
+    font-size: $default-font-size;
     color: #056d6a;
     width: 100%;
     background-color: transparent;
@@ -11,6 +11,23 @@
     border-radius: 2px;
     transition: all 0.3s;
 
+    &.not-empty ~ .form__custom-placeholder {
+      font-size: 0.9rem;
+      top: -1.4rem;
+
+      @include respond(below_379) {
+        font-size: 0.8rem;
+      }
+    }
+
+    &.error {
+      border-bottom: 3px solid $color-dark-red--shade;
+    }
+
+    &.success {
+      border-bottom: 3px solid #00769b;
+    }
+
     &:focus {
       outline: none;
       border-bottom: 3px solid #00769b;
@@ -18,6 +35,10 @@
       & ~ .form__custom-placeholder {
         font-size: 0.9rem;
         top: -1.4rem;
+
+        @include respond(below_379) {
+          font-size: 0.8rem;
+        }
       }
     }
 
@@ -25,12 +46,24 @@
       border-bottom: 3px solid $color-dark-red--shade;
     }
 
-    &.error {
-      border-bottom: 3px solid $color-dark-red--shade;
-    }
-
     &:focus:invalid ~ .form__custom-message {
       color: $color-dark-red--shade;
+    }
+
+    @include respond(below_379) {
+      font-size: $default-font-size--379px;
+    }
+
+    @include respond(above_576) {
+      font-size: $default-font-size--576px;
+    }
+
+    @include respond(above_768) {
+      font-size: $default-font-size--768px;
+    }
+
+    @include respond(above_1200) {
+      font-size: $default-font-size--1200px;
     }
   }
 
@@ -53,8 +86,10 @@
       &[value='ReactJS']:checked ~ .filters label[for='ReactJS'],
       &[value='VanillaJS']:checked ~ .filters label[for='VanillaJS'],
       &[value='Sass']:checked ~ .filters label[for='Sass'],
-      &[value='Styled-Components']:checked ~ .filters label[for='Styled-Components'] {
-        color: rgba(9, 37, 46, 0.30);
+      &[value='Styled-Components']:checked
+        ~ .filters
+        label[for='Styled-Components'] {
+        color: rgba(9, 37, 46, 0.3);
         background-color: rgba(0, 124, 161, 0.17);
         border-top: 1px solid rgba($color-dark-cyan, 0.17);
         border-bottom: 1px solid rgba($color-dark-cyan, 0.17);
@@ -70,9 +105,13 @@
       &[value='MongoDB']:checked ~ .gallery li:not([data-category~='MongoDB']),
       &[value='MySQL']:checked ~ .gallery li:not([data-category~='MySQL']),
       &[value='ReactJS']:checked ~ .gallery li:not([data-category~='ReactJS']),
-      &[value='VanillaJS']:checked ~ .gallery li:not([data-category~='VanillaJS']),
+      &[value='VanillaJS']:checked
+        ~ .gallery
+        li:not([data-category~='VanillaJS']),
       &[value='Sass']:checked ~ .gallery li:not([data-category~='Sass']),
-      &[value='Styled-Components']:checked ~ .gallery li:not([data-category~='Styled-Components']) {
+      &[value='Styled-Components']:checked
+        ~ .gallery
+        li:not([data-category~='Styled-Components']) {
         display: none;
       }
     }

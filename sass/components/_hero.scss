@@ -6,16 +6,32 @@
   }
 
   &__description {
-    width: 43rem;
+    width: 100%;
     z-index: 2;
+
+    @include respond(above_768) {
+      width: 43rem;
+    }
   }
 
   &__img {
-    width: 25rem;
+    width: 90%;
     top: 5rem;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0.2;
     z-index: 1;
+
+    @include respond(above_576) {
+      width: 25rem;
+    }
+
+    @include respond(between_767_543) {
+      width: 90vh;
+    }
+
+    @include respond(between_991_768) {
+      width: 90vh;
+    }
   }
 }
