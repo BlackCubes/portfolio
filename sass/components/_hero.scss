@@ -25,5 +25,13 @@
     @include respond(above_576) {
       width: 25rem;
     }
+
+    @include respond(between_767_543) {
+      width: 90vh;
+    }
+
+    @include respond(between_991_768) {
+      width: 90vh;
+    }
   }
 }
