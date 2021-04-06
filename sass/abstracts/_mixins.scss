@@ -18,6 +18,14 @@
 
   $breakpoint argument choice: above_1200
   Responsive Range: [1200px - infinite]
+
+  MAX-WIDTH AND MIN-WIDTH w/PORTAIT:
+  $breakpoint argument choice: between_767_543
+  Responsive Range: [767px - 543px] and portrait
+
+  $breakpoint argument choice: between_991_768
+  Responsive Range: [991px - 768px] and portrait
+
 */
 @mixin respond($breakpoint) {
   @if $breakpoint == below_379 {
@@ -42,6 +50,17 @@
   }
   @if $breakpoint == above_1200 {
     @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == between_767_543 {
+    @media only screen and (max-width: 767px) and (min-width: 543px) and (orientation: portrait) {
+      @content;
+    }
+  }
+  @if $breakpoint == between_991_768 {
+    @media only screen and (max-width: 991px) and (min-width: 768px) and (orientation: portrait) {
       @content;
     }
   }
