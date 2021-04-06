@@ -6,6 +6,10 @@ body {
   font-size: $font-size-primary;
   color: $color-dark-cyan;
 
+  @include respond(below_379) {
+    font-size: $font-size-primary--379px;
+  }
+
   @include respond(above_576) {
     font-size: $font-size-primary--576px;
   }
@@ -22,6 +26,10 @@ body {
 .heading-secondary {
   font-size: $font-size-secondary;
   letter-spacing: 0.25rem;
+
+  @include respond(below_379) {
+    font-size: $font-size-secondary--379px;
+  }
 
   @include respond(above_576) {
     font-size: $font-size-secondary--576px;
@@ -42,6 +50,10 @@ body {
   color: $color-dark-red;
   letter-spacing: 0.2rem;
 
+  @include respond(below_379) {
+    font-size: $font-size-tertiary--379px;
+  }
+
   @include respond(above_576) {
     font-size: $font-size-tertiary--576px;
   }
@@ -57,6 +69,10 @@ body {
 
 .paragraph {
   font-size: $default-font-size;
+
+  @include respond(below_379) {
+    font-size: $default-font-size--379px;
+  }
 
   @include respond(above_576) {
     font-size: $default-font-size--576px;
