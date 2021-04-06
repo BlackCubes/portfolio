@@ -16,6 +16,11 @@
       color: $color-dark-cyan;
     }
 
+    @include respond(below_379) {
+      font-size: 0.7rem;
+      padding: 0.4rem !important;
+    }
+
     @include respond(above_576) {
       font-size: 1rem;
     }
