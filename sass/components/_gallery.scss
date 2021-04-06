@@ -57,7 +57,7 @@
         opacity: 1;
 
         @include respond(below_379) {
-          top: 15%;
+          bottom: 15%;
         }
       }
     }
