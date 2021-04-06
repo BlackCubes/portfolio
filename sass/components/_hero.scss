@@ -6,9 +6,12 @@
   }
 
   &__description {
-    // width: 43rem;
     width: 100%;
     z-index: 2;
+
+    @include respond(above_768) {
+      width: 43rem;
+    }
   }
 
   &__img {
