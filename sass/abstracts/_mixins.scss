@@ -55,12 +55,12 @@
   }
 
   @if $breakpoint == between_767_543 {
-    @media only screen and (max-width: 767px) and (min-width: 543px) and (orientation: portrait) {
+    @media only screen and (max-width: 767px) and (min-width: 543px) and (orientation: landscape) {
       @content;
     }
   }
   @if $breakpoint == between_991_768 {
-    @media only screen and (max-width: 991px) and (min-width: 768px) and (orientation: portrait) {
+    @media only screen and (max-width: 991px) and (min-width: 768px) and (orientation: landscape) {
       @content;
     }
   }
