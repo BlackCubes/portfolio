@@ -18,6 +18,10 @@
       pointer-events: none;
     }
 
+    @include respond(below_379) {
+      font-size: $default-font-size--379px;
+    }
+
     @include respond(above_576) {
       font-size: $default-font-size--576px;
     }
@@ -34,6 +38,10 @@
   &-message {
     font-size: 0.95rem;
     color: $color-black;
+
+    @include respond(below_379) {
+      font-size: 0.9rem;
+    }
 
     @include respond(above_576) {
       font-size: 1rem;
