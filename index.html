@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#004f68">
+    <meta name="description" content="A portfolio website to showcase my skillsets and projects.">
+    <meta property="og:site_name" content="Elias Gutierrez's Portfolio">
+    <meta name="og:url" content="/">
+    <meta property="og:title" content="Elias Gutierrez | Software Engineer & Full-Stack Web Developer">
+    <meta property="og:description" content="A portfolio website to showcase my skillsets and projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/img/logospectrum.png">
+    <link rel="apple-touch-icon" href="/img/logo192.png">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/7e5f392f21.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS File -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700;900&family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/bundle/styles.min.css">
+
+    <title>
+      Elias Gutierrez | Software Engineer & Full-Stack Web Developer
+    </title>
+  </head>
+  <body class="d-flex flex-column">
+    <!-- HEADER -->
+    <header class="header">
+      <!-- NAVBAR -->
+      <nav class="nav__porfolio navbar navbar-expand-sm">
+        <div class="container justify-content-between">
+          <div class="nav__portfolio-logo">
+            <a href="/" class="navbar-brand">
+              <img src="img/logobw.png" alt="Portfolio Brand" class="img-fluid">
+            </a>
+          </div>
+
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item">
+              <a href="#portfolio" class="nav__portfolio-link nav-link p-2 p-sm-3">Portfolio</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#about" class="nav__portfolio-link nav-link p-2 p-sm-3">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#contact" class="nav__portfolio-link nav-link p-2 p-sm-3">Contact</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="https://docs.google.com/document/d/1vllJAqf62EALCMJjZ-haBh8pkwMnMUOvWLUZyWPkEj0/edit?usp=sharing" class="nav__portfolio-link nav-link p-2 p-sm-3" target="_blank" ">Resume</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- JUMBOTRON -->
+      <div class="main-hero jumbotron text-center position-relative">
+        <h1 class="heading-primary display-4 m-0 pt-5 text-uppercase position-relative">
+          Elias Gutierrez
+        </h1>
+
+        <div class="main-hero__description mx-auto mt-4 pt-5 position-relative">
+          <h3 class="heading-tertiary mb-0 text-sm-left">
+            Full-Stack Web Developer
+          </h3>
+          <h3 class="heading-tertiary mb-0 mt-4 text-sm-right">
+            Software Engineer
+          </h3>
+          <h3 class="heading-tertiary mb-0 mt-4">Based in California</h3>
+        </div>
+
+        <div class="main-hero__img position-absolute">
+          <img src="img/logospectrum.png" alt="Hero Brand" class="img-fluid">
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="mt-auto">
+      <!-- PORTFOLIO SECtION -->
+      <section class="portfolio-section" id="portfolio">
+        <div class="portfolio-section__wrapper container text-center">
+          <h2 class="heading-secondary mb-3 text-uppercase">Portfolio</h2>
+
+          <p class="paragraph mt-3 mb-0 px-3 px-sm-0">
+            React.JS, Sass, MySQL, Node.JS and others: Multiple ways to create
+            beautiful websites while abstracting the logic. Here are my projects
+            that I worked on.
+          </p>
+
+          <div class="portfolio-section__gallery-wrapper container mt-5">
+            <input type="radio" name="categories" class="input__radio-filters" id="All" value="All" checked>
+            <input type="radio" name="categories" class="input__radio-filters" id="NodeJS" value="NodeJS">
+            <input type="radio" name="categories" class="input__radio-filters" id="PHP" value="PHP">
+            <input type="radio" name="categories" class="input__radio-filters" id="MongoDB" value="MongoDB">
+            <input type="radio" name="categories" class="input__radio-filters" id="MySQL" value="MySQL">
+            <input type="radio" name="categories" class="input__radio-filters" id="ReactJS" value="ReactJS">
+            <input type="radio" name="categories" class="input__radio-filters" id="VanillaJS" value="VanillaJS">
+            <input type="radio" name="categories" class="input__radio-filters" id="Sass" value="Sass">
+            <input type="radio" name="categories" class="input__radio-filters" id="Styled-Components" value="Styled-Components">
+
+            <ol class="filters row mx-md-4 mb-0 p-3 list-unstyled">
+              <li class="filters__list col">
+                <label for="All" class="filters__item mb-1 py-2 px-3">All</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="NodeJS" class="filters__item mb-1 py-2 px-3">NodeJS</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="PHP" class="filters__item mb-1 py-2 px-3">PHP</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="MongoDB" class="filters__item mb-1 py-2 px-3">MongoDB</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="MySQL" class="filters__item mb-1 py-2 px-3">MySQL</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="ReactJS" class="filters__item mb-1 py-2 px-3">ReactJS</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="VanillaJS" class="filters__item mb-1 py-2 px-3">VanillaJS</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="Sass" class="filters__item mb-1 py-2 px-3">Sass</label>
+              </li>
+
+              <li class="filters__list col">
+                <label for="Styled-Components" class="filters__item mb-1 py-2 px-3">Styled-Components</label>
+              </li>
+            </ol>
+
+            <ol class="gallery row row-cols-1 row-cols-lg-2 mb-0 list-unstyled">
+              <li class="gallery__card col my-2 position-relative" data-category="ReactJS MongoDB NodeJS Styled-Components">
+                <div class="gallery__card-img">
+                  <img src="img/gallery/errezshop.png" alt="Errez Shop" class="img-fluid">
+                </div>
+
+                <div class="gallery__card-info text-center position-absolute">
+                  <p class="gallery__card-info-header paragraph mb-0">
+                    Errez Shop
+                  </p>
+
+                  <p class="gallery__card-info-highlight paragraph mb-0">
+                    NodeJS | MongoDB | ReactJS | Styled-Components
+                  </p>
+                </div>
+
+                <a href="https://errezshop.netlify.app/" class="btn__custom btn mx-auto position-absolute" target="_blank">Explore</a>
+              </li>
+
+              <li class="gallery__card col my-2 position-relative" data-category="ReactJS Sass">
+                <div class="gallery__card-img">
+                  <img src="img/gallery/weatherapp.png" alt="Weather App" class="img-fluid">
+                </div>
+
+                <div class="gallery__card-info text-center position-absolute">
+                  <p class="gallery__card-info-header paragraph mb-0">
+                    Weather App
+                  </p>
+
+                  <p class="gallery__card-info-highlight paragraph mb-0">
+                    ReactJS | Sass
+                  </p>
+                </div>
+
+                <a href="https://blackcubes.github.io/react-weather/" class="btn__custom btn mx-auto position-absolute" target="_blank">Explore</a>
+              </li>
+
+              <li class="gallery__card col my-2 position-relative" data-category="VanillaJS MongoDB NodeJS Sass">
+                <div class="gallery__card-img">
+                  <img src="img/gallery/kinetotickets.png" alt="Kinetotickets" class="img-fluid">
+                </div>
+
+                <div class="gallery__card-info text-center position-absolute">
+                  <p class="gallery__card-info-header paragraph mb-0">
+                    Kinetotickets
+                  </p>
+
+                  <p class="gallery__card-info-highlight paragraph mb-0">
+                    NodeJS | MongoDB | VanillaJS | Sass
+                  </p>
+                </div>
+
+                <a href="https://kinetotickets.herokuapp.com/" class="btn__custom btn mx-auto position-absolute" target="_blank">Explore</a>
+              </li>
+
+              <li class="gallery__card col my-2 position-relative" data-category="MySQL PHP">
+                <div class="gallery__card-img">
+                  <img src="img/gallery/filmecommerce.png" alt="Film eCommerce" class="img-fluid">
+                </div>
+
+                <div class="gallery__card-info text-center position-absolute">
+                  <p class="gallery__card-info-header paragraph mb-0">
+                    Film eCommerce
+                  </p>
+
+                  <p class="gallery__card-info-highlight paragraph mb-0">
+                    PHP | MySQL
+                  </p>
+                </div>
+
+                <a href="https://filmecommerce.com/" class="btn__custom btn mx-auto position-absolute" target="_blank">Explore</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section class="about-section py-5" id="about">
+        <div class="about-section__wrapper container text-center">
+          <h2 class="heading-secondary mb-3 text-uppercase">About Me</h2>
+
+          <p class="paragraph mt-3 mb-0">
+            I'm a Software Engineer and Full-Stack Web Developer interested on
+            combining the art and mathematical model of nature into a beautiful
+            user experience. I also have experience with Data Science, and have
+            a B.S. degree in Physics at UCLA.
+          </p>
+
+          <p class="paragraph mt-3 mb-0">
+            When I'm not drinking too much coffee or typing, I like to read,
+            study math/physics, workout, analyze films, and spending time with friends and families.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section class="contact-section" id="contact">
+        <div class="contact-section__wrapper container">
+          <h2 class="heading-secondary mb-3 text-uppercase text-center">Contact</h2>
+
+          <p class="paragraph mt-3 mb-0 text-center px-3 px-sm-0">
+            If you like to contact me, then don't be afraid to shoot me an email!
+            <a href="mailto:gutierrezelias1991@gmail.com" class="text-decoration-none">gutierrezelias1991@gmail.com</a>
+          </p>
+
+          <p class="paragraph mt-2 mb-0 text-center px-3 px-sm-0">You could also fill out the form below, if you prefer.</p>
+
+          <form class="form__custom mt-5 mx-auto" id="contactForm" spellcheck="false" novalidate>
+            <div class="form__custom-group mt-4">
+              <label for="name" class="form__custom-label w-100 position-relative">
+                <input type="text" name="name" class="input__default mx-auto" id="name" required>
+
+                <span class="form__custom-placeholder position-absolute" data-text="name"></span>
+
+                <span class="form__custom-message"></span>
+              </label>
+            </div>
+
+            <div class="form__custom-group mt-4">
+              <label for="email" class="form__custom-label w-100 position-relative">
+                <input type="email" name="email" class="input__default mx-auto" id="email" required>
+
+                <span class="form__custom-placeholder position-absolute" data-text="email"></span>
+
+                <span class="form__custom-message"></span>
+              </label>
+              
+            </div>
+
+            <div class="form__custom-group mt-4">
+              <label for="message" class="form__custom-label w-100 position-relative">
+                <textarea name="message" class="input__textarea mx-auto" " id="message" autocorrect="off" autocapitalize="off" autocomplete="on" required></textarea>
+
+                <span class="form__custom-placeholder position-absolute" data-text="message"></span>
+
+                <span class="form__custom-message"></span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn__custom btn__custom--black btn mt-4 w-100" id="contactFormBtn">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer mt-auto">
+      <div class="footer__follow p-4 text-center">
+        <div class="footer__follow-name pb-3">
+          <p class="paragraph m-0 text-uppercase">Follow Elias Gutierrez</p>
+        </div>
+
+        <ul class="m-0 p-0">
+          <li class="d-inline-block">
+            <a href="https://github.com/blackcubes" class="d-block mx-3 p-2 rounded-circle text-decoration-none">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+
+          <li class="d-inline-block">
+            <a href="https://www.linkedin.com/in/eliasgutierrez1991/" class="d-block mx-3 p-2 rounded-circle text-decoration-none">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+
+          <li class="d-inline-block">
+            <a href="https://vimeo.com/blackcubes" class="d-block mx-3 p-2 rounded-circle text-decoration-none">
+              <i class="fab fa-vimeo"></i>
+            </a>
+          </li>
+
+          <li class="d-inline-block">
+            <a href="https://www.facebook.com/elias.gutierrez.5283/" class="d-block mx-3 p-2 rounded-circle text-decoration-none">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__lower pb-4">
+        <div class="footer__copyright container pt-4">
+          <div class="footer__copyright-wrapper py-2 text-center">
+            <small class="footer__copyright-content">
+              Email:
+              <a href="mailto:gutierrezelias1991@gmail.com" class="text-decoration-none">gutierrezelias1991@gmail.com</a>  |  Phone:
+              <a href="tel:5595953839" class="text-decoration-none">559-595-3839</a>
+              <br>
+              10am - 8pm PST Mon-Fri  |  10am - 4pm PST
+              Sat&Sun
+            </small>
+          </div>
+
+          <div class="footer__copyright-wrapper py-2 text-center">
+            <small class="footer__copyright-content">
+              Icons by © Font Awesome from
+              <a href="https://fontawesome.com/" class="text-decoration-none">fontawesome.com</a>. Open-source CSS framework by © Bootstrap from
+              <a href="https://getbootstrap.com/" class="text-decoration-none">getbootstrap.com</a>. Fonts by © Google Fonts from
+              <a href="https://fonts.google.com/" class="text-decoration-none">fonts.google.com</a>.
+            </small>
+          </div>
+
+          <div class="footer__copyright-wrapper py-2 text-center">
+            <small class="footer__copyright-content">
+              © 2021 Elias Gutierrez
+            </small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="/src/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script type="module" src="/src/index.js"></script>
+  
+
+</body></html>
