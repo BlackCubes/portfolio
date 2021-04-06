@@ -5,4 +5,8 @@
   @include respond(between_767_543) {
     height: 100vw;
   }
+
+  @include respond(between_991_768) {
+    height: 100vw;
+  }
 }
