@@ -5,6 +5,8 @@
   "description": "A portfolio website to showcase my skillsets and projects",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "snowpack dev",
     "build": "snowpack build",
     "watch:sass": "node-sass sass/main.scss css/compile/styles.css -w",
