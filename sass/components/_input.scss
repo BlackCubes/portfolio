@@ -35,6 +35,10 @@
       & ~ .form__custom-placeholder {
         font-size: 0.9rem;
         top: -1.4rem;
+
+        @include respond(below_379) {
+          font-size: 0.8rem;
+        }
       }
     }
 
