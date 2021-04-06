@@ -14,6 +14,11 @@
     }
 
     @include respond(above_768) {
+      padding-top: 9.5rem;
+      padding-bottom: 9.5rem;
+    }
+
+    @include respond(above_992) {
       padding-top: 11rem;
       padding-bottom: 11rem;
     }
