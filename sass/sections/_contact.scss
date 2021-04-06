@@ -7,6 +7,11 @@
     padding-bottom: 7rem;
 
     @include respond(above_576) {
+      padding-top: 9rem;
+      padding-bottom: 9rem;
+    }
+
+    @include respond(above_768) {
       padding-top: 11rem;
       padding-bottom: 11rem;
     }
