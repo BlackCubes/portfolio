@@ -1,21 +1,22 @@
-import emailjs from 'emailjs-com';
+import axios from 'axios';
 
-const sendEmail = async (templateParams) => {
-  templateParams.website = 'Portfolio';
-  templateParams.to_name = 'Elias';
-
+const sendEmailAPI = async (data) => {
   try {
-    const res = await emailjs.sendForm(
-      import.meta.env.EMAILJS_SERVICE_ID,
-      import.meta.env.EMAILJS_TEMPLATE_ID,
-      templateParams,
-      import.meta.env.EMAILJS_USER_ID
-    );
+    const url =
+      'https://contactemailformapi.herokuapp.com/api/v1/email/sendEmail';
 
-    console.log('In try block: ', res);
+    const res = await axios({
+      method: 'POST',
+      url,
+      data,
+    });
+
+    if (res.status === 200) {
+      console.log('Success!');
+    }
   } catch (err) {
-    console.log('In catch block: ', err);
+    console.log('Error: ', err.response.data);
   }
 };
 
-export default sendEmail;
+export default sendEmailAPI;
