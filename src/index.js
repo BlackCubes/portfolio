@@ -37,7 +37,7 @@ if (contactForm) {
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
-      const website = window.location.hostname;
+      const website = window.location.href;
 
       document.getElementById('contactFormBtn').textContent = 'Submitting...';
 
