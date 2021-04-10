@@ -34,7 +34,8 @@
     <link rel="manifest" href="https://blackcubes.github.io/portfolio/manifest.json" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/bundle/styles.min.css" />
+    <!-- <link rel="stylesheet" href="css/bundle/styles.min.css" /> -->
+    <link rel="stylesheet" href="css/compile/styles.css">
 
     <title>
       Elias Gutierrez | Software Engineer & Full-Stack Web Developer
@@ -74,7 +75,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="https://docs.google.com/document/d/1vllJAqf62EALCMJjZ-haBh8pkwMnMUOvWLUZyWPkEj0/edit?usp=sharing" class="nav__portfolio-link nav-link p-2 p-sm-3" target="_blank"">Resume</a>
+              <a href="https://docs.google.com/document/d/1vllJAqf62EALCMJjZ-haBh8pkwMnMUOvWLUZyWPkEj0/edit?usp=sharing" class="nav__portfolio-link nav-link p-2 p-sm-3" target="_blank" rel="noopener">Resume</a>
             </li>
           </ul>
         </div>
@@ -89,12 +90,12 @@
         </h1>
 
         <div class="main-hero__description mx-auto mt-4 pt-5 position-relative">
-          <h3 class="heading-tertiary mb-0 text-sm-left">
+          <h2 class="heading-tertiary mb-0 text-sm-left">
             Full-Stack Web Developer
-          </h3>
-          <h3 class="heading-tertiary mb-0 mt-4 text-sm-right">
+          </h2>
+          <h2 class="heading-tertiary mb-0 mt-4 text-sm-right">
             Software Engineer
-          </h3>
+          </h2>
           <h3 class="heading-tertiary mb-0 mt-4">Based in California</h3>
         </div>
 
@@ -109,7 +110,7 @@
       <!-- PORTFOLIO SECtION -->
       <section class="portfolio-section" id="portfolio">
         <div class="portfolio-section__wrapper container text-center">
-          <h2 class="heading-secondary mb-3 text-uppercase">Portfolio</h2>
+          <h3 class="heading-secondary mb-3 text-uppercase">Portfolio</h3>
 
           <p class="paragraph mt-3 mb-0 px-3 px-sm-0">
             React.JS, Sass, MySQL, Node.JS and others: Multiple ways to create
@@ -268,6 +269,7 @@
                   href="https://errezshop.netlify.app/"
                   class="btn__custom btn mx-auto position-absolute"
                   target="_blank"
+                  rel="noopener"
                   >Explore</a
                 >
               </li>
@@ -298,6 +300,7 @@
                   href="https://blackcubes.github.io/react-weather/"
                   class="btn__custom btn mx-auto position-absolute"
                   target="_blank"
+                  rel="noopener"
                   >Explore</a
                 >
               </li>
@@ -328,6 +331,7 @@
                   href="https://kinetotickets.herokuapp.com/"
                   class="btn__custom btn mx-auto position-absolute"
                   target="_blank"
+                  rel="noopener"
                   >Explore</a
                 >
               </li>
@@ -358,6 +362,7 @@
                   href="https://filmecommerce.com/"
                   class="btn__custom btn mx-auto position-absolute"
                   target="_blank"
+                  rel="noopener"
                   >Explore</a
                 >
               </li>
@@ -369,7 +374,7 @@
       <!-- ABOUT SECTION -->
       <section class="about-section py-5" id="about">
         <div class="about-section__wrapper container text-center">
-          <h2 class="heading-secondary mb-3 text-uppercase">About Me</h2>
+          <h3 class="heading-secondary mb-3 text-uppercase">About Me</h3>
 
           <p class="paragraph mt-3 mb-0">
             I'm a Software Engineer and Full-Stack Web Developer interested on
@@ -388,7 +393,7 @@
       <!-- CONTACT SECTION -->
       <section class="contact-section" id="contact">
         <div class="contact-section__wrapper container">
-          <h2 class="heading-secondary mb-3 text-uppercase text-center">Contact</h2>
+          <h3 class="heading-secondary mb-3 text-uppercase text-center">Contact</h3>
 
           <p class="paragraph mt-3 mb-0 text-center px-3 px-sm-0">
             If you like to contact me, then don't be afraid to shoot me an email!
@@ -412,7 +417,7 @@
                   required
                 />
 
-                <span class="form__custom-placeholder position-absolute" data-text="name"></span>
+                <span class="form__custom-placeholder position-absolute" data-text="name">Name</span>
 
                 <span class="form__custom-message"></span>
               </label>
@@ -428,7 +433,7 @@
                   required
                 />
 
-                <span class="form__custom-placeholder position-absolute" data-text="email"></span>
+                <span class="form__custom-placeholder position-absolute" data-text="email">Email</span>
 
                 <span class="form__custom-message"></span>
               </label>
@@ -447,7 +452,7 @@
                   required
                 ></textarea>
 
-                <span class="form__custom-placeholder position-absolute" data-text="message"></span>
+                <span class="form__custom-placeholder position-absolute" data-text="message">Message</span>
 
                 <span class="form__custom-message"></span>
               </label>
@@ -471,6 +476,7 @@
             <a
               href="https://github.com/blackcubes"
               class="d-block mx-3 p-2 rounded-circle text-decoration-none"
+              title="Follow Elias Gutierrez on Github"
             >
               <i class="fab fa-github"></i>
             </a>
@@ -480,6 +486,7 @@
             <a
               href="https://www.linkedin.com/in/eliasgutierrez1991/"
               class="d-block mx-3 p-2 rounded-circle text-decoration-none"
+              title="Follow Elias Gutierrez on LinkedIn"
             >
               <i class="fab fa-linkedin"></i>
             </a>
@@ -489,6 +496,7 @@
             <a
               href="https://vimeo.com/blackcubes"
               class="d-block mx-3 p-2 rounded-circle text-decoration-none"
+              title="Follow Elias Gutierrez on Vimeo"
             >
               <i class="fab fa-vimeo"></i>
             </a>
@@ -498,6 +506,7 @@
             <a
               href="https://www.facebook.com/elias.gutierrez.5283/"
               class="d-block mx-3 p-2 rounded-circle text-decoration-none"
+              title="Follow Elias Gutierrez on Facebook"
             >
               <i class="fab fa-facebook"></i>
             </a>
