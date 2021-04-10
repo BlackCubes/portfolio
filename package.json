@@ -1,5 +1,5 @@
 {
-  "homepage": "https://blackcubes.github.io/portfolio",
+  "homepage": "https://www.eliastgutierrez.com/",
   "name": "portfolio",
   "version": "1.0.0",
   "description": "A portfolio website to showcase my skillsets and projects",
@@ -8,15 +8,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "snowpack dev",
-    "build": "snowpack build",
-    "watch:sass": "node-sass sass/main.scss css/compile/styles.css -w",
-    "devserver": "live-server",
-    "dev:sass": "npm-run-all --parallel devserver watch:sass",
-    "compile:sass": "node-sass sass/main.scss css/compile/styles.comp.css",
-    "concat:css": "concat -o css/compile/styles.concat.css css/compile/styles.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b \"last 6 versions\" css/compile/styles.concat.css -o css/compile/styles.prefix.css",
-    "compress:css": "node-sass css/compile/styles.prefix.css css/bundle/styles.min.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+    "build": "snowpack build"
   },
   "repository": {
     "type": "git",
