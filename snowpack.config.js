@@ -19,11 +19,6 @@ module.exports = {
     baseUrl: './',
     out: 'build',
   },
-  env: {
-    EMAILJS_TEMPLATE_ID: 'template_qijcu2x',
-    EMAILJS_USER_ID: 'user_hEo5vIvHve1CBqnFPALEv',
-    EMAILJS_SERVICE_ID: 'service_vefe5fe',
-  },
   optimize: {
     minify: true,
     bundle: true,

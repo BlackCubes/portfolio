@@ -1,6 +1,7 @@
 {
   "short_name": "Elias Gutierrez's Portfolio",
   "name": "Elias Gutierrez | Software Engineer & Full-Stack Web Developer",
+  "description": "Elias Gutierrez is a California-based Full-Stack Web Developer and Software Engineer with experiences such as Node.js and React.js.",
   "icons": [
     {
       "src": "/img/favicon.ico",
@@ -18,7 +19,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#004f68",
   "background_color": "#000"
