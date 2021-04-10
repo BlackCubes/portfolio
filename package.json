@@ -37,7 +37,6 @@
     "axios": "^0.21.1",
     "core-js": "^3.10.0",
     "cssnano": "^4.1.10",
-    "emailjs-com": "^2.6.4",
     "postcss-preset-env": "^6.7.0",
     "regenerator-runtime": "^0.13.7"
   },
