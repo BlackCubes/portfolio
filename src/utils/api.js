@@ -11,11 +11,11 @@ const sendEmailAPI = async (data) => {
       data,
     });
 
-    if (res.status === 200) {
-      console.log('Success!');
+    if (res.status === 202) {
+      console.log('Success: ', res.data.message);
     }
   } catch (err) {
-    console.log('Error: ', err.response.data);
+    console.log('Error: ', err.response.data.message);
   }
 };
 
