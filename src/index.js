@@ -34,8 +34,6 @@ if (contactForm) {
     );
 
     if (checkErrors(errorStack)) {
-      const form = new FormData();
-
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
@@ -43,13 +41,13 @@ if (contactForm) {
 
       document.getElementById('contactFormBtn').textContent = 'Submitting...';
 
-      form.append('name', name);
-      form.append('email', email);
-      form.append('message', message);
-      form.append('email_to', 'gutierrezelias1991@gmail.com');
-      form.append('website', website);
-
-      await sendEmailAPI(form);
+      await sendEmailAPI({
+        name,
+        email,
+        message,
+        website,
+        email_to: 'gutierrezelias1991@gmail.com',
+      });
 
       document.getElementById('contactFormBtn').textContent = 'Send';
 
