@@ -1,5 +1,5 @@
+import sendEmailAPI from './api';
 import checkErrors from './checkErrors';
-import sendEmail from './email';
 import validateForm from './validate';
 
-export { checkErrors, sendEmail, validateForm };
+export { checkErrors, sendEmailAPI, validateForm };
