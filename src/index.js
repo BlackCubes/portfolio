@@ -6,7 +6,7 @@ import {
   inputController,
   submitController,
 } from './formControllers';
-import { checkErrors, sendEmail } from './utils';
+import { checkErrors, sendEmailAPI } from './utils';
 
 // DOM ELEMENTS
 const contactForm = document.getElementById('contactForm');
@@ -34,9 +34,20 @@ if (contactForm) {
     );
 
     if (checkErrors(errorStack)) {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const website = window.location.hostname;
+
       document.getElementById('contactFormBtn').textContent = 'Submitting...';
 
-      await sendEmail(e.target);
+      await sendEmailAPI({
+        name,
+        email,
+        message,
+        website,
+        email_to: 'gutierrezelias1991@gmail.com',
+      });
 
       document.getElementById('contactFormBtn').textContent = 'Send';
 
