@@ -226,7 +226,6 @@ body {
   pointer-events: none;
 }
 .form__custom-placeholder::after {
-  content: attr(data-text);
   pointer-events: none;
 }
 @media only screen and (max-width: 379px) {
@@ -597,7 +596,7 @@ body {
     padding-bottom: 11rem;
   }
 }
-.about-section h2 {
+.about-section h3 {
   color: #fff;
   text-shadow: 0px 0px 1.4px #000;
 }
@@ -626,7 +625,7 @@ body {
     padding-bottom: 11rem;
   }
 }
-.contact-section h2 {
+.contact-section h3 {
   color: #06807c;
 }
 .contact-section p {
