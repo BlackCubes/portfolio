@@ -14,7 +14,6 @@
     pointer-events: none;
 
     &::after {
-      content: attr(data-text);
       pointer-events: none;
     }
 
