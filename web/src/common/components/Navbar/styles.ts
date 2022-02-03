@@ -2,13 +2,14 @@
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  height: 11rem;
 `;
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  height: inherit;
 `;
 
 export const LogoWrapper = styled.div`
