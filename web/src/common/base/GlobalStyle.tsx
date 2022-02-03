@@ -49,6 +49,8 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    font-family: 'Nunito', 'Open Sans', 'Poppins', 'Roboto', sans-serif;
+    font-weight: 400;
   }
 `;
 
