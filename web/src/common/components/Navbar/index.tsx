@@ -10,30 +10,33 @@ import {
   Logo,
   LogoLink,
   LogoWrapper,
+  Nav,
 } from './styles';
 
 const Navbar: FC = () => (
-  <Container>
-    <LogoWrapper>
-      <LogoLink to="/">
-        <Logo src={logo} alt="Portfolio logo" />
-      </LogoLink>
-    </LogoWrapper>
+  <Nav>
+    <Container>
+      <LogoWrapper>
+        <LogoLink href="#">
+          <Logo src={logo} alt="Portfolio logo" />
+        </LogoLink>
+      </LogoWrapper>
 
-    <ItemsContainer>
-      <Item>
-        <ItemLink to="/">Work</ItemLink>
-      </Item>
+      <ItemsContainer>
+        <Item>
+          <ItemLink href="#">Work</ItemLink>
+        </Item>
 
-      <Item>
-        <ItemLink to="/">Articles</ItemLink>
-      </Item>
+        <Item>
+          <ItemLink href="#">Articles</ItemLink>
+        </Item>
 
-      <Item>
-        <ItemLink to="/">About</ItemLink>
-      </Item>
-    </ItemsContainer>
-  </Container>
+        <Item>
+          <ItemLink href="#">About</ItemLink>
+        </Item>
+      </ItemsContainer>
+    </Container>
+  </Nav>
 );
 
 export default Navbar;
