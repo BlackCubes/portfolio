@@ -1,29 +1,16 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
 import logo from 'assets/img/logo_bw.png';
 
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const LogoWrapper = styled.div`
-  width: 5rem;
-`;
-
-const LogoLink = styled(Link)``;
-
-const Logo = styled.img`
-  width: 100%;
-`;
-
-const ItemsContainer = styled.ol``;
-
-const Item = styled.li``;
-
-const ItemLink = styled(Link)``;
+import {
+  Container,
+  Item,
+  ItemLink,
+  ItemsContainer,
+  Logo,
+  LogoLink,
+  LogoWrapper,
+} from './styles';
 
 const Navbar: FC = () => (
   <Container>
