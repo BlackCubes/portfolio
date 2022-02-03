@@ -30,7 +30,7 @@ export const ItemsContainer = styled.ul`
 
 export const Item = styled.li`
   height: 100%;
-  padding-left: 4rem;
+  padding-left: 11rem;
 `;
 
 export const ItemLink = styled.a`
