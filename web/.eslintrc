@@ -39,6 +39,7 @@
     "react/jsx-indent-props": [2, 2],
     "react/jsx-indent": [2, 2],
     "react/jsx-one-expression-per-line": [0],
+    "react/jsx-props-no-spreading": "off",
     "react/prefer-stateless-function": [1],
     "react/static-property-placement": [1, "property assignment"]
   }
