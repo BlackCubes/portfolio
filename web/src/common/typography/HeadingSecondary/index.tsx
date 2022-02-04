@@ -11,9 +11,9 @@ const HeadingSecondary = styled.h2<IHeadingSecondary>`
   color: ${(props) => props.theme.colors.primary};
 
   ${({ letterSpacing }) =>
-    letterSpacing && `letter-spacing: ${letterSpacing}rem`}
+    letterSpacing && `letter-spacing: ${letterSpacing}rem;`}
 
-  ${({ opacity }) => opacity && `opacity: ${opacity}`}
+  ${({ opacity }) => opacity && `opacity: ${opacity};`}
 `;
 
 export default HeadingSecondary;

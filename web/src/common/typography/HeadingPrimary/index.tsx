@@ -9,7 +9,7 @@ const HeadingPrimary = styled.h1<IHeadingPrimary>`
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary};
 
-  ${({ opacity }) => opacity && `opacity: ${opacity}`}
+  ${({ opacity }) => opacity && `opacity: ${opacity};`}
 `;
 
 export default HeadingPrimary;

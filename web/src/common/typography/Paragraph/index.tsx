@@ -9,7 +9,7 @@ const Paragraph = styled.p<IParagraph>`
   font-weight: 400;
   color: ${(props) => props.theme.colors.secondary};
 
-  ${({ opacity }) => opacity && `opacity: ${opacity}`}
+  ${({ opacity }) => opacity && `opacity: ${opacity};`}
 `;
 
 export default Paragraph;
