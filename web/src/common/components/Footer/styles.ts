@@ -37,7 +37,9 @@ export const ItemLink = styled.a`
   }
 `;
 
-export const LogoWrapper = styled.div`
+export const LogosContainer = styled(ItemsContainer)``;
+
+export const LogoWrapper = styled.li`
   width: 4rem;
 `;
 
