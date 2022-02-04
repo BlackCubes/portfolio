@@ -20,7 +20,7 @@ const WorkSection: FC = () => {
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <Section>
+    <Section className="default-container">
       <SectionTitle>
         <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
           Work
