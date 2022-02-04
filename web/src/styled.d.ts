@@ -10,6 +10,13 @@ interface IColorTheme {
   glassDarkShadow: string;
 }
 
+interface IFontTheme {
+  headingPrimary: string;
+  headingSecondary: string;
+  headingTertiary: string;
+  paragraph: string;
+}
+
 interface IResponsiveTheme {
   below1199: string;
   below899: string;
@@ -23,6 +30,7 @@ interface IResponsiveTheme {
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: IColorTheme;
+    fonts: IFontTheme;
     responsive: IResponsiveTheme;
   }
 }

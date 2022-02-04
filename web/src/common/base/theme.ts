@@ -10,6 +10,17 @@ const theme: Required<DefaultTheme> = {
     glassLightShadow: '#87A9FF',
     glassDarkShadow: '#255DEB',
   },
+  fonts: {
+    // FOR THIS WEB APP: let 1rem = 10px.
+    // 3.5rem = 3.5px
+    headingPrimary: '3.5rem',
+    // 3rem = 30px
+    headingSecondary: '3rem',
+    // 2.5rem = 25px
+    headingTertiary: '2.5rem',
+    // 1.6rem = 16px
+    paragraph: '1.6rem',
+  },
   responsive: {
     // MEDIA QUERY MANAGER
     /**

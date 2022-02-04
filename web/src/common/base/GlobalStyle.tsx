@@ -52,6 +52,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Nunito', 'Open Sans', 'Poppins', 'Roboto', sans-serif;
     font-weight: 400;
   }
+
+  .default-container {
+    max-width: 112rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 export default GlobalStyle;
