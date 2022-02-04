@@ -10,10 +10,10 @@ const HeadingTertiary = styled.h3<IHeadingTertiary>`
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary};
 
-  ${({ opacity }) => opacity && `opacity: ${opacity}`}
+  ${({ opacity }) => opacity && `opacity: ${opacity};`}
 
   ${({ textDecoration }) =>
-    textDecoration && `text-decoration: ${textDecoration}`}
+    textDecoration && `text-decoration: ${textDecoration};`}
 `;
 
 export default HeadingTertiary;
