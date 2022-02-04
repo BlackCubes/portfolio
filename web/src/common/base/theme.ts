@@ -12,12 +12,12 @@ const theme: Required<DefaultTheme> = {
   },
   fonts: {
     // FOR THIS WEB APP: let 1rem = 10px.
-    // 4rem = 40px
-    headingPrimary: '4rem',
-    // 3.5rem = 35px
-    headingSecondary: '3.5rem',
+    // 3.5rem = 3.5px
+    headingPrimary: '3.5rem',
     // 3rem = 30px
-    headingTertiary: '3rem',
+    headingSecondary: '3rem',
+    // 2.5rem = 25px
+    headingTertiary: '2.5rem',
     // 1.6rem = 16px
     paragraph: '1.6rem',
   },
