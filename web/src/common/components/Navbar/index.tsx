@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 const Navbar: FC = () => (
-  <Nav>
+  <Nav className="default-container">
     <Container>
       <LogoWrapper>
         <LogoLink href="#">

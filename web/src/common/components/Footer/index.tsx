@@ -17,7 +17,7 @@ import {
 } from './styles';
 
 const Footer: FC = () => (
-  <Foot>
+  <Foot className="default-container">
     <Container>
       <ItemsContainer>
         <Item>
