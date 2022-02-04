@@ -24,6 +24,10 @@ export const ItemsContainer = styled.ul`
 export const Item = styled.li`
   height: 100%;
   padding-right: 11rem;
+
+  &:last-child {
+    padding-right: 0;
+  }
 `;
 
 export const ItemLink = styled.a`
@@ -47,6 +51,10 @@ export const LogosContainer = styled(ItemsContainer)``;
 export const LogoWrapper = styled.li`
   width: 2.2rem;
   margin-left: 5rem;
+
+  &:first-child {
+    margin-left: 0;
+  }
 `;
 
 export const LogoLink = styled.a`
