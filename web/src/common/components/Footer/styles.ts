@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Foot = styled.footer`
   height: 11rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 0.1rem dotted ${(props) => props.theme.colors.primary};
 `;
 
 export const Container = styled.div`
@@ -9,6 +12,8 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   height: inherit;
+  padding: 4.5rem 3.5rem 0;
+  border-top: 0.1rem dotted ${(props) => props.theme.colors.primary};
 `;
 
 export const ItemsContainer = styled.ul`
@@ -18,7 +23,7 @@ export const ItemsContainer = styled.ul`
 
 export const Item = styled.li`
   height: 100%;
-  padding-left: 11rem;
+  padding-right: 11rem;
 `;
 
 export const ItemLink = styled.a`
@@ -40,13 +45,21 @@ export const ItemLink = styled.a`
 export const LogosContainer = styled(ItemsContainer)``;
 
 export const LogoWrapper = styled.li`
-  width: 4rem;
+  width: 2.2rem;
+  margin-left: 5rem;
 `;
 
 export const LogoLink = styled.a`
   display: inline-flex;
+
+  &:hover {
+    img {
+      width: 90%;
+    }
+  }
 `;
 
 export const Logo = styled.img`
   width: 100%;
+  transition: width 0.05s linear;
 `;
