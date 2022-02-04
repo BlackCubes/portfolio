@@ -58,6 +58,7 @@ const WorkSection: FC = () => {
 
             <ProjectLinkWrapper>
               <ProjectLink
+                href="#"
                 {...(isHover && {
                   opacity: 0.7,
                 })}
@@ -98,6 +99,7 @@ const WorkSection: FC = () => {
 
             <ProjectLinkWrapper>
               <ProjectLink
+                href="#"
                 {...(isHover && {
                   opacity: 0.7,
                 })}
@@ -138,6 +140,7 @@ const WorkSection: FC = () => {
 
             <ProjectLinkWrapper>
               <ProjectLink
+                href="#"
                 {...(isHover && {
                   opacity: 0.7,
                 })}
