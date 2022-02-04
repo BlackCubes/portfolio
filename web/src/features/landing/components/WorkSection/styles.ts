@@ -7,7 +7,8 @@ interface IProjectLink {
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
-  border-right: 0.1rem solid ${(props) => props.theme.colors.primary};
+  text-align: right;
+  border-right: 0.1rem dotted ${(props) => props.theme.colors.primary};
   opacity: 0.7;
 `;
 
@@ -40,6 +41,7 @@ export const ProjectLink = styled.a<IProjectLink>`
   font-size: ${(props) => props.theme.fonts.paragraph};
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary};
+  text-decoration: none;
 
   ${({ opacity }) => opacity && `opacity: ${opacity}`}
 `;
