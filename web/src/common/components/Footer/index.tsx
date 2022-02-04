@@ -21,21 +21,21 @@ const Footer: FC = () => (
     <Container>
       <ItemsContainer>
         <Item>
-          <ItemLink>Work</ItemLink>
+          <ItemLink href="#">Work</ItemLink>
         </Item>
 
         <Item>
-          <ItemLink>Articles</ItemLink>
+          <ItemLink href="#">Articles</ItemLink>
         </Item>
 
         <Item>
-          <ItemLink>About</ItemLink>
+          <ItemLink href="#">About</ItemLink>
         </Item>
       </ItemsContainer>
 
       <LogosContainer>
         <LogoWrapper>
-          <LogoLink>
+          <LogoLink href="#">
             <Logo
               src={githubLogo}
               alt="Github Logo"
@@ -45,7 +45,7 @@ const Footer: FC = () => (
         </LogoWrapper>
 
         <LogoWrapper>
-          <LogoLink>
+          <LogoLink href="#">
             <Logo
               src={twitterLogo}
               alt="Twitter Logo"
@@ -55,7 +55,7 @@ const Footer: FC = () => (
         </LogoWrapper>
 
         <LogoWrapper>
-          <LogoLink>
+          <LogoLink href="#">
             <Logo
               src={linkedinLogo}
               alt="LinkedIn Logo"
