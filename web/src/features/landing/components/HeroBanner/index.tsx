@@ -29,7 +29,7 @@ const HeroBanner: FC = () => (
       </MainBiographyWrapper>
 
       <SecondaryBiographyWrapper>
-        <Paragraph>
+        <Paragraph opacity={0.8}>
           I enjoy architecturing with the art and mathematical model of nature
           to create beautiful user experiences for the web, native mobile apps,
           and data science
