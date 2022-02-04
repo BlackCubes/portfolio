@@ -6,7 +6,7 @@ interface IProjectLink {
 
 export const Section = styled.section``;
 
-export const SectionTitleWrapper = styled.div`
+export const SectionTitle = styled.div`
   border-right: 0.1rem solid ${(props) => props.theme.colors.primary};
   opacity: 0.7;
 `;
