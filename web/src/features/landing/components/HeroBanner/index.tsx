@@ -22,7 +22,7 @@ const HeroBanner: FC = () => (
 
     <BiographyContainer>
       <MainBiographyWrapper>
-        <HeadingPrimary>
+        <HeadingPrimary opacity={0.8}>
           Hello! I&apos;m Elias Gutierrez, and I&apos;m a Software Engineer and
           Full-Stack Developer
         </HeadingPrimary>
