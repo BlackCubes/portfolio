@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
-interface IGlassContainer {
-  boxDarkShadowRgbaOpacity?: number;
-  boxLightShadowRgbaOpacity?: number;
-}
-
-interface IGlassImageWrapper {
-  opacity?: number;
-}
+import { IGlassContainer, IGlassImageWrapper } from './models';
 
 export const GlassContainer = styled.div<IGlassContainer>`
   display: flex;
@@ -29,8 +22,7 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   width: 12rem;
   margin-left: auto;
   margin-right: auto;
-
-  ${({ opacity }) => opacity && `opacity: ${opacity};`}
+  opacity: ${({ opacity }) => opacity ?? '1'};
 `;
 
 export const GlassImage = styled.img`
