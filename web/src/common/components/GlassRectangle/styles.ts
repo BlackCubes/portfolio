@@ -10,12 +10,18 @@ export const GlassContainer = styled.div<IGlassContainer>`
   background-color: ${(props) => `rgba(${props.theme.colors.glass.rgb}, 0.17)`};
   border-radius: 2rem;
   box-shadow: ${(props) => `
-  -0.1rem -0.1rem 0 0 rgba(${props.theme.colors.glassLightShadow.rgb}, ${
-    props.boxLightShadowRgbaOpacity ?? '0.17'
-  }),
-  0.1rem 0.1rem 0 0 rgba(${props.theme.colors.glassDarkShadow.rgb}, ${
-    props.boxDarkShadowRgbaOpacity ?? '0.27'
-  })`};
+  ${`${props.boxLightShadowHorizontalOffset}rem` ?? '-0.1rem'} ${
+    `${props.boxLightShadowVerticalOffset}rem` ?? '-0.1rem'
+  }
+    ${`${props.boxLightShadowBlur}rem` ?? '0'} 0 rgba(${
+    props.theme.colors.glassLightShadow.rgb
+  }, 0.17),
+  ${`${props.boxDarkShadowHorizontalOffset}rem` ?? '0.1rem'} ${
+    `${props.boxDarkShadowVerticalOffset}rem` ?? '0.1rem'
+  }
+    ${`${props.boxDarkShadowBlur}rem` ?? '0'} 0 rgba(${
+    props.theme.colors.glassDarkShadow.rgb
+  }, 0.27)`};
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`

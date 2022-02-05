@@ -66,12 +66,12 @@ const WorkContainer: FC<IWorkContainer> = ({
 
       <WorkImageWrapper>
         <GlassRectangle
-          glassDarkShadowBlur={isHovering ? 4 : 0}
-          glassDarkShadowHorizontalOffset={isHovering ? 3 : 0.1}
-          glassDarkShadowVerticalOffset={isHovering ? 3 : 0.1}
-          glassLightShadowBlur={isHovering ? 4 : 0}
-          glassLightShadowHorizontalOffset={isHovering ? -3 : -0.1}
-          glassLightShadowVerticalOffset={isHovering ? -3 : -0.1}
+          glassDarkShadowBlur={isHovering ? 0.4 : 0}
+          glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
+          glassDarkShadowVerticalOffset={isHovering ? 0.3 : 0.1}
+          glassLightShadowBlur={isHovering ? 0.4 : 0}
+          glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
+          glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
           imageAlt={workImageAlt}
           imageSrc={workImageSrc}
           opacity={isHovering ? 0.75 : 1}
