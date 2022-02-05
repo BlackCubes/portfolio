@@ -1,6 +1,10 @@
 export interface IGlassContainer {
-  boxDarkShadowRgbaOpacity?: number;
-  boxLightShadowRgbaOpacity?: number;
+  boxDarkShadowBlur: number;
+  boxDarkShadowHorizontalOffset: number;
+  boxDarkShadowVerticalOffset: number;
+  boxLightShadowBlur: number;
+  boxLightShadowHorizontalOffset: number;
+  boxLightShadowVerticalOffset: number;
 }
 
 export interface IGlassImageWrapper {
