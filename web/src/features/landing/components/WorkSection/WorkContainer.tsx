@@ -5,7 +5,6 @@ import GlassRectangle from 'common/components/GlassRectangle';
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 import Paragraph from 'common/typography/Paragraph';
 
-import { IWorkContainer } from './models';
 import {
   WorkContainerStyle,
   WorkDescription,
@@ -15,6 +14,15 @@ import {
   WorkLinkWrapper,
   WorkTitle,
 } from './styles';
+
+export interface IWorkContainer {
+  workDescription: string;
+  workImageAlt: string;
+  workImageSrc: string;
+  workLinkContent: string;
+  workLinkPath: string;
+  workTitle: string;
+}
 
 const WorkContainer: FC<IWorkContainer> = ({
   workDescription,

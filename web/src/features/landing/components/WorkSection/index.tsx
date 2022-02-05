@@ -6,9 +6,8 @@ import toadTribuneImage from 'assets/img/toad-tribune.png';
 
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 
-import { IWorkContainer } from './models';
 import { Container, Section, SectionTitle } from './styles';
-import WorkContainer from './WorkContainer';
+import WorkContainer, { IWorkContainer } from './WorkContainer';
 
 const workContainerData: IWorkContainer[] = [
   {

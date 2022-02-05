@@ -1,6 +1,17 @@
 import styled from 'styled-components';
 
-import { IGlassContainer, IGlassImageWrapper } from './models';
+interface IGlassContainer {
+  boxDarkShadowBlur: number;
+  boxDarkShadowHorizontalOffset: number;
+  boxDarkShadowVerticalOffset: number;
+  boxLightShadowBlur: number;
+  boxLightShadowHorizontalOffset: number;
+  boxLightShadowVerticalOffset: number;
+}
+
+interface IGlassImageWrapper {
+  opacity?: number;
+}
 
 export const GlassContainer = styled.div<IGlassContainer>`
   display: flex;
