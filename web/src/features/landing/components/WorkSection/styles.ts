@@ -17,27 +17,27 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const ProjectContainer = styled.div`
+export const WorkContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 5rem;
   margin-bottom: 5rem;
 `;
 
-export const ProjectTitle = styled.div``;
+export const WorkTitle = styled.div``;
 
-export const ProjectDescriptionContainer = styled.div`
+export const WorkDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const ProjectDescription = styled.div`
+export const WorkDescription = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const ProjectLinkWrapper = styled.div``;
+export const WorkLinkWrapper = styled.div``;
 
-export const ProjectLink = styled.a<IProjectLink>`
+export const WorkLink = styled.a<IProjectLink>`
   font-size: ${(props) => props.theme.fonts.paragraph};
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary};
