@@ -10,6 +10,7 @@ import {
   WorkContainerStyle,
   WorkDescription,
   WorkDescriptionContainer,
+  WorkImageWrapper,
   WorkLink,
   WorkLinkWrapper,
   WorkTitle,
@@ -63,11 +64,13 @@ const WorkContainer: FC<IWorkContainer> = ({
         </WorkLinkWrapper>
       </WorkDescriptionContainer>
 
-      <GlassRectangle
-        imageAlt={workImageAlt}
-        imageSrc={workImageSrc}
-        opacity={isHovering ? 0.75 : 1}
-      />
+      <WorkImageWrapper>
+        <GlassRectangle
+          imageAlt={workImageAlt}
+          imageSrc={workImageSrc}
+          opacity={isHovering ? 0.75 : 1}
+        />
+      </WorkImageWrapper>
     </WorkContainerStyle>
   );
 };
