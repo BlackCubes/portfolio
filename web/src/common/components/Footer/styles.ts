@@ -4,7 +4,7 @@ export const Foot = styled.footer`
   height: 11rem;
   margin-top: 4rem;
   padding-top: 1.5rem;
-  border-top: 0.1rem dotted ${(props) => props.theme.colors.primary};
+  border-top: 0.1rem dotted ${(props) => props.theme.colors.primary.hex};
 `;
 
 export const Container = styled.div`
@@ -13,7 +13,7 @@ export const Container = styled.div`
   align-items: flex-start;
   height: inherit;
   padding: 4.5rem 3.5rem 0;
-  border-top: 0.1rem dotted ${(props) => props.theme.colors.primary};
+  border-top: 0.1rem dotted ${(props) => props.theme.colors.primary.hex};
 `;
 
 export const ItemsContainer = styled.ul`
@@ -35,14 +35,14 @@ export const ItemLink = styled.a`
   align-items: end;
   height: inherit;
   font-size: 2rem;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary.hex};
   text-decoration: none;
 
   &:hover {
-    color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.secondary.hex};
     font-size: 1.89rem;
     letter-spacing: 0.05rem;
-    border-top: 0.1rem solid ${(props) => props.theme.colors.secondary};
+    border-top: 0.1rem solid ${(props) => props.theme.colors.secondary.hex};
   }
 `;
 

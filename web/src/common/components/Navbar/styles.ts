@@ -39,13 +39,13 @@ export const ItemLink = styled.a`
   align-items: end;
   height: inherit;
   font-size: 2rem;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary.hex};
   text-decoration: none;
 
   &:hover {
-    color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.secondary.hex};
     font-size: 1.89rem;
     letter-spacing: 0.05rem;
-    border-bottom: 0.1rem solid ${(props) => props.theme.colors.secondary};
+    border-bottom: 0.1rem solid ${(props) => props.theme.colors.secondary.hex};
   }
 `;

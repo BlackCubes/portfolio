@@ -8,7 +8,7 @@ interface IHeadingSecondary {
 const HeadingSecondary = styled.h2<IHeadingSecondary>`
   font-size: ${(props) => props.theme.fonts.headingSecondary};
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary.hex};
 
   ${({ letterSpacing }) =>
     letterSpacing && `letter-spacing: ${letterSpacing}rem;`}

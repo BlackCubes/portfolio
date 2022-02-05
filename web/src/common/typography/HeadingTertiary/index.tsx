@@ -8,7 +8,7 @@ interface IHeadingTertiary {
 const HeadingTertiary = styled.h3<IHeadingTertiary>`
   font-size: ${(props) => props.theme.fonts.headingTertiary};
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary.hex};
 
   ${({ opacity }) => opacity && `opacity: ${opacity};`}
 

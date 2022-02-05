@@ -8,7 +8,7 @@ export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
   text-align: right;
-  border-right: 0.1rem dotted ${(props) => props.theme.colors.primary};
+  border-right: 0.1rem dotted ${(props) => props.theme.colors.primary.hex};
   opacity: 0.7;
 `;
 
@@ -43,7 +43,7 @@ export const WorkLinkWrapper = styled.div``;
 export const WorkLink = styled.a<IProjectLink>`
   font-size: ${(props) => props.theme.fonts.paragraph};
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary.hex};
   text-decoration: none;
 
   ${({ opacity }) => opacity && `opacity: ${opacity}`}

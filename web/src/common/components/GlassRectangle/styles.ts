@@ -9,7 +9,7 @@ export const GlassContainer = styled.div`
   align-items: center;
   width: 15rem;
   height: 15rem;
-  background-color: ${(props) => props.theme.colors.glass};
+  background-color: ${(props) => props.theme.colors.glass.hex};
   border-radius: 2rem;
 `;
 
