@@ -10,6 +10,7 @@ export const GlassContainer = styled.div`
   width: 15rem;
   height: 15rem;
   background-color: ${(props) => props.theme.colors.glass};
+  border-radius: 2rem;
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
