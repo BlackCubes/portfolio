@@ -9,8 +9,11 @@ export const GlassContainer = styled.div`
   align-items: center;
   width: 15rem;
   height: 15rem;
-  background-color: ${(props) => props.theme.colors.glass.hex};
+  background-color: ${(props) => `rgba(${props.theme.colors.glass.rgb}, 0.17)`};
   border-radius: 2rem;
+  box-shadow: ${(props) => `
+  -0.1rem -0.1rem 0 0 rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17),
+  0.1rem 0.1rem 0 0 rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
