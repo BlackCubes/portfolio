@@ -32,13 +32,16 @@ export const WorkDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 3rem 1.5rem;
 `;
 
 export const WorkDescription = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const WorkLinkWrapper = styled.div``;
+export const WorkLinkWrapper = styled.div`
+  text-align: right;
+`;
 
 export const WorkLink = styled.a<IProjectLink>`
   font-size: ${(props) => props.theme.fonts.paragraph};
@@ -51,4 +54,5 @@ export const WorkLink = styled.a<IProjectLink>`
 
 export const WorkImageWrapper = styled.div`
   width: 18%;
+  margin-left: 3rem;
 `;
