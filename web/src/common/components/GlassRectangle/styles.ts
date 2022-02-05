@@ -6,10 +6,11 @@ interface IGlassImageWrapper {
 
 export const GlassContainer = styled.div`
   padding: 2rem;
+  background-color: ${(props) => props.theme.colors.glass};
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
-  width: 35.5rem;
+  width: 12rem;
 
   ${({ opacity }) => opacity && `opacity: ${opacity};`}
 `;
