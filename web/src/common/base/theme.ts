@@ -2,13 +2,34 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: Required<DefaultTheme> = {
   colors: {
-    black: '#000',
-    white: '#fff',
-    primary: '#000811',
-    secondary: '#001936',
-    glass: '#E6EDFF',
-    glassLightShadow: '#87A9FF',
-    glassDarkShadow: '#255DEB',
+    black: {
+      hex: '#000',
+      rgb: '0,0,0',
+    },
+    white: {
+      hex: '#fff',
+      rgb: '255,255,255',
+    },
+    primary: {
+      hex: '#000811',
+      rgb: '0,8,17',
+    },
+    secondary: {
+      hex: '#001936',
+      rgb: '0,25,54',
+    },
+    glass: {
+      hex: '#E6EDFF',
+      rgb: '230,237,255',
+    },
+    glassLightShadow: {
+      hex: '#87A9FF',
+      rgb: '135,169,255',
+    },
+    glassDarkShadow: {
+      hex: '#255DEB',
+      rgb: '37,93,235',
+    },
   },
   fonts: {
     // FOR THIS WEB APP: let 1rem = 10px.

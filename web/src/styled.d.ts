@@ -1,13 +1,14 @@
 import 'styled-components';
 
+// RGB IS IN DECIMAL
 interface IColorTheme {
-  black: string;
-  white: string;
-  primary: string;
-  secondary: string;
-  glass: string;
-  glassLightShadow: string;
-  glassDarkShadow: string;
+  black: { hex: string; rgb: string };
+  white: { hex: string; rgb: string };
+  primary: { hex: string; rgb: string };
+  secondary: { hex: string; rgb: string };
+  glass: { hex: string; rgb: string };
+  glassLightShadow: { hex: string; rgb: string };
+  glassDarkShadow: { hex: string; rgb: string };
 }
 
 interface IFontTheme {
