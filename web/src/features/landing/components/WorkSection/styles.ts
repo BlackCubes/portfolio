@@ -24,11 +24,14 @@ export const WorkContainerStyle = styled.div`
   margin-bottom: 5rem;
 `;
 
-export const WorkTitle = styled.div``;
+export const WorkTitle = styled.div`
+  width: 35%;
+`;
 
 export const WorkDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const WorkDescription = styled.div`
@@ -44,4 +47,8 @@ export const WorkLink = styled.a<IProjectLink>`
   text-decoration: none;
 
   ${({ opacity }) => opacity && `opacity: ${opacity}`}
+`;
+
+export const WorkImageWrapper = styled.div`
+  width: 18%;
 `;
