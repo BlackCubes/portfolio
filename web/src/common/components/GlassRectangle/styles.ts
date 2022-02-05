@@ -9,7 +9,6 @@ export const GlassContainer = styled.div`
   align-items: center;
   width: 15rem;
   height: 15rem;
-  padding: 2rem;
   background-color: ${(props) => props.theme.colors.glass};
 `;
 
