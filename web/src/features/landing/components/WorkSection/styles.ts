@@ -4,6 +4,7 @@ interface IProjectLink {
   opacity?: number;
 }
 
+// WORK SECTION
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
@@ -17,6 +18,7 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
+// WORK CONTAINER
 export const WorkContainerStyle = styled.div`
   display: flex;
   justify-content: space-between;
