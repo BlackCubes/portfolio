@@ -17,7 +17,7 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const WorkContainer = styled.div`
+export const WorkContainerStyle = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 5rem;
