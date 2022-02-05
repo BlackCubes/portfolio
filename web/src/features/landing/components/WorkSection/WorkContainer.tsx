@@ -16,6 +16,7 @@ import {
 } from './styles';
 
 export interface IWorkContainer {
+  reverseClass?: string;
   workDescription: string;
   workImageAlt: string;
   workImageSrc: string;
@@ -25,6 +26,7 @@ export interface IWorkContainer {
 }
 
 const WorkContainer: FC<IWorkContainer> = ({
+  reverseClass,
   workDescription,
   workImageAlt,
   workImageSrc,
@@ -35,8 +37,8 @@ const WorkContainer: FC<IWorkContainer> = ({
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <WorkContainerStyle>
-      <WorkTitle>
+    <WorkContainerStyle className={reverseClass}>
+      <WorkTitle className={reverseClass}>
         <HeadingTertiary
           {...(isHovering && {
             opacity: 0.8,
@@ -48,7 +50,7 @@ const WorkContainer: FC<IWorkContainer> = ({
       </WorkTitle>
 
       <WorkDescriptionContainer>
-        <WorkDescription>
+        <WorkDescription className={reverseClass}>
           <Paragraph
             {...(isHovering && {
               opacity: 0.8,
@@ -58,7 +60,7 @@ const WorkContainer: FC<IWorkContainer> = ({
           </Paragraph>
         </WorkDescription>
 
-        <WorkLinkWrapper>
+        <WorkLinkWrapper className={reverseClass}>
           <WorkLink
             href={workLinkPath}
             onMouseEnter={() => setIsHovering(true)}
@@ -72,7 +74,7 @@ const WorkContainer: FC<IWorkContainer> = ({
         </WorkLinkWrapper>
       </WorkDescriptionContainer>
 
-      <WorkImageWrapper>
+      <WorkImageWrapper className={reverseClass}>
         <GlassRectangle
           glassDarkShadowBlur={isHovering ? 0.4 : 0}
           glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}

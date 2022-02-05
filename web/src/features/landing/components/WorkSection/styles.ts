@@ -22,10 +22,18 @@ export const WorkContainerStyle = styled.div`
   justify-content: space-between;
   margin-top: 5rem;
   margin-bottom: 5rem;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
 `;
 
 export const WorkTitle = styled.div`
   width: 35%;
+
+  &.reverse {
+    text-align: right;
+  }
 `;
 
 export const WorkDescriptionContainer = styled.div`
@@ -37,10 +45,18 @@ export const WorkDescriptionContainer = styled.div`
 
 export const WorkDescription = styled.div`
   margin-bottom: 2rem;
+
+  &.reverse {
+    text-align: right;
+  }
 `;
 
 export const WorkLinkWrapper = styled.div`
   text-align: right;
+
+  &.reverse {
+    text-align: left;
+  }
 `;
 
 export const WorkLink = styled.a<IProjectLink>`
@@ -55,4 +71,9 @@ export const WorkLink = styled.a<IProjectLink>`
 export const WorkImageWrapper = styled.div`
   width: 18%;
   margin-left: 3rem;
+
+  &.reverse {
+    margin-left: 0;
+    margin-right: 3rem;
+  }
 `;

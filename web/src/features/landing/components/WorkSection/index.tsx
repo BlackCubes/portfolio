@@ -20,6 +20,7 @@ const workContainerData: IWorkContainer[] = [
     workTitle: 'Kovvie',
   },
   {
+    reverseClass: 'reverse',
     workDescription:
       'A web app built with React and Node.js to provide top headline news from around the world: Politics, sports, stonks, movies, animals and your local weather.',
     workImageAlt: 'The Toad Tribune',
@@ -51,6 +52,7 @@ const WorkSection: FC = () => (
       {workContainerData.map((workData) => (
         <WorkContainer
           key={workData.workTitle.toLowerCase().split(' ').join('-')}
+          reverseClass={workData.reverseClass}
           workDescription={workData.workDescription}
           workImageAlt={workData.workImageAlt}
           workImageSrc={workData.workImageSrc}
