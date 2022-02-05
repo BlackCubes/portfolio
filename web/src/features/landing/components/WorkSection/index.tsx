@@ -1,5 +1,11 @@
 import React, { FC, useState } from 'react';
 
+import kovviImage from 'assets/img/kovvi.png';
+import pokedexAppImage from 'assets/img/pokedex-app.png';
+import toadTribuneImage from 'assets/img/toad-tribune.png';
+
+import GlassRectangle from 'common/components/GlassRectangle';
+
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 import Paragraph from 'common/typography/Paragraph';
@@ -67,6 +73,12 @@ const WorkSection: FC = () => {
               </ProjectLink>
             </ProjectLinkWrapper>
           </ProjectDescriptionContainer>
+
+          <GlassRectangle
+            imageAlt="Kovvi"
+            imageSrc={kovviImage}
+            opacity={isHover ? 0.75 : 1}
+          />
         </ProjectContainer>
 
         <ProjectContainer
@@ -108,6 +120,12 @@ const WorkSection: FC = () => {
               </ProjectLink>
             </ProjectLinkWrapper>
           </ProjectDescriptionContainer>
+
+          <GlassRectangle
+            imageAlt="The Toad Tribune"
+            imageSrc={toadTribuneImage}
+            opacity={isHover ? 0.75 : 1}
+          />
         </ProjectContainer>
 
         <ProjectContainer
@@ -149,6 +167,12 @@ const WorkSection: FC = () => {
               </ProjectLink>
             </ProjectLinkWrapper>
           </ProjectDescriptionContainer>
+
+          <GlassRectangle
+            imageAlt="The Pokédex App"
+            imageSrc={pokedexAppImage}
+            opacity={isHover ? 0.75 : 1}
+          />
         </ProjectContainer>
       </Container>
     </Section>
