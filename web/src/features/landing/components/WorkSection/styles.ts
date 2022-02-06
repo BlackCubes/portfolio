@@ -5,8 +5,8 @@ export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
   text-align: right;
-  border-right: 0.1rem dotted ${(props) => props.theme.colors.primary.hex};
-  opacity: 0.7;
+  border-right: ${(props) =>
+    `0.1rem dotted rgba(${props.theme.colors.primary.rgb}, 0.7)`};
 `;
 
 export const Container = styled.div`
