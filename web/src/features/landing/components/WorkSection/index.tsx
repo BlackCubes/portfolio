@@ -4,6 +4,8 @@ import kovviImage from 'assets/img/kovvi.png';
 import pokedexAppImage from 'assets/img/pokedex-app.png';
 import toadTribuneImage from 'assets/img/toad-tribune.png';
 
+import LineSeparator from 'common/components/LineSeparator';
+
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 
 import { Container, Section, SectionTitle } from './styles';
@@ -50,16 +52,21 @@ const WorkSection: FC = () => (
 
     <Container>
       {workContainerData.map((workData) => (
-        <WorkContainer
+        <React.Fragment
           key={workData.workTitle.toLowerCase().split(' ').join('-')}
-          reverseClass={workData.reverseClass}
-          workDescription={workData.workDescription}
-          workImageAlt={workData.workImageAlt}
-          workImageSrc={workData.workImageSrc}
-          workLinkContent={workData.workLinkContent}
-          workLinkPath={workData.workLinkPath}
-          workTitle={workData.workTitle}
-        />
+        >
+          <LineSeparator />
+
+          <WorkContainer
+            reverseClass={workData.reverseClass}
+            workDescription={workData.workDescription}
+            workImageAlt={workData.workImageAlt}
+            workImageSrc={workData.workImageSrc}
+            workLinkContent={workData.workLinkContent}
+            workLinkPath={workData.workLinkPath}
+            workTitle={workData.workTitle}
+          />
+        </React.Fragment>
       ))}
     </Container>
   </Section>

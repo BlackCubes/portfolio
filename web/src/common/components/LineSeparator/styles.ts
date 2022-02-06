@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  width: 150%;
+  margin-left: -25%;
+`;
 
 export const PrimarySolidLine = styled.div`
   width: 80%;
@@ -9,7 +13,7 @@ export const PrimarySolidLine = styled.div`
 `;
 
 export const SecondaryDottedLine = styled.div`
-  width: 10%;
+  width: 20%;
   border: ${(props) =>
     `0.1rem dotted rgba(${props.theme.colors.secondary.rgb}, 0.3)`};
 `;
