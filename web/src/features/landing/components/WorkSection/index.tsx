@@ -55,7 +55,7 @@ const WorkSection: FC = () => (
         <React.Fragment
           key={workData.workTitle.toLowerCase().split(' ').join('-')}
         >
-          <LineSeparator />
+          <LineSeparator rotateClass="negative-rotate" />
 
           <WorkContainer
             reverseClass={workData.reverseClass}
