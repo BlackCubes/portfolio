@@ -7,6 +7,8 @@ import { useIsHovering } from 'common/hooks';
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 import Paragraph from 'common/typography/Paragraph';
 
+import { isHoveringOverall } from 'utils';
+
 import {
   WorkContainerStyle,
   WorkDescription,
@@ -27,16 +29,6 @@ export interface IWorkContainer {
   workLinkPath: string;
   workTitle: string;
 }
-
-const isHoveringOverall = (
-  isWorkLinkHovering: boolean,
-  isExploreMoreLinkHovering: boolean
-): boolean => {
-  if (isWorkLinkHovering) return true;
-  if (isExploreMoreLinkHovering) return true;
-
-  return false;
-};
 
 const WorkContainer: FC<IWorkContainer> = ({
   isExploreLinkHovering,
