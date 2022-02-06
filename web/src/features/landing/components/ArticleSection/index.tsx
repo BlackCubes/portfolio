@@ -5,11 +5,13 @@ import LineSeparator from 'common/components/LineSeparator';
 import { useIsHovering } from 'common/hooks';
 
 import HeadingSecondary from 'common/typography/HeadingSecondary';
+import Paragraph from 'common/typography/Paragraph';
 
 import {
   Container,
   ExploreMoreLink,
   ExploreMoreWrapper,
+  Introduction,
   Section,
   SectionTitle,
 } from './styles';
@@ -27,6 +29,14 @@ const ArticleSection: FC = () => {
 
       <Container>
         <LineSeparator rotateClass="positive-rotate" />
+
+        <Introduction>
+          <Paragraph>
+            Massa eget egestas purus viverra accumsan in nisl nisi scelerisque
+            eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius
+            vel pharetra velh.
+          </Paragraph>
+        </Introduction>
 
         {isHovering ? 'Hovering' : 'Not hovering'}
       </Container>

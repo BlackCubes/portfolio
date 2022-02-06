@@ -13,6 +13,11 @@ export const Container = styled.div`
   padding-top: 4rem;
 `;
 
+export const Introduction = styled.div`
+  text-align: center;
+  padding: 5rem 15rem;
+`;
+
 export const ExploreMoreWrapper = styled.div`
   text-align: center;
 `;
