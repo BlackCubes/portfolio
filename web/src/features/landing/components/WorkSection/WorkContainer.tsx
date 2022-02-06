@@ -18,6 +18,7 @@ import {
 } from './styles';
 
 export interface IWorkContainer {
+  isExploreLinkHovering: boolean;
   reverseClass?: string;
   workDescription: string;
   workImageAlt: string;
@@ -27,7 +28,18 @@ export interface IWorkContainer {
   workTitle: string;
 }
 
+const isHoveringOverall = (
+  isWorkLinkHovering: boolean,
+  isExploreMoreLinkHovering: boolean
+): boolean => {
+  if (isWorkLinkHovering) return true;
+  if (isExploreMoreLinkHovering) return true;
+
+  return false;
+};
+
 const WorkContainer: FC<IWorkContainer> = ({
+  isExploreLinkHovering,
   reverseClass,
   workDescription,
   workImageAlt,
@@ -42,7 +54,7 @@ const WorkContainer: FC<IWorkContainer> = ({
     <WorkContainerStyle className={reverseClass}>
       <WorkTitle className={reverseClass}>
         <HeadingTertiary
-          {...(isHovering && {
+          {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
             opacity: 0.8,
             textDecoration: 'underline',
           })}
@@ -54,7 +66,7 @@ const WorkContainer: FC<IWorkContainer> = ({
       <WorkDescriptionContainer>
         <WorkDescription className={reverseClass}>
           <Paragraph
-            {...(isHovering && {
+            {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
               opacity: 0.8,
             })}
           >
@@ -75,15 +87,29 @@ const WorkContainer: FC<IWorkContainer> = ({
 
       <WorkImageWrapper className={reverseClass}>
         <GlassRectangle
-          glassDarkShadowBlur={isHovering ? 0.4 : 0}
-          glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
-          glassDarkShadowVerticalOffset={isHovering ? 0.3 : 0.1}
-          glassLightShadowBlur={isHovering ? 0.4 : 0}
-          glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
-          glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
+          glassDarkShadowBlur={
+            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
+          }
+          glassDarkShadowHorizontalOffset={
+            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.3 : 0.1
+          }
+          glassDarkShadowVerticalOffset={
+            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.3 : 0.1
+          }
+          glassLightShadowBlur={
+            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
+          }
+          glassLightShadowHorizontalOffset={
+            isHoveringOverall(isHovering, isExploreLinkHovering) ? -0.3 : -0.1
+          }
+          glassLightShadowVerticalOffset={
+            isHoveringOverall(isHovering, isExploreLinkHovering) ? -0.3 : -0.1
+          }
           imageAlt={workImageAlt}
           imageSrc={workImageSrc}
-          opacity={isHovering ? 0.75 : 1}
+          opacity={
+            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.75 : 1
+          }
         />
       </WorkImageWrapper>
     </WorkContainerStyle>

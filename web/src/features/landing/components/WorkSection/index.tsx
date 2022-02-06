@@ -6,6 +6,8 @@ import toadTribuneImage from 'assets/img/toad-tribune.png';
 
 import LineSeparator from 'common/components/LineSeparator';
 
+import { useIsHovering } from 'common/hooks';
+
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 
 import {
@@ -17,7 +19,7 @@ import {
 } from './styles';
 import WorkContainer, { IWorkContainer } from './WorkContainer';
 
-const workContainerData: IWorkContainer[] = [
+const workContainerData: Omit<IWorkContainer, 'isExploreLinkHovering'>[] = [
   {
     workDescription:
       'A cross-platform mobile app built with React Native that allows users to search COVID-19 data in a region, and view vaccine trial data.',
@@ -48,38 +50,48 @@ const workContainerData: IWorkContainer[] = [
   },
 ];
 
-const WorkSection: FC = () => (
-  <Section className="default-container">
-    <SectionTitle>
-      <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
-        Work
-      </HeadingSecondary>
-    </SectionTitle>
+const WorkSection: FC = () => {
+  const [isHovering, setIsHovering] = useIsHovering();
 
-    <Container>
-      {workContainerData.map((workData) => (
-        <React.Fragment
-          key={workData.workTitle.toLowerCase().split(' ').join('-')}
+  return (
+    <Section className="default-container">
+      <SectionTitle>
+        <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
+          Work
+        </HeadingSecondary>
+      </SectionTitle>
+
+      <Container>
+        {workContainerData.map((workData) => (
+          <React.Fragment
+            key={workData.workTitle.toLowerCase().split(' ').join('-')}
+          >
+            <LineSeparator rotateClass="negative-rotate" />
+
+            <WorkContainer
+              isExploreLinkHovering={isHovering}
+              reverseClass={workData.reverseClass}
+              workDescription={workData.workDescription}
+              workImageAlt={workData.workImageAlt}
+              workImageSrc={workData.workImageSrc}
+              workLinkContent={workData.workLinkContent}
+              workLinkPath={workData.workLinkPath}
+              workTitle={workData.workTitle}
+            />
+          </React.Fragment>
+        ))}
+      </Container>
+
+      <ExploreMoreWrapper>
+        <ExploreMoreLink
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
         >
-          <LineSeparator rotateClass="negative-rotate" />
-
-          <WorkContainer
-            reverseClass={workData.reverseClass}
-            workDescription={workData.workDescription}
-            workImageAlt={workData.workImageAlt}
-            workImageSrc={workData.workImageSrc}
-            workLinkContent={workData.workLinkContent}
-            workLinkPath={workData.workLinkPath}
-            workTitle={workData.workTitle}
-          />
-        </React.Fragment>
-      ))}
-    </Container>
-
-    <ExploreMoreWrapper>
-      <ExploreMoreLink>Explore all work</ExploreMoreLink>
-    </ExploreMoreWrapper>
-  </Section>
-);
+          Explore all work
+        </ExploreMoreLink>
+      </ExploreMoreWrapper>
+    </Section>
+  );
+};
 
 export default WorkSection;
