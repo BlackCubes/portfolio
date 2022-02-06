@@ -1,5 +1,9 @@
 import React, { FC } from 'react';
 
+import dummyArticle1 from 'assets/img/dummy-article1.png';
+import dummyArticle2 from 'assets/img/dummy-article2.png';
+import dummyArticle3 from 'assets/img/dummy-article3.jpg';
+
 import LineSeparator from 'common/components/LineSeparator';
 
 import { useIsHovering } from 'common/hooks';
@@ -15,6 +19,29 @@ import {
   Section,
   SectionTitle,
 } from './styles';
+import ArticleContainer, { IArticleContainer } from './ArticleContainer';
+
+const articleContainerData: Omit<IArticleContainer, 'isExploreLinkHovering'>[] =
+  [
+    {
+      articleImageAlt: 'Dummy Article 1',
+      articleImageSrc: dummyArticle1,
+      articleLinkPath: '#',
+      articleTitle: 'Article Title',
+    },
+    {
+      articleImageAlt: 'Dummy Article 2',
+      articleImageSrc: dummyArticle2,
+      articleLinkPath: '#',
+      articleTitle: 'Article Title',
+    },
+    {
+      articleImageAlt: 'Dummy Article 3',
+      articleImageSrc: dummyArticle3,
+      articleLinkPath: '#',
+      articleTitle: 'Article Title',
+    },
+  ];
 
 const ArticleSection: FC = () => {
   const [isHovering, setIsHovering] = useIsHovering();
@@ -38,7 +65,19 @@ const ArticleSection: FC = () => {
           </Paragraph>
         </Introduction>
 
-        {isHovering ? 'Hovering' : 'Not hovering'}
+        {articleContainerData.map((articleData) => (
+          <React.Fragment
+            key={articleData.articleTitle.toLowerCase().split(' ').join('-')}
+          >
+            <ArticleContainer
+              isExploreLinkHovering={isHovering}
+              articleImageAlt={articleData.articleImageAlt}
+              articleImageSrc={articleData.articleImageSrc}
+              articleLinkPath={articleData.articleLinkPath}
+              articleTitle={articleData.articleTitle}
+            />
+          </React.Fragment>
+        ))}
       </Container>
 
       <ExploreMoreWrapper>

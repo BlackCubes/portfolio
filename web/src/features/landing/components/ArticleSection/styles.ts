@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// Article Section
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
@@ -33,4 +34,25 @@ export const ExploreMoreLink = styled.a`
     cursor: pointer;
     opacity: 0.9;
   }
+`;
+
+// Article Container
+export const ArticleContainerStyle = styled.div`
+  margin-top: 9rem;
+  margin-bottom: 9rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+`;
+
+export const ArticleDescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ArticleImageWrapper = styled.div`
+  margin-bottom: 2rem;
+`;
+
+export const ArticleTitleLink = styled.a`
+  text-decoration: none;
 `;
