@@ -1,6 +1,8 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 import GlassRectangle from 'common/components/GlassRectangle';
+
+import { useIsHovering } from 'common/hooks';
 
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 import Paragraph from 'common/typography/Paragraph';
@@ -34,7 +36,7 @@ const WorkContainer: FC<IWorkContainer> = ({
   workLinkPath,
   workTitle,
 }) => {
-  const [isHovering, setIsHovering] = useState(false);
+  const [isHovering, setIsHovering] = useIsHovering();
 
   return (
     <WorkContainerStyle className={reverseClass}>
