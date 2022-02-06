@@ -36,13 +36,15 @@ export const GlassContainer = styled.div<IGlassContainer>`
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
-  width: 12rem;
+  width: 14rem;
+  height: 14rem;
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%;
   opacity: ${({ opacity }) => opacity ?? '1'};
+  overflow: hidden;
 `;
 
 export const GlassImage = styled.img`
-  width: 100%;
+  width: 200%;
 `;
