@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   width: 150%;
   margin-left: -25%;
+  transform: rotate(-4deg);
 `;
 
 export const PrimarySolidLine = styled.div`
