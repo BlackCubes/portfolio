@@ -13,12 +13,12 @@ import Paragraph from 'common/typography/Paragraph';
 
 import {
   Container,
-  Display,
   ExploreMoreLink,
   ExploreMoreWrapper,
   Introduction,
   Section,
   SectionTitle,
+  Wrapper,
 } from './styles';
 import ArticleContainer, { IArticleContainer } from './ArticleContainer';
 
@@ -66,7 +66,7 @@ const ArticleSection: FC = () => {
           </Paragraph>
         </Introduction>
 
-        <Display>
+        <Wrapper>
           {articleContainerData.map((articleData) => (
             <React.Fragment
               key={articleData.articleTitle.toLowerCase().split(' ').join('-')}
@@ -80,7 +80,7 @@ const ArticleSection: FC = () => {
               />
             </React.Fragment>
           ))}
-        </Display>
+        </Wrapper>
       </Container>
 
       <ExploreMoreWrapper>
