@@ -23,8 +23,10 @@ export const Container = styled.div`
 export const WorkContainerStyle = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 9rem;
+  margin-bottom: 9rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   &.reverse {
     flex-direction: row-reverse;
@@ -43,7 +45,7 @@ export const WorkDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 3rem 1.5rem;
+  padding: 2rem 4.5rem;
 `;
 
 export const WorkDescription = styled.div`
