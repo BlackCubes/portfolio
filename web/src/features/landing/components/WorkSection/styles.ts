@@ -16,6 +16,7 @@ export const SectionTitle = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 4rem;
 `;
 
 // WORK CONTAINER
