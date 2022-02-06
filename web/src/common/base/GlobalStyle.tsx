@@ -51,6 +51,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Nunito', 'Open Sans', 'Poppins', 'Roboto', sans-serif;
     font-weight: 400;
+    /* Is this the valid way to hide the overflow at the x-direction by
+    putting it on the body? */
+    overflow-x: hidden;
   }
 
   .default-container {
