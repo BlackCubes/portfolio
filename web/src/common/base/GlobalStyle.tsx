@@ -58,6 +58,10 @@ const GlobalStyle = createGlobalStyle`
     margin-left: auto;
     margin-right: auto;
   }
+
+  .non-default-container {
+    max-width: 100%;
+  }
 `;
 
 export default GlobalStyle;

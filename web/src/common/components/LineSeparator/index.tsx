@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { Container, PrimarySolidLine, SecondaryDottedLine } from './styles';
 
 const LineSeparator: FC = () => (
-  <Container>
+  <Container className="non-default-container">
     <SecondaryDottedLine />
 
     <PrimarySolidLine />
