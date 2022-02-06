@@ -65,9 +65,6 @@ const WorkContainer: FC<IWorkContainer> = ({
             href={workLinkPath}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
-            {...(isHovering && {
-              opacity: 0.7,
-            })}
           >
             {workLinkContent}
           </WorkLink>

@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-interface IProjectLink {
-  opacity?: number;
-}
-
 // WORK SECTION
 export const Section = styled.section``;
 
@@ -81,13 +77,15 @@ export const WorkLinkWrapper = styled.div`
   }
 `;
 
-export const WorkLink = styled.a<IProjectLink>`
+export const WorkLink = styled.a`
   font-size: ${(props) => props.theme.fonts.paragraph};
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary.hex};
   text-decoration: none;
 
-  ${({ opacity }) => opacity && `opacity: ${opacity}`}
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export const WorkImageWrapper = styled.div`
