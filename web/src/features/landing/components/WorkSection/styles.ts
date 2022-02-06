@@ -19,6 +19,23 @@ export const Container = styled.div`
   padding-top: 4rem;
 `;
 
+export const ExploreMoreWrapper = styled.div`
+  text-align: center;
+`;
+
+export const ExploreMoreLink = styled.a`
+  font-size: 2rem;
+  font-weight: 700;
+  color: ${(props) => props.theme.colors.primary};
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+`;
+
 // WORK CONTAINER
 export const WorkContainerStyle = styled.div`
   display: flex;

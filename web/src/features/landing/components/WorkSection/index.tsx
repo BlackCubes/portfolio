@@ -8,7 +8,13 @@ import LineSeparator from 'common/components/LineSeparator';
 
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 
-import { Container, Section, SectionTitle } from './styles';
+import {
+  Container,
+  ExploreMoreLink,
+  ExploreMoreWrapper,
+  Section,
+  SectionTitle,
+} from './styles';
 import WorkContainer, { IWorkContainer } from './WorkContainer';
 
 const workContainerData: IWorkContainer[] = [
@@ -69,6 +75,10 @@ const WorkSection: FC = () => (
         </React.Fragment>
       ))}
     </Container>
+
+    <ExploreMoreWrapper>
+      <ExploreMoreLink>Explore all work</ExploreMoreLink>
+    </ExploreMoreWrapper>
   </Section>
 );
 
