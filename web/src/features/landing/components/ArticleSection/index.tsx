@@ -13,6 +13,7 @@ import Paragraph from 'common/typography/Paragraph';
 
 import {
   Container,
+  Display,
   ExploreMoreLink,
   ExploreMoreWrapper,
   Introduction,
@@ -65,19 +66,21 @@ const ArticleSection: FC = () => {
           </Paragraph>
         </Introduction>
 
-        {articleContainerData.map((articleData) => (
-          <React.Fragment
-            key={articleData.articleTitle.toLowerCase().split(' ').join('-')}
-          >
-            <ArticleContainer
-              isExploreLinkHovering={isHovering}
-              articleImageAlt={articleData.articleImageAlt}
-              articleImageSrc={articleData.articleImageSrc}
-              articleLinkPath={articleData.articleLinkPath}
-              articleTitle={articleData.articleTitle}
-            />
-          </React.Fragment>
-        ))}
+        <Display>
+          {articleContainerData.map((articleData) => (
+            <React.Fragment
+              key={articleData.articleTitle.toLowerCase().split(' ').join('-')}
+            >
+              <ArticleContainer
+                isExploreLinkHovering={isHovering}
+                articleImageAlt={articleData.articleImageAlt}
+                articleImageSrc={articleData.articleImageSrc}
+                articleLinkPath={articleData.articleLinkPath}
+                articleTitle={articleData.articleTitle}
+              />
+            </React.Fragment>
+          ))}
+        </Display>
       </Container>
 
       <ExploreMoreWrapper>

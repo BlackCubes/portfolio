@@ -19,6 +19,8 @@ export const Introduction = styled.div`
   padding: 5rem 15rem;
 `;
 
+export const Display = styled.div``;
+
 export const ExploreMoreWrapper = styled.div`
   text-align: center;
 `;
