@@ -8,9 +8,10 @@ export const Container = styled.div`
 `;
 
 export const PrimarySolidLine = styled.div`
-  width: 80%;
-  border: ${(props) =>
-    `0.1rem solid rgba(${props.theme.colors.primary.rgb}, 0.7)`};
+  width: 100%;
+  height: 0.2rem;
+  background-color: ${(props) =>
+    `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
 `;
 
 export const SecondaryDottedLine = styled.div`
