@@ -40,6 +40,8 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   height: 14rem;
   margin-left: auto;
   margin-right: auto;
+  border: ${(props) =>
+    `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
   border-radius: 50%;
   opacity: ${({ opacity }) => opacity ?? '1'};
   overflow: hidden;
