@@ -22,7 +22,7 @@ const talkContainerData: ITalkContainer[] = [
     reverseClass: 'reverse',
     talkImageAlt: 'Redux Toolkit Presentation',
     talkImageSrc: talkPresentation2,
-    talkLinkPath: '/',
+    talkLinkPath: '#',
     talkTitle:
       '"Converting Legacy Redux To Redux Toolkit" Developer Connect Presentation @ Bitwise Industries',
   },
