@@ -49,7 +49,7 @@ const TalkContainer: FC<ITalkContainer> = ({
         </TalkImageWrapper>
 
         <TalkTitleLink
-          href={talkLinkPath}
+          to={talkLinkPath}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >

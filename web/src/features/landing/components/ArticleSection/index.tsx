@@ -28,21 +28,21 @@ const articleContainerData: Omit<IArticleContainer, 'isExploreLinkHovering'>[] =
       articleClass: 'article1',
       articleImageAlt: 'Dummy Article 1',
       articleImageSrc: dummyArticle1,
-      articleLinkPath: '#',
+      articleLinkPath: '/',
       articleTitle: 'Article Title',
     },
     {
       articleClass: 'article2',
       articleImageAlt: 'Dummy Article 2',
       articleImageSrc: dummyArticle2,
-      articleLinkPath: '#',
+      articleLinkPath: '/',
       articleTitle: 'Article Title',
     },
     {
       articleClass: 'article3',
       articleImageAlt: 'Dummy Article 3',
       articleImageSrc: dummyArticle3,
-      articleLinkPath: '#',
+      articleLinkPath: '/',
       articleTitle: 'Article Title',
     },
   ];
@@ -89,6 +89,7 @@ const ArticleSection: FC = () => {
 
       <ExploreMoreWrapper>
         <ExploreMoreLink
+          to="/"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >

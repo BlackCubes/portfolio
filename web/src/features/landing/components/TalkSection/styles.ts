@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // TALK SECTION
@@ -60,7 +61,7 @@ export const TalkImageWrapper = styled.div`
   }
 `;
 
-export const TalkTitleLink = styled.a`
+export const TalkTitleLink = styled(Link)`
   padding-left: 7rem;
   padding-right: 7rem;
   text-decoration: none;

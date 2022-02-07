@@ -26,7 +26,7 @@ const workContainerData: Omit<IWorkContainer, 'isExploreLinkHovering'>[] = [
     workImageAlt: 'Kovvi',
     workImageSrc: kovviImage,
     workLinkContent: 'View',
-    workLinkPath: '#',
+    workLinkPath: '/',
     workTitle: 'Kovvie',
   },
   {
@@ -36,7 +36,7 @@ const workContainerData: Omit<IWorkContainer, 'isExploreLinkHovering'>[] = [
     workImageAlt: 'The Toad Tribune',
     workImageSrc: toadTribuneImage,
     workLinkContent: 'View',
-    workLinkPath: '#',
+    workLinkPath: '/',
     workTitle: 'The Toad Tribune',
   },
   {
@@ -45,7 +45,7 @@ const workContainerData: Omit<IWorkContainer, 'isExploreLinkHovering'>[] = [
     workImageAlt: 'The Pokédex App',
     workImageSrc: pokedexAppImage,
     workLinkContent: 'View',
-    workLinkPath: '#',
+    workLinkPath: '/',
     workTitle: 'The Pokédex App',
   },
 ];
@@ -84,6 +84,7 @@ const WorkSection: FC = () => {
 
       <ExploreMoreWrapper>
         <ExploreMoreLink
+          to="/"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
