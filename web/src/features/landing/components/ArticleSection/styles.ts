@@ -52,17 +52,56 @@ export const ArticleContainerStyle = styled.div`
   padding-bottom: 5rem;
 
   &.article1 {
+    position: relative;
     grid-area: article1;
   }
 
   &.article2 {
+    position: relative;
     grid-area: article2;
     padding-left: 15rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -4.7rem;
+      left: 24.1rem;
+      width: 36rem;
+      height: 0.2rem;
+      background-color: ${(props) =>
+        `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
+      transform: rotate(40deg);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 5.4rem;
+      left: 38rem;
+      width: 36rem;
+      height: 0.2rem;
+      background-color: ${(props) =>
+        `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
+      transform: rotate(90deg);
+    }
   }
 
   &.article3 {
+    position: relative;
     grid-area: article3;
     padding-right: 15rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -4.7rem;
+      right: 24.1rem;
+      width: 36rem;
+      height: 0.2rem;
+      background-color: ${(props) =>
+        `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
+      transform: rotate(-40deg);
+    }
   }
 `;
 
