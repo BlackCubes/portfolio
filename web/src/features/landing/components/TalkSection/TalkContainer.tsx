@@ -44,6 +44,7 @@ const TalkContainer: FC<ITalkContainer> = ({
             imageAlt={talkImageAlt}
             imageSrc={talkImageSrc}
             opacity={isHovering ? 0.75 : 1}
+            reverseClass={reverseClass}
           />
         </TalkImageWrapper>
 

@@ -27,6 +27,10 @@ export const GlassContainer = styled.div<IGlassContainer>`
     }rem ${props.boxDarkShadowBlur ?? '0'}rem rgba(${
       props.theme.colors.glassDarkShadow.rgb
     }, 0.27))`};
+
+  &.reverse {
+    transform: scaleY(-1);
+  }
 `;
 
 export const GlassShape = styled.div`
@@ -51,6 +55,10 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   height: 100%;
   overflow: hidden;
   opacity: ${({ opacity }) => opacity ?? '1'};
+
+  &.reverse {
+    transform: scaleY(-1);
+  }
 `;
 
 export const GlassImage = styled.img`

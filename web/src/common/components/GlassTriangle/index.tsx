@@ -7,7 +7,7 @@ import {
   GlassShape,
 } from './styles';
 
-interface IGlassTriangle {
+export interface IGlassTriangle {
   glassDarkShadowBlur: number;
   glassDarkShadowHorizontalOffset: number;
   glassDarkShadowVerticalOffset: number;
@@ -17,6 +17,7 @@ interface IGlassTriangle {
   imageAlt: string;
   imageSrc: string;
   opacity: number;
+  reverseClass?: string;
 }
 
 const GlassTriangle: FC<IGlassTriangle> = ({
@@ -29,8 +30,10 @@ const GlassTriangle: FC<IGlassTriangle> = ({
   imageAlt,
   imageSrc,
   opacity,
+  reverseClass,
 }) => (
   <GlassContainer
+    className={reverseClass}
     boxDarkShadowBlur={glassDarkShadowBlur}
     boxDarkShadowHorizontalOffset={glassDarkShadowHorizontalOffset}
     boxDarkShadowVerticalOffset={glassDarkShadowVerticalOffset}
@@ -39,7 +42,7 @@ const GlassTriangle: FC<IGlassTriangle> = ({
     boxLightShadowVerticalOffset={glassLightShadowVerticalOffset}
   >
     <GlassShape>
-      <GlassImageWrapper opacity={opacity}>
+      <GlassImageWrapper className={reverseClass} opacity={opacity}>
         <GlassImage src={imageSrc} alt={imageAlt} />
       </GlassImageWrapper>
     </GlassShape>
