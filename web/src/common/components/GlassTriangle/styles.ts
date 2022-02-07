@@ -9,8 +9,6 @@ export const GlassContainer = styled.div`
 `;
 
 export const GlassShape = styled.div`
-  width: 30rem;
-  height: 19rem;
   clip-path: polygon(
     0% 100%,
     25% 21%,
@@ -26,6 +24,8 @@ export const GlassShape = styled.div`
 `;
 
 export const GlassImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 100%;
   overflow: hidden;
