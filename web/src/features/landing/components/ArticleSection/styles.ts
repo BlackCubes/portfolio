@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-// Article Section
+// ARTICLE SECTION
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
@@ -47,7 +47,7 @@ export const ExploreMoreLink = styled.a`
   }
 `;
 
-// Article Container
+// ARTICLE CONTAINER
 export const ArticleContainerStyle = styled.div`
   padding-top: 5rem;
   padding-bottom: 5rem;
