@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Foot = styled.footer`
@@ -30,7 +31,7 @@ export const Item = styled.li`
   }
 `;
 
-export const ItemLink = styled.a`
+export const ItemLink = styled(Link)`
   display: inline-flex;
   align-items: end;
   height: inherit;

@@ -17,22 +17,22 @@ const Navbar: FC = () => (
   <Nav className="default-container">
     <Container>
       <LogoWrapper>
-        <LogoLink href="#">
+        <LogoLink to="/">
           <Logo src={logo} alt="Portfolio logo" />
         </LogoLink>
       </LogoWrapper>
 
       <ItemsContainer>
         <Item>
-          <ItemLink href="#">Work</ItemLink>
+          <ItemLink to="/">Work</ItemLink>
         </Item>
 
         <Item>
-          <ItemLink href="#">Articles</ItemLink>
+          <ItemLink to="/">Articles</ItemLink>
         </Item>
 
         <Item>
-          <ItemLink href="#">About</ItemLink>
+          <ItemLink to="/">About</ItemLink>
         </Item>
       </ItemsContainer>
     </Container>
