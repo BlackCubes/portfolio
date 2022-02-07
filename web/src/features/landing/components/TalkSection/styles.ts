@@ -43,6 +43,7 @@ export const TalkDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 `;
 
 export const TalkImageWrapper = styled.div`
