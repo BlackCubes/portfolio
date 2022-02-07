@@ -17,7 +17,7 @@ import {
 } from './styles';
 
 const Footer: FC = () => (
-  <Foot className="default-container">
+  <Foot className="default-container navbar-footer-space">
     <Container>
       <ItemsContainer>
         <Item>

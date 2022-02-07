@@ -69,6 +69,10 @@ const GlobalStyle = createGlobalStyle`
   .default-margin-bottom {
     margin-bottom: 15rem;
   }
+
+  .navbar-footer-space {
+    margin-top: 10rem;
+  }
 `;
 
 export default GlobalStyle;
