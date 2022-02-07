@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-import { GlassContainer, GlassInnerContainer } from './styles';
+import { GlassContainer, GlassShadow } from './styles';
 
 const GlassTriangle: FC = () => (
   <GlassContainer>
-    <GlassInnerContainer />
+    <GlassShadow />
   </GlassContainer>
 );
 
