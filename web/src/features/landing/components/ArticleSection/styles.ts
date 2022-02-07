@@ -19,7 +19,14 @@ export const Introduction = styled.div`
   padding: 5rem 15rem;
 `;
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'article1 article1'
+    'article2 article3';
+`;
 
 export const ExploreMoreWrapper = styled.div`
   text-align: center;
@@ -40,15 +47,28 @@ export const ExploreMoreLink = styled.a`
 
 // Article Container
 export const ArticleContainerStyle = styled.div`
-  margin-top: 9rem;
-  margin-bottom: 9rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  &.article1 {
+    grid-area: article1;
+  }
+
+  &.article2 {
+    grid-area: article2;
+    padding-left: 15rem;
+  }
+
+  &.article3 {
+    grid-area: article3;
+    padding-right: 15rem;
+  }
 `;
 
 export const ArticleDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const ArticleImageWrapper = styled.div`
