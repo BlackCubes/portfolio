@@ -47,6 +47,7 @@ export const TalkDescriptionContainer = styled.div`
 
   &.reverse {
     flex-direction: column-reverse;
+    padding-top: 10rem;
   }
 `;
 
