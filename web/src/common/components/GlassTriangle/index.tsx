@@ -1,7 +1,11 @@
 import React, { FC } from 'react';
 
-import { GlassContainer } from './styles';
+import { GlassContainer, GlassInnerContainer } from './styles';
 
-const GlassTriangle: FC = () => <GlassContainer />;
+const GlassTriangle: FC = () => (
+  <GlassContainer>
+    <GlassInnerContainer />
+  </GlassContainer>
+);
 
 export default GlassTriangle;
