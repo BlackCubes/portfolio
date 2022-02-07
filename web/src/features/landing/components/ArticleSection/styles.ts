@@ -26,6 +26,7 @@ export const Wrapper = styled.div`
   grid-template-areas:
     'article1 article1'
     'article2 article3';
+  margin-bottom: 10rem;
 `;
 
 export const ExploreMoreWrapper = styled.div`
