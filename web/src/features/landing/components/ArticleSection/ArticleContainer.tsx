@@ -35,7 +35,7 @@ const ArticleContainer: FC<IArticleContainer> = ({
   const [isHovering, setIsHovering] = useIsHovering();
 
   return (
-    <ArticleContainerStyle>
+    <ArticleContainerStyle className={articleClass}>
       <ArticleDescriptionContainer className={articleClass}>
         <ArticleImageWrapper>
           <GlassCircle
