@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const GlassContainer = styled.div`
+export const GlassWrapper = styled.div`
   width: 15rem;
   height: 15rem;
   filter: ${(props) =>
