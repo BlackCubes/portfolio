@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 
 import profileImage from 'assets/img/profile-pic.jpg';
 
+import GlassCircle from 'common/components/GlassCircle';
+
 import HeadingPrimary from 'common/typography/HeadingPrimary';
 import Paragraph from 'common/typography/Paragraph';
 
@@ -9,7 +11,6 @@ import {
   BiographyContainer,
   Container,
   MainBiographyWrapper,
-  ProfileImage,
   ProfileImageWrapper,
   SecondaryBiographyWrapper,
 } from './styles';
@@ -17,7 +18,17 @@ import {
 const HeroBanner: FC = () => (
   <Container className="default-container default-margin-bottom navbar-footer-space">
     <ProfileImageWrapper>
-      <ProfileImage src={profileImage} alt="Profile image of Elias Gutierrez" />
+      <GlassCircle
+        glassDarkShadowBlur={0.4}
+        glassDarkShadowHorizontalOffset={0.3}
+        glassDarkShadowVerticalOffset={0.3}
+        glassLightShadowBlur={0.4}
+        glassLightShadowHorizontalOffset={-0.3}
+        glassLightShadowVerticalOffset={-0.3}
+        imageAlt="Profile image of Elias Gutierrez"
+        imageSrc={profileImage}
+        opacity={1}
+      />
     </ProfileImageWrapper>
 
     <BiographyContainer>
