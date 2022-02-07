@@ -24,7 +24,7 @@ export const ExploreMoreWrapper = styled.div`
 export const ExploreMoreLink = styled(Link)`
   font-size: 2rem;
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary.hex};
   text-decoration: none;
 
   &:hover {
