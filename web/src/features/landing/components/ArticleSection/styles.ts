@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-// Article Section
+// ARTICLE SECTION
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
@@ -47,7 +47,7 @@ export const ExploreMoreLink = styled.a`
   }
 `;
 
-// Article Container
+// ARTICLE CONTAINER
 export const ArticleContainerStyle = styled.div`
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -62,27 +62,25 @@ export const ArticleContainerStyle = styled.div`
     grid-area: article2;
     padding-left: 15rem;
 
-    &:before {
+    &:before,
+    &:after {
       content: '';
       position: absolute;
-      top: -4.7rem;
-      left: 24.1rem;
       width: 36rem;
       height: 0.2rem;
       background-color: ${(props) =>
         `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
+    }
+
+    &:before {
+      top: -4.7rem;
+      left: 24.1rem;
       transform: rotate(40deg);
     }
 
     &:after {
-      content: '';
-      position: absolute;
       bottom: 5.4rem;
       left: 38rem;
-      width: 36rem;
-      height: 0.2rem;
-      background-color: ${(props) =>
-        `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
       transform: rotate(90deg);
     }
   }
