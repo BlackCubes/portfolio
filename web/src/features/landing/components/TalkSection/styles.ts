@@ -52,6 +52,11 @@ export const TalkDescriptionContainer = styled.div`
 
 export const TalkImageWrapper = styled.div`
   margin-bottom: 2rem;
+
+  &.reverse {
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
 `;
 
 export const TalkTitleLink = styled.a`

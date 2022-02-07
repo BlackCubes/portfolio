@@ -33,7 +33,7 @@ const TalkContainer: FC<ITalkContainer> = ({
   return (
     <TalkContainerStyle>
       <TalkDescriptionContainer className={reverseFlexColumnClass}>
-        <TalkImageWrapper>
+        <TalkImageWrapper className={reverseFlexColumnClass}>
           <GlassTriangle
             glassDarkShadowBlur={isHovering ? 0.4 : 0}
             glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
