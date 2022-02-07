@@ -36,7 +36,7 @@ const ArticleContainer: FC<IArticleContainer> = ({
 
   return (
     <ArticleContainerStyle className={articleClass}>
-      <ArticleDescriptionContainer className={articleClass}>
+      <ArticleDescriptionContainer>
         <ArticleImageWrapper>
           <GlassCircle
             glassDarkShadowBlur={
