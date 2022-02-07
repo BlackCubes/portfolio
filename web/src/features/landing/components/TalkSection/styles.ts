@@ -51,5 +51,7 @@ export const TalkImageWrapper = styled.div`
 `;
 
 export const TalkTitleLink = styled.a`
+  padding-left: 7rem;
+  padding-right: 7rem;
   text-decoration: none;
 `;
