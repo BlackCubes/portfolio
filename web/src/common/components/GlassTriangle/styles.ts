@@ -1,66 +1,37 @@
 import styled from 'styled-components';
 
-export const GlassContainer = styled.div``;
-
-export const MultiGlass = styled.div`
-  position: relative;
-  width: 35rem;
-  height: 20rem;
-`;
-
-export const GlassWrapper = styled.div`
+export const GlassContainer = styled.div`
   position: absolute;
-  width: 15rem;
-  height: 15rem;
+  width: 30rem;
+  height: 19rem;
   filter: ${(props) =>
     `drop-shadow(-0.1rem -0.1rem 0rem rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)) 
     drop-shadow(0.1rem 0.1rem 0rem rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27))`};
-
-  &.triangle1 {
-    top: 2rem;
-  }
-
-  &.triangle2 {
-    left: 6.5rem;
-  }
-
-  &.triangle3 {
-    top: -2rem;
-    left: 15rem;
-  }
-
-  &.vertical-flip {
-    transform: scaleY(-1);
-  }
 `;
 
-export const GlassShadow = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: ${(props) => `rgba(${props.theme.colors.glass.rgb}, 0.17)`};
-  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
-`;
-
-export const DummyGlass = styled.div`
-  width: 100%;
-  height: 100%;
+export const GlassShape = styled.div`
+  width: 30rem;
+  height: 19rem;
   clip-path: polygon(
     0% 100%,
-    25% 18%,
-    18% 7%,
-    65% 9%,
-    71% 0%,
-    100% 77%,
-    51% 77%,
-    46% 85%,
-    52% 100%
+    25% 21%,
+    21.3% 10%,
+    71.7% 10%,
+    75.1% 0%,
+    100% 78.6%,
+    50% 78.6%,
+    46.5% 89%,
+    50% 100%
   );
+  background-color: ${(props) => `rgba(${props.theme.colors.glass.rgb}, 0.17)`};
 `;
 
 export const GlassImageWrapper = styled.div`
-  width: 14rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 `;
 
 export const GlassImage = styled.img`
-  width: 200%;
+  width: 100%;
 `;

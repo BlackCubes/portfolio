@@ -1,13 +1,10 @@
 import React, { FC } from 'react';
 
 import {
-  DummyGlass,
   GlassContainer,
   GlassImage,
   GlassImageWrapper,
-  GlassWrapper,
-  GlassShadow,
-  MultiGlass,
+  GlassShape,
 } from './styles';
 
 interface IGlassTriangle {
@@ -17,25 +14,11 @@ interface IGlassTriangle {
 
 const GlassTriangle: FC<IGlassTriangle> = ({ imageAlt, imageSrc }) => (
   <GlassContainer>
-    <MultiGlass>
-      <GlassWrapper className="triangle1">
-        <GlassShadow />
-      </GlassWrapper>
-
-      <GlassWrapper className="triangle2 vertical-flip">
-        <GlassShadow />
-      </GlassWrapper>
-
-      <GlassWrapper className="triangle3">
-        <GlassShadow />
-      </GlassWrapper>
-    </MultiGlass>
-
-    <DummyGlass />
-
-    <GlassImageWrapper>
-      <GlassImage src={imageSrc} alt={imageAlt} />
-    </GlassImageWrapper>
+    <GlassShape>
+      <GlassImageWrapper>
+        <GlassImage src={imageSrc} alt={imageAlt} />
+      </GlassImageWrapper>
+    </GlassShape>
   </GlassContainer>
 );
 
