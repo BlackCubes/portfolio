@@ -15,7 +15,7 @@ import {
 } from './styles';
 
 const HeroBanner: FC = () => (
-  <Container className="default-container">
+  <Container className="default-container default-margin-bottom">
     <ProfileImageWrapper>
       <ProfileImage src={profileImage} alt="Profile image of Elias Gutierrez" />
     </ProfileImageWrapper>

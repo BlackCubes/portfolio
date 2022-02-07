@@ -65,6 +65,10 @@ const GlobalStyle = createGlobalStyle`
   .non-default-container {
     max-width: 100%;
   }
+
+  .default-margin-bottom {
+    margin-bottom: 15rem;
+  }
 `;
 
 export default GlobalStyle;
