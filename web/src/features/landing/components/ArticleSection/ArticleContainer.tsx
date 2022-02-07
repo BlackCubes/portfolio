@@ -17,6 +17,7 @@ import {
 
 export interface IArticleContainer {
   isExploreLinkHovering: boolean;
+  articleClass: string;
   articleImageAlt: string;
   articleImageSrc: string;
   articleLinkPath: string;
@@ -25,6 +26,7 @@ export interface IArticleContainer {
 
 const ArticleContainer: FC<IArticleContainer> = ({
   isExploreLinkHovering,
+  articleClass,
   articleImageAlt,
   articleImageSrc,
   articleLinkPath,
@@ -34,7 +36,7 @@ const ArticleContainer: FC<IArticleContainer> = ({
 
   return (
     <ArticleContainerStyle>
-      <ArticleDescriptionContainer>
+      <ArticleDescriptionContainer className={articleClass}>
         <ArticleImageWrapper>
           <GlassCircle
             glassDarkShadowBlur={
@@ -69,7 +71,7 @@ const ArticleContainer: FC<IArticleContainer> = ({
           onMouseLeave={() => setIsHovering(false)}
         >
           <HeadingTertiary
-            {...(isHovering && {
+            {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
               opacity: 0.8,
               textDecoration: 'underline',
             })}

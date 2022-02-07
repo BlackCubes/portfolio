@@ -25,18 +25,21 @@ import ArticleContainer, { IArticleContainer } from './ArticleContainer';
 const articleContainerData: Omit<IArticleContainer, 'isExploreLinkHovering'>[] =
   [
     {
+      articleClass: 'article1',
       articleImageAlt: 'Dummy Article 1',
       articleImageSrc: dummyArticle1,
       articleLinkPath: '#',
       articleTitle: 'Article Title',
     },
     {
+      articleClass: 'article2',
       articleImageAlt: 'Dummy Article 2',
       articleImageSrc: dummyArticle2,
       articleLinkPath: '#',
       articleTitle: 'Article Title',
     },
     {
+      articleClass: 'article3',
       articleImageAlt: 'Dummy Article 3',
       articleImageSrc: dummyArticle3,
       articleLinkPath: '#',
@@ -73,6 +76,7 @@ const ArticleSection: FC = () => {
             >
               <ArticleContainer
                 isExploreLinkHovering={isHovering}
+                articleClass={articleData.articleClass}
                 articleImageAlt={articleData.articleImageAlt}
                 articleImageSrc={articleData.articleImageSrc}
                 articleLinkPath={articleData.articleLinkPath}
