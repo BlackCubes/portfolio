@@ -30,6 +30,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ExploreMoreWrapper = styled.div`
+  margin-top: 10rem;
   text-align: center;
 `;
 
