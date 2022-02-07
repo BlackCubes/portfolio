@@ -41,6 +41,22 @@ export const GlassShadow = styled.div`
   clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
 `;
 
+export const DummyGlass = styled.div`
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(
+    0% 100%,
+    25% 18%,
+    18% 7%,
+    65% 9%,
+    71% 0%,
+    100% 77%,
+    51% 77%,
+    46% 85%,
+    52% 100%
+  );
+`;
+
 export const GlassImageWrapper = styled.div`
   width: 14rem;
 `;

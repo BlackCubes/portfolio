@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import {
+  DummyGlass,
   GlassContainer,
   GlassImage,
   GlassImageWrapper,
@@ -29,6 +30,8 @@ const GlassTriangle: FC<IGlassTriangle> = ({ imageAlt, imageSrc }) => (
         <GlassShadow />
       </GlassWrapper>
     </MultiGlass>
+
+    <DummyGlass />
 
     <GlassImageWrapper>
       <GlassImage src={imageSrc} alt={imageAlt} />
