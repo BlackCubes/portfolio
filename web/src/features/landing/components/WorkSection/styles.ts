@@ -16,6 +16,7 @@ export const Container = styled.div`
 `;
 
 export const ExploreMoreWrapper = styled.div`
+  margin-top: 5rem;
   text-align: center;
 `;
 
