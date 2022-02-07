@@ -34,3 +34,21 @@ export const Container = styled.div`
 `;
 
 // TALK CONTAINER
+export const TalkContainerStyle = styled.div`
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+`;
+
+export const TalkDescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const TalkImageWrapper = styled.div`
+  margin-bottom: 2rem;
+`;
+
+export const TalkTitleLink = styled.a`
+  text-decoration: none;
+`;
