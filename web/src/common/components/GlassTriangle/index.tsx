@@ -1,21 +1,39 @@
 import React, { FC } from 'react';
 
-import { GlassWrapper, GlassShadow, MultiGlass } from './styles';
+import {
+  GlassContainer,
+  GlassImage,
+  GlassImageWrapper,
+  GlassWrapper,
+  GlassShadow,
+  MultiGlass,
+} from './styles';
 
-const GlassTriangle: FC = () => (
-  <MultiGlass>
-    <GlassWrapper className="triangle1">
-      <GlassShadow />
-    </GlassWrapper>
+interface IGlassTriangle {
+  imageAlt: string;
+  imageSrc: string;
+}
 
-    <GlassWrapper className="triangle2 vertical-flip">
-      <GlassShadow />
-    </GlassWrapper>
+const GlassTriangle: FC<IGlassTriangle> = ({ imageAlt, imageSrc }) => (
+  <GlassContainer>
+    <MultiGlass>
+      <GlassWrapper className="triangle1">
+        <GlassShadow />
+      </GlassWrapper>
 
-    <GlassWrapper className="triangle3">
-      <GlassShadow />
-    </GlassWrapper>
-  </MultiGlass>
+      <GlassWrapper className="triangle2 vertical-flip">
+        <GlassShadow />
+      </GlassWrapper>
+
+      <GlassWrapper className="triangle3">
+        <GlassShadow />
+      </GlassWrapper>
+    </MultiGlass>
+
+    <GlassImageWrapper>
+      <GlassImage src={imageSrc} alt={imageAlt} />
+    </GlassImageWrapper>
+  </GlassContainer>
 );
 
 export default GlassTriangle;
