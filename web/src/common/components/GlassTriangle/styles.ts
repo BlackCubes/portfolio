@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const GlassContainer = styled.div`
-  position: absolute;
   width: 30rem;
   height: 19rem;
   filter: ${(props) =>
