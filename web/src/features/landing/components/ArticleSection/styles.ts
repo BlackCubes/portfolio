@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // ARTICLE SECTION
@@ -34,10 +35,10 @@ export const ExploreMoreWrapper = styled.div`
   text-align: center;
 `;
 
-export const ExploreMoreLink = styled.a`
+export const ExploreMoreLink = styled(Link)`
   font-size: 2rem;
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary.hex};
   text-decoration: none;
 
   &:hover {
@@ -114,6 +115,6 @@ export const ArticleImageWrapper = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const ArticleTitleLink = styled.a`
+export const ArticleTitleLink = styled(Link)`
   text-decoration: none;
 `;

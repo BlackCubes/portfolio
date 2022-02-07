@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
@@ -16,7 +16,7 @@ export const LogoWrapper = styled.div`
   width: 5.5rem;
 `;
 
-export const LogoLink = styled.a`
+export const LogoLink = styled(Link)`
   display: inline-flex;
 `;
 
@@ -34,7 +34,7 @@ export const Item = styled.li`
   padding-left: 11rem;
 `;
 
-export const ItemLink = styled.a`
+export const ItemLink = styled(Link)`
   display: inline-flex;
   align-items: end;
   height: inherit;

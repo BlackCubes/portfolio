@@ -17,25 +17,25 @@ import {
 } from './styles';
 
 const Footer: FC = () => (
-  <Foot className="default-container">
+  <Foot className="default-container navbar-footer-space">
     <Container>
       <ItemsContainer>
         <Item>
-          <ItemLink href="#">Work</ItemLink>
+          <ItemLink to="/">Work</ItemLink>
         </Item>
 
         <Item>
-          <ItemLink href="#">Articles</ItemLink>
+          <ItemLink to="/">Articles</ItemLink>
         </Item>
 
         <Item>
-          <ItemLink href="#">About</ItemLink>
+          <ItemLink to="/">About</ItemLink>
         </Item>
       </ItemsContainer>
 
       <LogosContainer>
         <LogoWrapper>
-          <LogoLink href="#">
+          <LogoLink href="https://github.com/BlackCubes">
             <Logo
               src={githubLogo}
               alt="Github Logo"
@@ -45,7 +45,7 @@ const Footer: FC = () => (
         </LogoWrapper>
 
         <LogoWrapper>
-          <LogoLink href="#">
+          <LogoLink href="https://twitter.com/_BlackCubes_">
             <Logo
               src={twitterLogo}
               alt="Twitter Logo"
@@ -55,7 +55,7 @@ const Footer: FC = () => (
         </LogoWrapper>
 
         <LogoWrapper>
-          <LogoLink href="#">
+          <LogoLink href="https://www.linkedin.com/in/eliasgutierrez1991/">
             <Logo
               src={linkedinLogo}
               alt="LinkedIn Logo"

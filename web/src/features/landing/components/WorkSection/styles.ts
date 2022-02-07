@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // WORK SECTION
@@ -16,13 +17,14 @@ export const Container = styled.div`
 `;
 
 export const ExploreMoreWrapper = styled.div`
+  margin-top: 5rem;
   text-align: center;
 `;
 
-export const ExploreMoreLink = styled.a`
+export const ExploreMoreLink = styled(Link)`
   font-size: 2rem;
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary.hex};
   text-decoration: none;
 
   &:hover {
@@ -77,7 +79,7 @@ export const WorkLinkWrapper = styled.div`
   }
 `;
 
-export const WorkLink = styled.a`
+export const WorkLink = styled(Link)`
   font-size: ${(props) => props.theme.fonts.paragraph};
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary.hex};

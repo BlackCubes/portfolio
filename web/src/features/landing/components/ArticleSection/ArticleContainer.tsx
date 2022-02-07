@@ -66,7 +66,7 @@ const ArticleContainer: FC<IArticleContainer> = ({
         </ArticleImageWrapper>
 
         <ArticleTitleLink
-          href={articleLinkPath}
+          to={articleLinkPath}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >

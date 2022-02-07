@@ -7,11 +7,10 @@ export const Container = styled.div`
 
 export const ProfileImageWrapper = styled.div`
   width: 15rem;
-`;
 
-export const ProfileImage = styled.img`
-  width: 100%;
-  border-radius: 50%;
+  & img {
+    width: 100%;
+  }
 `;
 
 export const BiographyContainer = styled.div`

@@ -68,7 +68,7 @@ const WorkContainer: FC<IWorkContainer> = ({
 
         <WorkLinkWrapper className={reverseClass}>
           <WorkLink
-            href={workLinkPath}
+            to={workLinkPath}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
