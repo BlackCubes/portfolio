@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 export interface ITalkContainer {
-  reverseFlexColumnClass?: string;
+  reverseClass?: string;
   talkImageAlt: string;
   talkImageSrc: string;
   talkLinkPath: string;
@@ -22,7 +22,7 @@ export interface ITalkContainer {
 }
 
 const TalkContainer: FC<ITalkContainer> = ({
-  reverseFlexColumnClass,
+  reverseClass,
   talkImageAlt,
   talkImageSrc,
   talkLinkPath,
@@ -32,8 +32,8 @@ const TalkContainer: FC<ITalkContainer> = ({
 
   return (
     <TalkContainerStyle>
-      <TalkDescriptionContainer className={reverseFlexColumnClass}>
-        <TalkImageWrapper className={reverseFlexColumnClass}>
+      <TalkDescriptionContainer className={reverseClass}>
+        <TalkImageWrapper className={reverseClass}>
           <GlassTriangle
             glassDarkShadowBlur={isHovering ? 0.4 : 0}
             glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}

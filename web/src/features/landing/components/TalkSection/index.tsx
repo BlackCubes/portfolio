@@ -19,7 +19,7 @@ const talkContainerData: ITalkContainer[] = [
       '"Django Magic: MVT" Developer Connect Presentation @ Bitwise Industries',
   },
   {
-    reverseFlexColumnClass: 'reverse',
+    reverseClass: 'reverse',
     talkImageAlt: 'Redux Toolkit Presentation',
     talkImageSrc: talkPresentation2,
     talkLinkPath: '#',
@@ -44,7 +44,7 @@ const TalkSection: FC = () => (
           key={talkData.talkImageAlt.toLowerCase().split(' ').join('-')}
         >
           <TalkContainer
-            reverseFlexColumnClass={talkData.reverseFlexColumnClass}
+            reverseClass={talkData.reverseClass}
             talkImageAlt={talkData.talkImageAlt}
             talkImageSrc={talkData.talkImageSrc}
             talkLinkPath={talkData.talkLinkPath}
