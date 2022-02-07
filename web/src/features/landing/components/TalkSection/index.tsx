@@ -14,9 +14,9 @@ const TalkSection: FC = () => (
       </HeadingSecondary>
     </SectionTitle>
 
-    <Container>
-      <LineSeparator />
-    </Container>
+    <LineSeparator />
+
+    <Container>Hello</Container>
   </Section>
 );
 
