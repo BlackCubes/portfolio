@@ -9,13 +9,13 @@ import {
 
 const LandingPage: FC = () => (
   <>
-    <ArticleSection />
-
     <HeroBanner />
 
-    <TalkSection />
-
     <WorkSection />
+
+    <ArticleSection />
+
+    <TalkSection />
   </>
 );
 
