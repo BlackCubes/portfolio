@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // WORK SECTION
@@ -16,3 +17,15 @@ export const Container = styled.div`
 `;
 
 // WORK CONTAINER
+export const WorkContainerStyle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: -9rem;
+  margin-bottom: -9rem;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+`;
+
+export const WorkLink = styled(Link)``;
