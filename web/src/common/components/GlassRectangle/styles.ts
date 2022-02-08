@@ -35,6 +35,10 @@ export const GlassContainer = styled.div<IGlassContainer>`
   }, 0.27)`};
 `;
 
+export const GlassTitle = styled.div`
+  padding: 1rem;
+`;
+
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   width: 12rem;
   margin-left: auto;
@@ -44,4 +48,8 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
 
 export const GlassImage = styled.img`
   width: 100%;
+`;
+
+export const GlassContent = styled.div`
+  padding: 2rem;
 `;
