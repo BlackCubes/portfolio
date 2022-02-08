@@ -42,5 +42,13 @@
     "react/jsx-props-no-spreading": "off",
     "react/prefer-stateless-function": [1],
     "react/static-property-placement": [1, "property assignment"]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
 }
