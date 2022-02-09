@@ -50,6 +50,7 @@ const WorkContainer: FC<IWorkContainer> = ({
               {workTitle}
             </HeadingTertiary>
           }
+          hasContent
           imageAlt={workImageAlt}
           imageSrc={workImageSrc}
           opacity={isHovering ? 0.75 : 1}

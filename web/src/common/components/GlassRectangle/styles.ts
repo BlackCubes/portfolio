@@ -7,6 +7,7 @@ interface IGlassContainer {
   boxLightShadowBlur: number;
   boxLightShadowHorizontalOffset: number;
   boxLightShadowVerticalOffset: number;
+  hasContent?: boolean;
 }
 
 interface IGlassImageWrapper {
@@ -15,9 +16,10 @@ interface IGlassImageWrapper {
 
 export const GlassContainer = styled.div<IGlassContainer>`
   display: flex;
+  flex-direction: ${(props) => (props.hasContent ? 'column' : 'row')};
   align-items: center;
   width: 15rem;
-  height: 15rem;
+  height: ${(props) => (props.hasContent ? 'auto' : '15rem')};
   background-color: ${(props) => `rgba(${props.theme.colors.glass.rgb}, 0.17)`};
   border-radius: 2rem;
   box-shadow: ${(props) => `

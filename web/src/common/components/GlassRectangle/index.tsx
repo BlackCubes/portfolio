@@ -17,6 +17,7 @@ export interface IGlassRectangle {
   glassLightShadowHorizontalOffset: number;
   glassLightShadowVerticalOffset: number;
   glassTitleElement?: JSX.Element | JSX.Element[];
+  hasContent?: boolean;
   imageAlt: string;
   imageSrc: string;
   opacity: number;
@@ -31,6 +32,7 @@ const GlassRectangle: FC<IGlassRectangle> = ({
   glassLightShadowHorizontalOffset,
   glassLightShadowVerticalOffset,
   glassTitleElement,
+  hasContent,
   imageAlt,
   imageSrc,
   opacity,
@@ -42,6 +44,7 @@ const GlassRectangle: FC<IGlassRectangle> = ({
     boxLightShadowBlur={glassLightShadowBlur}
     boxLightShadowHorizontalOffset={glassLightShadowHorizontalOffset}
     boxLightShadowVerticalOffset={glassLightShadowVerticalOffset}
+    hasContent={hasContent}
   >
     {glassTitleElement && <GlassTitle>{glassTitleElement}</GlassTitle>}
 
