@@ -37,7 +37,13 @@ const PortfolioContainer: FC<IPortfolioContainer> = ({
   return (
     <PortfolioContainerStyle>
       <PortfolioDescription>
-        <Paragraph>{portfolioDescription}</Paragraph>
+        <Paragraph
+          {...(isHovering && {
+            opacity: 0.8,
+          })}
+        >
+          {portfolioDescription}
+        </Paragraph>
       </PortfolioDescription>
 
       <PortfolioLink
