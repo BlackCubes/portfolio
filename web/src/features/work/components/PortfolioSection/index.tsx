@@ -43,7 +43,7 @@ const PortfolioSection: FC = () => (
   <Section className="default-container">
     <SectionTitle>
       <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
-        Portfolio
+        Personal
       </HeadingSecondary>
     </SectionTitle>
 
