@@ -43,12 +43,20 @@ const WorkContainer: FC<IWorkContainer> = ({
           glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
           glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
           glassContentElement={
-            <Paragraph opacity={isHovering ? 0.8 : 0}>
+            <Paragraph
+              {...(isHovering && {
+                opacity: 0.8,
+              })}
+            >
               {workDescription}
             </Paragraph>
           }
           glassTitleElement={
-            <HeadingTertiary opacity={isHovering ? 0.8 : 0}>
+            <HeadingTertiary
+              {...(isHovering && {
+                opacity: 0.8,
+              })}
+            >
               {workTitle}
             </HeadingTertiary>
           }
