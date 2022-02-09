@@ -55,4 +55,5 @@ export const GlassImage = styled.img`
 
 export const GlassContent = styled.div`
   padding: 2rem;
+  text-align: center;
 `;
