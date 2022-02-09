@@ -30,4 +30,6 @@ export const WorkContainerStyle = styled.div`
   }
 `;
 
-export const WorkLink = styled(Link)``;
+export const WorkLink = styled(Link)`
+  text-decoration: none;
+`;
