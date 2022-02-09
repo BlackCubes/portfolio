@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import kovviImage from 'assets/img/kovvi.png';
+import nodeNdesApiImage from 'assets/img/node-news-api.png';
 import pokedexAppImage from 'assets/img/pokedex-app.png';
 import toadTribuneImage from 'assets/img/toad-tribune.png';
 
@@ -37,6 +38,14 @@ const workContainerData: IWorkContainer[] = [
     workImageSrc: pokedexAppImage,
     workLinkPath: '/',
     workTitle: 'The Pokédex App',
+  },
+  {
+    workDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    workImageAlt: 'Node News API',
+    workImageSrc: nodeNdesApiImage,
+    workLinkPath: '/',
+    workTitle: 'Node News API',
   },
 ];
 
