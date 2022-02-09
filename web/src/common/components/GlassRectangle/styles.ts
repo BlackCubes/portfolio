@@ -12,6 +12,7 @@ interface IGlassContainer {
 
 interface IGlassImageWrapper {
   hasContent?: boolean;
+  imageSize?: number;
   opacity?: number;
 }
 
@@ -44,7 +45,8 @@ export const GlassTitle = styled.div`
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
-  width: ${(props) => (props.hasContent ? '14rem' : '12rem')};
+  width: ${(props) =>
+    props.hasContent && props.imageSize ? `${props.imageSize}rem` : '12rem'};
   margin-left: auto;
   margin-right: auto;
   opacity: ${({ opacity }) => opacity ?? '1'};

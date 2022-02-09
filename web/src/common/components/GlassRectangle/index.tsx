@@ -19,6 +19,7 @@ export interface IGlassRectangle {
   glassTitleElement?: JSX.Element | JSX.Element[];
   hasContent?: boolean;
   imageAlt: string;
+  imageSize?: number;
   imageSrc: string;
   opacity: number;
 }
@@ -34,6 +35,7 @@ const GlassRectangle: FC<IGlassRectangle> = ({
   glassTitleElement,
   hasContent,
   imageAlt,
+  imageSize,
   imageSrc,
   opacity,
 }) => (
@@ -48,7 +50,11 @@ const GlassRectangle: FC<IGlassRectangle> = ({
   >
     {glassTitleElement && <GlassTitle>{glassTitleElement}</GlassTitle>}
 
-    <GlassImageWrapper hasContent={hasContent} opacity={opacity}>
+    <GlassImageWrapper
+      hasContent={hasContent}
+      imageSize={imageSize}
+      opacity={opacity}
+    >
       <GlassImage src={imageSrc} alt={imageAlt} />
     </GlassImageWrapper>
 

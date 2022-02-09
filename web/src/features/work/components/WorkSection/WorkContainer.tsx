@@ -13,6 +13,7 @@ export interface IWorkContainer {
   reverseClass?: string;
   workDescription: string;
   workImageAlt: string;
+  workImageSize: number;
   workImageSrc: string;
   workLinkPath: string;
   workTitle: string;
@@ -22,6 +23,7 @@ const WorkContainer: FC<IWorkContainer> = ({
   reverseClass,
   workDescription,
   workImageAlt,
+  workImageSize,
   workImageSrc,
   workLinkPath,
   workTitle,
@@ -62,6 +64,7 @@ const WorkContainer: FC<IWorkContainer> = ({
           }
           hasContent
           imageAlt={workImageAlt}
+          imageSize={workImageSize}
           imageSrc={workImageSrc}
           opacity={isHovering ? 0.75 : 1}
         />

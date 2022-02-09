@@ -18,6 +18,7 @@ const workContainerData: IWorkContainer[] = [
     workDescription:
       'A cross-platform mobile app built with React Native that allows users to search COVID-19 data in a region, and view vaccine trial data.',
     workImageAlt: 'Kovvi',
+    workImageSize: 12,
     workImageSrc: kovviImage,
     workLinkPath: '/',
     workTitle: 'Kovvie',
@@ -26,6 +27,7 @@ const workContainerData: IWorkContainer[] = [
     workDescription:
       'A web app built with React and Node.js to provide top headline news from around the world: Politics, sports, stonks, movies, animals and your local weather.',
     workImageAlt: 'The Toad Tribune',
+    workImageSize: 12,
     workImageSrc: toadTribuneImage,
     workLinkPath: '/',
     workTitle: 'The Toad Tribune',
@@ -35,6 +37,7 @@ const workContainerData: IWorkContainer[] = [
     workDescription:
       'A web app built with React that checks the type matchups of your Pokémon vs. any other Pokémon. With over 900 Pokémon in the Pokémon API database, the combinations are almost endless.',
     workImageAlt: 'The Pokédex App',
+    workImageSize: 12,
     workImageSrc: pokedexAppImage,
     workLinkPath: '/',
     workTitle: 'The Pokédex App',
@@ -43,6 +46,7 @@ const workContainerData: IWorkContainer[] = [
     workDescription:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     workImageAlt: 'Node News API',
+    workImageSize: 14,
     workImageSrc: nodeNdesApiImage,
     workLinkPath: '/',
     workTitle: 'Node News API',
@@ -66,6 +70,7 @@ const WorkSection: FC = () => (
           reverseClass={workData.reverseClass}
           workDescription={workData.workDescription}
           workImageAlt={workData.workImageAlt}
+          workImageSize={workData.workImageSize}
           workImageSrc={workData.workImageSrc}
           workLinkPath={workData.workLinkPath}
           workTitle={workData.workTitle}
