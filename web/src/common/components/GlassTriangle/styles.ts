@@ -15,7 +15,8 @@ interface IGlassImageWrapper {
 
 export const GlassContainer = styled.div<IGlassContainer>`
   width: 30rem;
-  height: 19rem;
+  /* MIGHT NEED THIS IF THE STYLING IS OFF?? */
+  /* height: 19rem; */
   filter: ${(props) =>
     `drop-shadow(${props.boxLightShadowHorizontalOffset ?? '-0.1'}rem ${
       props.boxLightShadowVerticalOffset ?? '-0.1'
