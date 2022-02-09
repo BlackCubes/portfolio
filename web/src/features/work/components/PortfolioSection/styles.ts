@@ -27,8 +27,10 @@ export const PortfolioContainerStyle = styled.div`
 `;
 
 export const PortfolioDescription = styled.div`
+  display: flex;
+  align-items: center;
   width: 100%;
-  padding: 2rem 4.5rem;
+  padding: 2rem 1rem;
   text-align: right;
 `;
 
@@ -39,5 +41,8 @@ export const PortfolioImageWrapper = styled.div`
 export const PortfolioLink = styled(Link)``;
 
 export const PortfolioTitle = styled.div`
-  width: 35%;
+  display: flex;
+  align-items: center;
+  width: 40%;
+  padding-left: 1rem;
 `;
