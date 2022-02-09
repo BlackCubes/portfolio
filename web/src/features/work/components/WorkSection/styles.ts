@@ -20,11 +20,13 @@ export const Container = styled.div`
 export const WorkContainerStyle = styled.div`
   display: flex;
   justify-content: space-between;
-  /* margin-top: -9rem;
-  margin-bottom: -9rem; */
+  margin-top: 3rem;
+  padding-left: 17rem;
 
   &.reverse {
     flex-direction: row-reverse;
+    padding-right: 17rem;
+    padding-left: 0;
   }
 `;
 
