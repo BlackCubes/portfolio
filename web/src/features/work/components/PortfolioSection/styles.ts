@@ -34,9 +34,7 @@ export const PortfolioDescription = styled.div`
   text-align: right;
 `;
 
-export const PortfolioImageWrapper = styled.div`
-  width: 18%;
-`;
+export const PortfolioImageWrapper = styled.div``;
 
 export const PortfolioLink = styled(Link)``;
 
