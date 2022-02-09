@@ -10,6 +10,7 @@ import Paragraph from 'common/typography/Paragraph';
 import { WorkContainerStyle, WorkLink } from './styles';
 
 export interface IWorkContainer {
+  reverseClass?: string;
   workDescription: string;
   workImageAlt: string;
   workImageSrc: string;
@@ -18,6 +19,7 @@ export interface IWorkContainer {
 }
 
 const WorkContainer: FC<IWorkContainer> = ({
+  reverseClass,
   workDescription,
   workImageAlt,
   workImageSrc,
@@ -27,7 +29,7 @@ const WorkContainer: FC<IWorkContainer> = ({
   const [isHovering, setIsHovering] = useIsHovering();
 
   return (
-    <WorkContainerStyle>
+    <WorkContainerStyle className={reverseClass}>
       <WorkLink
         to={workLinkPath}
         onMouseEnter={() => setIsHovering(true)}
