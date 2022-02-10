@@ -7,6 +7,7 @@ import Footer from 'common/components/Footer';
 import Navbar from 'common/components/Navbar';
 
 import LandingRoutes from 'features/landing/Routes';
+import WorkRoutes from 'features/work/Routes';
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -15,6 +16,8 @@ const App = () => (
     <Navbar />
 
     <Routes>
+      <Route path="/work" element={<WorkRoutes />} />
+
       <Route path="/" element={<LandingRoutes />} />
     </Routes>
 

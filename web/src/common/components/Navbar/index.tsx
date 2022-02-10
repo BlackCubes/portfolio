@@ -24,7 +24,7 @@ const Navbar: FC = () => (
 
       <ItemsContainer>
         <Item>
-          <ItemLink to="/">Work</ItemLink>
+          <ItemLink to="/work">Work</ItemLink>
         </Item>
 
         <Item>

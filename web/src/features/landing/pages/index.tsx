@@ -7,7 +7,7 @@ import {
   WorkSection,
 } from 'features/landing/components';
 
-const LandingPage: FC = () => (
+const LandingListView: FC = () => (
   <>
     <HeroBanner />
 
@@ -19,4 +19,4 @@ const LandingPage: FC = () => (
   </>
 );
 
-export default LandingPage;
+export default LandingListView;
