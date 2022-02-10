@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import WorkPage from './pages';
+import WorkListView from './pages';
 
 const WorkRoutes: FC = () => (
   <Routes>
-    <Route path="" element={<WorkPage />} />
+    <Route path="" element={<WorkListView />} />
   </Routes>
 );
 

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { PortfolioSection, WorkSection } from 'features/work/components';
 
-const WorkPage: FC = () => (
+const WorkListView: FC = () => (
   <>
     <WorkSection />
 
@@ -10,4 +10,4 @@ const WorkPage: FC = () => (
   </>
 );
 
-export default WorkPage;
+export default WorkListView;
