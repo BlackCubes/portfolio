@@ -1,5 +1,8 @@
 from django import forms
 from django.db import models
+from django.db.models.signals import pre_save
+
+from core.utils import slug_generator_receiver
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
@@ -105,3 +108,6 @@ class ArticlePage(Page):
         ),
         StreamFieldPanel("body"),
     ]
+
+
+pre_save.connect(slug_generator_receiver, sender=ArticlePage)
