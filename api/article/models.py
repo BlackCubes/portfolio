@@ -20,7 +20,6 @@ class ArticlePage(Page):
     description = models.CharField(max_length=100)
     body = StreamField(
         [
-            ("title", blocks.CharBlock()),
             ("paragraph", blocks.RichTextBlock()),
             ("image_with_caption", ImageWithCaptionBlock()),
         ]
