@@ -41,3 +41,13 @@ def unique_slug_generator(instance, new_slug=None):
         return unique_slug_generator(instance, new_slug=unique_slug)
 
     return slug
+
+
+def slug_generator_receiver(sender, instance, *args, **kwargs):
+    """
+    A receiver function for the signal dispatcher to convert the slug whether or not a
+    slug was given as an input from the user.
+    """
+    current_slug = None if not instance.slug else instance.slug
+
+    instance.slug = unique_slug_generator(instance=instance, new_slug=current_slug)
