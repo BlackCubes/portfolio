@@ -1,8 +1,7 @@
 from django import forms
 from django.db import models
-from django.db.models.signals import pre_save
 
-from core.utils import slug_generator_receiver
+from core.utils import unique_slug_generator
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
@@ -109,5 +108,10 @@ class ArticlePage(Page):
         StreamFieldPanel("body"),
     ]
 
+    def full_clean(self, *args, **kwargs):
+        super(ArticlePage, self).full_clean(*args, **kwargs)
 
-pre_save.connect(slug_generator_receiver, sender=ArticlePage)
+        if self.title:
+            current_slug = None if not self.slug else self.slug
+
+            self.slug = unique_slug_generator(instance=self, new_slug=current_slug)
