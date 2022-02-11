@@ -22,6 +22,7 @@ class ArticlePage(Page):
         [
             ("paragraph", blocks.RichTextBlock()),
             ("image_with_caption", ImageWithCaptionBlock()),
+            ("block_quote", blocks.BlockQuoteBlock()),
         ]
     )
 
