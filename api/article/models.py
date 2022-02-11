@@ -26,7 +26,7 @@ class ArticlePageTag(TaggedItemBase):
 
 
 @register_snippet
-class ArticleCategory(models.Models):
+class ArticleCategory(models.Model):
     """"""
 
     name = models.CharField(max_length=255)
