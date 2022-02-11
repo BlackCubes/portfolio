@@ -1,13 +1,45 @@
+from django import forms
 from django.db import models
 
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from modelcluster.contrib.taggit import ClusterTaggableManager
+from modelcluster.fields import ParentalKey, ParentalManyToManyField
+
+from taggit.models import TaggedItemBase
+
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
 from wagtail.core import blocks
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.snippets.models import register_snippet
 
 from wagtailcodeblock.blocks import CodeBlock
+
+
+class ArticlePageTag(TaggedItemBase):
+    """"""
+
+    content_object = ParentalKey(
+        "ArticlePage", related_name="tagged_items", on_delete=models.CASCADE
+    )
+
+
+@register_snippet
+class ArticleCategory(models.Model):
+    """"""
+
+    name = models.CharField(max_length=255)
+
+    panels = [
+        FieldPanel("name"),
+    ]
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "article categories"
 
 
 class ImageWithCaptionBlock(blocks.StructBlock):
@@ -24,6 +56,8 @@ class ArticlePage(Page):
     header_image = models.ForeignKey(
         "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
     )
+    tags = ClusterTaggableManager(through=ArticlePageTag, blank=True)
+    categories = ParentalManyToManyField("article.ArticleCategory", blank=True)
     body = StreamField(
         [
             (
@@ -62,5 +96,12 @@ class ArticlePage(Page):
     content_panels = Page.content_panels + [
         FieldPanel("description"),
         ImageChooserPanel("header_image"),
+        MultiFieldPanel(
+            [
+                FieldPanel("tags"),
+                FieldPanel("categories", widget=forms.CheckboxSelectMultiple),
+            ],
+            heading="Article information",
+        ),
         StreamFieldPanel("body"),
     ]
