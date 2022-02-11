@@ -10,8 +10,8 @@ from wagtail.images.blocks import ImageChooserBlock
 class ImageWithCaptionBlock(blocks.StructBlock):
     """"""
 
-    image = ImageChooserBlock()
-    caption = blocks.CharBlock()
+    image = ImageChooserBlock(required=False)
+    caption = blocks.CharBlock(required=False)
 
 
 class ArticlePage(Page):
@@ -20,9 +20,35 @@ class ArticlePage(Page):
     description = models.CharField(max_length=100)
     body = StreamField(
         [
-            ("paragraph", blocks.RichTextBlock()),
+            (
+                "paragraph",
+                blocks.RichTextBlock(
+                    features=[
+                        "h1",
+                        "h2",
+                        "h3",
+                        "h4",
+                        "h5",
+                        "h6",
+                        "bold",
+                        "italic",
+                        "ol",
+                        "ul",
+                        "hr",
+                        "link",
+                        "document-link",
+                        "image",
+                        "embed",
+                        "code",
+                        "superscript",
+                        "subscript",
+                        "strikethrough",
+                        "blockquote",
+                    ]
+                ),
+            ),
             ("image_with_caption", ImageWithCaptionBlock()),
-            ("block_quote", blocks.BlockQuoteBlock()),
+            ("block_quote", blocks.BlockQuoteBlock(required=False)),
         ]
     )
 
