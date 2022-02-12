@@ -120,10 +120,9 @@ def clean(self):
 
     if isinstance(self.instance, ArticlePage):
         title = cleaned_data.get("title", None)
+        slug = cleaned_data.get("slug", None)
 
         if title:
-            slug = cleaned_data["slug"]
-
             cleaned_data["slug"] = unique_slug_generator(
                 instance=self.instance, new_slug=slug
             )
