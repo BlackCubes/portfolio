@@ -12,6 +12,7 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiField
 from wagtail.core import blocks
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
+from wagtail.admin.forms.models import WagtailAdminModelForm
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
@@ -108,10 +109,26 @@ class ArticlePage(Page):
         StreamFieldPanel("body"),
     ]
 
-    def full_clean(self, *args, **kwargs):
-        super(ArticlePage, self).full_clean(*args, **kwargs)
 
-        if self.title:
-            current_slug = None if not self.slug else self.slug
+def clean(self):
+    """
+    A custom function to override the ``WagtailAdminModelForm`` ``clean`` function so that
+    the ``slug`` field could be created uniquely if it exists in the DB.
+    """
 
-            self.slug = unique_slug_generator(instance=self, new_slug=current_slug)
+    cleaned_data = super(WagtailAdminModelForm, self).clean()
+
+    if isinstance(self.instance, ArticlePage):
+        title = cleaned_data.get("title", None)
+
+        if title:
+            slug = cleaned_data["slug"]
+
+            cleaned_data["slug"] = unique_slug_generator(
+                instance=self.instance, new_slug=slug
+            )
+
+    return cleaned_data
+
+
+WagtailAdminModelForm.clean = clean
