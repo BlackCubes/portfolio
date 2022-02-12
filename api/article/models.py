@@ -130,4 +130,48 @@ def clean(self):
     return cleaned_data
 
 
+def full_clean(self, *args, **kwargs):
+    """
+    A custom function to override the ``WagtailAdminModelForm`` ``full_clean`` function so
+    that the empty ``slug`` field could be created uniquely if it exists in the DB.
+
+    This function works if a ``slug`` is not provided, and it removes any potential errors
+    from the field given from Wagtail since a unique ``slug`` would be generated in the end.
+
+    NOTE:
+
+    Strangely enough, the custom ``clean`` function above works when creating a new article
+    as it autogenerates the unique ``slug`` without any errors. It also works when updating
+    an article when there is a non-empty ``slug``.
+
+    Yet, the custom ``clean`` function breaks apart with errors from Wagtail when updating
+    an article with an empty ``slug`` even though it autogenerates. This is where this
+    custom function comes into play.
+    """
+    super(WagtailAdminModelForm, self).full_clean(*args, **kwargs)
+
+    if isinstance(self.instance, ArticlePage):
+        if self.data:
+            title = None if not self.data["title"] else self.data["title"]
+            slug = None if not self.data["slug"] else self.data["slug"]
+
+            if title and not slug:
+                # Remember old state
+                _mutable = self.data._mutable
+
+                # Set to mutable
+                self.data._mutable = True
+
+                self.data["slug"] = unique_slug_generator(
+                    instance=self.instance, new_slug=slug
+                )
+
+                # Set mutable flag back
+                self.data._mutable = _mutable
+
+                if "slug" in self.errors:
+                    del self.errors["slug"]
+
+
 WagtailAdminModelForm.clean = clean
+WagtailAdminModelForm.full_clean = full_clean
