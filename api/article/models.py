@@ -9,10 +9,11 @@ from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from taggit.models import TaggedItemBase
 
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
+from wagtail.admin.forms.models import WagtailAdminModelForm
+from wagtail.api import APIField
 from wagtail.core import blocks
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
-from wagtail.admin.forms.models import WagtailAdminModelForm
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
@@ -107,6 +108,13 @@ class ArticlePage(Page):
             heading="Article information",
         ),
         StreamFieldPanel("body"),
+    ]
+
+    api_fields = [
+        APIField("description"),
+        APIField("header_image"),
+        APIField("tags"),
+        APIField("categories"),
     ]
 
 
