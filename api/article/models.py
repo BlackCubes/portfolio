@@ -11,15 +11,15 @@ from taggit.models import TaggedItemBase
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
 from wagtail.admin.forms.models import WagtailAdminModelForm
 from wagtail.api import APIField
-from wagtail.core import blocks
+from wagtail.core.blocks import BlockQuoteBlock, RichTextBlock
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
 
 from wagtailcodeblock.blocks import CodeBlock
 
+from .blocks import ImageWithCaptionBlock
 from .fields import ArticleCategorySerializedField, ArticleHeaderImageSerializedField
 
 
@@ -48,13 +48,6 @@ class ArticleCategory(models.Model):
         verbose_name_plural = "article categories"
 
 
-class ImageWithCaptionBlock(blocks.StructBlock):
-    """"""
-
-    image = ImageChooserBlock(required=False)
-    caption = blocks.CharBlock(required=False)
-
-
 class ArticlePage(Page):
     """"""
 
@@ -68,7 +61,7 @@ class ArticlePage(Page):
         [
             (
                 "paragraph",
-                blocks.RichTextBlock(
+                RichTextBlock(
                     features=[
                         "h1",
                         "h2",
@@ -94,7 +87,7 @@ class ArticlePage(Page):
                 ),
             ),
             ("image_with_caption", ImageWithCaptionBlock()),
-            ("block_quote", blocks.BlockQuoteBlock(required=False)),
+            ("block_quote", BlockQuoteBlock(required=False)),
             ("code", CodeBlock(label="Code")),
         ]
     )
