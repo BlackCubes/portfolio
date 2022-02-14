@@ -6,8 +6,6 @@ from core.utils import unique_slug_generator
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 
-from rest_framework.fields import Field
-
 from taggit.models import TaggedItemBase
 
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
@@ -21,6 +19,8 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
 
 from wagtailcodeblock.blocks import CodeBlock
+
+from .fields import ArticleCategorySerializedField, ArticleHeaderImageSerializedField
 
 
 class ArticlePageTag(TaggedItemBase):
@@ -46,20 +46,6 @@ class ArticleCategory(models.Model):
 
     class Meta:
         verbose_name_plural = "article categories"
-
-
-class ArticleCategorySerializedField(Field):
-    """"""
-
-    def to_representation(self, value):
-        return [tag.name for tag in value.all()]
-
-
-class ArticleHeaderImageSerializedField(Field):
-    """"""
-
-    def to_representation(self, value):
-        return value.file.url
 
 
 class ImageWithCaptionBlock(blocks.StructBlock):
