@@ -9,7 +9,10 @@ from modelcluster.fields import (
     ParentalManyToManyField,
 )
 
-from taggit.models import TaggedItemBase
+from taggit.models import (
+    Tag as TaggitTag,
+    TaggedItemBase,
+)
 
 from uuid import uuid4
 
@@ -37,6 +40,14 @@ from .fields import (
     ArticleCategorySerializedField,
     ArticleHeaderImageSerializedField,
 )
+
+
+@register_snippet
+class Tag(TaggitTag):
+    """"""
+
+    class Meta:
+        proxy = True
 
 
 class ArticlePageTag(TaggedItemBase):
