@@ -5,8 +5,8 @@ class ArticleTagSerializedField(Field):
     """
     A serialized field to change the output for the tags in an article.
 
-    Outputs a list of dictionary with keys of ``"uuid"``, ``"name"`` and
-    ``"slug"``, if any.
+    Outputs a list of dictionary with keys of ``"id"``, ``"name"`` and ``"slug"``,
+    if any.
     """
 
     def to_representation(self, value):
