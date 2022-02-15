@@ -4,24 +4,66 @@ from django.db import models
 from core.utils import unique_slug_generator
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
-from modelcluster.fields import ParentalKey, ParentalManyToManyField
+from modelcluster.fields import (
+    ParentalKey,
+    ParentalManyToManyField,
+)
 
-from taggit.models import TaggedItemBase
+from taggit.models import (
+    Tag as TaggitTag,
+    TaggedItemBase,
+)
 
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
-from wagtail.core import blocks
+from uuid import uuid4
+
+from wagtail.admin.edit_handlers import (
+    FieldPanel,
+    MultiFieldPanel,
+    StreamFieldPanel,
+)
+from wagtail.admin.forms.models import WagtailAdminModelForm
+from wagtail.api import APIField
+from wagtail.core.blocks import (
+    BlockQuoteBlock,
+    RichTextBlock,
+)
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
-from wagtail.admin.forms.models import WagtailAdminModelForm
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.models import register_snippet
 
 from wagtailcodeblock.blocks import CodeBlock
 
+from .blocks import ImageWithCaptionBlock
+from .fields import (
+    ArticleBlockSerializedField,
+    ArticleCategorySerializedField,
+    ArticleHeaderImageSerializedField,
+    ArticleTagSerializedField,
+)
+
+
+@register_snippet
+class Tag(TaggitTag):
+    """
+    A proxy model subclassing the ``TaggitTag`` model for editing on the admin
+    panel, and also to create an API endpoint (located at ``core.endpoints`` and
+    ``core.api``).
+
+    NOTE:
+
+    The class below ``ArticlePageTag`` could have worked, but it is a lot more
+    work whereas this is pretty simple to setup especially for the API endpoint.
+    """
+
+    class Meta:
+        proxy = True
+
 
 class ArticlePageTag(TaggedItemBase):
-    """"""
+    """
+    A class inheriting the taggit model to add tags to an article.
+    """
 
     content_object = ParentalKey(
         "ArticlePage", related_name="tagged_items", on_delete=models.CASCADE
@@ -30,8 +72,13 @@ class ArticlePageTag(TaggedItemBase):
 
 @register_snippet
 class ArticleCategory(models.Model):
-    """"""
+    """
+    A standard Django model with fields of ``uuid`` and ``name``.
 
+    Used for editing on the admin panel, and to add categories to an article.
+    """
+
+    uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     name = models.CharField(max_length=255)
 
     panels = [
@@ -45,16 +92,21 @@ class ArticleCategory(models.Model):
         verbose_name_plural = "article categories"
 
 
-class ImageWithCaptionBlock(blocks.StructBlock):
-    """"""
-
-    image = ImageChooserBlock(required=False)
-    caption = blocks.CharBlock(required=False)
-
-
 class ArticlePage(Page):
-    """"""
+    """
+    A Wagtail model to create content for an article.
 
+    The fields that will be shown in the admin page (``content_panels``) for
+    creating/updating an article are ``description``, ``header_image``, ``tags``,
+    ``categories``, and ``body``. A streamfield is used for the ``body`` field
+    with inner fields of ``paragraph``, ``image_with_caption``, ``block_quote``,
+    and ``code``.
+
+    The fields that will be shown for the API are the same as ``content_panels``
+    with an extra field of ``uuid``.
+    """
+
+    uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     description = models.CharField(max_length=100)
     header_image = models.ForeignKey(
         "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
@@ -65,7 +117,7 @@ class ArticlePage(Page):
         [
             (
                 "paragraph",
-                blocks.RichTextBlock(
+                RichTextBlock(
                     features=[
                         "h1",
                         "h2",
@@ -79,19 +131,16 @@ class ArticlePage(Page):
                         "ul",
                         "hr",
                         "link",
-                        "document-link",
-                        "image",
                         "embed",
                         "code",
                         "superscript",
                         "subscript",
                         "strikethrough",
-                        "blockquote",
                     ]
                 ),
             ),
             ("image_with_caption", ImageWithCaptionBlock()),
-            ("block_quote", blocks.BlockQuoteBlock(required=False)),
+            ("block_quote", BlockQuoteBlock(required=False)),
             ("code", CodeBlock(label="Code")),
         ]
     )
@@ -107,6 +156,15 @@ class ArticlePage(Page):
             heading="Article information",
         ),
         StreamFieldPanel("body"),
+    ]
+
+    api_fields = [
+        APIField("uuid"),
+        APIField("description"),
+        APIField("header_image", serializer=ArticleHeaderImageSerializedField()),
+        APIField("tags", serializer=ArticleTagSerializedField()),
+        APIField("categories", serializer=ArticleCategorySerializedField()),
+        APIField("body", serializer=ArticleBlockSerializedField()),
     ]
 
 
