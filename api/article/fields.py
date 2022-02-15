@@ -5,7 +5,10 @@ class ArticleCategorySerializedField(Field):
     """"""
 
     def to_representation(self, value):
-        return [tag.name for tag in value.all()]
+        if value is None:
+            return []
+
+        return [{"uuid": tag.uuid, "name": tag.name} for tag in value.all()]
 
 
 class ArticleHeaderImageSerializedField(Field):
