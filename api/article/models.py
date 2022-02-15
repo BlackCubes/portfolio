@@ -20,7 +20,11 @@ from wagtail.snippets.models import register_snippet
 from wagtailcodeblock.blocks import CodeBlock
 
 from .blocks import ImageWithCaptionBlock
-from .fields import ArticleCategorySerializedField, ArticleHeaderImageSerializedField
+from .fields import (
+    ArticleBlockSerializedField,
+    ArticleCategorySerializedField,
+    ArticleHeaderImageSerializedField,
+)
 
 
 class ArticlePageTag(TaggedItemBase):
@@ -107,7 +111,7 @@ class ArticlePage(Page):
         APIField("header_image", serializer=ArticleHeaderImageSerializedField()),
         APIField("tags"),
         APIField("categories", serializer=ArticleCategorySerializedField()),
-        APIField("body"),
+        APIField("body", serializer=ArticleBlockSerializedField()),
     ]
 
 
