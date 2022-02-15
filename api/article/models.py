@@ -13,8 +13,8 @@ from taggit.models import TaggedItemBase
 
 from wagtail.admin.edit_handlers import (
     FieldPanel,
-    StreamFieldPanel,
     MultiFieldPanel,
+    StreamFieldPanel,
 )
 from wagtail.admin.forms.models import WagtailAdminModelForm
 from wagtail.api import APIField
