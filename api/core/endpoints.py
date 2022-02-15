@@ -3,7 +3,7 @@ from article.models import ArticleCategory
 from wagtail.api.v2.views import BaseAPIViewSet
 
 
-class ArticleCategorySnippetModelAPIEndpoint(BaseAPIViewSet):
+class CategoriesSnippetModelAPIEndpoint(BaseAPIViewSet):
     """"""
 
     model = ArticleCategory
