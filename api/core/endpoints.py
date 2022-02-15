@@ -6,7 +6,7 @@ from article.models import (
 from wagtail.api.v2.views import BaseAPIViewSet
 
 
-class CategoriesSnippetModelAPIEndpoint(BaseAPIViewSet):
+class CategoriesAPIEndpoint(BaseAPIViewSet):
     """
     Creates an API endpoint for categories.
     """
