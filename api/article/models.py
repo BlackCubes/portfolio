@@ -4,14 +4,24 @@ from django.db import models
 from core.utils import unique_slug_generator
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
-from modelcluster.fields import ParentalKey, ParentalManyToManyField
+from modelcluster.fields import (
+    ParentalKey,
+    ParentalManyToManyField,
+)
 
 from taggit.models import TaggedItemBase
 
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
+from wagtail.admin.edit_handlers import (
+    FieldPanel,
+    StreamFieldPanel,
+    MultiFieldPanel,
+)
 from wagtail.admin.forms.models import WagtailAdminModelForm
 from wagtail.api import APIField
-from wagtail.core.blocks import BlockQuoteBlock, RichTextBlock
+from wagtail.core.blocks import (
+    BlockQuoteBlock,
+    RichTextBlock,
+)
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 from wagtail.images.edit_handlers import ImageChooserPanel
