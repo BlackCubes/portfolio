@@ -44,14 +44,25 @@ from .fields import (
 
 @register_snippet
 class Tag(TaggitTag):
-    """"""
+    """
+    A proxy model subclassing the ``TaggitTag`` model for editing on the admin
+    panel, and also to create an API endpoint (located at ``core.endpoints`` and
+    ``core.api``).
+
+    NOTE:
+
+    The class below ``ArticlePageTag`` could have worked, but it is a lot more
+    work whereas this is pretty simple to setup especially for the API endpoint.
+    """
 
     class Meta:
         proxy = True
 
 
 class ArticlePageTag(TaggedItemBase):
-    """"""
+    """
+    A class inheriting the taggit model to add tags to an article.
+    """
 
     content_object = ParentalKey(
         "ArticlePage", related_name="tagged_items", on_delete=models.CASCADE
@@ -60,7 +71,11 @@ class ArticlePageTag(TaggedItemBase):
 
 @register_snippet
 class ArticleCategory(models.Model):
-    """"""
+    """
+    A standard Django model with fields of ``uuid`` and ``name``.
+
+    Used for editing on the admin panel, and to add categories to an article.
+    """
 
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     name = models.CharField(max_length=255)
@@ -77,7 +92,18 @@ class ArticleCategory(models.Model):
 
 
 class ArticlePage(Page):
-    """"""
+    """
+    A Wagtail model to create content for an article.
+
+    The fields that will be shown in the admin page (``content_panels``) for
+    creating/updating an article are ``description``, ``header_image``, ``tags``,
+    ``categories``, and ``body``. A streamfield is used for the ``body`` field
+    with inner fields of ``paragraph``, ``image_with_caption``, ``block_quote``,
+    and ``code``.
+
+    The fields that will be shown for the API are the same as ``content_panels``
+    with an extra field of ``uuid``.
+    """
 
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     description = models.CharField(max_length=100)

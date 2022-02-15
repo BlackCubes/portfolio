@@ -7,7 +7,9 @@ from wagtail.api.v2.views import BaseAPIViewSet
 
 
 class CategoriesSnippetModelAPIEndpoint(BaseAPIViewSet):
-    """"""
+    """
+    Creates an API endpoint for categories.
+    """
 
     model = ArticleCategory
 
@@ -23,7 +25,9 @@ class CategoriesSnippetModelAPIEndpoint(BaseAPIViewSet):
 
 
 class TagsAPIEndpoint(BaseAPIViewSet):
-    """"""
+    """
+    Creates an API endpoint for tags.
+    """
 
     model = Tag
 

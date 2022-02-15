@@ -2,7 +2,11 @@ from rest_framework.fields import Field
 
 
 class ArticleCategorySerializedField(Field):
-    """"""
+    """
+    A serialized field to change the output for the categories in an article.
+
+    Outputs a list of dictionary with keys of ``"uuid"`` and ``"name"``, if any.
+    """
 
     def to_representation(self, value):
         if value is None:
@@ -12,14 +16,23 @@ class ArticleCategorySerializedField(Field):
 
 
 class ArticleHeaderImageSerializedField(Field):
-    """"""
+    """
+    A serialized field to change the output for the header image of an article.
+
+    Outputs the image URL, if any.
+    """
 
     def to_representation(self, value):
         return value.file.url
 
 
 class ArticleBlockSerializedField(Field):
-    """"""
+    """
+    A serialized field to change the output for the block content in an article.
+
+    It outputs everything normally except for the ``image_with_caption`` field (the
+    main focus) which outputs the image URL, if any.
+    """
 
     def to_representation(self, value):
         representation = []
