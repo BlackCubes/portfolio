@@ -1,4 +1,7 @@
-from article.models import ArticleCategory
+from article.models import (
+    ArticleCategory,
+    Tag,
+)
 
 from wagtail.api.v2.views import BaseAPIViewSet
 
@@ -17,3 +20,13 @@ class CategoriesSnippetModelAPIEndpoint(BaseAPIViewSet):
         "uuid",
         "name",
     ]
+
+
+class TagsAPIEndpoint(BaseAPIViewSet):
+    """"""
+
+    model = Tag
+
+    body_fields = BaseAPIViewSet.body_fields + ["name", "slug"]
+
+    listing_default_fields = BaseAPIViewSet.listing_default_fields + ["name", "slug"]
