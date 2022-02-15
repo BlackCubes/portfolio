@@ -27,7 +27,7 @@ class ArticleCategorySerializedField(Field):
     """
 
     def to_representation(self, value):
-        if value is None:
+        if not value:
             return []
 
         return [
@@ -43,6 +43,9 @@ class ArticleHeaderImageSerializedField(Field):
     """
 
     def to_representation(self, value):
+        if not value:
+            return None
+
         return value.file.url
 
 
@@ -57,7 +60,7 @@ class ArticleBlockSerializedField(Field):
     def to_representation(self, value):
         representation = []
 
-        if value is None:
+        if not value:
             return representation
 
         for stream_item in value:
