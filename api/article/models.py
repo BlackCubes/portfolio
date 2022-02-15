@@ -39,6 +39,7 @@ from .fields import (
     ArticleBlockSerializedField,
     ArticleCategorySerializedField,
     ArticleHeaderImageSerializedField,
+    ArticleTagSerializedField,
 )
 
 
@@ -161,7 +162,7 @@ class ArticlePage(Page):
         APIField("uuid"),
         APIField("description"),
         APIField("header_image", serializer=ArticleHeaderImageSerializedField()),
-        APIField("tags"),
+        APIField("tags", serializer=ArticleTagSerializedField()),
         APIField("categories", serializer=ArticleCategorySerializedField()),
         APIField("body", serializer=ArticleBlockSerializedField()),
     ]
