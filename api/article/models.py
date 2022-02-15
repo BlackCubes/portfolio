@@ -11,6 +11,8 @@ from modelcluster.fields import (
 
 from taggit.models import TaggedItemBase
 
+from uuid import uuid4
+
 from wagtail.admin.edit_handlers import (
     FieldPanel,
     MultiFieldPanel,
@@ -49,6 +51,7 @@ class ArticlePageTag(TaggedItemBase):
 class ArticleCategory(models.Model):
     """"""
 
+    uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     name = models.CharField(max_length=255)
 
     panels = [
@@ -65,6 +68,7 @@ class ArticleCategory(models.Model):
 class ArticlePage(Page):
     """"""
 
+    uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     description = models.CharField(max_length=100)
     header_image = models.ForeignKey(
         "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
