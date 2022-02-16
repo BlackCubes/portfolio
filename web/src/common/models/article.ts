@@ -38,9 +38,16 @@ type TBodyCodeData = {
   };
 };
 
+type TBodyEquationData = {
+  id: string;
+  type: string;
+  value: string;
+};
+
 type TBodyData = Array<
   | TBodyBlockQuoteData
   | TBodyCodeData
+  | TBodyEquationData
   | TBodyImageWithCaptionData
   | TBodyParagraphData
 >;
