@@ -140,7 +140,7 @@ class ArticlePage(Page):
                 ),
             ),
             ("image_with_caption", ImageWithCaptionBlock()),
-            ("block_quote", BlockQuoteBlock(required=False)),
+            ("block_quote", BlockQuoteBlock()),
             ("code", CodeBlock(label="Code")),
         ]
     )

@@ -11,5 +11,5 @@ class ImageWithCaptionBlock(StructBlock):
     ``image`` and ``caption``.
     """
 
-    image = ImageChooserBlock(required=False)
-    caption = CharBlock(required=False)
+    image = ImageChooserBlock()
+    caption = CharBlock()
