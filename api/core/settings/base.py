@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "taggit",
     "wagtailcodeblock",
+    "wagtailmath",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
