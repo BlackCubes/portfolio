@@ -100,9 +100,10 @@ class ArticlePage(Page):
 
     The fields that will be shown in the admin page (``content_panels``) for
     creating/updating an article are ``description``, ``header_image``, ``tags``,
-    ``categories``, and ``body``. A streamfield is used for the ``body`` field
-    with inner fields of ``paragraph``, ``image_with_caption``, ``block_quote``,
-    and ``code``.
+    ``categories``, ``reading_time``, ``uuid``, and ``body``.
+
+    A streamfield is used for the ``body`` field with inner fields of ``paragraph``,
+    ``image_with_caption``, ``block_quote``, ``code``, and ``equation``.
 
     The fields that will be shown for the API are the same as ``content_panels``
     with an extra field of ``uuid``.
@@ -115,6 +116,7 @@ class ArticlePage(Page):
     )
     tags = ClusterTaggableManager(through=ArticlePageTag, blank=True)
     categories = ParentalManyToManyField("article.ArticleCategory", blank=True)
+    reading_time = models.IntegerField(default=0)
     body = StreamField(
         [
             (
