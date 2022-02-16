@@ -34,6 +34,8 @@ from wagtail.snippets.models import register_snippet
 
 from wagtailcodeblock.blocks import CodeBlock
 
+from wagtailmath.blocks import MathBlock
+
 from .blocks import ImageWithCaptionBlock
 from .fields import (
     ArticleBlockSerializedField,
@@ -142,6 +144,7 @@ class ArticlePage(Page):
             ("image_with_caption", ImageWithCaptionBlock()),
             ("block_quote", BlockQuoteBlock()),
             ("code", CodeBlock(label="Code")),
+            ("equation", MathBlock()),
         ]
     )
 
