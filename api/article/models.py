@@ -1,6 +1,7 @@
 from django import forms
 from django.db import models
 
+from core.panels import ReadOnlyPanel
 from core.utils import unique_slug_generator
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
@@ -163,12 +164,21 @@ class ArticlePage(Page):
         StreamFieldPanel("body"),
     ]
 
+    promote_panels = Page.promote_panels + [
+        ReadOnlyPanel(
+            "reading_time",
+            heading="For the reading time of the article",
+            help_text="Reading time in seconds",
+        ),
+    ]
+
     api_fields = [
         APIField("uuid"),
         APIField("description"),
         APIField("header_image", serializer=ArticleHeaderImageSerializedField()),
         APIField("tags", serializer=ArticleTagSerializedField()),
         APIField("categories", serializer=ArticleCategorySerializedField()),
+        APIField("reading_time"),
         APIField("body", serializer=ArticleBlockSerializedField()),
     ]
 
