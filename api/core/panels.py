@@ -5,7 +5,9 @@ from wagtail.admin.edit_handlers import EditHandler
 
 
 class ReadOnlyPanel(EditHandler):
-    """"""
+    """
+    A custom admin panel that makes a field non-editable.
+    """
 
     def __init__(self, attr, *args, **kwargs):
         self.attr = attr
