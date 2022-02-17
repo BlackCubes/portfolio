@@ -28,7 +28,7 @@ import {
   ArticleTitleLink,
 } from './styles';
 
-interface IArticleListContainer {
+export interface IArticleListContainer {
   articleCategory: string;
   articleDate: string;
   articleDescription: string;
