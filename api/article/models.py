@@ -172,7 +172,7 @@ class ArticlePage(Page):
                     heading="Time (in seconds)",
                 ),
             ],
-            heading="For the reading time of the article",
+            heading="For article reading time (updates when publishing)",
         ),
     ]
 
