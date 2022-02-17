@@ -165,10 +165,14 @@ class ArticlePage(Page):
     ]
 
     promote_panels = Page.promote_panels + [
-        ReadOnlyPanel(
-            "reading_time",
+        MultiFieldPanel(
+            [
+                ReadOnlyPanel(
+                    "reading_time",
+                    heading="Time (in seconds)",
+                ),
+            ],
             heading="For the reading time of the article",
-            help_text="Reading time in seconds",
         ),
     ]
 
