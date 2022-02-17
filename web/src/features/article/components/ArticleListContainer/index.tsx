@@ -28,7 +28,7 @@ import {
   ArticleTitleLink,
 } from './styles';
 
-export interface IArticleContainer {
+interface IArticleListContainer {
   articleCategory: string;
   articleDate: string;
   articleDescription: string;
@@ -40,7 +40,7 @@ export interface IArticleContainer {
   articleTitle: string;
 }
 
-const ArticleContainer: FC<IArticleContainer> = ({
+const ArticleListContainer: FC<IArticleListContainer> = ({
   articleCategory,
   articleDate,
   articleDescription,
@@ -149,4 +149,4 @@ const ArticleContainer: FC<IArticleContainer> = ({
   );
 };
 
-export default ArticleContainer;
+export default ArticleListContainer;
