@@ -11,12 +11,19 @@ def create_reading_time(sender, instance, **kwargs):
 
     Adds each second based on the character length. For inline images, according
     to Medium, they add in 12 seconds and thus this function does the same.
+
+    NOTE:
+
+    Only updates/saves the field when publishing.
     """
     article = instance
 
     if article:
         article_body = article.body
         article_string_length = 0
+
+        if article.title:
+            article_string_length += len(article.title)
 
         if article.description:
             article_string_length += len(article.description)
