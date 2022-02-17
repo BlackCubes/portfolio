@@ -62,4 +62,5 @@ export interface IArticle {
   tags: ITag[] | [];
   categories: ICategory[] | [];
   body: TBodyData;
+  reading_time: number;
 }

@@ -1,6 +1,7 @@
 from django import forms
 from django.db import models
 
+from core.panels import ReadOnlyPanel
 from core.utils import unique_slug_generator
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
@@ -100,9 +101,10 @@ class ArticlePage(Page):
 
     The fields that will be shown in the admin page (``content_panels``) for
     creating/updating an article are ``description``, ``header_image``, ``tags``,
-    ``categories``, and ``body``. A streamfield is used for the ``body`` field
-    with inner fields of ``paragraph``, ``image_with_caption``, ``block_quote``,
-    and ``code``.
+    ``categories``, ``reading_time``, ``uuid``, and ``body``.
+
+    A streamfield is used for the ``body`` field with inner fields of ``paragraph``,
+    ``image_with_caption``, ``block_quote``, ``code``, and ``equation``.
 
     The fields that will be shown for the API are the same as ``content_panels``
     with an extra field of ``uuid``.
@@ -115,6 +117,7 @@ class ArticlePage(Page):
     )
     tags = ClusterTaggableManager(through=ArticlePageTag, blank=True)
     categories = ParentalManyToManyField("article.ArticleCategory", blank=True)
+    reading_time = models.FloatField(default=0.0)
     body = StreamField(
         [
             (
@@ -161,12 +164,25 @@ class ArticlePage(Page):
         StreamFieldPanel("body"),
     ]
 
+    promote_panels = Page.promote_panels + [
+        MultiFieldPanel(
+            [
+                ReadOnlyPanel(
+                    "reading_time",
+                    heading="Time (in seconds)",
+                ),
+            ],
+            heading="For article reading time (updates when publishing)",
+        ),
+    ]
+
     api_fields = [
         APIField("uuid"),
         APIField("description"),
         APIField("header_image", serializer=ArticleHeaderImageSerializedField()),
         APIField("tags", serializer=ArticleTagSerializedField()),
         APIField("categories", serializer=ArticleCategorySerializedField()),
+        APIField("reading_time"),
         APIField("body", serializer=ArticleBlockSerializedField()),
     ]
 

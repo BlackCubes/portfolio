@@ -2,5 +2,11 @@ from django.apps import AppConfig
 
 
 class ArticleConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'article'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "article"
+
+    def ready(self):
+        """
+        Imported custom signals to be used.
+        """
+        import article.signals
