@@ -117,7 +117,7 @@ class ArticlePage(Page):
     )
     tags = ClusterTaggableManager(through=ArticlePageTag, blank=True)
     categories = ParentalManyToManyField("article.ArticleCategory", blank=True)
-    reading_time = models.IntegerField(default=0)
+    reading_time = models.FloatField(default=0.0)
     body = StreamField(
         [
             (
