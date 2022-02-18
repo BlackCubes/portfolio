@@ -18,7 +18,9 @@ export const Container = styled.div`
 // ARTICLE LIST CONTAINER
 export const ArticleContainerStyle = styled.div`
   display: flex;
-  justify-content: space-between;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const ArticleImageWrapper = styled.div``;
@@ -28,29 +30,76 @@ export const ArticleImageLink = styled(Link)``;
 export const ArticleDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 2rem;
+  margin-right: 2rem;
 `;
 
 export const ArticleAdditionalInfo = styled.div`
   display: flex;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 `;
 
-export const ArticleCategory = styled.div``;
+export const ArticleCategory = styled.div`
+  position: relative;
+  text-transform: uppercase;
+  margin-right: 0.5rem;
 
-export const ArticleTags = styled.div``;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0.1rem;
+    right: -0.3rem;
+    display: block;
+    height: 1.5rem;
+    border-right: 0.1rem solid ${(props) => props.theme.colors.black.hex};
+  }
+
+  & p {
+    font-size: 1.3rem;
+    letter-spacing: 0.06rem;
+  }
+`;
+
+export const ArticleTags = styled.div`
+  display: flex;
+  font-style: italic;
+  text-transform: lowercase;
+  margin-left: 0.1rem;
+
+  & p {
+    position: relative;
+    font-size: 1.3rem;
+
+    &:not(:last-child) {
+      margin-right: 0.7rem;
+    }
+
+    &:not(:last-child)::after {
+      content: '\\2013';
+      position: absolute;
+    }
+  }
+`;
 
 export const ArticleDate = styled.div``;
 
 export const ArticleReadTime = styled.div``;
 
-export const ArticleTitle = styled.div``;
+export const ArticleTitle = styled.div`
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+`;
 
-export const ArticleTitleLink = styled(Link)``;
+export const ArticleTitleLink = styled(Link)`
+  text-decoration: none;
+`;
 
 export const ArticleDescription = styled.div``;
 
-export const ArticleLinkWrapper = styled.div``;
+export const ArticleLinkWrapper = styled.div`
+  margin-top: 1.5rem;
+`;
 
 export const ArticleLink = styled(Link)`
   font-size: ${(props) => props.theme.fonts.paragraph};
