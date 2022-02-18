@@ -38,6 +38,7 @@ export const GlassContainer = styled.div<IGlassContainer>`
     ${`${props.boxDarkShadowBlur}rem` ?? '0'} 0 rgba(${
     props.theme.colors.glassDarkShadow.rgb
   }, 0.27)`};
+  overflow: hidden;
 `;
 
 export const GlassTitle = styled.div`
