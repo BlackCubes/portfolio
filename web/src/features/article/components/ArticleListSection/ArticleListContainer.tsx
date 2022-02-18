@@ -95,13 +95,7 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
       <ArticleDescriptionContainer>
         <ArticleAdditionalInfo>
           <ArticleCategory>
-            <Paragraph
-              {...(isHoveringOverall(isTitleHovering, isLinkHovering) && {
-                opacity: 0.8,
-              })}
-            >
-              {articleCategory}
-            </Paragraph>
+            <Paragraph>{articleCategory}</Paragraph>
           </ArticleCategory>
 
           <ArticleTags>
@@ -128,7 +122,13 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
             onMouseEnter={() => setIsTitleHovering(true)}
             onMouseLeave={() => setIsTitleHovering(false)}
           >
-            <HeadingTertiary>{articleTitle}</HeadingTertiary>
+            <HeadingTertiary
+              {...(isHoveringOverall(isTitleHovering, isLinkHovering) && {
+                opacity: 0.8,
+              })}
+            >
+              {articleTitle}
+            </HeadingTertiary>
           </ArticleTitleLink>
         </ArticleTitle>
 
