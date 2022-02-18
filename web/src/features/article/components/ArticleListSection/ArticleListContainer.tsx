@@ -9,7 +9,7 @@ import { ITag } from 'common/models';
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 import Paragraph from 'common/typography/Paragraph';
 
-import { isHoveringOverall } from 'utils';
+import { dateFormat, isHoveringOverall } from 'utils';
 
 import {
   ArticleAdditionalInfo,
@@ -64,6 +64,7 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
           onMouseLeave={() => setIsImageHovering(false)}
         >
           <GlassRectangle
+            articleListPageClassName="article-list-page"
             glassDarkShadowBlur={
               isHoveringOverall(isImageHovering, isLinkHovering) ? 0.4 : 0
             }
@@ -94,13 +95,7 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
       <ArticleDescriptionContainer>
         <ArticleAdditionalInfo>
           <ArticleCategory>
-            <Paragraph
-              {...(isHoveringOverall(isTitleHovering, isLinkHovering) && {
-                opacity: 0.8,
-              })}
-            >
-              {articleCategory}
-            </Paragraph>
+            <Paragraph>{articleCategory}</Paragraph>
           </ArticleCategory>
 
           <ArticleTags>
@@ -111,13 +106,17 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
         </ArticleAdditionalInfo>
 
         <ArticleAdditionalInfo>
-          <ArticleDate>{articleDate}</ArticleDate>
+          <ArticleDate>
+            <Paragraph>{dateFormat('en-US', articleDate)}</Paragraph>
+          </ArticleDate>
 
           <ArticleReadTime>
-            {articleReadingTime < 60
-              ? `${Math.round(articleReadingTime)} sec`
-              : `${Math.floor(articleReadingTime / 60)} min`}
-            &nbsp;read
+            <Paragraph>
+              {articleReadingTime < 60
+                ? `${Math.round(articleReadingTime)} sec`
+                : `${Math.floor(articleReadingTime / 60)} min`}
+              &nbsp;read
+            </Paragraph>
           </ArticleReadTime>
         </ArticleAdditionalInfo>
 
@@ -127,7 +126,13 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
             onMouseEnter={() => setIsTitleHovering(true)}
             onMouseLeave={() => setIsTitleHovering(false)}
           >
-            <HeadingTertiary>{articleTitle}</HeadingTertiary>
+            <HeadingTertiary
+              {...(isHoveringOverall(isTitleHovering, isLinkHovering) && {
+                opacity: 0.8,
+              })}
+            >
+              {articleTitle}
+            </HeadingTertiary>
           </ArticleTitleLink>
         </ArticleTitle>
 

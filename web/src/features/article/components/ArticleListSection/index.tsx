@@ -27,7 +27,7 @@ type TArticlesData = Pick<
 };
 
 interface IArticleListSection {
-  articlesData: TArticlesData[];
+  articlesData: TArticlesData[] | [];
 }
 
 const ArticleListSection: FC<IArticleListSection> = ({ articlesData }) => (
@@ -50,7 +50,11 @@ const ArticleListSection: FC<IArticleListSection> = ({ articlesData }) => (
             articleDate={article.meta.first_published_at}
             articleDescription={article.description}
             articleImageAlt={article.title}
-            articleImageSrc={article.header_image ?? noImage}
+            articleImageSrc={
+              article.header_image
+                ? `http://localhost:8000${article.header_image}`
+                : noImage
+            }
             articleLinkPath={`/articles/${article.id}`}
             articleReadingTime={article.reading_time}
             articleTags={article.tags}

@@ -1,2 +1,2 @@
-/* eslint-disable-next-line import/prefer-default-export */
+export { default as dateFormat } from './dateFormat';
 export { default as isHoveringOverall } from './isHoveringOverall';
