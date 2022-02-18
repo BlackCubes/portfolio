@@ -19,8 +19,7 @@ export const Container = styled.div`
 export const ArticleContainerStyle = styled.div`
   display: flex;
   width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 7rem auto;
 `;
 
 export const ArticleImageWrapper = styled.div``;
