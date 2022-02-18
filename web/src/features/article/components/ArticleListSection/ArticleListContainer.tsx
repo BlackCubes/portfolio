@@ -106,13 +106,17 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
         </ArticleAdditionalInfo>
 
         <ArticleAdditionalInfo>
-          <ArticleDate>{articleDate}</ArticleDate>
+          <ArticleDate>
+            <Paragraph>{articleDate}</Paragraph>
+          </ArticleDate>
 
           <ArticleReadTime>
-            {articleReadingTime < 60
-              ? `${Math.round(articleReadingTime)} sec`
-              : `${Math.floor(articleReadingTime / 60)} min`}
-            &nbsp;read
+            <Paragraph>
+              {articleReadingTime < 60
+                ? `${Math.round(articleReadingTime)} sec`
+                : `${Math.floor(articleReadingTime / 60)} min`}
+              &nbsp;read
+            </Paragraph>
           </ArticleReadTime>
         </ArticleAdditionalInfo>
 

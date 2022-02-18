@@ -82,9 +82,21 @@ export const ArticleTags = styled.div`
   }
 `;
 
-export const ArticleDate = styled.div``;
+export const ArticleDate = styled.div`
+  margin-right: 3rem;
 
-export const ArticleReadTime = styled.div``;
+  & p {
+    font-size: 1.3rem;
+  }
+`;
+
+export const ArticleReadTime = styled.div`
+  & p {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: ${(props) => `rgba(${props.theme.colors.secondary.rgb}, 0.9)`};
+  }
+`;
 
 export const ArticleTitle = styled.div`
   margin-top: 1.5rem;
@@ -108,6 +120,7 @@ export const ArticleLink = styled(Link)`
   text-decoration: none;
 
   &:hover {
+    text-decoration: underline;
     opacity: 0.7;
   }
 `;
