@@ -4,7 +4,14 @@ import coreSplitApi from './coreSplitApi';
 
 type TGetArticles = Pick<
   IArticle,
-  'description' | 'header_image' | 'id' | 'title' | 'uuid' | 'reading_time'
+  | 'description'
+  | 'header_image'
+  | 'id'
+  | 'title'
+  | 'uuid'
+  | 'reading_time'
+  | 'categories'
+  | 'tags'
 > & {
   meta: Pick<IArticle['meta'], 'slug' | 'first_published_at'>;
 };
@@ -17,7 +24,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({
     getArticles: builder.query<TGetArticlesResponse, void>({
       query: () => ({
-        url: '/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,first_published_at,reading_time',
+        url: '/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,tags,categories,first_published_at,reading_time',
       }),
       providesTags: ['Article'],
     }),
