@@ -64,6 +64,7 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
           onMouseLeave={() => setIsImageHovering(false)}
         >
           <GlassRectangle
+            articleListPageClassName="article-list-page"
             glassDarkShadowBlur={
               isHoveringOverall(isImageHovering, isLinkHovering) ? 0.4 : 0
             }
