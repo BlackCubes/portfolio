@@ -27,7 +27,7 @@ type TArticlesData = Pick<
 };
 
 interface IArticleListSection {
-  articlesData: TArticlesData[];
+  articlesData: TArticlesData[] | [];
 }
 
 const ArticleListSection: FC<IArticleListSection> = ({ articlesData }) => (
