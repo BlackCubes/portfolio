@@ -9,7 +9,7 @@ import { ITag } from 'common/models';
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 import Paragraph from 'common/typography/Paragraph';
 
-import { isHoveringOverall } from 'utils';
+import { dateFormat, isHoveringOverall } from 'utils';
 
 import {
   ArticleAdditionalInfo,
@@ -107,7 +107,7 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
 
         <ArticleAdditionalInfo>
           <ArticleDate>
-            <Paragraph>{articleDate}</Paragraph>
+            <Paragraph>{dateFormat('en-US', articleDate)}</Paragraph>
           </ArticleDate>
 
           <ArticleReadTime>
