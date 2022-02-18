@@ -113,7 +113,7 @@ export const ArticleLinkWrapper = styled.div`
 `;
 
 export const ArticleLink = styled(Link)`
-  font-size: ${(props) => props.theme.fonts.paragraph};
+  font-size: 1.4rem;
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary.hex};
   text-decoration: none;
