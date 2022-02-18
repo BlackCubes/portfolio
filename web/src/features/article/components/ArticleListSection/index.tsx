@@ -9,7 +9,6 @@ import { IArticle } from 'common/models';
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 
 import ArticleListContainer from './ArticleListContainer';
-
 import { Container, Section, SectionTitle } from './styles';
 
 type TArticlesData = Pick<
