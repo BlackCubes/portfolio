@@ -36,7 +36,7 @@ type TArticleParams = {
   articleId: string;
 };
 
-const ArticleDetailSection: FC = () => {
+const ArticleDetail: FC = () => {
   const [isParamsReady, setIsParamsReady] = useState<boolean>(false);
   const { articleId } = useParams<TArticleParams>();
 
@@ -155,4 +155,4 @@ const ArticleDetailSection: FC = () => {
   ) : null;
 };
 
-export default ArticleDetailSection;
+export default ArticleDetail;
