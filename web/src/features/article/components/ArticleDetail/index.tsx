@@ -37,7 +37,7 @@ type TArticleParams = {
 };
 
 const ArticleDetail: FC = () => {
-  const [isParamsReady, setIsParamsReady] = useState<boolean>(false);
+  const [doNotInitiateQuery, setDoNotInitiateQuery] = useState<boolean>(true);
   const { articleId } = useParams<TArticleParams>();
 
   const {
@@ -46,13 +46,13 @@ const ArticleDetail: FC = () => {
     isFetching,
     isSuccess,
   } = useGetArticleByIdQuery(articleId ? parseInt(articleId, 10) : 0, {
-    skip: isParamsReady,
+    skip: doNotInitiateQuery,
   });
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (articleId) {
-        setIsParamsReady(true);
+        setDoNotInitiateQuery(false);
       }
     }, 1000);
 
