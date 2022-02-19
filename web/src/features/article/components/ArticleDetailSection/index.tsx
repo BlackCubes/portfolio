@@ -1,6 +1,4 @@
 import React, { FC, useEffect, useState } from 'react';
-import { MathJax, MathJaxContext } from 'better-react-mathjax';
-import parse from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 
 import noImage from 'assets/img/no-image.png';
@@ -15,6 +13,7 @@ import Paragraph from 'common/typography/Paragraph';
 
 import { dateFormat } from 'utils';
 
+import ArticleBody from './ArticleBody';
 import {
   Article,
   ArticleAdditionalInfo,
@@ -31,33 +30,10 @@ import {
   AuthorTwitterIcon,
   AuthorTwitterIconWrapper,
   AuthorTwitterLink,
-  BodyBlockQuote,
-  BodyCode,
-  BodyEquation,
-  BodyImageCaption,
-  BodyParagraph,
-  CodeContent,
-  ImageCaptionContent,
-  ImageCaptionImgWrapper,
 } from './styles';
 
 type TArticleParams = {
   articleId: string;
-};
-
-const mathJaxConfig = {
-  loader: { load: ['[tex]/html'] },
-  tex: {
-    packages: { '[+]': ['html'] },
-    inlineMath: [
-      ['$', '$'],
-      ['\\(', '\\)'],
-    ],
-    displayMath: [
-      ['$$', '$$'],
-      ['\\[', '\\]'],
-    ],
-  },
 };
 
 const ArticleDetailSection: FC = () => {
@@ -167,88 +143,13 @@ const ArticleDetailSection: FC = () => {
       </ArticleHeaderImage>
 
       <ArticleBodyContainer>
-        {articleData.body.map((body) => {
-          let parsedHtml: React.ReactNode | string = '';
-
-          if (body.type === 'paragraph' && typeof body.value === 'string') {
-            parsedHtml = (
-              <BodyParagraph>
-                <MathJaxContext version={3} config={mathJaxConfig}>
-                  <MathJax hideUntilTypeset="first">
-                    {parse(body.value)}
-                  </MathJax>
-                </MathJaxContext>
-              </BodyParagraph>
-            );
-          }
-
-          if (
-            body.type === 'image_with_caption' &&
-            typeof body.value === 'object' &&
-            body.value !== null &&
-            'image' in body.value &&
-            'caption' in body.value
-          ) {
-            parsedHtml = (
-              <BodyImageCaption>
-                <ImageCaptionImgWrapper>
-                  <GlassRectangle
-                    articleListPageClassName="article-list-page"
-                    glassDarkShadowBlur={0.4}
-                    glassDarkShadowHorizontalOffset={0.3}
-                    glassDarkShadowVerticalOffset={0.3}
-                    glassLightShadowBlur={0.4}
-                    glassLightShadowHorizontalOffset={-0.3}
-                    glassLightShadowVerticalOffset={-0.3}
-                    imageAlt="Profile image of Elias Gutierrez"
-                    imageSrc={body.value.image ?? noImage}
-                    opacity={1}
-                  />
-                </ImageCaptionImgWrapper>
-
-                <ImageCaptionContent>{body.value.caption}</ImageCaptionContent>
-              </BodyImageCaption>
-            );
-          }
-
-          if (body.type === 'block_quote' && typeof body.value === 'string') {
-            parsedHtml = (
-              <BodyBlockQuote>
-                <Paragraph>{body.value}</Paragraph>
-              </BodyBlockQuote>
-            );
-          }
-
-          if (
-            body.type === 'code' &&
-            typeof body.value === 'object' &&
-            body.value !== null &&
-            'language' in body.value &&
-            'code' in body.value
-          ) {
-            parsedHtml = (
-              <BodyCode>
-                <CodeContent className={body.value.language}>
-                  {body.value.code}
-                </CodeContent>
-              </BodyCode>
-            );
-          }
-
-          if (body.type === 'equation' && typeof body.value === 'string') {
-            parsedHtml = (
-              <BodyEquation>
-                <MathJaxContext version={3} config={mathJaxConfig}>
-                  <MathJax hideUntilTypeset="first">
-                    {parse(body.value)}
-                  </MathJax>
-                </MathJaxContext>
-              </BodyEquation>
-            );
-          }
-
-          return <React.Fragment key={body.id}>{parsedHtml}</React.Fragment>;
-        })}
+        {articleData.body.map((body) => (
+          <ArticleBody
+            key={body.id}
+            bodyType={body.type}
+            bodyValue={body.value}
+          />
+        ))}
       </ArticleBodyContainer>
     </Article>
   ) : null;
