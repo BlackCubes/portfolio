@@ -57,16 +57,30 @@ export const ArticleTitle = styled.div`
 
 export const ArticleAuthor = styled.div``;
 
-export const AuthorTwitterContainer = styled.div``;
+export const AuthorTwitterContainer = styled.div`
+  display: flex;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
 
-export const AuthorTwitterIconWrapper = styled.div``;
+export const AuthorTwitterIconWrapper = styled.div`
+  width: 1rem;
+  margin-right: 0.2rem;
+`;
 
-export const AuthorTwitterIcon = styled.img``;
+export const AuthorTwitterIcon = styled.img`
+  width: 100%;
+`;
 
-export const AuthorTwitterLink = styled.a``;
+export const AuthorTwitterLink = styled.a`
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: ${(props) => props.theme.colors.secondary.hex};
+  text-decoration: none;
+`;
 
 export const ArticleDate = styled.div`
-  margin-right: 3rem;
+  margin-right: 1.5rem;
 
   & p {
     font-size: 1.3rem;
@@ -81,7 +95,10 @@ export const ArticleReadTime = styled.div`
   }
 `;
 
-export const ArticleDescription = styled.div``;
+export const ArticleDescription = styled.div`
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+`;
 
 export const ArticleHeaderImage = styled.div``;
 
@@ -100,9 +117,14 @@ export const ImageCaptionImgWrapper = styled.div``;
 
 export const ImageCaptionContent = styled.span``;
 
-export const BodyBlockQuote = styled.blockquote``;
+export const BodyBlockQuote = styled.blockquote`
+  text-align: center;
+`;
 
-export const BodyCode = styled.pre``;
+export const BodyCode = styled.pre`
+  margin-left: auto;
+  margin-right: auto;
+`;
 
 export const CodeContent = styled.span``;
 
