@@ -136,7 +136,7 @@ const ArticleDetail: FC = () => {
           glassLightShadowBlur={0.4}
           glassLightShadowHorizontalOffset={-0.3}
           glassLightShadowVerticalOffset={-0.3}
-          imageAlt="Profile image of Elias Gutierrez"
+          imageAlt="Header image for article"
           imageSrc={articleData.header_image ?? noImage}
           opacity={1}
         />

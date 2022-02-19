@@ -78,7 +78,7 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
             glassLightShadowBlur={0.4}
             glassLightShadowHorizontalOffset={-0.3}
             glassLightShadowVerticalOffset={-0.3}
-            imageAlt="Profile image of Elias Gutierrez"
+            imageAlt={bodyValue.caption}
             imageSrc={bodyValue.image ?? noImage}
             opacity={1}
           />
