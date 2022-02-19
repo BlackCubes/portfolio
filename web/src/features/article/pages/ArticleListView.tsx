@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 
-import { ArticleListSection } from 'features/article/components';
+import { ArticleList } from 'features/article/components';
 
 const ArticleListView: FC = () => {
   const { data: articlesData } = useGetArticlesQuery();
 
-  return <ArticleListSection articlesData={articlesData?.items ?? []} />;
+  return <ArticleList articlesData={articlesData?.items ?? []} />;
 };
 
 export default ArticleListView;
