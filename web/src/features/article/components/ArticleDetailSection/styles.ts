@@ -90,6 +90,8 @@ export const ArticleBodyContainer = styled.div`
   flex-direction: column;
 `;
 
+// ARITCLE BODY
+
 export const BodyParagraph = styled.div``;
 
 export const BodyImageCaption = styled.div``;
