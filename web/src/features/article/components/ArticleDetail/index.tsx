@@ -103,7 +103,13 @@ const ArticleDetail: FC = () => {
           />
         </AuthorTwitterIconWrapper>
 
-        <AuthorTwitterLink>@_BlackCubes_</AuthorTwitterLink>
+        <AuthorTwitterLink
+          href="https://twitter.com/_BlackCubes_"
+          target="_blank"
+          rel="noopener"
+        >
+          @_BlackCubes_
+        </AuthorTwitterLink>
       </AuthorTwitterContainer>
 
       <ArticleAdditionalInfo>
