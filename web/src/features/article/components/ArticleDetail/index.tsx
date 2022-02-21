@@ -135,7 +135,7 @@ const ArticleDetail: FC = () => {
 
       <ArticleHeaderImage>
         <GlassRectangle
-          articleListPageClassName="article-list-page"
+          customClassName="article-list-page"
           glassDarkShadowBlur={0.4}
           glassDarkShadowHorizontalOffset={0.3}
           glassDarkShadowVerticalOffset={0.3}

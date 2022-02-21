@@ -9,7 +9,7 @@ import {
 } from './styles';
 
 export interface IGlassRectangle {
-  articleListPageClassName?: string;
+  customClassName?: string;
   glassContentElement?: JSX.Element | JSX.Element[];
   glassDarkShadowBlur: number;
   glassDarkShadowHorizontalOffset: number;
@@ -26,7 +26,7 @@ export interface IGlassRectangle {
 }
 
 const GlassRectangle: FC<IGlassRectangle> = ({
-  articleListPageClassName,
+  customClassName,
   glassContentElement,
   glassDarkShadowBlur,
   glassDarkShadowHorizontalOffset,
@@ -48,22 +48,18 @@ const GlassRectangle: FC<IGlassRectangle> = ({
     boxLightShadowBlur={glassLightShadowBlur}
     boxLightShadowHorizontalOffset={glassLightShadowHorizontalOffset}
     boxLightShadowVerticalOffset={glassLightShadowVerticalOffset}
-    className={articleListPageClassName}
+    className={customClassName}
     hasContent={hasContent}
   >
     {glassTitleElement && <GlassTitle>{glassTitleElement}</GlassTitle>}
 
     <GlassImageWrapper
-      className={articleListPageClassName}
+      className={customClassName}
       hasContent={hasContent}
       imageSize={imageSize}
       opacity={opacity}
     >
-      <GlassImage
-        className={articleListPageClassName}
-        src={imageSrc}
-        alt={imageAlt}
-      />
+      <GlassImage className={customClassName} src={imageSrc} alt={imageAlt} />
     </GlassImageWrapper>
 
     {glassContentElement && <GlassContent>{glassContentElement}</GlassContent>}
