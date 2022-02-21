@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 export const Article = styled.article`
-  padding-left: 10rem;
-  padding-right: 10rem;
-  border: 0.1rem dotted
-    ${(props) => `rgba(${props.theme.colors.secondary.rgb}, 0.3)`};
+  padding-left: 20rem;
+  padding-right: 20rem;
 `;
 
 export const ArticleAdditionalInfo = styled.div`
@@ -123,7 +121,6 @@ export const ArticleBodyContainer = styled.div`
 `;
 
 // ARITCLE BODY
-
 export const BodyParagraph = styled.div`
   & h1 {
     font-size: ${(props) => props.theme.fonts.headingPrimary};
