@@ -151,7 +151,8 @@ export const BodyParagraph = styled.div`
   & h2,
   & h3,
   & p {
-    margin-bottom: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
     line-height: 1.5;
   }
 `;
@@ -160,8 +161,8 @@ export const BodyImageCaption = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 `;
 
 export const ImageCaptionImgWrapper = styled.div``;
@@ -176,10 +177,14 @@ export const BodyBlockQuote = styled.blockquote`
 `;
 
 export const BodyCode = styled.pre`
-  margin-left: auto;
-  margin-right: auto;
+  margin: 2.5rem auto;
 `;
 
-export const CodeContent = styled.span``;
+export const CodeContent = styled.code`
+  font-size: 1.15rem;
+`;
 
-export const BodyEquation = styled.div``;
+export const BodyEquation = styled.div`
+  margin: 2.5rem auto;
+  transform: scale(1.35);
+`;
