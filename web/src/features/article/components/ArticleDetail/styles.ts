@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const Article = styled.article``;
+export const Article = styled.article`
+  padding-left: 10rem;
+  padding-right: 10rem;
+  border: 0.1rem dotted
+    ${(props) => `rgba(${props.theme.colors.secondary.rgb}, 0.3)`};
+`;
 
 export const ArticleAdditionalInfo = styled.div`
   display: flex;
@@ -96,26 +101,78 @@ export const ArticleReadTime = styled.div`
 `;
 
 export const ArticleDescription = styled.div`
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  max-width: 54rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+
+  & p {
+    font-size: 1.8rem;
+    line-height: 1.55;
+  }
 `;
 
-export const ArticleHeaderImage = styled.div``;
+export const ArticleHeaderImage = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export const ArticleBodyContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 6rem;
 `;
 
 // ARITCLE BODY
 
-export const BodyParagraph = styled.div``;
+export const BodyParagraph = styled.div`
+  & h1 {
+    font-size: ${(props) => props.theme.fonts.headingPrimary};
+  }
 
-export const BodyImageCaption = styled.div``;
+  & h2 {
+    font-size: ${(props) => props.theme.fonts.headingSecondary};
+  }
+
+  & h3 {
+    font-size: ${(props) => props.theme.fonts.headingTertiary};
+  }
+
+  & h1,
+  & h2,
+  & h3 {
+    font-weight: 700;
+    color: ${(props) => props.theme.colors.primary.hex};
+  }
+
+  & p {
+    font-size: ${(props) => props.theme.fonts.paragraph};
+    font-weight: 400;
+    color: ${(props) => props.theme.colors.secondary.hex};
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & p {
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+`;
+
+export const BodyImageCaption = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
 
 export const ImageCaptionImgWrapper = styled.div``;
 
-export const ImageCaptionContent = styled.span``;
+export const ImageCaptionContent = styled.span`
+  font-size: 1.3rem;
+  padding-top: 0.6rem;
+`;
 
 export const BodyBlockQuote = styled.blockquote`
   text-align: center;
