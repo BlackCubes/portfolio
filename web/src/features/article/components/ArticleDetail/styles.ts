@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const Article = styled.article`
-  padding-left: 20rem;
-  padding-right: 20rem;
+  max-width: 71.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 `;
 
 export const ArticleAdditionalInfo = styled.div`
