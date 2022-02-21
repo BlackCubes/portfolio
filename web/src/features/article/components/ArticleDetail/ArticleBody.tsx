@@ -71,7 +71,7 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
       <BodyImageCaption>
         <ImageCaptionImgWrapper>
           <GlassRectangle
-            customClassName="article-list-page"
+            customClassName="article-detail-page__caption-image"
             glassDarkShadowBlur={0.4}
             glassDarkShadowHorizontalOffset={0.3}
             glassDarkShadowVerticalOffset={0.3}
@@ -79,7 +79,11 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
             glassLightShadowHorizontalOffset={-0.3}
             glassLightShadowVerticalOffset={-0.3}
             imageAlt={bodyValue.caption}
-            imageSrc={bodyValue.image ?? noImage}
+            imageSrc={
+              bodyValue.image
+                ? `http://localhost:8000${bodyValue.image}`
+                : noImage
+            }
             opacity={1}
           />
         </ImageCaptionImgWrapper>

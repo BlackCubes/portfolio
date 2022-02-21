@@ -135,7 +135,7 @@ const ArticleDetail: FC = () => {
 
       <ArticleHeaderImage>
         <GlassRectangle
-          customClassName="article-list-page"
+          customClassName="article-detail-page__header-image"
           glassDarkShadowBlur={0.4}
           glassDarkShadowHorizontalOffset={0.3}
           glassDarkShadowVerticalOffset={0.3}
@@ -143,7 +143,11 @@ const ArticleDetail: FC = () => {
           glassLightShadowHorizontalOffset={-0.3}
           glassLightShadowVerticalOffset={-0.3}
           imageAlt="Header image for article"
-          imageSrc={articleData.header_image ?? noImage}
+          imageSrc={
+            articleData.header_image
+              ? `http://localhost:8000${articleData.header_image}`
+              : noImage
+          }
           opacity={1}
         />
       </ArticleHeaderImage>
