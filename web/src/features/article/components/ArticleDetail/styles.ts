@@ -180,7 +180,11 @@ export const BodyBlockQuote = styled.blockquote`
 `;
 
 export const BodyCode = styled.pre`
-  margin: 2.5rem auto;
+  width: 100%;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem 2.5rem;
+  overflow-x: auto;
 `;
 
 export const CodeContent = styled.code`
