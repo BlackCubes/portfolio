@@ -94,11 +94,7 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
   }
 
   if (bodyType === 'block_quote' && typeof bodyValue === 'string') {
-    return (
-      <BodyBlockQuote>
-        <Paragraph>{bodyValue}</Paragraph>
-      </BodyBlockQuote>
-    );
+    return <BodyBlockQuote>{bodyValue}</BodyBlockQuote>;
   }
 
   if (
