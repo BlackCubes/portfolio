@@ -176,7 +176,26 @@ export const ImageCaptionContent = styled.span`
 `;
 
 export const BodyBlockQuote = styled.blockquote`
-  text-align: center;
+  display: flex;
+  margin-bottom: -1.4rem;
+`;
+
+export const BlockQuoteQuotation = styled.span`
+  font-size: 6rem;
+  font-style: italic;
+  color: ${(props) => `rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.9)`};
+  transform: translateY(-1.4rem);
+`;
+
+export const BlockQuoteContent = styled.div`
+  margin-left: 0.7rem;
+
+  & p {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: ${(props) => `rgba(${props.theme.colors.secondary.rgb}, 0.75)`};
+    line-height: 1.5;
+  }
 `;
 
 export const BodyCode = styled.pre`

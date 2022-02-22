@@ -9,6 +9,8 @@ import GlassRectangle from 'common/components/GlassRectangle';
 import Paragraph from 'common/typography/Paragraph';
 
 import {
+  BlockQuoteContent,
+  BlockQuoteQuotation,
   BodyBlockQuote,
   BodyCode,
   BodyEquation,
@@ -94,7 +96,15 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
   }
 
   if (bodyType === 'block_quote' && typeof bodyValue === 'string') {
-    return <BodyBlockQuote>{bodyValue}</BodyBlockQuote>;
+    return (
+      <BodyBlockQuote>
+        <BlockQuoteQuotation>&ldquo;</BlockQuoteQuotation>
+
+        <BlockQuoteContent>
+          <Paragraph>{bodyValue}</Paragraph>
+        </BlockQuoteContent>
+      </BodyBlockQuote>
+    );
   }
 
   if (
