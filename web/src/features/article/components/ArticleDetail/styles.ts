@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Article = styled.article`
-  max-width: 71.5rem;
+  max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
   padding-left: 2rem;

@@ -72,7 +72,7 @@ const ArticleDetail: FC = () => {
   }
 
   return articleData ? (
-    <Article className="default-container navbar-footer-space">
+    <Article className="navbar-footer-space">
       <ArticleAdditionalInfo>
         <ArticleCategory>
           <Paragraph>{articleData.categories[0].name}</Paragraph>
