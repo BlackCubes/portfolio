@@ -18,6 +18,7 @@ import {
   BodyEquation,
   BodyImageCaption,
   BodyParagraph,
+  CodePreTag,
   ImageCaptionContent,
   ImageCaptionImgWrapper,
 } from './styles';
@@ -119,6 +120,7 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
       <BodyCode>
         <SyntaxHighlighter
           language={bodyValue.language}
+          PreTag={CodePreTag}
           showLineNumbers
           style={materialLight}
           wrapLongLines

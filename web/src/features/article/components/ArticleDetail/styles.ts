@@ -206,6 +206,18 @@ export const BodyCode = styled.div`
   overflow-x: auto;
 `;
 
+export const CodePreTag = styled.pre`
+  border-left: ${(props) =>
+    `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
+  border-top: ${(props) =>
+    `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
+  border-right: ${(props) =>
+    `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
+  border-bottom: ${(props) =>
+    `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
+  border-radius: 2rem;
+`;
+
 export const BodyEquation = styled.div`
   margin: 2.5rem auto;
   transform: scale(1.35);
