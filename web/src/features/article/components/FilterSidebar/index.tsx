@@ -10,41 +10,60 @@ import {
   CheckboxInput,
   FilterCheckbox,
   FilterName,
+  SidebarContainer,
   SidebarItem,
   SidebarList,
   SidebarTitle,
 } from './styles';
 
 interface IFilterSidebar {
-  filterData: ICategory[] | ITag[] | [];
-  filterNameType: 'Categories' | 'Tags';
+  categoriesData: ICategory[] | [];
+  tagsData: ITag[] | [];
 }
 
-const FilterSidebar: FC<IFilterSidebar> = ({ filterData, filterNameType }) => (
+const FilterSidebar: FC<IFilterSidebar> = ({ categoriesData, tagsData }) => (
   <GeneralSidebar
     sidebarContentElement={
       <>
-        <SidebarTitle>
-          <HeadingTertiary>{filterNameType}</HeadingTertiary>
-        </SidebarTitle>
+        {categoriesData && categoriesData.length > 0 && (
+          <SidebarContainer>
+            <SidebarTitle>
+              <HeadingTertiary>Categories</HeadingTertiary>
+            </SidebarTitle>
 
-        <SidebarList>
-          {filterData &&
-            filterData.length > 0 &&
-            filterData.map((filter) => (
-              <SidebarItem
-                key={`${filter.name.toLowerCase().split(' ').join('-')}-${
-                  filter.id
-                }`}
-              >
-                <FilterName>{filter.name}</FilterName>
+            <SidebarList>
+              {categoriesData.map((category) => (
+                <SidebarItem key={`${category.uuid}`}>
+                  <FilterName>{category.name}</FilterName>
 
-                <FilterCheckbox>
-                  <CheckboxInput value={filter.id} />
-                </FilterCheckbox>
-              </SidebarItem>
-            ))}
-        </SidebarList>
+                  <FilterCheckbox>
+                    <CheckboxInput value={category.id} />
+                  </FilterCheckbox>
+                </SidebarItem>
+              ))}
+            </SidebarList>
+          </SidebarContainer>
+        )}
+
+        {tagsData && tagsData.length > 0 && (
+          <SidebarContainer>
+            <SidebarTitle>
+              <HeadingTertiary>Categories</HeadingTertiary>
+            </SidebarTitle>
+
+            <SidebarList>
+              {tagsData.map((tag) => (
+                <SidebarItem key={`${tag.slug}-${tag.id}`}>
+                  <FilterName>{tag.name}</FilterName>
+
+                  <FilterCheckbox>
+                    <CheckboxInput value={tag.id} />
+                  </FilterCheckbox>
+                </SidebarItem>
+              ))}
+            </SidebarList>
+          </SidebarContainer>
+        )}
       </>
     }
   />

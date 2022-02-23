@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export const SidebarContainer = styled.div``;
+
 export const SidebarTitle = styled.div``;
 
 export const SidebarList = styled.ul``;
