@@ -48,7 +48,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({ categoriesData, tagsData }) => (
         {tagsData && tagsData.length > 0 && (
           <SidebarContainer>
             <SidebarTitle>
-              <HeadingTertiary>Categories</HeadingTertiary>
+              <HeadingTertiary>Tags</HeadingTertiary>
             </SidebarTitle>
 
             <SidebarList>
