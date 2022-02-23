@@ -1,2 +1,2 @@
-/* eslint-disable-next-line import/prefer-default-export */
-export { default as ArticleListSection } from './ArticleListSection';
+export { default as ArticleDetail } from './ArticleDetail';
+export { default as ArticleList } from './ArticleList';

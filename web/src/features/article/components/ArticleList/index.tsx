@@ -26,11 +26,11 @@ type TArticlesData = Pick<
   meta: Pick<IArticle['meta'], 'slug' | 'first_published_at'>;
 };
 
-interface IArticleListSection {
+interface IArticleList {
   articlesData: TArticlesData[] | [];
 }
 
-const ArticleListSection: FC<IArticleListSection> = ({ articlesData }) => (
+const ArticleList: FC<IArticleList> = ({ articlesData }) => (
   <Section className="default-container default-margin-bottom navbar-footer-space">
     <SectionTitle>
       <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
@@ -65,4 +65,4 @@ const ArticleListSection: FC<IArticleListSection> = ({ articlesData }) => (
   </Section>
 );
 
-export default ArticleListSection;
+export default ArticleList;

@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import parse from 'html-react-parser';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -9,12 +11,14 @@ import GlassRectangle from 'common/components/GlassRectangle';
 import Paragraph from 'common/typography/Paragraph';
 
 import {
+  BlockQuoteContent,
+  BlockQuoteQuotation,
   BodyBlockQuote,
   BodyCode,
   BodyEquation,
   BodyImageCaption,
   BodyParagraph,
-  CodeContent,
+  CodePreTag,
   ImageCaptionContent,
   ImageCaptionImgWrapper,
 } from './styles';
@@ -71,15 +75,19 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
       <BodyImageCaption>
         <ImageCaptionImgWrapper>
           <GlassRectangle
-            articleListPageClassName="article-list-page"
-            glassDarkShadowBlur={0.4}
-            glassDarkShadowHorizontalOffset={0.3}
-            glassDarkShadowVerticalOffset={0.3}
-            glassLightShadowBlur={0.4}
-            glassLightShadowHorizontalOffset={-0.3}
-            glassLightShadowVerticalOffset={-0.3}
-            imageAlt="Profile image of Elias Gutierrez"
-            imageSrc={bodyValue.image ?? noImage}
+            customClassName="article-detail-page__caption-image"
+            glassDarkShadowBlur={0.2}
+            glassDarkShadowHorizontalOffset={0.1}
+            glassDarkShadowVerticalOffset={0.1}
+            glassLightShadowBlur={0.2}
+            glassLightShadowHorizontalOffset={-0.1}
+            glassLightShadowVerticalOffset={-0.1}
+            imageAlt={bodyValue.caption}
+            imageSrc={
+              bodyValue.image
+                ? `http://localhost:8000${bodyValue.image}`
+                : noImage
+            }
             opacity={1}
           />
         </ImageCaptionImgWrapper>
@@ -92,7 +100,11 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
   if (bodyType === 'block_quote' && typeof bodyValue === 'string') {
     return (
       <BodyBlockQuote>
-        <Paragraph>{bodyValue}</Paragraph>
+        <BlockQuoteQuotation>&ldquo;</BlockQuoteQuotation>
+
+        <BlockQuoteContent>
+          <Paragraph>{bodyValue}</Paragraph>
+        </BlockQuoteContent>
       </BodyBlockQuote>
     );
   }
@@ -106,9 +118,15 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
   ) {
     return (
       <BodyCode>
-        <CodeContent className={bodyValue.language}>
+        <SyntaxHighlighter
+          language={bodyValue.language}
+          PreTag={CodePreTag}
+          showLineNumbers
+          style={materialLight}
+          wrapLongLines
+        >
           {bodyValue.code}
-        </CodeContent>
+        </SyntaxHighlighter>
       </BodyCode>
     );
   }

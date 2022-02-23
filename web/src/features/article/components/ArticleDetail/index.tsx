@@ -36,8 +36,8 @@ type TArticleParams = {
   articleId: string;
 };
 
-const ArticleDetailSection: FC = () => {
-  const [isParamsReady, setIsParamsReady] = useState<boolean>(false);
+const ArticleDetail: FC = () => {
+  const [doNotInitiateQuery, setDoNotInitiateQuery] = useState<boolean>(true);
   const { articleId } = useParams<TArticleParams>();
 
   const {
@@ -46,13 +46,13 @@ const ArticleDetailSection: FC = () => {
     isFetching,
     isSuccess,
   } = useGetArticleByIdQuery(articleId ? parseInt(articleId, 10) : 0, {
-    skip: isParamsReady,
+    skip: doNotInitiateQuery,
   });
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (articleId) {
-        setIsParamsReady(true);
+        setDoNotInitiateQuery(false);
       }
     }, 1000);
 
@@ -72,7 +72,7 @@ const ArticleDetailSection: FC = () => {
   }
 
   return articleData ? (
-    <Article>
+    <Article className="navbar-footer-space">
       <ArticleAdditionalInfo>
         <ArticleCategory>
           <Paragraph>{articleData.categories[0].name}</Paragraph>
@@ -103,7 +103,13 @@ const ArticleDetailSection: FC = () => {
           />
         </AuthorTwitterIconWrapper>
 
-        <AuthorTwitterLink>@_BlackCubes_</AuthorTwitterLink>
+        <AuthorTwitterLink
+          href="https://twitter.com/_BlackCubes_"
+          target="_blank"
+          rel="noopener"
+        >
+          @_BlackCubes_
+        </AuthorTwitterLink>
       </AuthorTwitterContainer>
 
       <ArticleAdditionalInfo>
@@ -129,15 +135,19 @@ const ArticleDetailSection: FC = () => {
 
       <ArticleHeaderImage>
         <GlassRectangle
-          articleListPageClassName="article-list-page"
+          customClassName="article-detail-page__header-image"
           glassDarkShadowBlur={0.4}
           glassDarkShadowHorizontalOffset={0.3}
           glassDarkShadowVerticalOffset={0.3}
           glassLightShadowBlur={0.4}
           glassLightShadowHorizontalOffset={-0.3}
           glassLightShadowVerticalOffset={-0.3}
-          imageAlt="Profile image of Elias Gutierrez"
-          imageSrc={articleData.header_image ?? noImage}
+          imageAlt="Header image for article"
+          imageSrc={
+            articleData.header_image
+              ? `http://localhost:8000${articleData.header_image}`
+              : noImage
+          }
           opacity={1}
         />
       </ArticleHeaderImage>
@@ -155,4 +165,4 @@ const ArticleDetailSection: FC = () => {
   ) : null;
 };
 
-export default ArticleDetailSection;
+export default ArticleDetail;
