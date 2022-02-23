@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import parse from 'html-react-parser';
+import { atomOneLight, CopyBlock } from 'react-code-blocks';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -16,7 +17,6 @@ import {
   BodyEquation,
   BodyImageCaption,
   BodyParagraph,
-  CodeContent,
   ImageCaptionContent,
   ImageCaptionImgWrapper,
 } from './styles';
@@ -116,9 +116,12 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
   ) {
     return (
       <BodyCode>
-        <CodeContent className={bodyValue.language}>
-          {bodyValue.code}
-        </CodeContent>
+        <CopyBlock
+          text={bodyValue.code}
+          language={bodyValue.language}
+          theme={atomOneLight}
+          showLineNumbers
+        />
       </BodyCode>
     );
   }

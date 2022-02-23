@@ -198,16 +198,12 @@ export const BlockQuoteContent = styled.div`
   }
 `;
 
-export const BodyCode = styled.pre`
+export const BodyCode = styled.div`
   width: 100%;
+  font-size: 1.35rem;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-  padding: 2rem 2.5rem;
   overflow-x: auto;
-`;
-
-export const CodeContent = styled.code`
-  font-size: 1.15rem;
 `;
 
 export const BodyEquation = styled.div`
