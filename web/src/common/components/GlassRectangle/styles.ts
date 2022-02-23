@@ -52,7 +52,7 @@ export const GlassContainer = styled.div<IGlassContainer>`
     }
 
     &__caption-image {
-      width: 50%;
+      width: 70%;
       height: inherit;
       margin-left: auto;
       margin-right: auto;
