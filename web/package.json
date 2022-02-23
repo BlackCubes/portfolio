@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-syntax-highlighter": "^13.5.2",
     "@typescript-eslint/parser": "^5.9.1",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.0",
