@@ -1,25 +1,22 @@
 import React, { FC } from 'react';
 
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
-// import { useGetCategoriesQuery } from 'common/api/categoryExtendedApi';
-// import { useGetTagsQuery } from 'common/api/tagExtendedApi';
+import { useGetCategoriesQuery } from 'common/api/categoryExtendedApi';
+import { useGetTagsQuery } from 'common/api/tagExtendedApi';
 
-import {
-  ArticleList,
-  // CategorySidebar,
-  // TagSidebar,
-} from 'features/article/components';
+import { ArticleList, FilterSidebar } from 'features/article/components';
 
 const ArticleListView: FC = () => {
   const { data: articlesData } = useGetArticlesQuery();
-  // const { data: categoriesData } = useGetCategoriesQuery();
-  // const { data: tagsData } = useGetTagsQuery();
+  const { data: categoriesData } = useGetCategoriesQuery();
+  const { data: tagsData } = useGetTagsQuery();
 
   return (
     <>
-      {/* <CategorySidebar categoriesData={categoriesData?.items ?? []} />
-
-      <TagSidebar tagsData={tagsData?.items ?? []} /> */}
+      <FilterSidebar
+        categoriesData={categoriesData?.items ?? []}
+        tagsData={tagsData?.items ?? []}
+      />
 
       <ArticleList articlesData={articlesData?.items ?? []} />
     </>
