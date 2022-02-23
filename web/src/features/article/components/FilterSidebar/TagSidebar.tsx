@@ -7,11 +7,12 @@ import { ITag } from 'common/models';
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 
 import {
+  CheckboxInput,
   SidebarItem,
   SidebarList,
   SidebarTitle,
-  TagsOption,
-  TagsSelect,
+  TagCheckbox,
+  TagName,
 } from './styles';
 
 interface ITagSidebar {
@@ -27,17 +28,17 @@ const TagSidebar: FC<ITagSidebar> = ({ tagsData }) => (
         </SidebarTitle>
 
         <SidebarList>
-          <SidebarItem>
-            <TagsSelect>
-              {tagsData &&
-                tagsData.length > 0 &&
-                tagsData.map((tag) => (
-                  <TagsOption key={`${tag.slug}-${tag.id}`} value={tag.id}>
-                    {tag.name}
-                  </TagsOption>
-                ))}
-            </TagsSelect>
-          </SidebarItem>
+          {tagsData &&
+            tagsData.length > 0 &&
+            tagsData.map((tag) => (
+              <SidebarItem key={`${tag.slug}-${tag.id}`}>
+                <TagName>{tag.name}</TagName>
+
+                <TagCheckbox>
+                  <CheckboxInput value={tag.id} />
+                </TagCheckbox>
+              </SidebarItem>
+            ))}
         </SidebarList>
       </>
     }

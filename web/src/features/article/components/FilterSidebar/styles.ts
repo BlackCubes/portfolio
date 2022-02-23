@@ -12,6 +12,10 @@ export const SidebarItem = styled.li``;
 export const CategoryItemLink = styled(Link)``;
 
 // TAGS
-export const TagsSelect = styled.select``;
+export const TagName = styled.span``;
 
-export const TagsOption = styled.option``;
+export const TagCheckbox = styled.div``;
+
+export const CheckboxInput = styled.input.attrs(() => ({
+  type: 'checkbox',
+}))``;
