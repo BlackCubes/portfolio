@@ -200,7 +200,7 @@ export const BlockQuoteContent = styled.div`
 
 export const BodyCode = styled.div`
   width: 100%;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   overflow-x: auto;

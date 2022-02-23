@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import parse from 'html-react-parser';
-import { atomOneLight, CopyBlock } from 'react-code-blocks';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -116,12 +117,14 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
   ) {
     return (
       <BodyCode>
-        <CopyBlock
-          text={bodyValue.code}
+        <SyntaxHighlighter
           language={bodyValue.language}
-          theme={atomOneLight}
           showLineNumbers
-        />
+          style={materialLight}
+          wrapLongLines
+        >
+          {bodyValue.code}
+        </SyntaxHighlighter>
       </BodyCode>
     );
   }
