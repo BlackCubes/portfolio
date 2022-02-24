@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Sidebar = styled.aside`
   position: fixed;
-  top: 27rem;
+  top: 30rem;
   left: 24rem;
 `;
 
