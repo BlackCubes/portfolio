@@ -16,16 +16,38 @@ type TGetArticles = Pick<
   meta: Pick<IArticle['meta'], 'slug' | 'first_published_at'>;
 };
 
+type TGetArticlesRequest = {
+  categories: Array<number> | [];
+  tags: Array<number> | [];
+};
+
 type TGetArticlesResponse = IPaginationResponse & {
   items: TGetArticles[];
 };
 
 const articleExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({
-    getArticles: builder.query<TGetArticlesResponse, void>({
-      query: () => ({
-        url: '/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,tags,categories,first_published_at,reading_time',
-      }),
+    getArticles: builder.query<TGetArticlesResponse, TGetArticlesRequest>({
+      query: ({ categories, tags }) => {
+        let categoriesFiltering: string = '';
+        let tagsFiltering: string = '';
+
+        if (categories.length) {
+          categoriesFiltering += `&categories=${categories.join(',')}`;
+        } else {
+          categoriesFiltering = '';
+        }
+
+        if (tags.length) {
+          tagsFiltering += `&tags=${tags.join(',')}`;
+        } else {
+          tagsFiltering = '';
+        }
+
+        return {
+          url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,tags,categories,first_published_at,reading_time${categoriesFiltering}${tagsFiltering}`,
+        };
+      },
       providesTags: ['Article'],
     }),
 

@@ -17,10 +17,11 @@ const ArticleListView: FC = () => {
       categories: [],
       tags: [],
     });
-  console.log('Categories: ', categoryTagIdQuery.categories);
-  console.log('Tags: ', categoryTagIdQuery.tags);
 
-  const { data: articlesData } = useGetArticlesQuery();
+  const { data: articlesData } = useGetArticlesQuery({
+    categories: categoryTagIdQuery.categories,
+    tags: categoryTagIdQuery.tags,
+  });
   const { data: categoriesData } = useGetCategoriesQuery();
   const { data: tagsData } = useGetTagsQuery();
 
