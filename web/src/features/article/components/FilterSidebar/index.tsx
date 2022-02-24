@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 import GeneralSidebar from 'common/components/GeneralSidebar';
 
@@ -28,52 +28,73 @@ const FilterSidebar: FC<IFilterSidebar> = ({
   categoriesData,
   handleCategoryTagQuery,
   tagsData,
-}) => (
-  <GeneralSidebar
-    sidebarContentElement={
-      <>
-        <SidebarContainer>
-          <SidebarTitle>
-            <HeadingTertiary>Categories</HeadingTertiary>
-          </SidebarTitle>
+}) => {
+  const [tagCheckedState, setTagCheckedState] = useState<Array<boolean>>(
+    new Array(tagsData.length).fill(false)
+  );
 
-          <SidebarList>
-            {categoriesData.map((category) => (
-              <CategoryItem
-                key={`${category.uuid}`}
-                onClick={() =>
-                  handleCategoryTagQuery('categories', category.id)
-                }
-              >
-                <CategoryName>{category.name}</CategoryName>
-              </CategoryItem>
-            ))}
-          </SidebarList>
-        </SidebarContainer>
+  return (
+    <GeneralSidebar
+      sidebarContentElement={
+        <>
+          <SidebarContainer>
+            <SidebarTitle>
+              <HeadingTertiary>Categories</HeadingTertiary>
+            </SidebarTitle>
 
-        <SidebarContainer>
-          <SidebarTitle>
-            <HeadingTertiary>Tags</HeadingTertiary>
-          </SidebarTitle>
+            <SidebarList>
+              {categoriesData.map((category) => (
+                <CategoryItem
+                  key={`${category.uuid}`}
+                  onClick={() =>
+                    handleCategoryTagQuery('categories', category.id)
+                  }
+                >
+                  <CategoryName>{category.name}</CategoryName>
+                </CategoryItem>
+              ))}
+            </SidebarList>
+          </SidebarContainer>
 
-          <SidebarList>
-            {tagsData.map((tag) => (
-              <TagItem key={`${tag.slug}-${tag.id}`}>
-                <TagName>{tag.name}</TagName>
+          <SidebarContainer>
+            <SidebarTitle>
+              <HeadingTertiary>Tags</HeadingTertiary>
+            </SidebarTitle>
 
-                <TagCheckbox>
-                  <CheckboxInput
-                    onChange={() => handleCategoryTagQuery('tags', tag.id)}
-                    value={tag.id}
-                  />
-                </TagCheckbox>
-              </TagItem>
-            ))}
-          </SidebarList>
-        </SidebarContainer>
-      </>
-    }
-  />
-);
+            <SidebarList>
+              {tagsData.map((tag, tagIndex) => (
+                <TagItem
+                  key={`${tag.slug}-${tag.id}`}
+                  onClick={() => {
+                    handleCategoryTagQuery('tags', tag.id);
+
+                    setTagCheckedState((prevTagCheckedState) =>
+                      prevTagCheckedState.map((prevBoolean, prevBooleanIndex) =>
+                        prevBooleanIndex === tagIndex
+                          ? !prevBoolean
+                          : prevBoolean
+                      )
+                    );
+                  }}
+                >
+                  <TagName>{tag.name}</TagName>
+
+                  <TagCheckbox>
+                    <CheckboxInput
+                      checked={tagCheckedState[tagIndex]}
+                      onChange={() => handleCategoryTagQuery('tags', tag.id)}
+                      onClick={() => handleCategoryTagQuery('tags', tag.id)}
+                      value={tag.id}
+                    />
+                  </TagCheckbox>
+                </TagItem>
+              ))}
+            </SidebarList>
+          </SidebarContainer>
+        </>
+      }
+    />
+  );
+};
 
 export default FilterSidebar;
