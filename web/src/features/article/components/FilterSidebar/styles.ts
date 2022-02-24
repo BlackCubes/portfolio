@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 
 // GENERAL
+export const ClearFilter = styled.div`
+  margin-bottom: 1rem;
+  text-align: right;
+`;
+
+export const ClearFilterButton = styled.button`
+  font-size: 1.2rem;
+  color: ${(props) => `rgba(${props.theme.colors.secondary.hex}, 0.9)`};
+  background: none;
+  appearance: none;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
 export const SidebarContainer = styled.div`
   &:not(:last-child) {
     margin-bottom: 3rem;

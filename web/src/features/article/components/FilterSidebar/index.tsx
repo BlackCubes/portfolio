@@ -10,6 +10,8 @@ import {
   CategoryItem,
   CategoryName,
   CheckboxInput,
+  ClearFilter,
+  ClearFilterButton,
   SidebarContainer,
   SidebarList,
   SidebarTitle,
@@ -21,12 +23,14 @@ import {
 interface IFilterSidebar {
   categoriesData: ICategory[];
   handleCategoryTagQuery: Function;
+  handleClearFilter: Function;
   tagsData: ITag[];
 }
 
 const FilterSidebar: FC<IFilterSidebar> = ({
   categoriesData,
   handleCategoryTagQuery,
+  handleClearFilter,
   tagsData,
 }) => {
   const [tagCheckedState, setTagCheckedState] = useState<Array<boolean>>(
@@ -37,6 +41,18 @@ const FilterSidebar: FC<IFilterSidebar> = ({
     <GeneralSidebar
       sidebarContentElement={
         <>
+          <ClearFilter>
+            <ClearFilterButton
+              onClick={() => {
+                handleClearFilter('clearAll');
+
+                setTagCheckedState(new Array(tagsData.length).fill(false));
+              }}
+            >
+              Clear filter
+            </ClearFilterButton>
+          </ClearFilter>
+
           <SidebarContainer>
             <SidebarTitle>
               <HeadingTertiary>Categories</HeadingTertiary>

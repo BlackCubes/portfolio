@@ -80,6 +80,33 @@ const ArticleListView: FC = () => {
     });
   };
 
+  /**
+   * Dynamically clears the filtering for the Article API on categories and/or
+   * tags.
+   *
+   * For case ``'clearAll'``, it resets categories and tags to what it was
+   * initially.
+   *
+   * As a safety return, if no cases are brought forth, then it returns the
+   * current state.
+   * @param clearCase
+   */
+  const handleClearFiltering = (clearCase: 'clearAll') => {
+    setCategoryTagIdQuery((prevCategoryTagIdQuery) => {
+      if (clearCase === 'clearAll') {
+        return {
+          ...prevCategoryTagIdQuery,
+          categories: 0,
+          tags: [],
+        };
+      }
+
+      return {
+        ...prevCategoryTagIdQuery,
+      };
+    });
+  };
+
   return (
     <>
       {categoriesData?.items &&
@@ -89,6 +116,7 @@ const ArticleListView: FC = () => {
           <FilterSidebar
             categoriesData={categoriesData.items}
             handleCategoryTagQuery={handleCategoryTagQuery}
+            handleClearFilter={handleClearFiltering}
             tagsData={tagsData.items}
           />
         )}
