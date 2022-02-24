@@ -55,6 +55,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
 
   return (
     <GeneralSidebar
+      sidebarClassName="filter-sidebar"
       sidebarContentElement={
         <>
           <ClearFilter>
