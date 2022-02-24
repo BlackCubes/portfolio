@@ -20,6 +20,14 @@ import {
   TagName,
 } from './styles';
 
+type TTagCheckedState = Array<boolean>;
+
+type TCategoryCheckedState = {
+  checked: {
+    indexNumber: number;
+  };
+};
+
 interface IFilterSidebar {
   categoriesData: ICategory[];
   handleCategoryTagQuery: Function;
@@ -33,9 +41,15 @@ const FilterSidebar: FC<IFilterSidebar> = ({
   handleClearFilter,
   tagsData,
 }) => {
-  const [tagCheckedState, setTagCheckedState] = useState<Array<boolean>>(
+  const [tagCheckedState, setTagCheckedState] = useState<TTagCheckedState>(
     new Array(tagsData.length).fill(false)
   );
+  const [categoryCheckedState, setCategoryCheckedState] =
+    useState<TCategoryCheckedState>({
+      checked: {
+        indexNumber: -1,
+      },
+    });
 
   return (
     <GeneralSidebar
@@ -47,6 +61,12 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                 handleClearFilter('clearAll');
 
                 setTagCheckedState(new Array(tagsData.length).fill(false));
+
+                setCategoryCheckedState({
+                  checked: {
+                    indexNumber: -1,
+                  },
+                });
               }}
             >
               Clear filter
@@ -59,14 +79,33 @@ const FilterSidebar: FC<IFilterSidebar> = ({
             </SidebarTitle>
 
             <SidebarList>
-              {categoriesData.map((category) => (
+              {categoriesData.map((category, categoryIndex) => (
                 <CategoryItem
                   key={`${category.uuid}`}
-                  onClick={() =>
-                    handleCategoryTagQuery('categories', category.id)
-                  }
+                  onClick={() => {
+                    handleCategoryTagQuery('categories', category.id);
+
+                    setCategoryCheckedState((prevCategoryCheckedState) => ({
+                      ...prevCategoryCheckedState,
+                      checked: {
+                        indexNumber:
+                          prevCategoryCheckedState.checked.indexNumber ===
+                          categoryIndex
+                            ? -1
+                            : categoryIndex,
+                      },
+                    }));
+                  }}
                 >
-                  <CategoryName>{category.name}</CategoryName>
+                  <CategoryName
+                    className={
+                      categoryCheckedState.checked.indexNumber === categoryIndex
+                        ? 'checked'
+                        : ''
+                    }
+                  >
+                    {category.name}
+                  </CategoryName>
                 </CategoryItem>
               ))}
             </SidebarList>
@@ -93,7 +132,11 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                     );
                   }}
                 >
-                  <TagName>{tag.name}</TagName>
+                  <TagName
+                    className={tagCheckedState[tagIndex] ? 'checked' : ''}
+                  >
+                    {tag.name}
+                  </TagName>
 
                   <TagCheckbox>
                     <CheckboxInput

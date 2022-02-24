@@ -45,7 +45,14 @@ export const CategoryItem = styled.li`
 
 export const CategoryName = styled.span`
   font-size: 1.4rem;
+  font-style: normal;
+  text-decoration: none;
   text-transform: capitalize;
+
+  &.checked {
+    font-style: italic;
+    text-decoration: underline;
+  }
 `;
 
 // TAGS
@@ -63,7 +70,14 @@ export const TagItem = styled.li`
 
 export const TagName = styled.span`
   font-size: 1.4rem;
+  font-style: normal;
+  text-decoration: none;
   text-transform: capitalize;
+
+  &.checked {
+    font-style: italic;
+    text-decoration: underline;
+  }
 `;
 
 export const TagCheckbox = styled.div`

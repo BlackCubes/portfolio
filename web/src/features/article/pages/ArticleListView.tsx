@@ -50,7 +50,10 @@ const ArticleListView: FC = () => {
       if (categoryTagName === 'categories') {
         return {
           ...prevCategoryTagIdQuery,
-          [categoryTagName]: categoryTagId,
+          [categoryTagName]:
+            prevCategoryTagIdQuery.categories === categoryTagId
+              ? 0
+              : categoryTagId,
         };
       }
 
