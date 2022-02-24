@@ -38,6 +38,7 @@ export const TagItem = styled.li`
   justify-content: space-between;
   align-items: center;
   list-style: none;
+  cursor: pointer;
 
   &:not(:last-child) {
     margin-bottom: 1rem;
