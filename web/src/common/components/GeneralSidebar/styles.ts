@@ -1,0 +1,19 @@
+import styled from 'styled-components';
+
+export const Sidebar = styled.aside`
+  position: fixed;
+
+  &.filter-sidebar {
+    top: 30rem;
+    left: 24rem;
+  }
+
+  &.related-sidebar {
+    top: 30rem;
+    right: 24rem;
+  }
+`;
+
+export const SidebarContainer = styled.div`
+  width: 15rem;
+`;
