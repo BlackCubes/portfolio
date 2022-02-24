@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 import GeneralSidebar from 'common/components/GeneralSidebar';
 
@@ -16,92 +16,66 @@ import {
   SidebarTitle,
 } from './styles';
 
-type TCheckedState = Array<boolean>;
-
-type TSetCheckedState = React.Dispatch<React.SetStateAction<TCheckedState>>;
-
 interface IFilterSidebar {
   categoriesData: ICategory[];
+  handleCategoryTagQuery: Function;
   tagsData: ITag[];
 }
 
-const FilterSidebar: FC<IFilterSidebar> = ({ categoriesData, tagsData }) => {
-  const [categoriesChecked, setCategoriesChecked] = useState<TCheckedState>(
-    new Array(categoriesData.length).fill(false)
-  );
-  const [tagsChecked, setTagsChecked] = useState<TCheckedState>(
-    new Array(tagsData.length).fill(false)
-  );
+const FilterSidebar: FC<IFilterSidebar> = ({
+  categoriesData,
+  handleCategoryTagQuery,
+  tagsData,
+}) => (
+  <GeneralSidebar
+    sidebarContentElement={
+      <>
+        <SidebarContainer>
+          <SidebarTitle>
+            <HeadingTertiary>Categories</HeadingTertiary>
+          </SidebarTitle>
 
-  const handleCheckboxOnChange = (
-    currentCheckboxIndex: number,
-    setCheckedState: TSetCheckedState
-  ) => {
-    setCheckedState((prevCheckedState) =>
-      prevCheckedState.map((checkedValue, checkedIndex) =>
-        checkedIndex === currentCheckboxIndex ? !checkedValue : checkedValue
-      )
-    );
-  };
+          <SidebarList>
+            {categoriesData.map((category) => (
+              <SidebarItem key={`${category.uuid}`}>
+                <FilterName>{category.name}</FilterName>
 
-  return (
-    <GeneralSidebar
-      sidebarContentElement={
-        <>
-          <SidebarContainer>
-            <SidebarTitle>
-              <HeadingTertiary>Categories</HeadingTertiary>
-            </SidebarTitle>
+                <FilterCheckbox>
+                  <CheckboxInput
+                    onChange={() =>
+                      handleCategoryTagQuery('categories', category.id)
+                    }
+                    value={category.id}
+                  />
+                </FilterCheckbox>
+              </SidebarItem>
+            ))}
+          </SidebarList>
+        </SidebarContainer>
 
-            <SidebarList>
-              {categoriesData.map((category, categoryIndex) => (
-                <SidebarItem key={`${category.uuid}`}>
-                  <FilterName>{category.name}</FilterName>
+        <SidebarContainer>
+          <SidebarTitle>
+            <HeadingTertiary>Tags</HeadingTertiary>
+          </SidebarTitle>
 
-                  <FilterCheckbox>
-                    <CheckboxInput
-                      checked={categoriesChecked[categoryIndex]}
-                      onChange={() =>
-                        handleCheckboxOnChange(
-                          categoryIndex,
-                          setCategoriesChecked
-                        )
-                      }
-                      value={category.id}
-                    />
-                  </FilterCheckbox>
-                </SidebarItem>
-              ))}
-            </SidebarList>
-          </SidebarContainer>
+          <SidebarList>
+            {tagsData.map((tag) => (
+              <SidebarItem key={`${tag.slug}-${tag.id}`}>
+                <FilterName>{tag.name}</FilterName>
 
-          <SidebarContainer>
-            <SidebarTitle>
-              <HeadingTertiary>Tags</HeadingTertiary>
-            </SidebarTitle>
-
-            <SidebarList>
-              {tagsData.map((tag, tagIndex) => (
-                <SidebarItem key={`${tag.slug}-${tag.id}`}>
-                  <FilterName>{tag.name}</FilterName>
-
-                  <FilterCheckbox>
-                    <CheckboxInput
-                      checked={tagsChecked[tagIndex]}
-                      onChange={() =>
-                        handleCheckboxOnChange(tagIndex, setTagsChecked)
-                      }
-                      value={tag.id}
-                    />
-                  </FilterCheckbox>
-                </SidebarItem>
-              ))}
-            </SidebarList>
-          </SidebarContainer>
-        </>
-      }
-    />
-  );
-};
+                <FilterCheckbox>
+                  <CheckboxInput
+                    onChange={() => handleCategoryTagQuery('tags', tag.id)}
+                    value={tag.id}
+                  />
+                </FilterCheckbox>
+              </SidebarItem>
+            ))}
+          </SidebarList>
+        </SidebarContainer>
+      </>
+    }
+  />
+);
 
 export default FilterSidebar;
