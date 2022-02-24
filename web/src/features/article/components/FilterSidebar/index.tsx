@@ -41,9 +41,11 @@ const FilterSidebar: FC<IFilterSidebar> = ({
   handleClearFilter,
   tagsData,
 }) => {
+  // For the UI side.
   const [tagCheckedState, setTagCheckedState] = useState<TTagCheckedState>(
     new Array(tagsData.length).fill(false)
   );
+  // For the UI side.
   const [categoryCheckedState, setCategoryCheckedState] =
     useState<TCategoryCheckedState>({
       checked: {

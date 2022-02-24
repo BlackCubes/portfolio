@@ -30,7 +30,9 @@ const ArticleListView: FC = () => {
    * on categories and/or tags.
    *
    * It checks first if the category has been selected by the user, and if so
-   * then it inserts the category ID.
+   * then it inserts the category ID if that ID does not exist. If the ID does
+   * exist, then it 'removes' it since it is assumed that the user has 'unchecked'
+   * that particular category.
    *
    * If the user selected tags, then it checks first if the tag exists in the
    * array, and if it does then it 'removes' it since it is assumed that the
@@ -51,6 +53,8 @@ const ArticleListView: FC = () => {
         return {
           ...prevCategoryTagIdQuery,
           [categoryTagName]:
+          // If the category ID exists, then remove it since the user has
+          // 'unchecked' it. Otherwise, add the category ID.
             prevCategoryTagIdQuery.categories === categoryTagId
               ? 0
               : categoryTagId,
