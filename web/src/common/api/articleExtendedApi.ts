@@ -25,6 +25,17 @@ type TGetArticlesResponse = IPaginationResponse & {
   items: TGetArticles[];
 };
 
+type TGetArticlesByRelatedCategory = Pick<
+  IArticle,
+  'header_image' | 'id' | 'title' | 'uuid'
+> & {
+  meta: Pick<IArticle['meta'], 'slug'>;
+};
+
+type TGetArticlesByRelatedCategoryResponse = IPaginationResponse & {
+  items: TGetArticlesByRelatedCategory[];
+};
+
 const articleExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({
     getArticles: builder.query<TGetArticlesResponse, TGetArticlesRequest>({
@@ -54,6 +65,16 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
     getArticleById: builder.query<IArticle, number>({
       query: (id) => ({
         url: `/pages/${id}/?fields=_,id,uuid,title,slug,description,header_image,body,tags,categories,seo_title,search_description,first_published_at,reading_time`,
+      }),
+      providesTags: ['Article'],
+    }),
+
+    getArticlesByRelatedCategory: builder.query<
+      TGetArticlesByRelatedCategoryResponse,
+      number
+    >({
+      query: (categoryId) => ({
+        url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,header_image&categories=${categoryId}&limit=5`,
       }),
       providesTags: ['Article'],
     }),
