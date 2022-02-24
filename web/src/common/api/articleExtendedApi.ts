@@ -17,7 +17,7 @@ type TGetArticles = Pick<
 };
 
 type TGetArticlesRequest = {
-  categories: Array<number> | [];
+  categories: number;
   tags: Array<number> | [];
 };
 
@@ -32,8 +32,8 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
         let categoriesFiltering: string = '';
         let tagsFiltering: string = '';
 
-        if (categories.length) {
-          categoriesFiltering += `&categories=${categories.join(',')}`;
+        if (categories > 0) {
+          categoriesFiltering += `&categories=${categories}`;
         } else {
           categoriesFiltering = '';
         }

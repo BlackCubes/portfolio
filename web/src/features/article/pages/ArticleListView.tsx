@@ -7,14 +7,14 @@ import { useGetTagsQuery } from 'common/api/tagExtendedApi';
 import { ArticleList, FilterSidebar } from 'features/article/components';
 
 type TCategoryTagIdQueryState = {
-  categories: Array<number> | [];
+  categories: number;
   tags: Array<number> | [];
 };
 
 const ArticleListView: FC = () => {
   const [categoryTagIdQuery, setCategoryTagIdQuery] =
     useState<TCategoryTagIdQueryState>({
-      categories: [],
+      categories: 0,
       tags: [],
     });
 
@@ -29,12 +29,15 @@ const ArticleListView: FC = () => {
    * Used to dynamically change the filtering to update the article API based
    * on categories and/or tags.
    *
-   * It checks first if the category/tag exists in the array, and if it does
-   * then it 'removes' it since it is assumed that the user has 'unchecked'
-   * that particular filter.
+   * It checks first if the category has been selected by the user, and if so
+   * then it inserts the category ID.
    *
-   * If the category/tag does not exist in the array, then it is assumed that
-   * the user has 'checked' that particular filter which is then inserted.
+   * If the user selected tags, then it checks first if the tag exists in the
+   * array, and if it does then it 'removes' it since it is assumed that the
+   * user has 'unchecked' that particular tag.
+   *
+   * But, if the tag does not exist in the array, then it is assumed that
+   * the user has 'checked' that particular tag which is then inserted.
    * @param categoryTagName
    * @param categoryTagId
    */
@@ -43,22 +46,30 @@ const ArticleListView: FC = () => {
     categoryTagId: number
   ) => {
     setCategoryTagIdQuery((prevCategoryTagIdQuery) => {
-      // Check if it exists.
-      const existingCategoryTag = prevCategoryTagIdQuery[categoryTagName].find(
-        (oldCategoryTagId) => oldCategoryTagId === categoryTagId
+      // If the user is selecting on categories, then insert the category ID.
+      if (categoryTagName === 'categories') {
+        return {
+          ...prevCategoryTagIdQuery,
+          [categoryTagName]: categoryTagId,
+        };
+      }
+
+      // Check if the tag ID exists.
+      const existingTag = prevCategoryTagIdQuery[categoryTagName].find(
+        (oldTagId) => oldTagId === categoryTagId
       );
 
-      // If it exists, remove it since the user has 'unchecked' it.
-      if (existingCategoryTag) {
+      // If the tag ID exists, remove it since the user has 'unchecked' it.
+      if (existingTag) {
         return {
           ...prevCategoryTagIdQuery,
           [categoryTagName]: prevCategoryTagIdQuery[categoryTagName].filter(
-            (oldCategoryTagId) => oldCategoryTagId !== categoryTagId
+            (oldTagId) => oldTagId !== categoryTagId
           ),
         };
       }
 
-      // If it does not exist, add it since the user has 'checked' it.
+      // If the tag ID does not exist, add it since the user has 'checked' it.
       return {
         ...prevCategoryTagIdQuery,
         [categoryTagName]: [

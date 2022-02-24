@@ -7,13 +7,15 @@ import { ICategory, ITag } from 'common/models';
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 
 import {
+  CategoryItem,
+  CategoryName,
   CheckboxInput,
-  FilterCheckbox,
-  FilterName,
   SidebarContainer,
-  SidebarItem,
   SidebarList,
   SidebarTitle,
+  TagCheckbox,
+  TagItem,
+  TagName,
 } from './styles';
 
 interface IFilterSidebar {
@@ -37,18 +39,14 @@ const FilterSidebar: FC<IFilterSidebar> = ({
 
           <SidebarList>
             {categoriesData.map((category) => (
-              <SidebarItem key={`${category.uuid}`}>
-                <FilterName>{category.name}</FilterName>
-
-                <FilterCheckbox>
-                  <CheckboxInput
-                    onChange={() =>
-                      handleCategoryTagQuery('categories', category.id)
-                    }
-                    value={category.id}
-                  />
-                </FilterCheckbox>
-              </SidebarItem>
+              <CategoryItem
+                key={`${category.uuid}`}
+                onClick={() =>
+                  handleCategoryTagQuery('categories', category.id)
+                }
+              >
+                <CategoryName>{category.name}</CategoryName>
+              </CategoryItem>
             ))}
           </SidebarList>
         </SidebarContainer>
@@ -60,16 +58,16 @@ const FilterSidebar: FC<IFilterSidebar> = ({
 
           <SidebarList>
             {tagsData.map((tag) => (
-              <SidebarItem key={`${tag.slug}-${tag.id}`}>
-                <FilterName>{tag.name}</FilterName>
+              <TagItem key={`${tag.slug}-${tag.id}`}>
+                <TagName>{tag.name}</TagName>
 
-                <FilterCheckbox>
+                <TagCheckbox>
                   <CheckboxInput
                     onChange={() => handleCategoryTagQuery('tags', tag.id)}
                     value={tag.id}
                   />
-                </FilterCheckbox>
-              </SidebarItem>
+                </TagCheckbox>
+              </TagItem>
             ))}
           </SidebarList>
         </SidebarContainer>
