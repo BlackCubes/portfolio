@@ -13,10 +13,15 @@ const ArticleListView: FC = () => {
 
   return (
     <>
-      <FilterSidebar
-        categoriesData={categoriesData?.items ?? []}
-        tagsData={tagsData?.items ?? []}
-      />
+      {categoriesData?.items &&
+        categoriesData.items.length > 0 &&
+        tagsData?.items &&
+        tagsData.items.length > 0 && (
+          <FilterSidebar
+            categoriesData={categoriesData.items}
+            tagsData={tagsData.items}
+          />
+        )}
 
       <ArticleList articlesData={articlesData?.items ?? []} />
     </>
