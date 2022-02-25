@@ -83,5 +83,8 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetArticleByIdQuery, useGetArticlesQuery } =
-  articleExtendedApi;
+export const {
+  useGetArticleByIdQuery,
+  useGetArticlesByRelatedCategoryQuery,
+  useGetArticlesQuery,
+} = articleExtendedApi;
