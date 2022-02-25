@@ -52,9 +52,11 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
                   <RelatedContainer>
                     <RelatedImageWrapper>
                       <GlassCircle
+                        glassContainerClassName="related-sidebar"
                         glassDarkShadowBlur={0.2}
                         glassDarkShadowHorizontalOffset={0.1}
                         glassDarkShadowVerticalOffset={0.1}
+                        glassImageWrapperClassName="related-sidebar"
                         glassLightShadowBlur={0.2}
                         glassLightShadowHorizontalOffset={-0.1}
                         glassLightShadowVerticalOffset={-0.1}
