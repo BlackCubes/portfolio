@@ -2,10 +2,12 @@ import React, { FC } from 'react';
 
 import { GlassContainer, GlassImage, GlassImageWrapper } from './styles';
 
-interface IGlassCirlce {
+export interface IGlassCirlce {
+  glassContainerClassName?: string;
   glassDarkShadowBlur: number;
   glassDarkShadowHorizontalOffset: number;
   glassDarkShadowVerticalOffset: number;
+  glassImageWrapperClassName?: string;
   glassLightShadowBlur: number;
   glassLightShadowHorizontalOffset: number;
   glassLightShadowVerticalOffset: number;
@@ -15,9 +17,11 @@ interface IGlassCirlce {
 }
 
 const GlassCircle: FC<IGlassCirlce> = ({
+  glassContainerClassName,
   glassDarkShadowBlur,
   glassDarkShadowHorizontalOffset,
   glassDarkShadowVerticalOffset,
+  glassImageWrapperClassName,
   glassLightShadowBlur,
   glassLightShadowHorizontalOffset,
   glassLightShadowVerticalOffset,
@@ -32,8 +36,9 @@ const GlassCircle: FC<IGlassCirlce> = ({
     boxLightShadowBlur={glassLightShadowBlur}
     boxLightShadowHorizontalOffset={glassLightShadowHorizontalOffset}
     boxLightShadowVerticalOffset={glassLightShadowVerticalOffset}
+    className={glassContainerClassName}
   >
-    <GlassImageWrapper opacity={opacity}>
+    <GlassImageWrapper className={glassImageWrapperClassName} opacity={opacity}>
       <GlassImage src={imageSrc} alt={imageAlt} />
     </GlassImageWrapper>
   </GlassContainer>
