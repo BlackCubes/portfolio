@@ -44,10 +44,11 @@ export const RelatedImageWrapper = styled.div`
 `;
 
 export const RelatedTitleWrapper = styled.div`
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 `;
 
 export const RelatedTitle = styled.h4`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: ${(props) => props.theme.colors.primary.hex};
+  font-weight: 500;
 `;
