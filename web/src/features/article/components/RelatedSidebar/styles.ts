@@ -37,7 +37,6 @@ export const RelatedLink = styled(Link)`
 
 export const RelatedContainer = styled.div`
   display: flex;
-  flex-direction: column;
 `;
 
 export const RelatedImageWrapper = styled.div``;
