@@ -39,9 +39,13 @@ export const RelatedContainer = styled.div`
   display: flex;
 `;
 
-export const RelatedImageWrapper = styled.div``;
+export const RelatedImageWrapper = styled.div`
+  margin-right: 1rem;
+`;
 
-export const RelatedTitleWrapper = styled.div``;
+export const RelatedTitleWrapper = styled.div`
+  padding-top: 1rem;
+`;
 
 export const RelatedTitle = styled.h4`
   font-size: 1.8rem;
