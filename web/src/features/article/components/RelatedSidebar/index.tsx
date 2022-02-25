@@ -30,10 +30,12 @@ type TRelatedArticle = Pick<
 };
 
 interface IRelatedSidebar {
-  relatedArticlesByCategory: TRelatedArticle[];
+  relatedArticlesByCategoryData: TRelatedArticle[];
 }
 
-const RelatedSidebar: FC<IRelatedSidebar> = ({ relatedArticlesByCategory }) => (
+const RelatedSidebar: FC<IRelatedSidebar> = ({
+  relatedArticlesByCategoryData,
+}) => (
   <GeneralSidebar
     sidebarClassName="related-sidebar"
     sidebarContentElement={
@@ -44,7 +46,7 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({ relatedArticlesByCategory }) => (
 
         <SidebarContainer>
           <SidebarList>
-            {relatedArticlesByCategory.map((relatedArticle) => (
+            {relatedArticlesByCategoryData.map((relatedArticle) => (
               <RelatedItem key={relatedArticle.uuid}>
                 <RelatedLink to={`/articles/${relatedArticle.id}`}>
                   <RelatedContainer>
