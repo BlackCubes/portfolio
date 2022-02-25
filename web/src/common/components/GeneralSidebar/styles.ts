@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Sidebar = styled.aside`
-  position: fixed;
-
   &.filter-sidebar {
+    position: fixed;
     top: 30rem;
     left: 24rem;
   }
 
   &.related-sidebar {
+    position: absolute;
     top: 30rem;
     right: 14rem;
   }
