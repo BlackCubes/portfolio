@@ -38,6 +38,7 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
 }) => (
   <GeneralSidebar
     sidebarClassName="related-sidebar"
+    sidebarContainerClassName="related-sidebar"
     sidebarContentElement={
       <>
         <SidebarTitle>
