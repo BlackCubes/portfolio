@@ -10,7 +10,7 @@ export const Sidebar = styled.aside`
 
   &.related-sidebar {
     top: 30rem;
-    right: 24rem;
+    right: 14rem;
   }
 `;
 
@@ -20,6 +20,6 @@ export const SidebarContainer = styled.div`
   }
 
   &.related-sidebar {
-    width: 20rem;
+    width: 35rem;
   }
 `;
