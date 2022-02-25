@@ -35,8 +35,8 @@ export const GlassContainer = styled.div<IGlassContainer>`
   }, 0.27)`};
 
   &.related-sidebar {
-    width: 10rem;
-    height: 10rem;
+    width: 8.5rem;
+    height: 8.5rem;
   }
 `;
 
@@ -52,8 +52,8 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   overflow: hidden;
 
   &.related-sidebar {
-    width: 9rem;
-    height: 9rem;
+    width: 7.5rem;
+    height: 7.5rem;
   }
 `;
 
