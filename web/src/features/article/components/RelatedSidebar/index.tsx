@@ -42,7 +42,7 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
     sidebarContentElement={
       <>
         <SidebarTitle>
-          <HeadingTertiary>Related Categories</HeadingTertiary>
+          <HeadingTertiary>Related</HeadingTertiary>
         </SidebarTitle>
 
         <SidebarContainer>
