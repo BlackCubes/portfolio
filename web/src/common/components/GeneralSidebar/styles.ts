@@ -15,5 +15,11 @@ export const Sidebar = styled.aside`
 `;
 
 export const SidebarContainer = styled.div`
-  width: 15rem;
+  &.filter-sidebar {
+    width: 15rem;
+  }
+
+  &.related-sidebar {
+    width: 20rem;
+  }
 `;
