@@ -4,15 +4,19 @@ import { Sidebar, SidebarContainer } from './styles';
 
 export interface IGeneralSidebar {
   sidebarClassName?: string;
+  sidebarContainerClassName?: string;
   sidebarContentElement: JSX.Element | JSX.Element[];
 }
 
 const GeneralSidebar: FC<IGeneralSidebar> = ({
   sidebarClassName,
+  sidebarContainerClassName,
   sidebarContentElement,
 }) => (
   <Sidebar className={sidebarClassName ?? ''}>
-    <SidebarContainer>{sidebarContentElement}</SidebarContainer>
+    <SidebarContainer className={sidebarContainerClassName ?? ''}>
+      {sidebarContentElement}
+    </SidebarContainer>
   </Sidebar>
 );
 

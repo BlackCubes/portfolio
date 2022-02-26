@@ -33,6 +33,11 @@ export const GlassContainer = styled.div<IGlassContainer>`
     ${`${props.boxDarkShadowBlur}rem` ?? '0'} 0 rgba(${
     props.theme.colors.glassDarkShadow.rgb
   }, 0.27)`};
+
+  &.related-sidebar {
+    width: 8.5rem;
+    height: 8.5rem;
+  }
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
@@ -45,6 +50,11 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   border-radius: 50%;
   opacity: ${({ opacity }) => opacity ?? '1'};
   overflow: hidden;
+
+  &.related-sidebar {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
 `;
 
 export const GlassImage = styled.img`
