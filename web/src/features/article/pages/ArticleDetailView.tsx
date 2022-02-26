@@ -29,9 +29,23 @@ const ArticleDetailView: FC = () => {
       skip: doNotInitiateArticleQuery,
     }
   );
-  const { data: relatedArticlesByCategoryData } =
+  const { dataWithoutCurrentArticle: relatedArticlesByCategoryData } =
     useGetArticlesByRelatedCategoryQuery(categoryId, {
       skip: doNotInitiateRelatedArticlesQuery,
+      // selectFromResult is used to return related articles without the current
+      // article in the current page view.
+      selectFromResult: (result) => ({
+        // Return original result from RTK for any debugging or needing it.
+        ...result,
+        // Create new property that returns the related articles without the
+        // current one in the page view.
+        dataWithoutCurrentArticle: result.data
+          ? result.data.items.filter(
+              // articleId is a string from URL params.
+              (relatedArticle) => `${relatedArticle.id}` !== articleId
+            )
+          : [],
+      }),
     });
 
   useEffect(() => {
@@ -60,12 +74,11 @@ const ArticleDetailView: FC = () => {
     <>
       {articleData ? <ArticleDetail articleData={articleData} /> : null}
 
-      {relatedArticlesByCategoryData?.items &&
-        relatedArticlesByCategoryData.items.length > 0 && (
-          <RelatedSidebar
-            relatedArticlesByCategoryData={relatedArticlesByCategoryData.items}
-          />
-        )}
+      {relatedArticlesByCategoryData.length > 0 && (
+        <RelatedSidebar
+          relatedArticlesByCategoryData={relatedArticlesByCategoryData}
+        />
+      )}
     </>
   );
 };
