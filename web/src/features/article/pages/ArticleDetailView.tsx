@@ -61,7 +61,7 @@ const ArticleDetailView: FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (articleData) {
-        setCategoryId(articleData.categories[0].id);
+        setCategoryId(articleData.category?.id ?? 0);
 
         setDoNotInitiateRelatedArticlesQuery(false);
       }

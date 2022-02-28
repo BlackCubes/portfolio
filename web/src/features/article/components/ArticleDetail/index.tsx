@@ -39,7 +39,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => (
   <Article className="navbar-footer-space">
     <ArticleAdditionalInfo>
       <ArticleCategory>
-        <Paragraph>{articleData.categories[0].name}</Paragraph>
+        <Paragraph>{articleData.category?.name ?? ''}</Paragraph>
       </ArticleCategory>
 
       <ArticleTags>

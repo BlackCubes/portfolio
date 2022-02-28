@@ -87,7 +87,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                 <CategoryItem
                   key={`${category.uuid}`}
                   onClick={() => {
-                    handleCategoryTagQuery('categories', category.id);
+                    handleCategoryTagQuery('category', category.id);
 
                     setCategoryCheckedState((prevCategoryCheckedState) => ({
                       ...prevCategoryCheckedState,
