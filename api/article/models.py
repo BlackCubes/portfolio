@@ -157,7 +157,7 @@ class ArticlePage(Page):
         MultiFieldPanel(
             [
                 FieldPanel("tags"),
-                FieldPanel("categories", widget=forms.CheckboxSelectMultiple),
+                FieldPanel("categories", widget=forms.RadioSelect),
             ],
             heading="Article information",
         ),
