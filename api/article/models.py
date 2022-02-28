@@ -117,7 +117,7 @@ class ArticlePage(Page):
     )
     tags = ClusterTaggableManager(through=ArticlePageTag, blank=True)
     category = models.ForeignKey(
-        "article.ArticleCategory", required=True, null=True, on_delete=models.SET_NULL
+        "article.ArticleCategory", null=True, on_delete=models.SET_NULL
     )
     reading_time = models.FloatField(default=0.0)
     body = StreamField(
