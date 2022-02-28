@@ -7,19 +7,19 @@ import { useGetTagsQuery } from 'common/api/tagExtendedApi';
 import { ArticleList, FilterSidebar } from 'features/article/components';
 
 type TCategoryTagIdQueryState = {
-  categories: number;
+  category: number;
   tags: Array<number> | [];
 };
 
 const ArticleListView: FC = () => {
   const [categoryTagIdQuery, setCategoryTagIdQuery] =
     useState<TCategoryTagIdQueryState>({
-      categories: 0,
+      category: 0,
       tags: [],
     });
 
   const { data: articlesData } = useGetArticlesQuery({
-    categories: categoryTagIdQuery.categories,
+    category: categoryTagIdQuery.category,
     tags: categoryTagIdQuery.tags,
   });
   const { data: categoriesData } = useGetCategoriesQuery();
@@ -27,7 +27,7 @@ const ArticleListView: FC = () => {
 
   /**
    * Used to dynamically change the filtering to update the article API based
-   * on categories and/or tags.
+   * on category and/or tags.
    *
    * It checks first if the category has been selected by the user, and if so
    * then it inserts the category ID if that ID does not exist. If the ID does
@@ -44,18 +44,18 @@ const ArticleListView: FC = () => {
    * @param categoryTagId
    */
   const handleCategoryTagQuery = (
-    categoryTagName: 'categories' | 'tags',
+    categoryTagName: 'category' | 'tags',
     categoryTagId: number
   ) => {
     setCategoryTagIdQuery((prevCategoryTagIdQuery) => {
-      // If the user is selecting on categories, then insert the category ID.
-      if (categoryTagName === 'categories') {
+      // If the user is selecting a category, then insert the category ID.
+      if (categoryTagName === 'category') {
         return {
           ...prevCategoryTagIdQuery,
           [categoryTagName]:
           // If the category ID exists, then remove it since the user has
           // 'unchecked' it. Otherwise, add the category ID.
-            prevCategoryTagIdQuery.categories === categoryTagId
+            prevCategoryTagIdQuery.category === categoryTagId
               ? 0
               : categoryTagId,
         };
@@ -88,10 +88,10 @@ const ArticleListView: FC = () => {
   };
 
   /**
-   * Dynamically clears the filtering for the Article API on categories and/or
+   * Dynamically clears the filtering for the Article API on category and/or
    * tags.
    *
-   * For case ``'clearAll'``, it resets categories and tags to what it was
+   * For case ``'clearAll'``, it resets the category and tags to what it was
    * initially.
    *
    * As a safety return, if no cases are brought forth, then it returns the
@@ -103,7 +103,7 @@ const ArticleListView: FC = () => {
       if (clearCase === 'clearAll') {
         return {
           ...prevCategoryTagIdQuery,
-          categories: 0,
+          category: 0,
           tags: [],
         };
       }

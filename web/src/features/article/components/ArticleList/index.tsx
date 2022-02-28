@@ -20,7 +20,7 @@ type TArticlesData = Pick<
   | 'title'
   | 'uuid'
   | 'reading_time'
-  | 'categories'
+  | 'category'
   | 'tags'
 > & {
   meta: Pick<IArticle['meta'], 'slug' | 'first_published_at'>;
@@ -46,7 +46,7 @@ const ArticleList: FC<IArticleList> = ({ articlesData }) => (
         articlesData.map((article) => (
           <ArticleListContainer
             key={article.uuid}
-            articleCategory={article.categories[0].name}
+            articleCategory={article.category?.name ?? ''}
             articleDate={article.meta.first_published_at}
             articleDescription={article.description}
             articleImageAlt={article.title}

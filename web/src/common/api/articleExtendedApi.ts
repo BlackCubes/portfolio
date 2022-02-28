@@ -10,14 +10,14 @@ type TGetArticles = Pick<
   | 'title'
   | 'uuid'
   | 'reading_time'
-  | 'categories'
+  | 'category'
   | 'tags'
 > & {
   meta: Pick<IArticle['meta'], 'slug' | 'first_published_at'>;
 };
 
 type TGetArticlesRequest = {
-  categories: number;
+  category: number;
   tags: Array<number> | [];
 };
 
@@ -39,14 +39,14 @@ type TGetArticlesByRelatedCategoryResponse = IPaginationResponse & {
 const articleExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({
     getArticles: builder.query<TGetArticlesResponse, TGetArticlesRequest>({
-      query: ({ categories, tags }) => {
-        let categoriesFiltering: string = '';
+      query: ({ category, tags }) => {
+        let categoryFiltering: string = '';
         let tagsFiltering: string = '';
 
-        if (categories > 0) {
-          categoriesFiltering += `&categories=${categories}`;
+        if (category > 0) {
+          categoryFiltering += `&category=${category}`;
         } else {
-          categoriesFiltering = '';
+          categoryFiltering = '';
         }
 
         if (tags.length) {
@@ -56,7 +56,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
         }
 
         return {
-          url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,tags,categories,first_published_at,reading_time${categoriesFiltering}${tagsFiltering}`,
+          url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,tags,category,first_published_at,reading_time${categoryFiltering}${tagsFiltering}`,
         };
       },
       providesTags: ['Article'],
@@ -64,7 +64,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
 
     getArticleById: builder.query<IArticle, number>({
       query: (id) => ({
-        url: `/pages/${id}/?fields=_,id,uuid,title,slug,description,header_image,body,tags,categories,seo_title,search_description,first_published_at,reading_time`,
+        url: `/pages/${id}/?fields=_,id,uuid,title,slug,description,header_image,body,tags,category,seo_title,search_description,first_published_at,reading_time`,
       }),
       providesTags: ['Article'],
     }),
@@ -74,7 +74,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
       number
     >({
       query: (categoryId) => ({
-        url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,header_image&categories=${categoryId}&limit=5`,
+        url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,header_image&category=${categoryId}&limit=5`,
       }),
       providesTags: ['Article'],
     }),
