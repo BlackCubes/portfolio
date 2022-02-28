@@ -20,19 +20,17 @@ class ArticleTagSerializedField(Field):
 
 class ArticleCategorySerializedField(Field):
     """
-    A serialized field to change the output for the categories in an article.
+    A serialized field to change the output for the category in an article.
 
-    Outputs a list of dictionary with keys of ``"id"``, ``"uuid"`` and ``"name"``,
+    Outputs a dictionary with keys of ``"id"``, ``"uuid"`` and ``"name"``,
     if any.
     """
 
     def to_representation(self, value):
         if not value:
-            return []
+            return None
 
-        return [
-            {"id": tag.id, "uuid": tag.uuid, "name": tag.name} for tag in value.all()
-        ]
+        return {"id": value.id, "uuid": value.uuid, "name": value.name}
 
 
 class ArticleHeaderImageSerializedField(Field):
