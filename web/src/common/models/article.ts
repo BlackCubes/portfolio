@@ -60,7 +60,7 @@ export interface IArticle {
   description: string;
   header_image: string | null;
   tags: ITag[] | [];
-  categories: ICategory[] | [];
+  category: ICategory | null;
   body: TBodyData;
   reading_time: number;
 }
