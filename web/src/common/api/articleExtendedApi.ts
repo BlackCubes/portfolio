@@ -50,7 +50,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
         }
 
         if (tags.length) {
-          tagsFiltering += `&tags=${tags.join(',')}`;
+          tagsFiltering += `&tags__in=${tags.join(',')}`;
         } else {
           tagsFiltering = '';
         }
