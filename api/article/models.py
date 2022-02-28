@@ -116,7 +116,9 @@ class ArticlePage(Page):
         "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
     )
     tags = ClusterTaggableManager(through=ArticlePageTag, blank=True)
-    categories = ParentalManyToManyField("article.ArticleCategory", blank=True)
+    category = models.ForeignKey(
+        "article.ArticleCategory", required=True, null=True, on_delete=models.SET_NULL
+    )
     reading_time = models.FloatField(default=0.0)
     body = StreamField(
         [
