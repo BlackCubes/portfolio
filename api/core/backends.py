@@ -28,7 +28,9 @@ class FieldsInFilter(BaseFilterBackend):
         for field_name, value in request.GET.items():
             if field_name in tag_params:
                 try:
-                    queryset = queryset.filter(**{field_name: value.split(",")})
+                    queryset = queryset.filter(
+                        **{field_name: value.split(",")}
+                    ).distinct()
                 except ValueError as error:
                     raise BadRequestError(
                         "field filter error. %r is not a valid value for %r (%s)"
