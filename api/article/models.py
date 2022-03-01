@@ -34,8 +34,6 @@ from wagtailcodeblock.blocks import CodeBlock
 
 from wagtailmath.blocks import MathBlock
 
-from wagtailmetadata.models import MetadataPageMixin
-
 from .blocks import ImageWithCaptionBlock
 from .fields import (
     ArticleBlockSerializedField,
@@ -94,7 +92,7 @@ class ArticleCategory(models.Model):
         verbose_name_plural = "article categories"
 
 
-class ArticlePage(MetadataPageMixin, Page):
+class ArticlePage(Page):
     """
     A Wagtail model to create content for an article.
 
