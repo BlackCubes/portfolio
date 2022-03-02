@@ -79,6 +79,31 @@ const ArticleDetailView: FC = () => {
       {articleData ? (
         <>
           <SEO
+            articleMetaTags={[
+              {
+                property: 'article:author',
+                content: 'Elias T. Gutierrez',
+              },
+              {
+                property: 'article:published_time',
+                content: articleData.meta.first_published_at,
+              },
+              {
+                property: 'article:publisher',
+                content: '',
+              },
+              {
+                property: 'article:section',
+                content: articleData.category?.name ?? '',
+              },
+              {
+                property: 'article:tag',
+                content:
+                  articleData.tags.length > 0
+                    ? articleData.tags.join(', ')
+                    : '',
+              },
+            ]}
             openGraphMetaTags={[
               {
                 property: 'og:description',

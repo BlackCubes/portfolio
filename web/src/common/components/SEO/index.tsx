@@ -6,6 +6,17 @@ type TPrimaryMetaTags = {
   content: string;
 };
 
+type TArticleMetaTags = {
+  property:
+    | 'article:author'
+    | 'article:modified_time'
+    | 'article:published_time'
+    | 'article:publisher'
+    | 'article:section'
+    | 'article:tag';
+  content: string;
+};
+
 type TOpenGraphMetaTags = {
   property:
     | 'og:description'
@@ -31,7 +42,8 @@ type TTwitterMetaTags = {
   content: string;
 };
 
-interface ISEO {
+export interface ISEO {
+  articleMetaTags?: TArticleMetaTags[] | [];
   openGraphMetaTags: TOpenGraphMetaTags[];
   primaryMetaTags: TPrimaryMetaTags[];
   title: string;
@@ -39,6 +51,7 @@ interface ISEO {
 }
 
 const SEO: FC<ISEO> = ({
+  articleMetaTags = [],
   openGraphMetaTags,
   primaryMetaTags,
   title,
@@ -46,7 +59,12 @@ const SEO: FC<ISEO> = ({
 }) => (
   <Helmet
     htmlAttributes={{ lang: 'en' }}
-    meta={[...primaryMetaTags, ...openGraphMetaTags, ...twitterMetaTags]}
+    meta={[
+      ...articleMetaTags,
+      ...primaryMetaTags,
+      ...openGraphMetaTags,
+      ...twitterMetaTags,
+    ]}
     title={title}
   />
 );
