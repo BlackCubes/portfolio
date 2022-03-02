@@ -89,6 +89,14 @@ const ArticleDetailView: FC = () => {
                 content: articleData.header_image ?? noImage,
               },
               {
+                property: 'og:image:height',
+                content: '720',
+              },
+              {
+                property: 'og:image:width',
+                content: '1200',
+              },
+              {
                 property: 'og:site_name',
                 content: "Elias Gutierrez's Portfolio",
               },
@@ -123,7 +131,7 @@ const ArticleDetailView: FC = () => {
               },
               {
                 property: 'twitter:creator',
-                content: 'Elias T. Gutierrez',
+                content: '@_BlackCubes_',
               },
               {
                 property: 'twitter:description',
@@ -132,6 +140,10 @@ const ArticleDetailView: FC = () => {
               {
                 property: 'twitter:image',
                 content: articleData.header_image ?? noImage,
+              },
+              {
+                property: 'twitter:site',
+                content: '@_BlackCubes_',
               },
               {
                 property: 'twitter:title',

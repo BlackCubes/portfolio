@@ -2,18 +2,20 @@ import React, { FC } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 type TPrimaryMetaTags = {
-  name: 'title' | 'description';
+  name: 'description' | 'title';
   content: string;
 };
 
 type TOpenGraphMetaTags = {
   property:
-    | 'og:site_name'
-    | 'og:url'
-    | 'og:type'
-    | 'og:title'
     | 'og:description'
-    | 'og:image';
+    | 'og:image'
+    | 'og:image:height'
+    | 'og:image:width'
+    | 'og:site_name'
+    | 'og:title'
+    | 'og:type'
+    | 'og:url';
   content: string;
 };
 
@@ -21,10 +23,11 @@ type TTwitterMetaTags = {
   property:
     | 'twitter:card'
     | 'twitter:creator'
-    | 'twitter:url'
-    | 'twitter:title'
     | 'twitter:description'
-    | 'twitter:image';
+    | 'twitter:image'
+    | 'twitter:site'
+    | 'twitter:title'
+    | 'twitter:url';
   content: string;
 };
 
