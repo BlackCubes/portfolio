@@ -126,8 +126,8 @@ const ArticleDetailView: FC = () => {
                 property: 'og:title',
                 content:
                   articleData.meta.seo_title.length > 0
-                    ? articleData.meta.seo_title
-                    : articleData.title,
+                    ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                    : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
               },
               {
                 property: 'og:type',
@@ -150,14 +150,14 @@ const ArticleDetailView: FC = () => {
                 name: 'title',
                 content:
                   articleData.meta.seo_title.length > 0
-                    ? articleData.meta.seo_title
-                    : articleData.title,
+                    ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                    : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
               },
             ]}
             title={
               articleData.meta.seo_title.length > 0
-                ? articleData.meta.seo_title
-                : articleData.title
+                ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
             }
             twitterMetaTags={[
               {
@@ -189,8 +189,8 @@ const ArticleDetailView: FC = () => {
                 property: 'twitter:title',
                 content:
                   articleData.meta.seo_title.length > 0
-                    ? articleData.meta.seo_title
-                    : articleData.title,
+                    ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                    : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
               },
               {
                 property: 'twitter:url',
