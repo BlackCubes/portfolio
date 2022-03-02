@@ -11,6 +11,8 @@ import LandingRoutes from 'features/landing/Routes';
 import WorkRoutes from 'features/work/Routes';
 
 const App = () => (
+  // ThemeProvider, for some reason, was not working in
+  // `/web/index.tsx`, but it works here.
   <ThemeProvider theme={theme}>
     <GlobalStyle />
 
