@@ -81,16 +81,8 @@ const ArticleDetailView: FC = () => {
           <SEO
             articleMetaTags={[
               {
-                property: 'article:author',
-                content: 'Elias T. Gutierrez',
-              },
-              {
                 property: 'article:published_time',
                 content: articleData.meta.first_published_at,
-              },
-              {
-                property: 'article:publisher',
-                content: '',
               },
               {
                 property: 'article:section',
@@ -107,7 +99,10 @@ const ArticleDetailView: FC = () => {
             openGraphMetaTags={[
               {
                 property: 'og:description',
-                content: articleData.meta.search_description,
+                content:
+                  articleData.meta.search_description.length > 0
+                    ? articleData.meta.search_description
+                    : articleData.description,
               },
               {
                 property: 'og:image',
@@ -127,7 +122,10 @@ const ArticleDetailView: FC = () => {
               },
               {
                 property: 'og:title',
-                content: articleData.meta.seo_title,
+                content:
+                  articleData.meta.seo_title.length > 0
+                    ? articleData.meta.seo_title
+                    : articleData.title,
               },
               {
                 property: 'og:type',
@@ -141,11 +139,17 @@ const ArticleDetailView: FC = () => {
             primaryMetaTags={[
               {
                 name: 'description',
-                content: articleData.meta.search_description,
+                content:
+                  articleData.meta.search_description.length > 0
+                    ? articleData.meta.search_description
+                    : articleData.description,
               },
               {
                 name: 'title',
-                content: articleData.meta.seo_title,
+                content:
+                  articleData.meta.seo_title.length > 0
+                    ? articleData.meta.seo_title
+                    : articleData.title,
               },
             ]}
             title={articleData.meta.seo_title}
@@ -160,7 +164,10 @@ const ArticleDetailView: FC = () => {
               },
               {
                 property: 'twitter:description',
-                content: articleData.meta.search_description,
+                content:
+                  articleData.meta.search_description.length > 0
+                    ? articleData.meta.search_description
+                    : articleData.description,
               },
               {
                 property: 'twitter:image',
@@ -172,7 +179,10 @@ const ArticleDetailView: FC = () => {
               },
               {
                 property: 'twitter:title',
-                content: articleData.meta.seo_title,
+                content:
+                  articleData.meta.seo_title.length > 0
+                    ? articleData.meta.seo_title
+                    : articleData.title,
               },
               {
                 property: 'twitter:url',
