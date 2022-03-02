@@ -154,7 +154,11 @@ const ArticleDetailView: FC = () => {
                     : articleData.title,
               },
             ]}
-            title={articleData.meta.seo_title}
+            title={
+              articleData.meta.seo_title.length > 0
+                ? articleData.meta.seo_title
+                : articleData.title
+            }
             twitterMetaTags={[
               {
                 property: 'twitter:card',
