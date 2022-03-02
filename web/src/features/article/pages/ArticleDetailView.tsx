@@ -1,10 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import noImage from 'assets/img/no-image.png';
+
 import {
   useGetArticleByIdQuery,
   useGetArticlesByRelatedCategoryQuery,
 } from 'common/api/articleExtendedApi';
+
+import SEO from 'common/components/SEO';
 
 import { ArticleDetail, RelatedSidebar } from 'features/article/components';
 
@@ -72,7 +76,77 @@ const ArticleDetailView: FC = () => {
 
   return (
     <>
-      {articleData ? <ArticleDetail articleData={articleData} /> : null}
+      {articleData ? (
+        <>
+          <SEO
+            openGraphMetaTags={[
+              {
+                property: 'og:description',
+                content: articleData.meta.search_description,
+              },
+              {
+                property: 'og:image',
+                content: articleData.header_image ?? noImage,
+              },
+              {
+                property: 'og:site_name',
+                content: "Elias Gutierrez's Portfolio",
+              },
+              {
+                property: 'og:title',
+                content: articleData.meta.seo_title,
+              },
+              {
+                property: 'og:type',
+                content: 'article',
+              },
+              {
+                property: 'og:url',
+                content: window.location.href,
+              },
+            ]}
+            primaryMetaTags={[
+              {
+                name: 'description',
+                content: articleData.meta.search_description,
+              },
+              {
+                name: 'title',
+                content: articleData.meta.seo_title,
+              },
+            ]}
+            title={articleData.meta.seo_title}
+            twitterMetaTags={[
+              {
+                property: 'twitter:card',
+                content: 'summary_large_image',
+              },
+              {
+                property: 'twitter:creator',
+                content: 'Elias T. Gutierrez',
+              },
+              {
+                property: 'twitter:description',
+                content: articleData.meta.search_description,
+              },
+              {
+                property: 'twitter:image',
+                content: articleData.header_image ?? noImage,
+              },
+              {
+                property: 'twitter:title',
+                content: articleData.meta.seo_title,
+              },
+              {
+                property: 'twitter:url',
+                content: window.location.href,
+              },
+            ]}
+          />
+
+          <ArticleDetail articleData={articleData} />
+        </>
+      ) : null}
 
       {relatedArticlesByCategoryData.length > 0 && (
         <RelatedSidebar
