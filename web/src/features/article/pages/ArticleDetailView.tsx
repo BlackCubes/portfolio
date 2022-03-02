@@ -92,7 +92,7 @@ const ArticleDetailView: FC = () => {
                 property: 'article:tag',
                 content:
                   articleData.tags.length > 0
-                    ? articleData.tags.join(', ')
+                    ? articleData.tags.map((tag) => tag.name).join(', ')
                     : '',
               },
             ]}
@@ -106,7 +106,9 @@ const ArticleDetailView: FC = () => {
               },
               {
                 property: 'og:image',
-                content: articleData.header_image ?? noImage,
+                content: articleData.header_image
+                  ? `http://localhost:8000${articleData.header_image}`
+                  : noImage,
               },
               {
                 property: 'og:image:height',
@@ -171,7 +173,9 @@ const ArticleDetailView: FC = () => {
               },
               {
                 property: 'twitter:image',
-                content: articleData.header_image ?? noImage,
+                content: articleData.header_image
+                  ? `http://localhost:8000${articleData.header_image}`
+                  : noImage,
               },
               {
                 property: 'twitter:site',
