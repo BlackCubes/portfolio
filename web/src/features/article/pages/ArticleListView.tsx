@@ -4,6 +4,8 @@ import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetCategoriesQuery } from 'common/api/categoryExtendedApi';
 import { useGetTagsQuery } from 'common/api/tagExtendedApi';
 
+import SEO from 'common/components/SEO';
+
 import { ArticleList, FilterSidebar } from 'features/article/components';
 
 type TCategoryTagIdQueryState = {
@@ -116,6 +118,79 @@ const ArticleListView: FC = () => {
 
   return (
     <>
+      <SEO
+        openGraphMetaTags={[
+          {
+            property: 'og:description',
+            content: 'Latest Articles by Elias Gutierrez',
+          },
+          {
+            property: 'og:image',
+            content: '',
+          },
+          {
+            property: 'og:site_name',
+            content: "Elias Gutierrez's Portfolio",
+          },
+          {
+            property: 'og:title',
+            content:
+              'Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer',
+          },
+          {
+            property: 'og:type',
+            content: 'website',
+          },
+          {
+            property: 'og:url',
+            content: window.location.href,
+          },
+        ]}
+        primaryMetaTags={[
+          {
+            name: 'description',
+            content: 'Latest Articles by Elias Gutierrez',
+          },
+          {
+            name: 'title',
+            content:
+              'Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer',
+          },
+        ]}
+        title="Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+        twitterMetaTags={[
+          {
+            property: 'twitter:card',
+            content: 'summary',
+          },
+          {
+            property: 'twitter:creator',
+            content: '@_BlackCubes_',
+          },
+          {
+            property: 'twitter:description',
+            content: 'Latest Articles by Elias Gutierrez',
+          },
+          {
+            property: 'twitter:image',
+            content: '',
+          },
+          {
+            property: 'twitter:site',
+            content: '@_BlackCubes_',
+          },
+          {
+            property: 'twitter:title',
+            content:
+              'Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer',
+          },
+          {
+            property: 'twitter:url',
+            content: window.location.href,
+          },
+        ]}
+      />
+
       {categoriesData?.items &&
         categoriesData.items.length > 0 &&
         tagsData?.items &&
