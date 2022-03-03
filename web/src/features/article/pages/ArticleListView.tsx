@@ -1,5 +1,7 @@
 import React, { FC, useState } from 'react';
 
+import websitePreview from 'assets/img/website-preview.png';
+
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetCategoriesQuery } from 'common/api/categoryExtendedApi';
 import { useGetTagsQuery } from 'common/api/tagExtendedApi';
@@ -126,7 +128,7 @@ const ArticleListView: FC = () => {
           },
           {
             property: 'og:image',
-            content: '',
+            content: websitePreview,
           },
           {
             property: 'og:site_name',
@@ -173,7 +175,7 @@ const ArticleListView: FC = () => {
           },
           {
             property: 'twitter:image',
-            content: '',
+            content: websitePreview,
           },
           {
             property: 'twitter:site',
