@@ -12,7 +12,7 @@
   "python.linting.mypyCategorySeverity.note": "Information",
   "python.linting.mypyEnabled": true,
   "python.linting.mypyPath": "mypy",
-  "python.linting.pylintArgs": ["--disable=C0114", "pylint-django"],
+  "python.linting.pylintArgs": ["--disable=C0114", "pylint_django"],
   "python.linting.pylintCategorySeverity.convention": "Information",
   "python.linting.pylintCategorySeverity.error": "Error",
   "python.linting.pylintCategorySeverity.fatal": "Error",
