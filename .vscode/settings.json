@@ -1,3 +1,22 @@
 {
-  "python.formatting.provider": "black"
+  "python.formatting.blackArgs": ["--line-length=79", "--target-version=py38"],
+  "python.formatting.blackPath": "black",
+  "python.formatting.provider": "black",
+  "python.linting.mypyArgs": [
+    "--follow-imports=silent",
+    "--ignore-missing-imports",
+    "--show-column-numbers",
+    "--no-pretty"
+  ],
+  "python.linting.mypyCategorySeverity.error": "Error",
+  "python.linting.mypyCategorySeverity.note": "Information",
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "mypy",
+  "python.linting.pylintArgs": ["pylint_django"],
+  "python.linting.pylintCategorySeverity.convention": "Information",
+  "python.linting.pylintCategorySeverity.error": "Error",
+  "python.linting.pylintCategorySeverity.fatal": "Error",
+  "python.linting.pylintCategorySeverity.refactor": "Hint",
+  "python.linting.pylintCategorySeverity.warning": "Warning",
+  "python.linting.pylintEnabled": true
 }
