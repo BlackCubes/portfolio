@@ -7,17 +7,21 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('article', '0009_alter_articlepage_reading_time'),
+        ("article", "0009_alter_articlepage_reading_time"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='articlepage',
-            name='categories',
+            model_name="articlepage",
+            name="categories",
         ),
         migrations.AddField(
-            model_name='articlepage',
-            name='category',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='article.articlecategory'),
+            model_name="articlepage",
+            name="category",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="article.articlecategory",
+            ),
         ),
     ]

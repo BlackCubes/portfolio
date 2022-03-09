@@ -12,20 +12,53 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('wagtailcore', '0066_collection_management_permissions'),
+        ("wagtailcore", "0066_collection_management_permissions"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ArticlePage',
+            name="ArticlePage",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('description', models.CharField(max_length=100)),
-                ('body', wagtail.core.fields.StreamField([('title', wagtail.core.blocks.CharBlock()), ('paragraph', wagtail.core.blocks.RichTextBlock()), ('image_with_caption', wagtail.core.blocks.StructBlock([('image', wagtail.images.blocks.ImageChooserBlock()), ('caption', wagtail.core.blocks.CharBlock())]))])),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
+                ("description", models.CharField(max_length=100)),
+                (
+                    "body",
+                    wagtail.core.fields.StreamField(
+                        [
+                            ("title", wagtail.core.blocks.CharBlock()),
+                            ("paragraph", wagtail.core.blocks.RichTextBlock()),
+                            (
+                                "image_with_caption",
+                                wagtail.core.blocks.StructBlock(
+                                    [
+                                        (
+                                            "image",
+                                            wagtail.images.blocks.ImageChooserBlock(),
+                                        ),
+                                        (
+                                            "caption",
+                                            wagtail.core.blocks.CharBlock(),
+                                        ),
+                                    ]
+                                ),
+                            ),
+                        ]
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=('wagtailcore.page',),
+            bases=("wagtailcore.page",),
         ),
     ]

@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('article', '0007_alter_articlepage_body'),
+        ("article", "0007_alter_articlepage_body"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='articlepage',
-            name='reading_time',
+            model_name="articlepage",
+            name="reading_time",
             field=models.IntegerField(default=0),
         ),
     ]

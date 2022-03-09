@@ -7,18 +7,22 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('article', '0004_alter_articlepage_body'),
+        ("article", "0004_alter_articlepage_body"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='articlecategory',
-            name='uuid',
-            field=models.UUIDField(default=uuid.uuid4, editable=False, unique=True),
+            model_name="articlecategory",
+            name="uuid",
+            field=models.UUIDField(
+                default=uuid.uuid4, editable=False, unique=True
+            ),
         ),
         migrations.AddField(
-            model_name='articlepage',
-            name='uuid',
-            field=models.UUIDField(default=uuid.uuid4, editable=False, unique=True),
+            model_name="articlepage",
+            name="uuid",
+            field=models.UUIDField(
+                default=uuid.uuid4, editable=False, unique=True
+            ),
         ),
     ]
