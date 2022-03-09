@@ -65,6 +65,7 @@ class WorkPage(Page):
     main_image = models.ForeignKey(
         "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
     )
+    first_released_at = models.DateTimeField()
     category = models.ForeignKey(
         "work.WorkCategory", null=True, on_delete=models.SET_NULL
     )
@@ -104,6 +105,7 @@ class WorkPage(Page):
         ImageChooserPanel("main_image"),
         MultiFieldPanel(
             [
+                FieldPanel("first_released_at"),
                 FieldPanel("category", widget=forms.RadioSelect),
             ],
             heading="Work information",
@@ -115,6 +117,7 @@ class WorkPage(Page):
         APIField("uuid"),
         APIField("description"),
         APIField("main_image", serializer=WorkMainImageSerializedField()),
+        APIField("first_released_at"),
         APIField("category", serializer=WorkCategorySerializedField()),
         APIField("body", serializer=WorkBodySerializedField()),
     ]
