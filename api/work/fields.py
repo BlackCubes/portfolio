@@ -30,9 +30,9 @@ class WorkMainImageSerializedField(Field):
         return value.file.url
 
 
-class WorkBlockSerializedField(Field):
+class WorkBodySerializedField(Field):
     """
-    A serialized field to change the output for the block content in a work.
+    A serialized field to change the output for the body content in a work.
 
     Outputs everything normally except for the ``image_with_caption`` field
     (the main focus for this serialized field) which outputs the image URL, if
