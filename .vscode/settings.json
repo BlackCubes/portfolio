@@ -1,5 +1,5 @@
 {
-  "python.formatting.blackArgs": ["--line-length=79", "--target-version=py38"],
+  "python.formatting.blackArgs": ["--line-length=79", "--target-version=py310"],
   "python.formatting.blackPath": "black",
   "python.formatting.provider": "black",
   "python.linting.mypyArgs": [
