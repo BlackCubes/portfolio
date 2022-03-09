@@ -58,7 +58,19 @@ class WorkCategory(models.Model):
 
 
 class WorkPage(Page):
-    """"""
+    """
+    A Wagtail model to create content for work.
+
+    The fields that will be shown in the admin page (``content_panels``) for
+    creating/updating work are ``description``, ``main_image``,
+    ``first_released_at``, ``category``, and ``body``.
+
+    A streamfield is used for the ``body`` field with inner fields of
+    ``paragraph``, ``image_with_caption``, and ``block_quote``.
+
+    The fields that will be shown for the API are the same as
+    ``content_panels`` with an extra field of ``uuid``.
+    """
 
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     description = models.CharField(max_length=200)
