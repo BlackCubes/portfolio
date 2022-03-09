@@ -178,7 +178,9 @@ class ArticlePage(Page):
     api_fields = [
         APIField("uuid"),
         APIField("description"),
-        APIField("header_image", serializer=ArticleHeaderImageSerializedField()),
+        APIField(
+            "header_image", serializer=ArticleHeaderImageSerializedField()
+        ),
         APIField("tags", serializer=ArticleTagSerializedField()),
         APIField("category", serializer=ArticleCategorySerializedField()),
         APIField("reading_time"),
