@@ -1,5 +1,6 @@
 from django import forms
 from django.db import models
+from django.utils import timezone
 
 from core.utils import unique_slug_generator
 
@@ -77,7 +78,7 @@ class WorkPage(Page):
     main_image = models.ForeignKey(
         "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
     )
-    first_released_at = models.DateTimeField()
+    first_released_at = models.DateTimeField(default=timezone.now)
     category = models.ForeignKey(
         "work.WorkCategory", null=True, on_delete=models.SET_NULL
     )
