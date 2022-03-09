@@ -45,7 +45,9 @@ def create_reading_time(sender, instance, **kwargs):
                     "caption" in stream_item.value
                     and stream_item.value["caption"] is not None
                 ):
-                    total_article_character_length += len(stream_item.value["caption"])
+                    total_article_character_length += len(
+                        stream_item.value["caption"]
+                    )
 
                 if (
                     "image" in stream_item.value
@@ -58,7 +60,9 @@ def create_reading_time(sender, instance, **kwargs):
                     "code" in stream_item.value
                     and stream_item.value["code"] is not None
                 ):
-                    total_article_character_length += len(stream_item.value["code"])
+                    total_article_character_length += len(
+                        stream_item.value["code"]
+                    )
 
             if stream_item.block.name in (
                 "block_quote",
@@ -75,7 +79,9 @@ def create_reading_time(sender, instance, **kwargs):
 
         # Convert wpm to cpm (characters per minute) since `total_article_character_length`
         # is in characters
-        average_reading_speed_cpm = average_reading_speed_wpm * character_to_word_ratio
+        average_reading_speed_cpm = (
+            average_reading_speed_wpm * character_to_word_ratio
+        )
 
         total_time_seconds = (
             total_article_character_length / average_reading_speed_cpm * 60
