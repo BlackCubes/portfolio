@@ -27,10 +27,15 @@ if settings.DEBUG:
 
     # Serve static and media files from development server
     urlpatterns += staticfiles_urlpatterns()
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
 
 urlpatterns = urlpatterns + [
-    # Wagtail API. The Wagtail docs put `v2`, but here is `v1` for this site:
+    # Wagtail API.
+    # MY NOTES: The Wagtail docs put `v2`, but I put `v1` for this site
+    # since this is the first version it is using its own API (standard
+    # practice on versioning your API):
     path("api/v1/", api_router.urls),
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in

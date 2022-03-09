@@ -18,7 +18,9 @@ class FieldsInFilter(BaseFilterBackend):
         """
         return {
             f"{field_name}__in"
-            for field_name in view.get_available_fields(model, db_fields_only=True)
+            for field_name in view.get_available_fields(
+                model, db_fields_only=True
+            )
             if isinstance(model._meta.get_field(field_name), TaggableManager)
         }
 

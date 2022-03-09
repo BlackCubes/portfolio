@@ -18,7 +18,7 @@ def unique_slug_generator(instance, new_slug=None):
     Assumes the instance has a model with a slug field and a title field for Wagtail's
     higher-level model `Page`.
 
-    Returns: Unique slug from the model's title if the slug query exists in the DB, or the
+    RETURNS: Unique slug from the model's title if the slug query exists in the DB, or the
     newly created slug that slugifies the model's title if the slug query does not exist in
     the DB.
     """

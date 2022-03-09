@@ -1,3 +1,37 @@
 {
-  "python.formatting.provider": "black"
+  "[django-html]": {
+    "editor.formatOnSave": false
+  },
+  "files.associations": {
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+  },
+  "emmet.includeLanguages": { "django-html": "html" },
+  "python.formatting.blackArgs": ["--line-length=79", "--target-version=py310"],
+  "python.formatting.blackPath": "black",
+  "python.formatting.provider": "black",
+  "python.linting.mypyArgs": [
+    "--follow-imports=silent",
+    "--ignore-missing-imports",
+    "--show-column-numbers",
+    "--no-pretty"
+  ],
+  "python.linting.mypyCategorySeverity.error": "Error",
+  "python.linting.mypyCategorySeverity.note": "Information",
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "mypy",
+  "python.linting.pylintArgs": [
+    "--disable=C0114",
+    "--load-plugins",
+    "pylint_django",
+    "--django-settings-module=api.core.settings.base"
+  ],
+  "python.linting.pylintCategorySeverity.convention": "Information",
+  "python.linting.pylintCategorySeverity.error": "Error",
+  "python.linting.pylintCategorySeverity.fatal": "Error",
+  "python.linting.pylintCategorySeverity.refactor": "Hint",
+  "python.linting.pylintCategorySeverity.warning": "Warning",
+  "python.linting.pylintEnabled": true
 }

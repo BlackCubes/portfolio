@@ -14,7 +14,8 @@ class ArticleTagSerializedField(Field):
             return []
 
         return [
-            {"id": tag.id, "name": tag.name, "slug": tag.slug} for tag in value.all()
+            {"id": tag.id, "name": tag.name, "slug": tag.slug}
+            for tag in value.all()
         ]
 
 
@@ -64,7 +65,9 @@ class ArticleBlockSerializedField(Field):
         for stream_item in value:
             stream_item_representation = {
                 "type": stream_item.block.name,
-                "value": stream_item.block.get_api_representation(stream_item.value),
+                "value": stream_item.block.get_api_representation(
+                    stream_item.value
+                ),
                 "id": stream_item.id,
             }
 
@@ -73,9 +76,9 @@ class ArticleBlockSerializedField(Field):
                     "image" in stream_item.value
                     and stream_item.value["image"] is not None
                 ):
-                    stream_item_representation["value"]["image"] = stream_item.value[
+                    stream_item_representation["value"][
                         "image"
-                    ].file.url
+                    ] = stream_item.value["image"].file.url
 
             representation.append(stream_item_representation)
 
