@@ -98,7 +98,7 @@ class ArticlePage(Page):
 
     The fields that will be shown in the admin page (``content_panels``) for
     creating/updating an article are ``description``, ``header_image``, ``tags``,
-    ``category``, ``reading_time``, ``uuid``, and ``body``.
+    ``category``, ``reading_time``, and ``body``.
 
     A streamfield is used for the ``body`` field with inner fields of ``paragraph``,
     ``image_with_caption``, ``block_quote``, ``code``, and ``equation``.
