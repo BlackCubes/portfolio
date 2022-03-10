@@ -49,7 +49,7 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
 
       <Container>
         {worksData.length > 0 &&
-          worksData.map((workData, workIndex) => (
+          worksData.slice(0, 3).map((workData, workIndex) => (
             <React.Fragment key={workData.uuid}>
               <LineSeparator rotateClass="negative-rotate" />
 
