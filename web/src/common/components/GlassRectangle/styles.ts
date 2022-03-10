@@ -20,7 +20,7 @@ export const GlassContainer = styled.div<IGlassContainer>`
   display: flex;
   flex-direction: ${(props) => (props.hasContent ? 'column' : 'row')};
   align-items: center;
-  width: ${(props) => (props.hasContent ? '27rem' : '15rem')};
+  width: ${(props) => (props.hasContent ? '30rem' : '15rem')};
   height: ${(props) => (props.hasContent ? 'auto' : '15rem')};
   padding: ${(props) => (props.hasContent ? '0.5rem' : '0')};
   background-color: ${(props) => `rgba(${props.theme.colors.glass.rgb}, 0.17)`};
