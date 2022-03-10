@@ -1,6 +1,7 @@
 import { ICategory } from './category';
 
 type TMetaData = {
+  first_published_at: string;
   slug: string;
   seo_title: string;
   search_description: string;
