@@ -13,7 +13,7 @@ import {
 
 const LandingListView: FC = () => {
   const { selectedData: worksData } = useGetWorksByCategoryQuery(
-    { category: 'Work', limit: 4 },
+    { category: 'Work', limit: 5 },
     {
       selectFromResult: (result) => ({
         ...result,
