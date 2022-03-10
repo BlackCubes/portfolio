@@ -11,12 +11,14 @@ type TGetCategoriesResponse = IPaginationResponse & {
 const categoryExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({
     getCategories: builder.query<TGetCategoriesResponse, void>({
-      query: () => ({ url: `/categories/?fields=${fieldsParams}` }),
+      query: () => ({ url: `/article-categories/?fields=${fieldsParams}` }),
       providesTags: ['Category'],
     }),
 
     getCategoryById: builder.query<ICategory, number>({
-      query: (id) => ({ url: `/categories/${id}/?fields=${fieldsParams}` }),
+      query: (id) => ({
+        url: `/article-categories/${id}/?fields=${fieldsParams}`,
+      }),
       providesTags: ['Category'],
     }),
   }),
