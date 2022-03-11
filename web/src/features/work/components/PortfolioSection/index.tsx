@@ -11,34 +11,6 @@ import HeadingSecondary from 'common/typography/HeadingSecondary';
 import { Container, Section, SectionTitle } from './styles';
 import PortfolioContainer from './PortfolioContainer';
 
-// const portfolioContainerData: IPortfolioContainer[] = [
-//   {
-//     portfolioDescription:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-//     portfolioImageAlt: 'Errez Shop',
-//     portfolioImageSrc: portfolio1,
-//     portfolioPath: '/',
-//     portfolioTitle: 'Errez Shop',
-//   },
-//   {
-//     portfolioDescription:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-//     portfolioImageAlt: 'Kinetotickets',
-//     portfolioImageSrc: portfolio2,
-//     portfolioPath: '/',
-//     portfolioTitle: 'Kinetotickets',
-//     reverseClass: 'reverse',
-//   },
-//   {
-//     portfolioDescription:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-//     portfolioImageAlt: 'Film E-commerce',
-//     portfolioImageSrc: portfolio3,
-//     portfolioPath: '/',
-//     portfolioTitle: 'Film E-commerce',
-//   },
-// ];
-
 type TPersonalsData = Pick<
   IWork,
   | 'category'
