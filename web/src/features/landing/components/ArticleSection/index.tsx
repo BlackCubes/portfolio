@@ -89,7 +89,7 @@ const ArticleSection: FC = () => {
 
       <ExploreMoreWrapper>
         <ExploreMoreLink
-          to="/"
+          to="/articles"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >

@@ -75,7 +75,7 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
 
       <ExploreMoreWrapper>
         <ExploreMoreLink
-          to="/"
+          to="/work"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
