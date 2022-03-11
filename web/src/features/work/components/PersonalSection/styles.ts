@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-// PORTFOLIO SECTION
+// PERSONAL SECTION
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
@@ -16,8 +16,8 @@ export const Container = styled.div`
   padding-top: 4rem;
 `;
 
-// PORTFOLIO CONTAINER
-export const PortfolioContainerStyle = styled.div`
+// PERSONAL CONTAINER
+export const PersonalContainerStyle = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 9rem;
@@ -26,7 +26,7 @@ export const PortfolioContainerStyle = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const PortfolioDescription = styled.div`
+export const PersonalDescription = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -34,11 +34,11 @@ export const PortfolioDescription = styled.div`
   text-align: right;
 `;
 
-export const PortfolioImageWrapper = styled.div``;
+export const PersonalImageWrapper = styled.div``;
 
-export const PortfolioLink = styled(Link)``;
+export const PersonalLink = styled(Link)``;
 
-export const PortfolioTitle = styled.div`
+export const PersonalTitle = styled.div`
   display: flex;
   align-items: center;
   width: 40%;
