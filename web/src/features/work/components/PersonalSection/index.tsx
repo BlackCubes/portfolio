@@ -42,15 +42,15 @@ const PortfolioSection: FC<IPersonalSection> = ({ personalsData }) => (
       {personalsData.map((personalData, personalIndex) => (
         <PersonalContainer
           key={personalData.uuid}
-          portfolioDescription={personalData.description}
-          portfolioImageAlt={personalData.title}
-          portfolioImageSrc={
+          personalDescription={personalData.description}
+          personalImageAlt={personalData.title}
+          personalImageSrc={
             personalData.main_image
               ? `http://localhost:8000${personalData.main_image}`
               : noImage
           }
-          portfolioPath={`/work/${personalData.id}`}
-          portfolioTitle={personalData.title}
+          personalPath={`/work/${personalData.id}`}
+          personalTitle={personalData.title}
           {...(personalIndex % 2 !== 0 && {
             reverseClass: 'reverse',
           })}
