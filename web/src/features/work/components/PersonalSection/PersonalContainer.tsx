@@ -8,50 +8,50 @@ import HeadingTertiary from 'common/typography/HeadingTertiary';
 import Paragraph from 'common/typography/Paragraph';
 
 import {
-  PortfolioContainerStyle,
-  PortfolioDescription,
-  PortfolioImageWrapper,
-  PortfolioLink,
-  PortfolioTitle,
+  PersonalContainerStyle,
+  PersonalDescription,
+  PersonalImageWrapper,
+  PersonalLink,
+  PersonalTitle,
 } from './styles';
 
 export interface IPortfolioContainer {
   reverseClass?: string;
-  portfolioDescription: string;
-  portfolioImageAlt: string;
-  portfolioImageSrc: string;
-  portfolioPath: string;
-  portfolioTitle: string;
+  personalDescription: string;
+  personalImageAlt: string;
+  personalImageSrc: string;
+  personalPath: string;
+  personalTitle: string;
 }
 
-const PortfolioContainer: FC<IPortfolioContainer> = ({
+const PersonalContainer: FC<IPortfolioContainer> = ({
   reverseClass,
-  portfolioDescription,
-  portfolioImageAlt,
-  portfolioImageSrc,
-  portfolioPath,
-  portfolioTitle,
+  personalDescription,
+  personalImageAlt,
+  personalImageSrc,
+  personalPath,
+  personalTitle,
 }) => {
   const [isHovering, setIsHovering] = useIsHovering();
 
   return (
-    <PortfolioContainerStyle>
-      <PortfolioDescription>
+    <PersonalContainerStyle>
+      <PersonalDescription>
         <Paragraph
           {...(isHovering && {
             opacity: 0.8,
           })}
         >
-          {portfolioDescription}
+          {personalDescription}
         </Paragraph>
-      </PortfolioDescription>
+      </PersonalDescription>
 
-      <PortfolioLink
-        to={portfolioPath}
+      <PersonalLink
+        to={personalPath}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        <PortfolioImageWrapper>
+        <PersonalImageWrapper>
           <GlassTriangle
             glassDarkShadowBlur={isHovering ? 0.4 : 0}
             glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
@@ -59,25 +59,25 @@ const PortfolioContainer: FC<IPortfolioContainer> = ({
             glassLightShadowBlur={isHovering ? 0.4 : 0}
             glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
             glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
-            imageAlt={portfolioImageAlt}
-            imageSrc={portfolioImageSrc}
+            imageAlt={personalImageAlt}
+            imageSrc={personalImageSrc}
             opacity={isHovering ? 0.75 : 1}
             reverseClass={reverseClass}
           />
-        </PortfolioImageWrapper>
-      </PortfolioLink>
+        </PersonalImageWrapper>
+      </PersonalLink>
 
-      <PortfolioTitle>
+      <PersonalTitle>
         <HeadingTertiary
           {...(isHovering && {
             opacity: 0.8,
           })}
         >
-          {portfolioTitle}
+          {personalTitle}
         </HeadingTertiary>
-      </PortfolioTitle>
-    </PortfolioContainerStyle>
+      </PersonalTitle>
+    </PersonalContainerStyle>
   );
 };
 
-export default PortfolioContainer;
+export default PersonalContainer;
