@@ -8,11 +8,11 @@ import HeadingTertiary from 'common/typography/HeadingTertiary';
 import Paragraph from 'common/typography/Paragraph';
 
 import {
-  PortfolioContainerStyle,
-  PortfolioDescription,
-  PortfolioImageWrapper,
-  PortfolioLink,
-  PortfolioTitle,
+  PersonalContainerStyle,
+  PersonalDescription,
+  PersonalImageWrapper,
+  PersonalLink,
+  PersonalTitle,
 } from './styles';
 
 export interface IPortfolioContainer {
@@ -35,8 +35,8 @@ const PortfolioContainer: FC<IPortfolioContainer> = ({
   const [isHovering, setIsHovering] = useIsHovering();
 
   return (
-    <PortfolioContainerStyle>
-      <PortfolioDescription>
+    <PersonalContainerStyle>
+      <PersonalDescription>
         <Paragraph
           {...(isHovering && {
             opacity: 0.8,
@@ -44,14 +44,14 @@ const PortfolioContainer: FC<IPortfolioContainer> = ({
         >
           {portfolioDescription}
         </Paragraph>
-      </PortfolioDescription>
+      </PersonalDescription>
 
-      <PortfolioLink
+      <PersonalLink
         to={portfolioPath}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        <PortfolioImageWrapper>
+        <PersonalImageWrapper>
           <GlassTriangle
             glassDarkShadowBlur={isHovering ? 0.4 : 0}
             glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
@@ -64,10 +64,10 @@ const PortfolioContainer: FC<IPortfolioContainer> = ({
             opacity={isHovering ? 0.75 : 1}
             reverseClass={reverseClass}
           />
-        </PortfolioImageWrapper>
-      </PortfolioLink>
+        </PersonalImageWrapper>
+      </PersonalLink>
 
-      <PortfolioTitle>
+      <PersonalTitle>
         <HeadingTertiary
           {...(isHovering && {
             opacity: 0.8,
@@ -75,8 +75,8 @@ const PortfolioContainer: FC<IPortfolioContainer> = ({
         >
           {portfolioTitle}
         </HeadingTertiary>
-      </PortfolioTitle>
-    </PortfolioContainerStyle>
+      </PersonalTitle>
+    </PersonalContainerStyle>
   );
 };
 
