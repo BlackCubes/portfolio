@@ -24,7 +24,7 @@ export interface IPortfolioContainer {
   portfolioTitle: string;
 }
 
-const PortfolioContainer: FC<IPortfolioContainer> = ({
+const PersonalContainer: FC<IPortfolioContainer> = ({
   reverseClass,
   portfolioDescription,
   portfolioImageAlt,
@@ -80,4 +80,4 @@ const PortfolioContainer: FC<IPortfolioContainer> = ({
   );
 };
 
-export default PortfolioContainer;
+export default PersonalContainer;
