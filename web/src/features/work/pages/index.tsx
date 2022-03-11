@@ -11,6 +11,10 @@ const WorkListView: FC = () => {
     category: 'Work',
     limit: 4,
   });
+  const { data: personalsData } = useGetWorksByCategoryQuery({
+    category: 'Personal',
+    limit: 4,
+  });
 
   return (
     <>
@@ -89,7 +93,7 @@ const WorkListView: FC = () => {
 
       <WorkSection worksData={worksData?.items ?? []} />
 
-      <PortfolioSection />
+      <PortfolioSection personalsData={personalsData?.items ?? []} />
     </>
   );
 };
