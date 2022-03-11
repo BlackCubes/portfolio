@@ -9,7 +9,7 @@ import { IWork } from 'common/models';
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 
 import { Container, Section, SectionTitle } from './styles';
-import PortfolioContainer from './PortfolioContainer';
+import PersonalContainer from './PersonalContainer';
 
 type TPersonalsData = Pick<
   IWork,
@@ -40,7 +40,7 @@ const PortfolioSection: FC<IPersonalSection> = ({ personalsData }) => (
       <LineSeparator rotateClass="negative-rotate" />
 
       {personalsData.map((personalData, personalIndex) => (
-        <PortfolioContainer
+        <PersonalContainer
           key={personalData.uuid}
           portfolioDescription={personalData.description}
           portfolioImageAlt={personalData.title}
