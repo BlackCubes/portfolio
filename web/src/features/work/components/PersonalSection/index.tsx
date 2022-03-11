@@ -28,7 +28,7 @@ interface IPersonalSection {
   personalsData: TPersonalsData[];
 }
 
-const PortfolioSection: FC<IPersonalSection> = ({ personalsData }) => (
+const PersonalSection: FC<IPersonalSection> = ({ personalsData }) => (
   <Section className="default-container">
     <SectionTitle>
       <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
@@ -60,4 +60,4 @@ const PortfolioSection: FC<IPersonalSection> = ({ personalsData }) => (
   </Section>
 );
 
-export default PortfolioSection;
+export default PersonalSection;
