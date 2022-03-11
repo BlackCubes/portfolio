@@ -17,20 +17,20 @@ import {
 
 export interface IPortfolioContainer {
   reverseClass?: string;
-  portfolioDescription: string;
-  portfolioImageAlt: string;
-  portfolioImageSrc: string;
-  portfolioPath: string;
-  portfolioTitle: string;
+  personalDescription: string;
+  personalImageAlt: string;
+  personalImageSrc: string;
+  personalPath: string;
+  personalTitle: string;
 }
 
 const PersonalContainer: FC<IPortfolioContainer> = ({
   reverseClass,
-  portfolioDescription,
-  portfolioImageAlt,
-  portfolioImageSrc,
-  portfolioPath,
-  portfolioTitle,
+  personalDescription,
+  personalImageAlt,
+  personalImageSrc,
+  personalPath,
+  personalTitle,
 }) => {
   const [isHovering, setIsHovering] = useIsHovering();
 
@@ -42,12 +42,12 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
             opacity: 0.8,
           })}
         >
-          {portfolioDescription}
+          {personalDescription}
         </Paragraph>
       </PersonalDescription>
 
       <PersonalLink
-        to={portfolioPath}
+        to={personalPath}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
@@ -59,8 +59,8 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
             glassLightShadowBlur={isHovering ? 0.4 : 0}
             glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
             glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
-            imageAlt={portfolioImageAlt}
-            imageSrc={portfolioImageSrc}
+            imageAlt={personalImageAlt}
+            imageSrc={personalImageSrc}
             opacity={isHovering ? 0.75 : 1}
             reverseClass={reverseClass}
           />
@@ -73,7 +73,7 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
             opacity: 0.8,
           })}
         >
-          {portfolioTitle}
+          {personalTitle}
         </HeadingTertiary>
       </PersonalTitle>
     </PersonalContainerStyle>
