@@ -19,16 +19,6 @@ export const WorkCategory = styled.div`
   text-transform: uppercase;
   margin-right: 0.5rem;
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0.1rem;
-    right: -0.3rem;
-    display: block;
-    height: 1.5rem;
-    border-right: 0.1rem solid ${(props) => props.theme.colors.black.hex};
-  }
-
   & p {
     font-size: 1.3rem;
     letter-spacing: 0.06rem;
