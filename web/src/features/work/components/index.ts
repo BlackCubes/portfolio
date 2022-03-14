@@ -1,3 +1,3 @@
-export { default as PersonalSection } from './PersonalSection';
+export { default as PersonalList } from './PersonalList';
 export { default as WorkDetail } from './WorkDetail';
-export { default as WorkSection } from './WorkSection';
+export { default as WorkList } from './WorkList';

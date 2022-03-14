@@ -38,16 +38,21 @@ interface IArticleDetail {
 const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => (
   <Article className="navbar-footer-space">
     <ArticleAdditionalInfo>
-      <ArticleCategory>
+      <ArticleCategory
+        {...(articleData.tags.length > 0 && {
+          className: 'has-tags',
+        })}
+      >
         <Paragraph>{articleData.category?.name ?? ''}</Paragraph>
       </ArticleCategory>
 
-      <ArticleTags>
-        {articleData.tags.length > 0 &&
-          articleData.tags.map((tag) => (
+      {articleData.tags.length > 0 && (
+        <ArticleTags>
+          {articleData.tags.map((tag) => (
             <Paragraph key={`${tag.slug}-${tag.id}`}>{tag.name}</Paragraph>
           ))}
-      </ArticleTags>
+        </ArticleTags>
+      )}
     </ArticleAdditionalInfo>
 
     <ArticleTitle>

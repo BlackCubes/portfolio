@@ -19,7 +19,7 @@ export const ArticleCategory = styled.div`
   text-transform: uppercase;
   margin-right: 0.5rem;
 
-  &::after {
+  &.has-tags::after {
     content: '';
     position: absolute;
     top: 0.1rem;

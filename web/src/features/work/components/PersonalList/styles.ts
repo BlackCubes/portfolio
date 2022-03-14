@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-// PERSONAL SECTION
+// PERSONAL LIST
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`

@@ -24,11 +24,11 @@ type TPersonalsData = Pick<
   meta: Pick<IWork['meta'], 'first_published_at' | 'slug'>;
 };
 
-interface IPersonalSection {
+interface IPersonalList {
   personalsData: TPersonalsData[];
 }
 
-const PersonalSection: FC<IPersonalSection> = ({ personalsData }) => (
+const PersonalList: FC<IPersonalList> = ({ personalsData }) => (
   <Section className="default-container">
     <SectionTitle>
       <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
@@ -60,4 +60,4 @@ const PersonalSection: FC<IPersonalSection> = ({ personalsData }) => (
   </Section>
 );
 
-export default PersonalSection;
+export default PersonalList;

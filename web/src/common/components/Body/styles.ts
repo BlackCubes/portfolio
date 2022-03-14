@@ -13,14 +13,75 @@ export const BodyParagraph = styled.div`
     font-size: ${(props) => props.theme.fonts.headingTertiary};
   }
 
+  & h4 {
+    font-size: 2rem;
+  }
+
+  & h5 {
+    font-size: 1.5rem;
+  }
+
+  & h6 {
+    font-size: 1.2rem;
+  }
+
+  & ul {
+    list-style: none;
+  }
+
+  & ol {
+    margin-left: 4rem;
+  }
+
+  li {
+    &:not(:first-child) {
+      padding-top: 0.3rem;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 0.3rem;
+    }
+  }
+
+  & code {
+    margin: 0;
+    padding: 0.2rem 0.7rem;
+    border-left: ${(props) =>
+      `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-top: ${(props) =>
+      `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-right: ${(props) =>
+      `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-bottom: ${(props) =>
+      `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-radius: 2rem;
+  }
+
+  & a {
+    font-weight: 700;
+    color: ${(props) => props.theme.colors.primary.hex};
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+
   & h1,
   & h2,
-  & h3 {
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
     font-weight: 700;
     color: ${(props) => props.theme.colors.primary.hex};
   }
 
-  & p {
+  & p,
+  & ul,
+  & ol {
     font-size: ${(props) => props.theme.fonts.paragraph};
     font-weight: 400;
     color: ${(props) => props.theme.colors.secondary.hex};
@@ -29,7 +90,12 @@ export const BodyParagraph = styled.div`
   & h1,
   & h2,
   & h3,
-  & p {
+  & h4,
+  & h5,
+  & h6,
+  & p,
+  & ul,
+  & ol {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
     line-height: 1.5;

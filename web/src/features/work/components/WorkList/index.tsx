@@ -24,11 +24,11 @@ type TWorksData = Pick<
   meta: Pick<IWork['meta'], 'first_published_at' | 'slug'>;
 };
 
-interface IWorkSection {
+interface IWorkList {
   worksData: TWorksData[];
 }
 
-const WorkSection: FC<IWorkSection> = ({ worksData }) => (
+const WorkList: FC<IWorkList> = ({ worksData }) => (
   <Section className="default-container default-margin-bottom navbar-footer-space">
     <SectionTitle>
       <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
@@ -60,4 +60,4 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => (
   </Section>
 );
 
-export default WorkSection;
+export default WorkList;

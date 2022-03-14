@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-// WORK SECTION
+// WORK LIST
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`

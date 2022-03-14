@@ -73,6 +73,11 @@ const GlobalStyle = createGlobalStyle`
   .navbar-footer-space {
     margin-top: 10rem;
   }
+
+  &::selection {
+    color: ${(props) => props.theme.colors.white.hex};
+    background-color: ${(props) => props.theme.colors.secondary.hex};
+  }
 `;
 
 export default GlobalStyle;
