@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { WorkListView } from './pages';
+import { WorkDetailView, WorkListView } from './pages';
 
 const WorkRoutes: FC = () => (
   <Routes>
+    <Route path="/:workId" element={<WorkDetailView />} />
     <Route path="" element={<WorkListView />} />
   </Routes>
 );
