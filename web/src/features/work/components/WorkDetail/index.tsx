@@ -57,9 +57,7 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => (
 
     <WorkMainImage>
       <GlassRectangle
-        customClassName={`work-detail-page__main-image${
-          workData.category?.name === 'Personal' ? '--personal' : ''
-        }`}
+        customClassName="work-detail-page__main-image"
         glassDarkShadowBlur={0.4}
         glassDarkShadowHorizontalOffset={0.3}
         glassDarkShadowVerticalOffset={0.3}
