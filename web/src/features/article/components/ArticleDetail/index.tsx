@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import noImage from 'assets/img/no-image.png';
 import twitterIconBlack from 'assets/img/twitter-logo_black.png';
 
+import Body from 'common/components/Body';
 import GlassRectangle from 'common/components/GlassRectangle';
 
 import { IArticle } from 'common/models';
@@ -12,7 +13,6 @@ import Paragraph from 'common/typography/Paragraph';
 
 import { dateFormat } from 'utils';
 
-import ArticleBody from './ArticleBody';
 import {
   Article,
   ArticleAdditionalInfo,
@@ -118,11 +118,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => (
 
     <ArticleBodyContainer>
       {articleData.body.map((body) => (
-        <ArticleBody
-          key={body.id}
-          bodyType={body.type}
-          bodyValue={body.value}
-        />
+        <Body key={body.id} bodyType={body.type} bodyValue={body.value} />
       ))}
     </ArticleBodyContainer>
   </Article>
