@@ -119,6 +119,7 @@ class WorkPage(Page):
         ImageChooserPanel("main_image"),
         MultiFieldPanel(
             [
+                FieldPanel("company"),
                 FieldPanel("first_released_at"),
                 FieldPanel("category", widget=forms.RadioSelect),
             ],
@@ -131,6 +132,7 @@ class WorkPage(Page):
         APIField("uuid"),
         APIField("description"),
         APIField("main_image", serializer=WorkMainImageSerializedField()),
+        APIField("company"),
         APIField("first_released_at"),
         APIField("category", serializer=WorkCategorySerializedField()),
         APIField("body", serializer=WorkBodySerializedField()),
