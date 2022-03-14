@@ -30,6 +30,20 @@ class WorkMainImageSerializedField(Field):
         return value.file.url
 
 
+class WorkLogoImageSerializedField(Field):
+    """
+    A serialized field to change the output for the logo image of a work.
+
+    Outputs the image URL, if any.
+    """
+
+    def to_representation(self, value):
+        if not value:
+            return None
+
+        return value.file.url
+
+
 class WorkBodySerializedField(Field):
     """
     A serialized field to change the output for the body content in a work.
