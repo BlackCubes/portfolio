@@ -4,7 +4,7 @@ import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
 import SEO from 'common/components/SEO';
 
-import { PersonalSection, WorkSection } from 'features/work/components';
+import { PersonalList, WorkList } from 'features/work/components';
 
 const WorkListView: FC = () => {
   const { data: worksData } = useGetWorksByCategoryQuery({
@@ -91,9 +91,9 @@ const WorkListView: FC = () => {
         ]}
       />
 
-      <WorkSection worksData={worksData?.items ?? []} />
+      <WorkList worksData={worksData?.items ?? []} />
 
-      <PersonalSection personalsData={personalsData?.items ?? []} />
+      <PersonalList personalsData={personalsData?.items ?? []} />
     </>
   );
 };
