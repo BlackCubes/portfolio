@@ -9,6 +9,7 @@ type TGetWorks = Pick<
   | 'first_released_at'
   | 'id'
   | 'main_image'
+  | 'logo_image'
   | 'title'
   | 'uuid'
 > & {
@@ -38,7 +39,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
         if (category === 'Personal') categoryId = 2;
 
         return {
-          url: `/pages/?type=work.WorkPage&fields=_,id,uuid,title,slug,description,main_image,category,first_published_at,first_released_at&category=${categoryId}&limit=${limit}&order=-first_released_at`,
+          url: `/pages/?type=work.WorkPage&fields=_,id,uuid,title,slug,description,main_image,logo_image,category,first_published_at,first_released_at&category=${categoryId}&limit=${limit}&order=-first_released_at`,
         };
       },
 
@@ -47,7 +48,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
 
     getWorkById: builder.query<IWork, number>({
       query: (id) => ({
-        url: `/pages/${id}/?fields=_,id,uuid,first_published_at,slug,seo_title,search_description,title,description,main_image,first_released_at,category,body`,
+        url: `/pages/${id}/?fields=_,id,uuid,first_published_at,slug,seo_title,search_description,title,description,main_image,logo_image,company,first_released_at,category,body`,
       }),
 
       providesTags: ['Work'],
