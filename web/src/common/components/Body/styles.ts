@@ -13,6 +13,10 @@ export const BodyParagraph = styled.div`
     font-size: ${(props) => props.theme.fonts.headingTertiary};
   }
 
+  & ul {
+    list-style: none;
+  }
+
   & h1,
   & h2,
   & h3 {
@@ -20,7 +24,8 @@ export const BodyParagraph = styled.div`
     color: ${(props) => props.theme.colors.primary.hex};
   }
 
-  & p {
+  & p,
+  & ul {
     font-size: ${(props) => props.theme.fonts.paragraph};
     font-weight: 400;
     color: ${(props) => props.theme.colors.secondary.hex};
@@ -29,7 +34,8 @@ export const BodyParagraph = styled.div`
   & h1,
   & h2,
   & h3,
-  & p {
+  & p,
+  & ul {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
     line-height: 1.5;
