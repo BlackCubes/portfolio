@@ -17,7 +17,7 @@ type TWorksData = Pick<
   | 'description'
   | 'first_released_at'
   | 'id'
-  | 'main_image'
+  | 'logo_image'
   | 'title'
   | 'uuid'
 > & {
@@ -45,8 +45,8 @@ const WorkList: FC<IWorkList> = ({ worksData }) => (
           workDescription={workData.description}
           workImageAlt={workData.title}
           workImageSrc={
-            workData.main_image
-              ? `http://localhost:8000${workData.main_image}`
+            workData.logo_image
+              ? `http://localhost:8000${workData.logo_image}`
               : noImage
           }
           workLinkPath={`/work/${workData.id}`}
