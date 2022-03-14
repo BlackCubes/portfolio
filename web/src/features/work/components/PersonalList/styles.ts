@@ -34,7 +34,11 @@ export const PersonalDescription = styled.div`
   text-align: right;
 `;
 
-export const PersonalImageWrapper = styled.div``;
+export const PersonalImageWrapper = styled.div`
+  & img {
+    width: 60%;
+  }
+`;
 
 export const PersonalLink = styled(Link)``;
 

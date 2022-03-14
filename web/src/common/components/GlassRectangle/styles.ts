@@ -54,13 +54,8 @@ export const GlassContainer = styled.div<IGlassContainer>`
 
   &.work-detail-page {
     &__main-image {
-      width: 50%;
-      height: inherit;
-
-      &--personal {
-        width: 100%;
-        height: 100%;
-      }
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -98,10 +93,6 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   &.work-detail-page {
     &__main-image {
       width: 100%;
-
-      &--personal {
-        width: 100%;
-      }
     }
   }
 

@@ -17,7 +17,7 @@ type TPersonalsData = Pick<
   | 'description'
   | 'first_released_at'
   | 'id'
-  | 'main_image'
+  | 'logo_image'
   | 'title'
   | 'uuid'
 > & {
@@ -45,8 +45,8 @@ const PersonalList: FC<IPersonalList> = ({ personalsData }) => (
           personalDescription={personalData.description}
           personalImageAlt={personalData.title}
           personalImageSrc={
-            personalData.main_image
-              ? `http://localhost:8000${personalData.main_image}`
+            personalData.logo_image
+              ? `http://localhost:8000${personalData.logo_image}`
               : noImage
           }
           personalPath={`/work/${personalData.id}`}
