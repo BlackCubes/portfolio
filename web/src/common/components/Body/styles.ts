@@ -15,6 +15,30 @@ export const BodyParagraph = styled.div`
 
   & ul {
     list-style: none;
+
+    & li {
+      &:not(:first-child) {
+        padding-top: 0.3rem;
+      }
+
+      &:not(:last-child) {
+        padding-bottom: 0.3rem;
+      }
+    }
+  }
+
+  & code {
+    margin: 0;
+    padding: 0.2rem 0.7rem;
+    border-left: ${(props) =>
+      `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-top: ${(props) =>
+      `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-right: ${(props) =>
+      `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-bottom: ${(props) =>
+      `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-radius: 2rem;
   }
 
   & h1,
