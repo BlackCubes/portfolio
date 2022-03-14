@@ -16,7 +16,7 @@ import {
   WorkAdditionalInfo,
   WorkBodyContainer,
   WorkCategory,
-  // WorkCompany,
+  WorkCompany,
   WorkDate,
   WorkDescription,
   WorkMainImage,
@@ -39,12 +39,11 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => (
       <HeadingPrimary>{workData.title}</HeadingPrimary>
     </WorkTitle>
 
-    {/* TODO: add company to the work at backend */}
-    {/* {workData.company ? (
+    {workData.company.length > 0 ? (
       <WorkCompany>
         <Paragraph>{workData.company}</Paragraph>
       </WorkCompany>
-    ) : null} */}
+    ) : null}
 
     <WorkAdditionalInfo>
       <WorkDate>
