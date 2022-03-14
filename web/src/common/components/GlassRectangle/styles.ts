@@ -50,13 +50,20 @@ export const GlassContainer = styled.div<IGlassContainer>`
       width: 100%;
       height: inherit;
     }
+  }
 
-    &__caption-image {
-      width: 70%;
+  &.work-detail-page {
+    &__main-image {
+      width: 100%;
       height: inherit;
-      margin-left: auto;
-      margin-right: auto;
     }
+  }
+
+  &.caption-image {
+    width: 70%;
+    height: inherit;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
@@ -72,15 +79,25 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   opacity: ${({ opacity }) => opacity ?? '1'};
 
   &.article-list-page,
-  &.article-detail-page__header-image {
+  &.article-detail-page__header-image,
+  &.work-detail-page__main-image {
     width: inherit;
   }
 
   &.article-detail-page {
-    &__header-image,
-    &__caption-image {
+    &__header-image {
       width: 100%;
     }
+  }
+
+  &.work-detail-page {
+    &__main-image {
+      width: 100%;
+    }
+  }
+
+  &.caption-image {
+    width: 100%;
   }
 `;
 
@@ -97,10 +114,19 @@ export const GlassImage = styled.img`
   }
 
   &.article-detail-page {
-    &__header-image,
-    &__caption-image {
+    &__header-image {
       vertical-align: middle;
     }
+  }
+
+  &.work-detail-page {
+    &__main-image {
+      vertical-align: middle;
+    }
+  }
+
+  &.caption-image {
+    vertical-align: middle;
   }
 `;
 

@@ -48,12 +48,12 @@ type TCode = {
   code: string;
 };
 
-interface IArticleBody {
+interface IBody {
   bodyType: string;
   bodyValue: string | TCode | TImageCaption;
 }
 
-const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
+const Body: FC<IBody> = ({ bodyType, bodyValue }) => {
   if (bodyType === 'paragraph' && typeof bodyValue === 'string') {
     return (
       <BodyParagraph>
@@ -75,7 +75,7 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
       <BodyImageCaption>
         <ImageCaptionImgWrapper>
           <GlassRectangle
-            customClassName="article-detail-page__caption-image"
+            customClassName="caption-image"
             glassDarkShadowBlur={0.2}
             glassDarkShadowHorizontalOffset={0.1}
             glassDarkShadowVerticalOffset={0.1}
@@ -144,4 +144,4 @@ const ArticleBody: FC<IArticleBody> = ({ bodyType, bodyValue }) => {
   return <Paragraph>No body</Paragraph>;
 };
 
-export default ArticleBody;
+export default Body;
