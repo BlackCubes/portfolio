@@ -75,7 +75,7 @@ const Body: FC<IBody> = ({ bodyType, bodyValue }) => {
       <BodyImageCaption>
         <ImageCaptionImgWrapper>
           <GlassRectangle
-            customClassName="work-detail-page__caption-image"
+            customClassName="caption-image"
             glassDarkShadowBlur={0.2}
             glassDarkShadowHorizontalOffset={0.1}
             glassDarkShadowVerticalOffset={0.1}

@@ -59,14 +59,11 @@ export const GlassContainer = styled.div<IGlassContainer>`
     }
   }
 
-  &.article-detail-page,
-  &.work-detail-page {
-    &__caption-image {
-      width: 70%;
-      height: inherit;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  &.caption-image {
+    width: 70%;
+    height: inherit;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
@@ -99,11 +96,8 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
     }
   }
 
-  &.article-detail-page,
-  &.work-detail-page {
-    &__caption-image {
-      width: 100%;
-    }
+  &.caption-image {
+    width: 100%;
   }
 `;
 
@@ -131,11 +125,8 @@ export const GlassImage = styled.img`
     }
   }
 
-  &.article-detail-page,
-  &.work-detail-page {
-    &__caption-image {
-      vertical-align: middle;
-    }
+  &.caption-image {
+    vertical-align: middle;
   }
 `;
 
