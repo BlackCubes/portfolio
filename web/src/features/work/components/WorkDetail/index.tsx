@@ -39,11 +39,11 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => (
       <HeadingPrimary>{workData.title}</HeadingPrimary>
     </WorkTitle>
 
-    {workData.company.length > 0 ? (
+    {workData.company && workData.company.length > 0 && (
       <WorkCompany>
         <Paragraph>{workData.company}</Paragraph>
       </WorkCompany>
-    ) : null}
+    )}
 
     <WorkAdditionalInfo>
       <WorkDate>
