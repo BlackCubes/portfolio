@@ -78,6 +78,7 @@ class WorkPage(Page):
     main_image = models.ForeignKey(
         "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
     )
+    company = models.CharField(max_length=100, blank=True, null=True)
     first_released_at = models.DateTimeField(default=timezone.now)
     category = models.ForeignKey(
         "work.WorkCategory", null=True, on_delete=models.SET_NULL
