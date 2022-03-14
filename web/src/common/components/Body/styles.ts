@@ -27,15 +27,19 @@ export const BodyParagraph = styled.div`
 
   & ul {
     list-style: none;
+  }
 
-    & li {
-      &:not(:first-child) {
-        padding-top: 0.3rem;
-      }
+  & ol {
+    margin-left: 4rem;
+  }
 
-      &:not(:last-child) {
-        padding-bottom: 0.3rem;
-      }
+  li {
+    &:not(:first-child) {
+      padding-top: 0.3rem;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 0.3rem;
     }
   }
 
@@ -64,7 +68,8 @@ export const BodyParagraph = styled.div`
   }
 
   & p,
-  & ul {
+  & ul,
+  & ol {
     font-size: ${(props) => props.theme.fonts.paragraph};
     font-weight: 400;
     color: ${(props) => props.theme.colors.secondary.hex};
@@ -77,7 +82,8 @@ export const BodyParagraph = styled.div`
   & h5,
   & h6,
   & p,
-  & ul {
+  & ul,
+  & ol {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
     line-height: 1.5;
