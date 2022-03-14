@@ -8,7 +8,6 @@ type TGetWorks = Pick<
   | 'description'
   | 'first_released_at'
   | 'id'
-  | 'main_image'
   | 'logo_image'
   | 'title'
   | 'uuid'
@@ -39,7 +38,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
         if (category === 'Personal') categoryId = 2;
 
         return {
-          url: `/pages/?type=work.WorkPage&fields=_,id,uuid,title,slug,description,main_image,logo_image,category,first_published_at,first_released_at&category=${categoryId}&limit=${limit}&order=-first_released_at`,
+          url: `/pages/?type=work.WorkPage&fields=_,id,uuid,title,slug,description,logo_image,category,first_published_at,first_released_at&category=${categoryId}&limit=${limit}&order=-first_released_at`,
         };
       },
 
