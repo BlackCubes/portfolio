@@ -57,6 +57,18 @@ export const BodyParagraph = styled.div`
     border-radius: 2rem;
   }
 
+  & a {
+    font-weight: 700;
+    color: ${(props) => props.theme.colors.primary.hex};
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+
   & h1,
   & h2,
   & h3,
