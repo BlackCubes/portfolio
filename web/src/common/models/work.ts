@@ -40,7 +40,7 @@ export interface IWork {
   description: string;
   main_image: string | null;
   logo_image: string | null;
-  company: string;
+  company: string | null;
   first_released_at: string;
   category: ICategory | null;
   body: TBodyData;
