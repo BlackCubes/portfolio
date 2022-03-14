@@ -1,3 +1,4 @@
+from turtle import heading
 from django import forms
 from django.db import models
 from django.utils import timezone
@@ -26,6 +27,7 @@ from .blocks import ImageWithCaptionBlock
 from .fields import (
     WorkBodySerializedField,
     WorkCategorySerializedField,
+    WorkLogoImageSerializedField,
     WorkMainImageSerializedField,
 )
 
@@ -76,7 +78,18 @@ class WorkPage(Page):
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
     description = models.CharField(max_length=200)
     main_image = models.ForeignKey(
-        "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
+        "wagtailimages.Image",
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="main_image",
+    )
+    logo_image = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="logo_image",
     )
     company = models.CharField(max_length=100, blank=True, null=True)
     first_released_at = models.DateTimeField(default=timezone.now)
@@ -116,14 +129,20 @@ class WorkPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("description"),
-        ImageChooserPanel("main_image"),
+        MultiFieldPanel(
+            [
+                ImageChooserPanel("main_image"),
+                ImageChooserPanel("logo_image"),
+            ],
+            heading="Work/Personal images",
+        ),
         MultiFieldPanel(
             [
                 FieldPanel("company"),
                 FieldPanel("first_released_at"),
                 FieldPanel("category", widget=forms.RadioSelect),
             ],
-            heading="Work information",
+            heading="Work/Personal information",
         ),
         StreamFieldPanel("body"),
     ]
@@ -132,6 +151,7 @@ class WorkPage(Page):
         APIField("uuid"),
         APIField("description"),
         APIField("main_image", serializer=WorkMainImageSerializedField()),
+        APIField("logo_image", serializer=WorkLogoImageSerializedField()),
         APIField("company"),
         APIField("first_released_at"),
         APIField("category", serializer=WorkCategorySerializedField()),
