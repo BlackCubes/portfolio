@@ -14,6 +14,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 4rem;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-top: 3rem;
+  }
 `;
 
 export const ExploreMoreWrapper = styled.div`
