@@ -14,6 +14,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 4rem;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-top: 2.5rem;
+  }
 `;
 
 // WORK CONTAINER
@@ -23,10 +27,18 @@ export const WorkContainerStyle = styled.div`
   margin-top: 3rem;
   padding-left: 17rem;
 
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-left: 10rem;
+  }
+
   &.reverse {
     flex-direction: row-reverse;
     padding-right: 17rem;
     padding-left: 0;
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      padding-right: 10rem;
+    }
   }
 `;
 
