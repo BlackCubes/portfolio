@@ -81,12 +81,20 @@ export const ArticleContainerStyle = styled.div`
       top: -4.7rem;
       left: 24.1rem;
       transform: rotate(40deg);
+
+      @media ${({ theme }) => theme.responsive.below1199} {
+        left: 13.1rem;
+      }
     }
 
     &:after {
       bottom: 5.4rem;
       left: 38rem;
       transform: rotate(90deg);
+
+      @media ${({ theme }) => theme.responsive.below1199} {
+        left: 27rem;
+      }
     }
   }
 
@@ -105,6 +113,10 @@ export const ArticleContainerStyle = styled.div`
       background-color: ${(props) =>
         `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
       transform: rotate(-40deg);
+
+      @media ${({ theme }) => theme.responsive.below1199} {
+        right: 13.1rem;
+      }
     }
   }
 `;
