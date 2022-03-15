@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 // ARTICLE LIST
 export const Section = styled.section`
-  @media ${({ theme }) => theme.responsive.below1199} {
+  /* @media ${({ theme }) => theme.responsive.below1199} {
     margin-right: 0;
-  }
+  } */
 `;
 
 export const SectionTitle = styled.div`
