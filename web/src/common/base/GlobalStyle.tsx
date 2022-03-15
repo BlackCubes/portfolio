@@ -62,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
     margin-right: auto;
 
     @media ${({ theme }) => theme.responsive.below1199} {
-      max-width: 90rem;
+      max-width: 75rem;
     }
   }
 
