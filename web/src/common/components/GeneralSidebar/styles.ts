@@ -11,6 +11,16 @@ export const Sidebar = styled.aside`
     position: absolute;
     top: 30rem;
     right: 14rem;
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      display: block;
+      position: static;
+      max-width: 75rem;
+      margin-left: auto;
+      margin-right: auto;
+      top: auto;
+      right: auto;
+    }
   }
 `;
 
@@ -21,5 +31,9 @@ export const SidebarContainer = styled.div`
 
   &.related-sidebar {
     width: 35rem;
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      width: 100%;
+    }
   }
 `;
