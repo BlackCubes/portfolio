@@ -16,7 +16,7 @@ export const Container = styled.div`
   padding-top: 4rem;
 
   @media ${({ theme }) => theme.responsive.below1199} {
-    padding-top: 3rem;
+    padding-top: 2.5rem;
   }
 `;
 

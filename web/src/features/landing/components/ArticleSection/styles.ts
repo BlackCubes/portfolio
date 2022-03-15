@@ -15,7 +15,7 @@ export const Container = styled.div`
   padding-top: 4rem;
 
   @media ${({ theme }) => theme.responsive.below1199} {
-    padding-top: 3rem;
+    padding-top: 2.5rem;
   }
 `;
 
@@ -83,7 +83,7 @@ export const ArticleContainerStyle = styled.div`
       transform: rotate(40deg);
 
       @media ${({ theme }) => theme.responsive.below1199} {
-        left: 13.1rem;
+        left: 5.7rem;
       }
     }
 
@@ -93,7 +93,7 @@ export const ArticleContainerStyle = styled.div`
       transform: rotate(90deg);
 
       @media ${({ theme }) => theme.responsive.below1199} {
-        left: 27rem;
+        left: 19.5rem;
       }
     }
   }
@@ -115,7 +115,7 @@ export const ArticleContainerStyle = styled.div`
       transform: rotate(-40deg);
 
       @media ${({ theme }) => theme.responsive.below1199} {
-        right: 13.1rem;
+        right: 5.7rem;
       }
     }
   }
