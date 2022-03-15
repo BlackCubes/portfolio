@@ -16,6 +16,7 @@ export const Sidebar = styled.aside`
       display: block;
       position: static;
       max-width: 75rem;
+      margin-top: 15rem;
       margin-left: auto;
       margin-right: auto;
       top: auto;
