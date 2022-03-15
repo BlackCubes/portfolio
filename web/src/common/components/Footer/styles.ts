@@ -29,6 +29,10 @@ export const Item = styled.li`
   &:last-child {
     padding-right: 0;
   }
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-right: 6rem;
+  }
 `;
 
 export const ItemLink = styled(Link)`
