@@ -13,6 +13,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 4rem;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-top: 2.5rem;
+  }
 `;
 
 // ARTICLE LIST CONTAINER
@@ -20,6 +24,10 @@ export const ArticleContainerStyle = styled.div`
   display: flex;
   width: 90%;
   margin: 7rem auto;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    width: 95%;
+  }
 `;
 
 export const ArticleImageWrapper = styled.div``;
