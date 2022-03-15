@@ -5,6 +5,16 @@ export const Sidebar = styled.aside`
     position: fixed;
     top: 30rem;
     left: 24rem;
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      display: block;
+      position: static;
+      max-width: 75rem;
+      margin-top: 10rem;
+      margin-right: auto;
+      margin-bottom: 5rem;
+      margin-left: auto;
+    }
   }
 
   &.related-sidebar {
@@ -28,6 +38,12 @@ export const Sidebar = styled.aside`
 export const SidebarContainer = styled.div`
   &.filter-sidebar {
     width: 15rem;
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
   }
 
   &.related-sidebar {
