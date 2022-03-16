@@ -9,6 +9,10 @@ const Paragraph = styled.p<IParagraph>`
   font-weight: 400;
   color: ${(props) => props.theme.colors.secondary.hex};
 
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 1.55rem;
+  }
+
   ${({ opacity }) => opacity && `opacity: ${opacity};`}
 `;
 

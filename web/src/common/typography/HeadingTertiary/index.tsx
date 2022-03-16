@@ -10,6 +10,10 @@ const HeadingTertiary = styled.h3<IHeadingTertiary>`
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary.hex};
 
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 2.3rem;
+  }
+
   ${({ opacity }) => opacity && `opacity: ${opacity};`}
 
   ${({ textDecoration }) =>
