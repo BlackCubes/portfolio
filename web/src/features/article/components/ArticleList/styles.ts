@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // ARTICLE LIST
-export const Section = styled.section``;
+export const Section = styled.section`
+  @media ${({ theme }) => theme.responsive.below1199} {
+    margin-top: 0 !important;
+  }
+`;
 
 export const SectionTitle = styled.div`
   border-left: ${(props) =>
@@ -13,6 +17,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 4rem;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-top: 2.5rem;
+  }
 `;
 
 // ARTICLE LIST CONTAINER
@@ -20,6 +28,10 @@ export const ArticleContainerStyle = styled.div`
   display: flex;
   width: 90%;
   margin: 7rem auto;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    width: 95%;
+  }
 `;
 
 export const ArticleImageWrapper = styled.div``;
@@ -44,7 +56,7 @@ export const ArticleCategory = styled.div`
   text-transform: uppercase;
   margin-right: 0.5rem;
 
-  &::after {
+  &.has-tags::after {
     content: '';
     position: absolute;
     top: 0.1rem;

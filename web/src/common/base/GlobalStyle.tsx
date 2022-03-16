@@ -60,6 +60,10 @@ const GlobalStyle = createGlobalStyle`
     max-width: 112rem;
     margin-left: auto;
     margin-right: auto;
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      max-width: 75rem;
+    }
   }
 
   .non-default-container {

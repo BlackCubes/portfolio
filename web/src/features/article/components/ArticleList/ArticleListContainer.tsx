@@ -94,16 +94,21 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
 
       <ArticleDescriptionContainer>
         <ArticleAdditionalInfo>
-          <ArticleCategory>
+          <ArticleCategory
+            {...(articleTags.length > 0 && {
+              className: 'has-tags',
+            })}
+          >
             <Paragraph>{articleCategory}</Paragraph>
           </ArticleCategory>
 
-          <ArticleTags>
-            {articleTags.length > 0 &&
-              articleTags.map((tag) => (
+          {articleTags.length > 0 && (
+            <ArticleTags>
+              {articleTags.map((tag) => (
                 <Paragraph key={`${tag.slug}-${tag.id}`}>{tag.name}</Paragraph>
               ))}
-          </ArticleTags>
+            </ArticleTags>
+          )}
         </ArticleAdditionalInfo>
 
         <ArticleAdditionalInfo>

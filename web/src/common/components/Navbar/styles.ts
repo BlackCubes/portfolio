@@ -32,6 +32,10 @@ export const ItemsContainer = styled.ul`
 export const Item = styled.li`
   height: 100%;
   padding-left: 11rem;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-left: 6rem;
+  }
 `;
 
 export const ItemLink = styled(Link)`

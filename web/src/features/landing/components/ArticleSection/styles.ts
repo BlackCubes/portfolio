@@ -13,6 +13,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 4rem;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-top: 2.5rem;
+  }
 `;
 
 export const Introduction = styled.div`
@@ -77,12 +81,20 @@ export const ArticleContainerStyle = styled.div`
       top: -4.7rem;
       left: 24.1rem;
       transform: rotate(40deg);
+
+      @media ${({ theme }) => theme.responsive.below1199} {
+        left: 5.7rem;
+      }
     }
 
     &:after {
       bottom: 5.4rem;
       left: 38rem;
       transform: rotate(90deg);
+
+      @media ${({ theme }) => theme.responsive.below1199} {
+        left: 19.5rem;
+      }
     }
   }
 
@@ -101,6 +113,10 @@ export const ArticleContainerStyle = styled.div`
       background-color: ${(props) =>
         `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
       transform: rotate(-40deg);
+
+      @media ${({ theme }) => theme.responsive.below1199} {
+        right: 5.7rem;
+      }
     }
   }
 `;
