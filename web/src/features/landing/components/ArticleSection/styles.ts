@@ -17,11 +17,19 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.responsive.below1199} {
     padding-top: 2.5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding-top: 2.3rem;
+  }
 `;
 
 export const Introduction = styled.div`
   text-align: center;
   padding: 5rem 15rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding: 5rem 8rem;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -32,6 +40,10 @@ export const Wrapper = styled.div`
     'article1 article1'
     'article2 article3';
   margin-bottom: 10rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    margin-bottom: 0;
+  }
 `;
 
 export const ExploreMoreWrapper = styled.div`
@@ -75,6 +87,10 @@ export const ArticleContainerStyle = styled.div`
       height: 0.2rem;
       background-color: ${(props) =>
         `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
+
+      @media ${({ theme }) => theme.responsive.below899} {
+        content: none;
+      }
     }
 
     &:before {
@@ -95,6 +111,10 @@ export const ArticleContainerStyle = styled.div`
       @media ${({ theme }) => theme.responsive.below1199} {
         left: 19.5rem;
       }
+    }
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      padding-left: 3rem;
     }
   }
 
@@ -117,6 +137,14 @@ export const ArticleContainerStyle = styled.div`
       @media ${({ theme }) => theme.responsive.below1199} {
         right: 5.7rem;
       }
+
+      @media ${({ theme }) => theme.responsive.below899} {
+        content: none;
+      }
+    }
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      padding-right: 3rem;
     }
   }
 `;

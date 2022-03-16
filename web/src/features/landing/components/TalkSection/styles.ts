@@ -31,12 +31,21 @@ export const SectionTitle = styled.div`
 export const Container = styled.div`
   display: flex;
   padding-top: 4rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    flex-direction: column;
+  }
 `;
 
 // TALK CONTAINER
 export const TalkContainerStyle = styled.div`
   padding-top: 5rem;
   padding-bottom: 5rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 `;
 
 export const TalkDescriptionContainer = styled.div`
@@ -48,6 +57,10 @@ export const TalkDescriptionContainer = styled.div`
   &.reverse {
     flex-direction: column-reverse;
     padding-top: 10rem;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      padding-top: 0;
+    }
   }
 `;
 
