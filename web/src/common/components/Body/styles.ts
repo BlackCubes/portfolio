@@ -2,23 +2,43 @@ import styled from 'styled-components';
 
 export const BodyParagraph = styled.div`
   & h1 {
-    font-size: ${(props) => props.theme.fonts.headingPrimary};
+    font-size: ${({ theme }) => theme.fonts.headingPrimary};
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 3.3rem;
+    }
   }
 
   & h2 {
-    font-size: ${(props) => props.theme.fonts.headingSecondary};
+    font-size: ${({ theme }) => theme.fonts.headingSecondary};
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 2.7rem;
+    }
   }
 
   & h3 {
-    font-size: ${(props) => props.theme.fonts.headingTertiary};
+    font-size: ${({ theme }) => theme.fonts.headingTertiary};
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 2.3rem;
+    }
   }
 
   & h4 {
     font-size: 2rem;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 1.7rem;
+    }
   }
 
   & h5 {
     font-size: 1.5rem;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 1.45rem;
+    }
   }
 
   & h6 {
@@ -46,20 +66,20 @@ export const BodyParagraph = styled.div`
   & code {
     margin: 0;
     padding: 0.2rem 0.7rem;
-    border-left: ${(props) =>
-      `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
-    border-top: ${(props) =>
-      `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
-    border-right: ${(props) =>
-      `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
-    border-bottom: ${(props) =>
-      `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-left: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-top: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-right: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-bottom: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
     border-radius: 2rem;
   }
 
   & a {
     font-weight: 700;
-    color: ${(props) => props.theme.colors.primary.hex};
+    color: ${({ theme }) => theme.colors.primary.hex};
     text-decoration: none;
 
     &:hover {
@@ -76,15 +96,19 @@ export const BodyParagraph = styled.div`
   & h5,
   & h6 {
     font-weight: 700;
-    color: ${(props) => props.theme.colors.primary.hex};
+    color: ${({ theme }) => theme.colors.primary.hex};
   }
 
   & p,
   & ul,
   & ol {
-    font-size: ${(props) => props.theme.fonts.paragraph};
+    font-size: ${({ theme }) => theme.fonts.paragraph};
     font-weight: 400;
-    color: ${(props) => props.theme.colors.secondary.hex};
+    color: ${({ theme }) => theme.colors.secondary.hex};
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 1.55rem;
+    }
   }
 
   & h1,
@@ -99,6 +123,10 @@ export const BodyParagraph = styled.div`
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
     line-height: 1.5;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      line-height: 1.8;
+    }
   }
 `;
 
@@ -129,8 +157,13 @@ export const BodyBlockQuote = styled.blockquote`
 export const BlockQuoteQuotation = styled.span`
   font-size: 6rem;
   font-style: italic;
-  color: ${(props) => `rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.9)`};
+  color: ${({ theme }) => `rgba(${theme.colors.glassDarkShadow.rgb}, 0.9)`};
   transform: translateY(-1.4rem);
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 5rem;
+    transform: translateY(-1.1rem);
+  }
 `;
 
 export const BlockQuoteContent = styled.div`
@@ -139,8 +172,12 @@ export const BlockQuoteContent = styled.div`
   & p {
     font-size: 1.8rem;
     font-style: italic;
-    color: ${(props) => `rgba(${props.theme.colors.secondary.rgb}, 0.75)`};
+    color: ${({ theme }) => `rgba(${theme.colors.secondary.rgb}, 0.75)`};
     line-height: 1.5;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 1.75rem;
+    }
   }
 `;
 
@@ -153,14 +190,14 @@ export const BodyCode = styled.div`
 `;
 
 export const CodePreTag = styled.pre`
-  border-left: ${(props) =>
-    `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
-  border-top: ${(props) =>
-    `0.1rem solid rgba(${props.theme.colors.glassLightShadow.rgb}, 0.17)`};
-  border-right: ${(props) =>
-    `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
-  border-bottom: ${(props) =>
-    `0.1rem solid rgba(${props.theme.colors.glassDarkShadow.rgb}, 0.27)`};
+  border-left: ${({ theme }) =>
+    `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+  border-top: ${({ theme }) =>
+    `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+  border-right: ${({ theme }) =>
+    `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
+  border-bottom: ${({ theme }) =>
+    `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
   border-radius: 2rem;
 `;
 
