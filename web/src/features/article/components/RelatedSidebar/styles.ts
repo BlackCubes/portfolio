@@ -81,6 +81,10 @@ export const RelatedContainer = styled.div`
 
 export const RelatedImageWrapper = styled.div`
   margin-right: 1rem;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    margin-right: 0;
+  }
 `;
 
 export const RelatedTitleWrapper = styled.div`
