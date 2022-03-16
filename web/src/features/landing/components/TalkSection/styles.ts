@@ -11,20 +11,37 @@ export const SectionTitle = styled.div`
   &:after {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 1rem;
+    height: 6rem;
     border-left: ${(props) =>
-      `0.1rem dotted rgba(${props.theme.colors.primary.rgb}, 0.7)`};
+      `0.2rem dotted rgba(${props.theme.colors.primary.rgb}, 0.7)`};
+    opacity: 0.4;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      width: 1rem;
+      height: 6rem;
+      border-left: ${(props) =>
+        `0.2rem dotted rgba(${props.theme.colors.primary.rgb}, 0.7)`};
+      opacity: 0.7;
+    }
   }
 
   &:before {
-    bottom: 39rem;
-    left: 94rem;
+    bottom: -0.6rem;
+    left: 109.5rem;
     transform: rotate(-45deg);
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      left: 72.5rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      left: 68.2rem;
+    }
   }
 
   &:after {
-    left: 0;
+    left: -0.2rem;
   }
 `;
 
