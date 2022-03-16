@@ -89,10 +89,18 @@ export const RelatedImageWrapper = styled.div`
 
 export const RelatedTitleWrapper = styled.div`
   padding-top: 0.5rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    text-align: center;
+  }
 `;
 
 export const RelatedTitle = styled.h4`
   font-size: 1.6rem;
   color: ${(props) => props.theme.colors.primary.hex};
   font-weight: 500;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 1.55rem;
+  }
 `;
