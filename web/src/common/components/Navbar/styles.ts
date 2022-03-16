@@ -16,7 +16,7 @@ export const LogoWrapper = styled.div`
   width: 5.5rem;
 
   @media ${({ theme }) => theme.responsive.below899} {
-    width: 5.3rem;
+    width: 5rem;
   }
 `;
 
@@ -42,7 +42,7 @@ export const Item = styled.li`
   }
 
   @media ${({ theme }) => theme.responsive.below899} {
-    padding-left: 5rem;
+    padding-left: 4rem;
   }
 `;
 
