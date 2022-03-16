@@ -4,6 +4,10 @@ import styled from 'styled-components';
 export const ClearFilter = styled.div`
   margin-bottom: 1rem;
   text-align: right;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    text-align: left;
+  }
 `;
 
 export const ClearFilterButton = styled.button`
@@ -20,6 +24,10 @@ export const ClearFilterButton = styled.button`
 export const SidebarContainer = styled.div`
   &:not(:last-child) {
     margin-bottom: 3rem;
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      margin-bottom: 1.5rem;
+    }
   }
 `;
 
@@ -31,15 +39,34 @@ export const SidebarTitle = styled.div`
   }
 `;
 
-export const SidebarList = styled.ul``;
+export const SidebarList = styled.ul`
+  @media ${({ theme }) => theme.responsive.below1199} {
+    display: flex;
+  }
+`;
 
 // CATEGORIES
 export const CategoryItem = styled.li`
   list-style: none;
   cursor: pointer;
 
+  @media ${({ theme }) => theme.responsive.below1199} {
+    margin-bottom: 1.5rem;
+    margin-left: 1.5rem;
+  }
+
+  &:first-child {
+    @media ${({ theme }) => theme.responsive.below1199} {
+      margin-left: 1rem;
+    }
+  }
+
   &:not(:last-child) {
     margin-bottom: 1rem;
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      margin-bottom: 1.5rem;
+    }
   }
 `;
 
@@ -63,8 +90,21 @@ export const TagItem = styled.li`
   list-style: none;
   cursor: pointer;
 
+  @media ${({ theme }) => theme.responsive.below1199} {
+    margin-bottom: 1.5rem;
+    margin-left: 1.5rem;
+  }
+
+  &:first-child {
+    margin-left: 1rem;
+  }
+
   &:not(:last-child) {
     margin-bottom: 1rem;
+
+    @media ${({ theme }) => theme.responsive.below1199} {
+      margin-bottom: 1.5rem;
+    }
   }
 `;
 
@@ -83,6 +123,10 @@ export const TagName = styled.span`
 export const TagCheckbox = styled.div`
   height: 1.4rem;
   margin-left: 1rem;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    margin-left: 0.5rem;
+  }
 `;
 
 export const CheckboxInput = styled.input.attrs(() => ({
