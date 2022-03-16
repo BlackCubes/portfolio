@@ -56,6 +56,10 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  #root {
+    overflow-x: hidden;
+  }
+
   .default-container {
     max-width: 112rem;
     margin-left: auto;
