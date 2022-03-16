@@ -33,6 +33,10 @@ export const Item = styled.li`
   @media ${({ theme }) => theme.responsive.below1199} {
     padding-right: 6rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding-right: 5rem;
+  }
 `;
 
 export const ItemLink = styled(Link)`
@@ -48,6 +52,14 @@ export const ItemLink = styled(Link)`
     font-size: 1.89rem;
     letter-spacing: 0.05rem;
     border-top: 0.1rem solid ${(props) => props.theme.colors.secondary.hex};
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 1.79rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 1.9rem;
   }
 `;
 
@@ -59,6 +71,11 @@ export const LogoWrapper = styled.li`
 
   &:first-child {
     margin-left: 0;
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    width: 2rem;
+    margin-left: 4rem;
   }
 `;
 
