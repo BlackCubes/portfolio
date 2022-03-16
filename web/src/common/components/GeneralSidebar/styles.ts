@@ -36,6 +36,10 @@ export const Sidebar = styled.aside`
       top: auto;
       right: auto;
     }
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      max-width: 95%;
+    }
   }
 `;
 
