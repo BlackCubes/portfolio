@@ -15,6 +15,10 @@ export const Sidebar = styled.aside`
       margin-bottom: 5rem;
       margin-left: auto;
     }
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      max-width: 95%;
+    }
   }
 
   &.related-sidebar {
