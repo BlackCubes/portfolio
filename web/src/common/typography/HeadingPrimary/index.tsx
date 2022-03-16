@@ -9,6 +9,10 @@ const HeadingPrimary = styled.h1<IHeadingPrimary>`
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary.hex};
 
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 3.3rem;
+  }
+
   ${({ opacity }) => opacity && `opacity: ${opacity};`}
 `;
 

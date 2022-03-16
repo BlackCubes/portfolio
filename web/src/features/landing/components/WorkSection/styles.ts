@@ -18,6 +18,10 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.responsive.below1199} {
     padding-top: 2.5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding-top: 2.3rem;
+  }
 `;
 
 export const ExploreMoreWrapper = styled.div`
@@ -49,6 +53,16 @@ export const WorkContainerStyle = styled.div`
 
   &.reverse {
     flex-direction: row-reverse;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      flex-direction: column-reverse;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
   }
 `;
 
@@ -57,6 +71,16 @@ export const WorkTitle = styled.div`
 
   &.reverse {
     text-align: right;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      text-align: center;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    width: 100%;
+    padding: 1rem 4.5rem;
+    text-align: center;
   }
 `;
 
@@ -65,6 +89,10 @@ export const WorkDescriptionContainer = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 2rem 4.5rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding: 1rem 4.5rem;
+  }
 `;
 
 export const WorkDescription = styled.div`
@@ -72,6 +100,14 @@ export const WorkDescription = styled.div`
 
   &.reverse {
     text-align: right;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      text-align: center;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    text-align: center;
   }
 `;
 
@@ -80,6 +116,15 @@ export const WorkLinkWrapper = styled.div`
 
   &.reverse {
     text-align: left;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      text-align: center;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding: 1rem 4.5rem;
+    text-align: center;
   }
 `;
 
@@ -101,5 +146,15 @@ export const WorkImageWrapper = styled.div`
   &.reverse {
     margin-left: 0;
     margin-right: 3rem;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      margin-right: 0;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    width: 100%;
+    margin-left: 0;
+    padding: 1rem 4.5rem;
   }
 `;

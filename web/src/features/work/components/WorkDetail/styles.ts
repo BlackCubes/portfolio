@@ -6,6 +6,10 @@ export const Work = styled.article`
   margin-right: auto;
   padding-left: 2rem;
   padding-right: 2rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    max-width: 95%;
+  }
 `;
 
 export const WorkAdditionalInfo = styled.div`
@@ -48,6 +52,10 @@ export const WorkDescription = styled.div`
   & p {
     font-size: 1.8rem;
     line-height: 1.55;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 1.75rem;
+    }
   }
 `;
 

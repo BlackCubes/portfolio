@@ -10,6 +10,10 @@ const HeadingSecondary = styled.h2<IHeadingSecondary>`
   font-weight: 700;
   color: ${(props) => props.theme.colors.primary.hex};
 
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 2.7rem;
+  }
+
   ${({ letterSpacing }) =>
     letterSpacing && `letter-spacing: ${letterSpacing}rem;`}
 

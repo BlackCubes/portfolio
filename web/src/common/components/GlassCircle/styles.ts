@@ -38,6 +38,11 @@ export const GlassContainer = styled.div<IGlassContainer>`
     width: 8.5rem;
     height: 8.5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    width: 13rem;
+    height: 13rem;
+  }
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
@@ -54,6 +59,11 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   &.related-sidebar {
     width: 7.5rem;
     height: 7.5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    width: 12rem;
+    height: 12rem;
   }
 `;
 

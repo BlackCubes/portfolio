@@ -32,9 +32,17 @@ export const ArticleContainerStyle = styled.div`
   @media ${({ theme }) => theme.responsive.below1199} {
     width: 95%;
   }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    flex-direction: column;
+  }
 `;
 
-export const ArticleImageWrapper = styled.div``;
+export const ArticleImageWrapper = styled.div`
+  @media ${({ theme }) => theme.responsive.below899} {
+    margin-bottom: 2rem;
+  }
+`;
 
 export const ArticleImageLink = styled(Link)``;
 
@@ -43,12 +51,22 @@ export const ArticleDescriptionContainer = styled.div`
   flex-direction: column;
   margin-left: 2rem;
   margin-right: 2rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    text-align: center;
+  }
 `;
 
 export const ArticleAdditionalInfo = styled.div`
   display: flex;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    justify-content: center;
+  }
 `;
 
 export const ArticleCategory = styled.div`

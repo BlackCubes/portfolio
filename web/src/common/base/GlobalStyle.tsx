@@ -56,6 +56,10 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  #root {
+    overflow-x: hidden;
+  }
+
   .default-container {
     max-width: 112rem;
     margin-left: auto;
@@ -63,6 +67,10 @@ const GlobalStyle = createGlobalStyle`
 
     @media ${({ theme }) => theme.responsive.below1199} {
       max-width: 75rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      max-width: 95%;
     }
   }
 

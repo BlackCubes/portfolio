@@ -14,6 +14,10 @@ export const Container = styled.div`
 
 export const LogoWrapper = styled.div`
   width: 5.5rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    width: 5rem;
+  }
 `;
 
 export const LogoLink = styled(Link)`
@@ -36,6 +40,10 @@ export const Item = styled.li`
   @media ${({ theme }) => theme.responsive.below1199} {
     padding-left: 6rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding-left: 4rem;
+  }
 `;
 
 export const ItemLink = styled(Link)`
@@ -51,5 +59,13 @@ export const ItemLink = styled(Link)`
     font-size: 1.89rem;
     letter-spacing: 0.05rem;
     border-bottom: 0.1rem solid ${(props) => props.theme.colors.secondary.hex};
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      font-size: 1.79rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 1.9rem;
   }
 `;

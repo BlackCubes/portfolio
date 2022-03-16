@@ -40,10 +40,6 @@ export const GlassContainer = styled.div<IGlassContainer>`
   }, 0.27)`};
   overflow: hidden;
 
-  @media ${(props) => props.theme.responsive.below1199} {
-    width: ${(props) => (props.hasContent ? '27rem' : '15rem')};
-  }
-
   &.article-list-page {
     width: 35rem;
     height: 20rem;
@@ -66,6 +62,15 @@ export const GlassContainer = styled.div<IGlassContainer>`
   &.caption-image {
     width: 70%;
     height: inherit;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    width: ${({ hasContent }) => (hasContent ? '27rem' : '15rem')};
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
     margin-left: auto;
     margin-right: auto;
   }

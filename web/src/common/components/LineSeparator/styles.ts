@@ -19,6 +19,12 @@ export const PrimarySolidLine = styled.div`
   height: 0.2rem;
   background-color: ${(props) =>
     `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 `;
 
 export const SecondaryDottedLine = styled.div`
