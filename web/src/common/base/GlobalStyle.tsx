@@ -64,6 +64,10 @@ const GlobalStyle = createGlobalStyle`
     @media ${({ theme }) => theme.responsive.below1199} {
       max-width: 75rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      max-width: 95%;
+    }
   }
 
   .non-default-container {
