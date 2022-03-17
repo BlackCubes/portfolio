@@ -30,6 +30,10 @@ export const Introduction = styled.div`
   @media ${({ theme }) => theme.responsive.below899} {
     padding: 5rem 8rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    padding: 5rem 5rem;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -49,6 +53,10 @@ export const Wrapper = styled.div`
 export const ExploreMoreWrapper = styled.div`
   margin-top: 10rem;
   text-align: center;
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    margin-top: 5rem;
+  }
 `;
 
 export const ExploreMoreLink = styled(Link)`
@@ -116,6 +124,12 @@ export const ArticleContainerStyle = styled.div`
     @media ${({ theme }) => theme.responsive.below899} {
       padding-left: 3rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      padding-left: 2rem;
+    }
   }
 
   &.article3 {
@@ -145,6 +159,12 @@ export const ArticleContainerStyle = styled.div`
 
     @media ${({ theme }) => theme.responsive.below899} {
       padding-right: 3rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      padding-top: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 2rem;
     }
   }
 `;
