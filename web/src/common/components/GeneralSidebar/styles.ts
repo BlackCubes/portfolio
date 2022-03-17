@@ -19,6 +19,10 @@ export const Sidebar = styled.aside`
     @media ${({ theme }) => theme.responsive.below899} {
       max-width: 95%;
     }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      max-width: 93%;
+    }
   }
 
   &.related-sidebar {
@@ -39,6 +43,10 @@ export const Sidebar = styled.aside`
 
     @media ${({ theme }) => theme.responsive.below899} {
       max-width: 95%;
+    }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      max-width: 93%;
     }
   }
 `;
