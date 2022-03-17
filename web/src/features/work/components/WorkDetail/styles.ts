@@ -13,6 +13,8 @@ export const Work = styled.article`
 
   @media ${({ theme }) => theme.responsive.below599} {
     max-width: 93%;
+    padding-left: 0;
+    padding-right: 0;
   }
 `;
 
