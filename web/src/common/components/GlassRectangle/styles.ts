@@ -76,6 +76,10 @@ export const GlassContainer = styled.div<IGlassContainer>`
     height: inherit;
     margin-left: auto;
     margin-right: auto;
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      width: 80%;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below1199} {
