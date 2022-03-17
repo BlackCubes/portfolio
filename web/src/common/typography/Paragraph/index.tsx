@@ -5,15 +5,19 @@ interface IParagraph {
 }
 
 const Paragraph = styled.p<IParagraph>`
-  font-size: ${(props) => props.theme.fonts.paragraph};
+  font-size: ${({ theme }) => theme.fonts.paragraph};
   font-weight: 400;
-  color: ${(props) => props.theme.colors.secondary.hex};
+  color: ${({ theme }) => theme.colors.secondary.hex};
+
+  ${({ opacity }) => opacity && `opacity: ${opacity};`}
 
   @media ${({ theme }) => theme.responsive.below899} {
     font-size: 1.55rem;
   }
 
-  ${({ opacity }) => opacity && `opacity: ${opacity};`}
+  @media ${({ theme }) => theme.responsive.below599} {
+    font-size: 1.5rem;
+  }
 `;
 
 export default Paragraph;
