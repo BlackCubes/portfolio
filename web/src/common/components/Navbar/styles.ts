@@ -63,9 +63,17 @@ export const ItemLink = styled(Link)`
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 1.79rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      font-size: 1.69rem;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below899} {
     font-size: 1.9rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    font-size: 1.8rem;
   }
 `;
