@@ -6,6 +6,10 @@ export const Foot = styled.footer`
   margin-top: 4rem;
   padding-top: 1.5rem;
   border-top: 0.1rem dotted ${({ theme }) => theme.colors.primary.hex};
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    max-width: 100%;
+  }
 `;
 
 export const Container = styled.div`
@@ -17,7 +21,7 @@ export const Container = styled.div`
   border-top: 0.1rem dotted ${({ theme }) => theme.colors.primary.hex};
 
   @media ${({ theme }) => theme.responsive.below599} {
-    padding: 4.5rem 1rem 0;
+    padding: 4rem 1rem 0;
   }
 `;
 
