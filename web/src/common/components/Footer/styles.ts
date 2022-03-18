@@ -5,7 +5,7 @@ export const Foot = styled.footer`
   height: 11rem;
   margin-top: 4rem;
   padding-top: 1.5rem;
-  border-top: 0.1rem dotted ${(props) => props.theme.colors.primary.hex};
+  border-top: 0.1rem dotted ${({ theme }) => theme.colors.primary.hex};
 `;
 
 export const Container = styled.div`
@@ -14,12 +14,20 @@ export const Container = styled.div`
   align-items: flex-start;
   height: inherit;
   padding: 4.5rem 3.5rem 0;
-  border-top: 0.1rem dotted ${(props) => props.theme.colors.primary.hex};
+  border-top: 0.1rem dotted ${({ theme }) => theme.colors.primary.hex};
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    padding: 4.5rem 1rem 0;
+  }
 `;
 
 export const ItemsContainer = styled.ul`
   display: flex;
   list-style: none;
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    display: none;
+  }
 `;
 
 export const Item = styled.li`
@@ -44,14 +52,14 @@ export const ItemLink = styled(Link)`
   align-items: end;
   height: inherit;
   font-size: 2rem;
-  color: ${(props) => props.theme.colors.primary.hex};
+  color: ${({ theme }) => theme.colors.primary.hex};
   text-decoration: none;
 
   &:hover {
-    color: ${(props) => props.theme.colors.secondary.hex};
+    color: ${({ theme }) => theme.colors.secondary.hex};
     font-size: 1.89rem;
     letter-spacing: 0.05rem;
-    border-top: 0.1rem solid ${(props) => props.theme.colors.secondary.hex};
+    border-top: 0.1rem solid ${({ theme }) => theme.colors.secondary.hex};
 
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 1.79rem;
@@ -63,7 +71,13 @@ export const ItemLink = styled(Link)`
   }
 `;
 
-export const LogosContainer = styled(ItemsContainer)``;
+export const LogosContainer = styled(ItemsContainer)`
+  @media ${({ theme }) => theme.responsive.below599} {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+`;
 
 export const LogoWrapper = styled.li`
   width: 2.2rem;
@@ -76,6 +90,10 @@ export const LogoWrapper = styled.li`
   @media ${({ theme }) => theme.responsive.below899} {
     width: 2rem;
     margin-left: 3rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    margin-left: 0;
   }
 `;
 
