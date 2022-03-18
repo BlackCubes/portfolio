@@ -178,7 +178,7 @@ export const ImageCaptionContent = styled.span`
   text-align: center;
 
   @media ${({ theme }) => theme.responsive.below599} {
-    width: 80%;
+    width: 90%;
   }
 `;
 

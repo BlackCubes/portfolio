@@ -78,7 +78,7 @@ export const GlassContainer = styled.div<IGlassContainer>`
     margin-right: auto;
 
     @media ${({ theme }) => theme.responsive.below599} {
-      width: 80%;
+      width: 90%;
     }
   }
 
