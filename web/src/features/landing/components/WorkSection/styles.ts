@@ -6,8 +6,8 @@ export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
   text-align: right;
-  border-right: ${(props) =>
-    `0.1rem dotted rgba(${props.theme.colors.primary.rgb}, 0.7)`};
+  border-right: ${({ theme }) =>
+    `0.1rem dotted rgba(${theme.colors.primary.rgb}, 0.7)`};
 `;
 
 export const Container = styled.div`
@@ -27,12 +27,16 @@ export const Container = styled.div`
 export const ExploreMoreWrapper = styled.div`
   margin-top: 5rem;
   text-align: center;
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    margin-top: 2rem;
+  }
 `;
 
 export const ExploreMoreLink = styled(Link)`
   font-size: 2rem;
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary.hex};
+  color: ${({ theme }) => theme.colors.primary.hex};
   text-decoration: none;
 
   &:hover {
@@ -129,9 +133,9 @@ export const WorkLinkWrapper = styled.div`
 `;
 
 export const WorkLink = styled(Link)`
-  font-size: ${(props) => props.theme.fonts.paragraph};
+  font-size: ${({ theme }) => theme.fonts.paragraph};
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary.hex};
+  color: ${({ theme }) => theme.colors.primary.hex};
   text-decoration: none;
 
   &:hover {

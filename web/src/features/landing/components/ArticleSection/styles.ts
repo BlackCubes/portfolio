@@ -5,8 +5,8 @@ import styled from 'styled-components';
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
-  border-left: ${(props) =>
-    `0.1rem dotted rgba(${props.theme.colors.primary.rgb}, 0.7)`};
+  border-left: ${({ theme }) =>
+    `0.1rem dotted rgba(${theme.colors.primary.rgb}, 0.7)`};
 `;
 
 export const Container = styled.div`
@@ -55,14 +55,14 @@ export const ExploreMoreWrapper = styled.div`
   text-align: center;
 
   @media ${({ theme }) => theme.responsive.below599} {
-    margin-top: 5rem;
+    margin-top: 6rem;
   }
 `;
 
 export const ExploreMoreLink = styled(Link)`
   font-size: 2rem;
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary.hex};
+  color: ${({ theme }) => theme.colors.primary.hex};
   text-decoration: none;
 
   &:hover {
@@ -93,8 +93,8 @@ export const ArticleContainerStyle = styled.div`
       position: absolute;
       width: 36rem;
       height: 0.2rem;
-      background-color: ${(props) =>
-        `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
+      background-color: ${({ theme }) =>
+        `rgba(${theme.colors.primary.rgb}, 0.5)`};
 
       @media ${({ theme }) => theme.responsive.below899} {
         content: none;
@@ -144,8 +144,8 @@ export const ArticleContainerStyle = styled.div`
       right: 24.1rem;
       width: 36rem;
       height: 0.2rem;
-      background-color: ${(props) =>
-        `rgba(${props.theme.colors.primary.rgb}, 0.5)`};
+      background-color: ${({ theme }) =>
+        `rgba(${theme.colors.primary.rgb}, 0.5)`};
       transform: rotate(-40deg);
 
       @media ${({ theme }) => theme.responsive.below1199} {
@@ -166,6 +166,11 @@ export const ArticleContainerStyle = styled.div`
       padding-right: 2rem;
       padding-bottom: 2rem;
     }
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 `;
 
