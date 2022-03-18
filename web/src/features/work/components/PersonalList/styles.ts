@@ -37,6 +37,15 @@ export const PersonalContainerStyle = styled.div`
     padding-right: 5rem;
     padding-left: 5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    padding-top: 0;
+    padding-right: 1rem;
+    padding-bottom: 0;
+    padding-left: 1rem;
+  }
 `;
 
 export const PersonalDescription = styled.div`
@@ -60,6 +69,11 @@ export const PersonalImageWrapper = styled.div`
   @media ${({ theme }) => theme.responsive.below899} {
     margin-top: 3rem;
     margin-bottom: 3rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 `;
 

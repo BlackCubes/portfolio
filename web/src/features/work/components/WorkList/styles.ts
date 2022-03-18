@@ -47,8 +47,8 @@ export const WorkContainerStyle = styled.div`
 
   @media ${({ theme }) => theme.responsive.below599} {
     display: block;
-    margin-top: 7rem;
-    margin-bottom: 7rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
     padding-left: 0;
   }
 `;
