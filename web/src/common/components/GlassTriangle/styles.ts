@@ -32,6 +32,12 @@ export const GlassContainer = styled.div<IGlassContainer>`
   &.reverse {
     transform: scaleY(-1);
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    width: 93%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 `;
 
 export const GlassShape = styled.div`
