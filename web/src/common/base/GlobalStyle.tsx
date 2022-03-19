@@ -88,6 +88,10 @@ const GlobalStyle = createGlobalStyle`
     @media ${({ theme }) => theme.responsive.below599} {
       margin-bottom: 12rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      margin-bottom: 10rem;
+    }
   }
 
   .navbar-footer-space {
