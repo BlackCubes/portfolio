@@ -98,6 +98,13 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  #root {
+    @media ${({ theme }) => theme.responsive.below599} {
+      /* FOR STICKY/FIXED POSITION NAVBAR */
+      margin-top: 5rem;
+    }
+  }
+
   &::selection {
     color: ${({ theme }) => theme.colors.white.hex};
     background-color: ${({ theme }) => theme.colors.secondary.hex};
