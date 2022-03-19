@@ -82,7 +82,11 @@ const Navbar: FC = () => {
       <Container>
         <LogoWrapper>
           <LogoLink to="/">
-            <Logo src={logo} alt="Portfolio logo" />
+            <Logo
+              src={logo}
+              alt="Portfolio logo"
+              onClick={() => setIsMenuChecked(false)}
+            />
           </LogoLink>
         </LogoWrapper>
 
