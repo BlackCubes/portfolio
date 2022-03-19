@@ -46,8 +46,9 @@ const Navbar: FC = () => {
     screenHeight: window.innerHeight,
     screenWidth: window.innerWidth,
   });
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  const getScreenDimension = () =>
+  const getScreenDimension = (): void =>
     setScreenDimension((currentScreenDimension) => ({
       ...currentScreenDimension,
       screenHeight: window.innerHeight,
@@ -62,8 +63,22 @@ const Navbar: FC = () => {
     };
   }, [screenDimension]);
 
+  const handleScroll = (): void => {
+    setScrollPosition(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <Nav className="default-container">
+    <Nav
+      className={`default-container ${scrollPosition > 0 ? 'scrolling' : ''}`}
+    >
       <Container>
         <LogoWrapper>
           <LogoLink to="/">

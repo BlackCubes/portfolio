@@ -9,6 +9,13 @@ export const Nav = styled.nav`
   height: 11rem;
   background-color: ${({ theme }) => theme.colors.white.hex};
 
+  &.scrolling {
+    @media ${({ theme }) => theme.responsive.below599} {
+      border-bottom: ${({ theme }) =>
+        `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+    }
+  }
+
   @media ${({ theme }) => theme.responsive.below599} {
     position: fixed;
     top: 0;
@@ -17,6 +24,9 @@ export const Nav = styled.nav`
     max-width: 100vw !important;
     padding-right: 1rem;
     padding-left: 1rem;
+    border-bottom: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0)`};
+    transition: border 0.3s ease-in-out;
     z-index: 100;
   }
 `;
