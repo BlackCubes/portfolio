@@ -22,6 +22,7 @@ export const Sidebar = styled.aside`
 
     @media ${({ theme }) => theme.responsive.below599} {
       max-width: 93%;
+      margin-top: 5rem;
     }
   }
 
