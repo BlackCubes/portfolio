@@ -42,6 +42,9 @@ export const SidebarTitle = styled.div`
 export const SidebarList = styled.ul`
   @media ${({ theme }) => theme.responsive.below1199} {
     display: flex;
+    flex-wrap: wrap;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 `;
 
@@ -52,13 +55,7 @@ export const CategoryItem = styled.li`
 
   @media ${({ theme }) => theme.responsive.below1199} {
     margin-bottom: 1.5rem;
-    margin-left: 1.5rem;
-  }
-
-  &:first-child {
-    @media ${({ theme }) => theme.responsive.below1199} {
-      margin-left: 1rem;
-    }
+    margin-right: 1.5rem;
   }
 
   &:not(:last-child) {
@@ -80,6 +77,10 @@ export const CategoryName = styled.span`
     font-style: italic;
     text-decoration: underline;
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    font-size: 1.35rem;
+  }
 `;
 
 // TAGS
@@ -92,11 +93,7 @@ export const TagItem = styled.li`
 
   @media ${({ theme }) => theme.responsive.below1199} {
     margin-bottom: 1.5rem;
-    margin-left: 1.5rem;
-  }
-
-  &:first-child {
-    margin-left: 1rem;
+    margin-right: 1.5rem;
   }
 
   &:not(:last-child) {

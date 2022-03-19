@@ -5,15 +5,19 @@ interface IHeadingPrimary {
 }
 
 const HeadingPrimary = styled.h1<IHeadingPrimary>`
-  font-size: ${(props) => props.theme.fonts.headingPrimary};
+  font-size: ${({ theme }) => theme.fonts.headingPrimary};
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary.hex};
+  color: ${({ theme }) => theme.colors.primary.hex};
+
+  ${({ opacity }) => opacity && `opacity: ${opacity};`}
 
   @media ${({ theme }) => theme.responsive.below899} {
     font-size: 3.3rem;
   }
 
-  ${({ opacity }) => opacity && `opacity: ${opacity};`}
+  @media ${({ theme }) => theme.responsive.below599} {
+    font-size: 3rem;
+  }
 `;
 
 export default HeadingPrimary;

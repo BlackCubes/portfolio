@@ -10,6 +10,12 @@ export const Article = styled.article`
   @media ${({ theme }) => theme.responsive.below899} {
     max-width: 95%;
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    max-width: 93%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 export const ArticleAdditionalInfo = styled.div`
@@ -116,6 +122,10 @@ export const ArticleDescription = styled.div`
 
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 1.75rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      font-size: 1.7rem;
     }
   }
 `;

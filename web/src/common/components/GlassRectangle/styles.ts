@@ -18,31 +18,43 @@ interface IGlassImageWrapper {
 
 export const GlassContainer = styled.div<IGlassContainer>`
   display: flex;
-  flex-direction: ${(props) => (props.hasContent ? 'column' : 'row')};
+  flex-direction: ${({ hasContent }) => (hasContent ? 'column' : 'row')};
   align-items: center;
-  width: ${(props) => (props.hasContent ? '30rem' : '15rem')};
-  height: ${(props) => (props.hasContent ? 'auto' : '15rem')};
-  padding: ${(props) => (props.hasContent ? '0.5rem' : '0')};
-  background-color: ${(props) => `rgba(${props.theme.colors.glass.rgb}, 0.17)`};
+  width: ${({ hasContent }) => (hasContent ? '30rem' : '15rem')};
+  height: ${({ hasContent }) => (hasContent ? 'auto' : '15rem')};
+  padding: ${({ hasContent }) => (hasContent ? '0.5rem' : '0')};
+  background-color: ${({ theme }) => `rgba(${theme.colors.glass.rgb}, 0.17)`};
   border-radius: 2rem;
-  box-shadow: ${(props) => `
-  ${`${props.boxLightShadowHorizontalOffset}rem` ?? '-0.1rem'} ${
-    `${props.boxLightShadowVerticalOffset}rem` ?? '-0.1rem'
+  box-shadow: ${({
+    boxDarkShadowBlur,
+    boxDarkShadowHorizontalOffset,
+    boxDarkShadowVerticalOffset,
+    boxLightShadowBlur,
+    boxLightShadowHorizontalOffset,
+    boxLightShadowVerticalOffset,
+    theme,
+  }) => `
+  ${`${boxLightShadowHorizontalOffset}rem` ?? '-0.1rem'} ${
+    `${boxLightShadowVerticalOffset}rem` ?? '-0.1rem'
   }
-    ${`${props.boxLightShadowBlur}rem` ?? '0'} 0 rgba(${
-    props.theme.colors.glassLightShadow.rgb
+    ${`${boxLightShadowBlur}rem` ?? '0'} 0 rgba(${
+    theme.colors.glassLightShadow.rgb
   }, 0.17),
-  ${`${props.boxDarkShadowHorizontalOffset}rem` ?? '0.1rem'} ${
-    `${props.boxDarkShadowVerticalOffset}rem` ?? '0.1rem'
+  ${`${boxDarkShadowHorizontalOffset}rem` ?? '0.1rem'} ${
+    `${boxDarkShadowVerticalOffset}rem` ?? '0.1rem'
   }
-    ${`${props.boxDarkShadowBlur}rem` ?? '0'} 0 rgba(${
-    props.theme.colors.glassDarkShadow.rgb
+    ${`${boxDarkShadowBlur}rem` ?? '0'} 0 rgba(${
+    theme.colors.glassDarkShadow.rgb
   }, 0.27)`};
   overflow: hidden;
 
   &.article-list-page {
     width: 35rem;
     height: 20rem;
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      width: 100%;
+    }
   }
 
   &.article-detail-page {
@@ -64,6 +76,10 @@ export const GlassContainer = styled.div<IGlassContainer>`
     height: inherit;
     margin-left: auto;
     margin-right: auto;
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      width: 90%;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below1199} {
@@ -74,6 +90,10 @@ export const GlassContainer = styled.div<IGlassContainer>`
     margin-left: auto;
     margin-right: auto;
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    width: ${({ hasContent }) => (hasContent ? '85%' : '15rem')};
+  }
 `;
 
 export const GlassTitle = styled.div`
@@ -81,8 +101,8 @@ export const GlassTitle = styled.div`
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
-  width: ${(props) =>
-    props.hasContent && props.imageSize ? `${props.imageSize}rem` : '12rem'};
+  width: ${({ hasContent, imageSize }) =>
+    hasContent && imageSize ? `${imageSize}rem` : '12rem'};
   margin-left: auto;
   margin-right: auto;
   opacity: ${({ opacity }) => opacity ?? '1'};

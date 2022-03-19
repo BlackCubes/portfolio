@@ -6,18 +6,22 @@ interface IHeadingTertiary {
 }
 
 const HeadingTertiary = styled.h3<IHeadingTertiary>`
-  font-size: ${(props) => props.theme.fonts.headingTertiary};
+  font-size: ${({ theme }) => theme.fonts.headingTertiary};
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary.hex};
-
-  @media ${({ theme }) => theme.responsive.below899} {
-    font-size: 2.3rem;
-  }
+  color: ${({ theme }) => theme.colors.primary.hex};
 
   ${({ opacity }) => opacity && `opacity: ${opacity};`}
 
   ${({ textDecoration }) =>
     textDecoration && `text-decoration: ${textDecoration};`}
+  
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 2.3rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    font-size: 2rem;
+  }
 `;
 
 export default HeadingTertiary;

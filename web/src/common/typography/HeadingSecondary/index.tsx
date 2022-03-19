@@ -6,18 +6,22 @@ interface IHeadingSecondary {
 }
 
 const HeadingSecondary = styled.h2<IHeadingSecondary>`
-  font-size: ${(props) => props.theme.fonts.headingSecondary};
+  font-size: ${({ theme }) => theme.fonts.headingSecondary};
   font-weight: 700;
-  color: ${(props) => props.theme.colors.primary.hex};
-
-  @media ${({ theme }) => theme.responsive.below899} {
-    font-size: 2.7rem;
-  }
+  color: ${({ theme }) => theme.colors.primary.hex};
 
   ${({ letterSpacing }) =>
     letterSpacing && `letter-spacing: ${letterSpacing}rem;`}
 
   ${({ opacity }) => opacity && `opacity: ${opacity};`}
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    font-size: 2.7rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    font-size: 2.5rem;
+  }
 `;
 
 export default HeadingSecondary;

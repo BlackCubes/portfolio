@@ -6,8 +6,8 @@ export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
   text-align: right;
-  border-right: ${(props) =>
-    `0.1rem dotted rgba(${props.theme.colors.primary.rgb}, 0.7)`};
+  border-right: ${({ theme }) =>
+    `0.1rem dotted rgba(${theme.colors.primary.rgb}, 0.7)`};
 `;
 
 export const Container = styled.div`
@@ -27,10 +27,6 @@ export const WorkContainerStyle = styled.div`
   margin-top: 3rem;
   padding-left: 17rem;
 
-  @media ${({ theme }) => theme.responsive.below1199} {
-    padding-left: 10rem;
-  }
-
   &.reverse {
     flex-direction: row-reverse;
     padding-right: 17rem;
@@ -39,6 +35,21 @@ export const WorkContainerStyle = styled.div`
     @media ${({ theme }) => theme.responsive.below1199} {
       padding-right: 10rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      padding-right: 0;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-left: 10rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    display: block;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    padding-left: 0;
   }
 `;
 

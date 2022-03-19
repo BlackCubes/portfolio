@@ -13,15 +13,15 @@ export const SectionTitle = styled.div`
     position: absolute;
     width: 1rem;
     height: 6rem;
-    border-left: ${(props) =>
-      `0.2rem dotted rgba(${props.theme.colors.primary.rgb}, 0.7)`};
+    border-left: ${({ theme }) =>
+      `0.2rem dotted rgba(${theme.colors.primary.rgb}, 0.7)`};
     opacity: 0.4;
 
     @media ${({ theme }) => theme.responsive.below899} {
       width: 1rem;
       height: 6rem;
-      border-left: ${(props) =>
-        `0.2rem dotted rgba(${props.theme.colors.primary.rgb}, 0.7)`};
+      border-left: ${({ theme }) =>
+        `0.2rem dotted rgba(${theme.colors.primary.rgb}, 0.7)`};
       opacity: 0.7;
     }
   }
@@ -94,4 +94,9 @@ export const TalkTitleLink = styled.a`
   padding-left: 7rem;
   padding-right: 7rem;
   text-decoration: none;
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `;

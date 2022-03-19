@@ -7,6 +7,10 @@ export const BodyParagraph = styled.div`
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 3.3rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      font-size: 3rem;
+    }
   }
 
   & h2 {
@@ -14,6 +18,10 @@ export const BodyParagraph = styled.div`
 
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 2.7rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      font-size: 2.5rem;
     }
   }
 
@@ -23,6 +31,10 @@ export const BodyParagraph = styled.div`
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 2.3rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      font-size: 2rem;
+    }
   }
 
   & h4 {
@@ -31,6 +43,10 @@ export const BodyParagraph = styled.div`
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 1.7rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      font-size: 1.65rem;
+    }
   }
 
   & h5 {
@@ -38,6 +54,10 @@ export const BodyParagraph = styled.div`
 
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 1.45rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      font-size: 1.4rem;
     }
   }
 
@@ -109,6 +129,10 @@ export const BodyParagraph = styled.div`
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 1.55rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      font-size: 1.5rem;
+    }
   }
 
   & h1,
@@ -126,6 +150,11 @@ export const BodyParagraph = styled.div`
 
     @media ${({ theme }) => theme.responsive.below899} {
       line-height: 1.8;
+    }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      margin-top: 1.75rem;
+      margin-bottom: 1.75rem;
     }
   }
 `;
@@ -147,6 +176,10 @@ export const ImageCaptionContent = styled.span`
   margin-right: auto;
   padding-top: 0.6rem;
   text-align: center;
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    width: 90%;
+  }
 `;
 
 export const BodyBlockQuote = styled.blockquote`
@@ -164,6 +197,11 @@ export const BlockQuoteQuotation = styled.span`
     font-size: 5rem;
     transform: translateY(-1.1rem);
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    font-size: 4.5rem;
+    transform: translateY(-1rem);
+  }
 `;
 
 export const BlockQuoteContent = styled.div`
@@ -177,6 +215,10 @@ export const BlockQuoteContent = styled.div`
 
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 1.75rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      font-size: 1.7rem;
     }
   }
 `;
@@ -204,4 +246,8 @@ export const CodePreTag = styled.pre`
 export const BodyEquation = styled.div`
   margin: 2.5rem auto;
   transform: scale(1.35);
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    transform: scale(1.2);
+  }
 `;
