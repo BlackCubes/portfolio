@@ -58,6 +58,12 @@ const GlobalStyle = createGlobalStyle`
 
   #root {
     overflow-x: hidden;
+    overflow-y: hidden;
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      /* FOR STICKY/FIXED POSITION NAVBAR */
+      margin-top: 5rem;
+    }
   }
 
   .default-container {
@@ -98,13 +104,6 @@ const GlobalStyle = createGlobalStyle`
     margin-top: 10rem;
 
     @media ${({ theme }) => theme.responsive.below599} {
-      margin-top: 5rem;
-    }
-  }
-
-  #root {
-    @media ${({ theme }) => theme.responsive.below599} {
-      /* FOR STICKY/FIXED POSITION NAVBAR */
       margin-top: 5rem;
     }
   }
