@@ -38,7 +38,7 @@ export const ArticleContainerStyle = styled.div`
   }
 
   @media ${({ theme }) => theme.responsive.below599} {
-    margin: 5rem auto;
+    margin: 5rem auto 3rem;
   }
 `;
 
