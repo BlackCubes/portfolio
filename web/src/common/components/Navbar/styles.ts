@@ -29,6 +29,10 @@ export const Nav = styled.nav`
     transition: border 0.3s ease-in-out;
     z-index: 100;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    height: 7rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -47,6 +51,10 @@ export const LogoWrapper = styled.div`
 
   @media ${({ theme }) => theme.responsive.below899} {
     width: 5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    width: 4rem;
   }
 `;
 
@@ -171,6 +179,10 @@ export const ItemLink = styled(Link)`
         `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
       border-radius: 1rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      font-size: 1.49rem;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below899} {
@@ -182,6 +194,10 @@ export const ItemLink = styled(Link)`
     font-size: 1.7rem;
     padding: 0.7rem 0.7rem;
     transition: all 0.05s linear;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    font-size: 1.6rem;
   }
 `;
 
