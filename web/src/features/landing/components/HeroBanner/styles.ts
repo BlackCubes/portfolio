@@ -21,6 +21,10 @@ export const ProfileImageWrapper = styled.div`
     width: 13rem;
     margin-top: 5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 3rem;
+  }
 `;
 
 export const BiographyContainer = styled.div`
@@ -37,6 +41,10 @@ export const MainBiographyWrapper = styled.div`
 
   @media ${({ theme }) => theme.responsive.below899} {
     margin-bottom: 5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-bottom: 3rem;
   }
 `;
 

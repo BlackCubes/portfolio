@@ -22,6 +22,10 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.responsive.below899} {
     padding-top: 2.3rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-top: 1rem;
+  }
 `;
 
 export const ExploreMoreWrapper = styled.div`
@@ -30,6 +34,10 @@ export const ExploreMoreWrapper = styled.div`
 
   @media ${({ theme }) => theme.responsive.below599} {
     margin-top: 2rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 1rem;
   }
 `;
 
@@ -43,6 +51,10 @@ export const ExploreMoreLink = styled(Link)`
     text-decoration: underline;
     cursor: pointer;
     opacity: 0.9;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    font-size: 1.7rem;
   }
 `;
 
@@ -68,6 +80,11 @@ export const WorkContainerStyle = styled.div`
     margin-top: 5rem;
     margin-bottom: 5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
 `;
 
 export const WorkTitle = styled.div`
@@ -86,6 +103,10 @@ export const WorkTitle = styled.div`
     padding: 1rem 4.5rem;
     text-align: center;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding: 1rem 1rem;
+  }
 `;
 
 export const WorkDescriptionContainer = styled.div`
@@ -96,6 +117,10 @@ export const WorkDescriptionContainer = styled.div`
 
   @media ${({ theme }) => theme.responsive.below899} {
     padding: 1rem 4.5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding: 1rem 1rem;
   }
 `;
 
@@ -130,6 +155,10 @@ export const WorkLinkWrapper = styled.div`
     padding: 1rem 4.5rem;
     text-align: center;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding: 0rem 1rem;
+  }
 `;
 
 export const WorkLink = styled(Link)`
@@ -160,5 +189,9 @@ export const WorkImageWrapper = styled.div`
     width: 100%;
     margin-left: 0;
     padding: 1rem 4.5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding: 1rem 1rem;
   }
 `;

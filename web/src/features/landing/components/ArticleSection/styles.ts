@@ -21,6 +21,10 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.responsive.below899} {
     padding-top: 2.3rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-top: 1rem;
+  }
 `;
 
 export const Introduction = styled.div`
@@ -33,6 +37,10 @@ export const Introduction = styled.div`
 
   @media ${({ theme }) => theme.responsive.below599} {
     padding: 5rem 5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding: 5rem 1rem;
   }
 `;
 
@@ -48,6 +56,11 @@ export const Wrapper = styled.div`
   @media ${({ theme }) => theme.responsive.below899} {
     margin-bottom: 0;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const ExploreMoreWrapper = styled.div`
@@ -56,6 +69,10 @@ export const ExploreMoreWrapper = styled.div`
 
   @media ${({ theme }) => theme.responsive.below599} {
     margin-top: 6rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 5rem;
   }
 `;
 
@@ -69,6 +86,10 @@ export const ExploreMoreLink = styled(Link)`
     text-decoration: underline;
     cursor: pointer;
     opacity: 0.9;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    font-size: 1.7rem;
   }
 `;
 
@@ -130,6 +151,11 @@ export const ArticleContainerStyle = styled.div`
       padding-bottom: 2rem;
       padding-left: 2rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      padding-bottom: 3rem;
+      padding-left: 0;
+    }
   }
 
   &.article3 {
@@ -166,11 +192,20 @@ export const ArticleContainerStyle = styled.div`
       padding-right: 2rem;
       padding-bottom: 2rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      padding-right: 0;
+      padding-bottom: 3rem;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below599} {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-bottom: 3rem;
   }
 `;
 
