@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+type TItemsContainer = {
+  windowHeight: number;
+};
+
 export const Nav = styled.nav`
   height: 11rem;
+  background-color: ${({ theme }) => theme.colors.white.hex};
 
   @media ${({ theme }) => theme.responsive.below599} {
-    position: sticky;
+    position: fixed;
     top: 0;
     height: 8rem;
+    width: 100%;
     max-width: 100vw !important;
     padding-right: 1rem;
     padding-left: 1rem;
@@ -42,7 +48,49 @@ export const Logo = styled.img`
   width: 100%;
 `;
 
-export const ItemsContainer = styled.ul`
+export const HamburgerMenuContainer = styled.div`
+  display: none;
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+  }
+`;
+
+export const HamburgerMenu = styled.span`
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 0.2rem;
+  background-color: ${({ theme }) => theme.colors.secondary.hex};
+  transition: all 0.05s linear;
+
+  &::before {
+    transform: translateY(-1rem);
+  }
+
+  &::after {
+    transform: translateY(1rem);
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: ${({ theme }) => theme.colors.secondary.hex};
+    transition: all 0.05s linear;
+  }
+`;
+
+export const ItemsContainer = styled.ul<TItemsContainer>`
   display: flex;
   list-style: none;
 
@@ -51,13 +99,14 @@ export const ItemsContainer = styled.ul`
     top: 100%;
     right: 0;
     left: 0;
-    display: block;
+    display: none;
     width: 100%;
-    height: 100vh;
+    height: ${({ windowHeight }) => `${windowHeight / 10}rem`};
     padding-top: 2rem;
     background-color: ${({ theme }) => theme.colors.white.hex};
     border-top: ${({ theme }) =>
       `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+    background-attachment: scroll !important;
   }
 `;
 
@@ -78,6 +127,7 @@ export const Item = styled.li`
     padding-bottom: 1rem;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
+    transition: all 1s ease-out;
   }
 `;
 
@@ -122,5 +172,36 @@ export const ItemLink = styled(Link)`
     font-size: 1.7rem;
     padding: 0.7rem 0.7rem;
     transition: all 0.05s linear;
+  }
+`;
+
+export const HamburgerMenuCheckbox = styled.input.attrs(() => ({
+  type: 'checkbox',
+}))`
+  display: none;
+
+  &:checked ~ ${HamburgerMenuContainer} ${HamburgerMenu} {
+    background-color: transparent;
+
+    &::before {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+
+  &:checked ~ ${ItemsContainer} {
+    display: block;
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    position: absolute;
+    right: 1rem;
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    opacity: 0;
   }
 `;
