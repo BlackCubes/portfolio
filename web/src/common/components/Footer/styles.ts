@@ -8,7 +8,7 @@ export const Foot = styled.footer`
   border-top: 0.1rem dotted ${({ theme }) => theme.colors.primary.hex};
 
   @media ${({ theme }) => theme.responsive.below599} {
-    max-width: 100%;
+    max-width: 100% !important;
   }
 `;
 
