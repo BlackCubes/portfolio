@@ -66,6 +66,16 @@ export const WorkDescription = styled.div`
     @media ${({ theme }) => theme.responsive.below599} {
       font-size: 1.7rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      font-size: 1.65rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    max-width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -77,5 +87,9 @@ export const WorkMainImage = styled.div`
 export const WorkBodyContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 6rem;
+  margin-top: 4rem;
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 2rem;
+  }
 `;
