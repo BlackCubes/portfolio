@@ -36,7 +36,7 @@ export const ArticleCategory = styled.div`
     right: -0.3rem;
     display: block;
     height: 1.5rem;
-    border-right: 0.1rem solid ${(props) => props.theme.colors.black.hex};
+    border-right: 0.1rem solid ${({ theme }) => theme.colors.black.hex};
   }
 
   & p {
@@ -47,6 +47,7 @@ export const ArticleCategory = styled.div`
 
 export const ArticleTags = styled.div`
   display: flex;
+  flex-wrap: wrap;
   font-style: italic;
   text-transform: lowercase;
   margin-left: 0.1rem;
@@ -91,7 +92,7 @@ export const AuthorTwitterIcon = styled.img`
 export const AuthorTwitterLink = styled.a`
   font-size: 1.1rem;
   font-weight: 700;
-  color: ${(props) => props.theme.colors.secondary.hex};
+  color: ${({ theme }) => theme.colors.secondary.hex};
   text-decoration: none;
 `;
 
@@ -107,7 +108,7 @@ export const ArticleReadTime = styled.div`
   & p {
     font-size: 1.3rem;
     font-weight: 700;
-    color: ${(props) => `rgba(${props.theme.colors.secondary.rgb}, 0.9)`};
+    color: ${({ theme }) => `rgba(${theme.colors.secondary.rgb}, 0.9)`};
   }
 `;
 
@@ -127,6 +128,16 @@ export const ArticleDescription = styled.div`
     @media ${({ theme }) => theme.responsive.below599} {
       font-size: 1.7rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      font-size: 1.65rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    max-width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -138,5 +149,9 @@ export const ArticleHeaderImage = styled.div`
 export const ArticleBodyContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 6rem;
+  margin-top: 4rem;
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 2rem;
+  }
 `;

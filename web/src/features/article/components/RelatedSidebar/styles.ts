@@ -14,12 +14,20 @@ export const SidebarContainer = styled.div`
   &:not(:last-child) {
     margin-bottom: 3rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    overflow-x: hidden;
+  }
 `;
 
 export const SidebarList = styled.ul`
   @media ${({ theme }) => theme.responsive.below1199} {
     display: flex;
     overflow-x: auto;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-left: -0.5rem;
   }
 `;
 

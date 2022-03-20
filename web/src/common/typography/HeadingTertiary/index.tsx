@@ -22,6 +22,10 @@ const HeadingTertiary = styled.h3<IHeadingTertiary>`
   @media ${({ theme }) => theme.responsive.below599} {
     font-size: 2rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    font-size: 1.7rem;
+  }
 `;
 
 export default HeadingTertiary;

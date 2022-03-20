@@ -22,6 +22,11 @@ const HeadingSecondary = styled.h2<IHeadingSecondary>`
   @media ${({ theme }) => theme.responsive.below599} {
     font-size: 2.5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    font-size: 2.3rem;
+    letter-spacing: 1rem;
+  }
 `;
 
 export default HeadingSecondary;

@@ -50,6 +50,10 @@ export const Sidebar = styled.aside`
       max-width: 93%;
       margin-top: 7rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      margin-top: 5rem;
+    }
   }
 `;
 

@@ -52,6 +52,10 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.responsive.below899} {
     flex-direction: column;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-top: 1rem;
+  }
 `;
 
 // TALK CONTAINER
@@ -62,6 +66,10 @@ export const TalkContainerStyle = styled.div`
   @media ${({ theme }) => theme.responsive.below899} {
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-bottom: 1rem;
   }
 `;
 
@@ -98,5 +106,10 @@ export const TalkTitleLink = styled.a`
   @media ${({ theme }) => theme.responsive.below599} {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 `;

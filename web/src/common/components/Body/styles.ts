@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const BodyParagraph = styled.div`
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+
   & h1 {
     font-size: ${({ theme }) => theme.fonts.headingPrimary};
 
@@ -10,6 +13,10 @@ export const BodyParagraph = styled.div`
 
     @media ${({ theme }) => theme.responsive.below599} {
       font-size: 3rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      font-size: 2.7rem;
     }
   }
 
@@ -23,6 +30,10 @@ export const BodyParagraph = styled.div`
     @media ${({ theme }) => theme.responsive.below599} {
       font-size: 2.5rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      font-size: 2.3rem;
+    }
   }
 
   & h3 {
@@ -34,6 +45,10 @@ export const BodyParagraph = styled.div`
 
     @media ${({ theme }) => theme.responsive.below599} {
       font-size: 2rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      font-size: 1.7rem;
     }
   }
 
@@ -71,6 +86,10 @@ export const BodyParagraph = styled.div`
 
   & ol {
     margin-left: 4rem;
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      margin-left: 3rem;
+    }
   }
 
   li {
@@ -95,6 +114,10 @@ export const BodyParagraph = styled.div`
     border-bottom: ${({ theme }) =>
       `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
     border-radius: 2rem;
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      font-size: 1.2rem;
+    }
   }
 
   & a {
@@ -156,6 +179,16 @@ export const BodyParagraph = styled.div`
       margin-top: 1.75rem;
       margin-bottom: 1.75rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -165,6 +198,11 @@ export const BodyImageCaption = styled.div`
   align-items: center;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const ImageCaptionImgWrapper = styled.div``;
@@ -184,6 +222,7 @@ export const ImageCaptionContent = styled.span`
 
 export const BodyBlockQuote = styled.blockquote`
   display: flex;
+  margin-top: 0.5rem;
   margin-bottom: -1.4rem;
 `;
 
@@ -201,6 +240,11 @@ export const BlockQuoteQuotation = styled.span`
   @media ${({ theme }) => theme.responsive.below599} {
     font-size: 4.5rem;
     transform: translateY(-1rem);
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    font-size: 4rem;
+    transform: translateY(-0.8rem);
   }
 `;
 
@@ -220,6 +264,10 @@ export const BlockQuoteContent = styled.div`
     @media ${({ theme }) => theme.responsive.below599} {
       font-size: 1.7rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      font-size: 1.65rem;
+    }
   }
 `;
 
@@ -229,6 +277,11 @@ export const BodyCode = styled.div`
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   overflow-x: auto;
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const CodePreTag = styled.pre`
@@ -249,5 +302,10 @@ export const BodyEquation = styled.div`
 
   @media ${({ theme }) => theme.responsive.below599} {
     transform: scale(1.2);
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin: 2rem auto;
+    transform: scale(1.1);
   }
 `;

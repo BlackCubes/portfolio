@@ -55,6 +55,10 @@ export const GlassContainer = styled.div<IGlassContainer>`
     @media ${({ theme }) => theme.responsive.below599} {
       width: 100%;
     }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      height: 15rem;
+    }
   }
 
   &.article-detail-page {
@@ -128,6 +132,10 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   &.caption-image {
     width: 100%;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    width: ${({ hasContent }) => (hasContent ? '75%' : '12rem')};
+  }
 `;
 
 export const GlassImage = styled.img`
@@ -136,9 +144,18 @@ export const GlassImage = styled.img`
   &.article-list-page {
     width: 110%;
     transition: width 0.05s linear;
+    vertical-align: middle;
 
     &:hover {
       width: 115%;
+
+      @media ${({ theme }) => theme.responsive.below479} {
+        width: 125%;
+      }
+    }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      width: 120%;
     }
   }
 
@@ -162,4 +179,8 @@ export const GlassImage = styled.img`
 export const GlassContent = styled.div`
   padding: 2rem;
   text-align: center;
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding: 1rem;
+  }
 `;
