@@ -18,6 +18,10 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.responsive.below1199} {
     padding-top: 2.5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-top: 1rem;
+  }
 `;
 
 // PERSONAL CONTAINER
@@ -46,6 +50,10 @@ export const PersonalContainerStyle = styled.div`
     padding-bottom: 0;
     padding-left: 1rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const PersonalDescription = styled.div`
@@ -58,6 +66,10 @@ export const PersonalDescription = styled.div`
   @media ${({ theme }) => theme.responsive.below899} {
     display: block;
     text-align: center;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding: 1rem;
   }
 `;
 

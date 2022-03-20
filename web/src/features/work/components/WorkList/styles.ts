@@ -18,6 +18,10 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.responsive.below1199} {
     padding-top: 2.5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-top: 1rem;
+  }
 `;
 
 // WORK CONTAINER
@@ -50,6 +54,10 @@ export const WorkContainerStyle = styled.div`
     margin-top: 5rem;
     margin-bottom: 2rem;
     padding-left: 0;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-bottom: 1rem;
   }
 `;
 
