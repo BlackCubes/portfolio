@@ -21,6 +21,10 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.responsive.below1199} {
     padding-top: 2.5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-top: 1rem;
+  }
 `;
 
 // ARTICLE LIST CONTAINER
@@ -39,6 +43,10 @@ export const ArticleContainerStyle = styled.div`
 
   @media ${({ theme }) => theme.responsive.below599} {
     margin: 5rem auto 3rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin: 5rem auto 1rem;
   }
 `;
 
@@ -66,6 +74,11 @@ export const ArticleDescriptionContainer = styled.div`
     padding-left: 0;
     padding-right: 0;
     text-align: left;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 `;
 
@@ -131,6 +144,10 @@ export const ArticleDate = styled.div`
   & p {
     font-size: 1.3rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-right: 1.5rem;
+  }
 `;
 
 export const ArticleReadTime = styled.div`
@@ -144,6 +161,11 @@ export const ArticleReadTime = styled.div`
 export const ArticleTitle = styled.div`
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const ArticleTitleLink = styled(Link)`
@@ -157,6 +179,10 @@ export const ArticleLinkWrapper = styled.div`
 
   @media ${({ theme }) => theme.responsive.below599} {
     text-align: right;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-top: 1rem;
   }
 `;
 
