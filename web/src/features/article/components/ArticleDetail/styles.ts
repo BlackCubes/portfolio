@@ -149,9 +149,9 @@ export const ArticleHeaderImage = styled.div`
 export const ArticleBodyContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 6rem;
+  margin-top: 4rem;
 
   @media ${({ theme }) => theme.responsive.below479} {
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 `;
