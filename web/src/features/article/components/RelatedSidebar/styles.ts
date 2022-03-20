@@ -21,6 +21,10 @@ export const SidebarList = styled.ul`
     display: flex;
     overflow-x: auto;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    margin-left: -0.5rem;
+  }
 `;
 
 // RELATED
