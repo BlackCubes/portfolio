@@ -152,4 +152,8 @@ export const CheckboxInput = styled.input.attrs(() => ({
 }))`
   height: 100%;
   cursor: pointer;
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    width: 1.2rem;
+  }
 `;
