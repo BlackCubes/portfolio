@@ -119,6 +119,7 @@ export const ArticleCategory = styled.div`
 
 export const ArticleTags = styled.div`
   display: flex;
+  flex-wrap: wrap;
   font-style: italic;
   text-transform: lowercase;
   margin-left: 0.1rem;
