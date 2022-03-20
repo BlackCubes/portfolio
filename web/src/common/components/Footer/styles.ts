@@ -99,6 +99,10 @@ export const LogoWrapper = styled.li`
   @media ${({ theme }) => theme.responsive.below599} {
     margin-left: 0;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 1.8rem;
+  }
 `;
 
 export const LogoLink = styled.a`

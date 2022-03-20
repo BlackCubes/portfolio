@@ -33,6 +33,10 @@ export const Nav = styled.nav`
   @media ${({ theme }) => theme.responsive.below479} {
     height: 7rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    height: 6rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -56,6 +60,10 @@ export const LogoWrapper = styled.div`
   @media ${({ theme }) => theme.responsive.below479} {
     width: 4rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 3rem;
+  }
 `;
 
 export const LogoLink = styled(Link)`
@@ -76,6 +84,11 @@ export const HamburgerMenuContainer = styled.div`
     width: 3rem;
     height: 3rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 `;
 
 export const HamburgerMenu = styled.span`
@@ -88,10 +101,18 @@ export const HamburgerMenu = styled.span`
 
   &::before {
     transform: translateY(-1rem);
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      transform: translateY(-0.7rem);
+    }
   }
 
   &::after {
     transform: translateY(1rem);
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      transform: translateY(0.7rem);
+    }
   }
 
   &::before,
@@ -147,6 +168,12 @@ export const Item = styled.li`
     padding-left: 1.5rem;
     transition: all 1s ease-out;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+  }
 `;
 
 export const ItemLink = styled(Link)`
@@ -183,6 +210,10 @@ export const ItemLink = styled(Link)`
     @media ${({ theme }) => theme.responsive.below479} {
       font-size: 1.49rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      font-size: 1.39rem;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below899} {
@@ -198,6 +229,10 @@ export const ItemLink = styled(Link)`
 
   @media ${({ theme }) => theme.responsive.below479} {
     font-size: 1.6rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    font-size: 1.5rem;
   }
 `;
 
@@ -229,5 +264,10 @@ export const HamburgerMenuCheckbox = styled.input.attrs(() => ({
     width: 3rem;
     height: 3rem;
     opacity: 0;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 2.6rem;
+    height: 2.6rem;
   }
 `;
