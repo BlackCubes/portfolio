@@ -59,6 +59,10 @@ export const WorkContainerStyle = styled.div`
   @media ${({ theme }) => theme.responsive.below479} {
     margin-bottom: 1rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    margin-top: 4rem;
+  }
 `;
 
 export const WorkLink = styled(Link)`
