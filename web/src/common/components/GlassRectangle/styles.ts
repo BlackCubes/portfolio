@@ -59,6 +59,10 @@ export const GlassContainer = styled.div<IGlassContainer>`
     @media ${({ theme }) => theme.responsive.below479} {
       height: 15rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      height: 12rem;
+    }
   }
 
   &.article-detail-page {
