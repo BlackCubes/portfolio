@@ -70,6 +70,10 @@ export const WorkDescription = styled.div`
     @media ${({ theme }) => theme.responsive.below479} {
       font-size: 1.65rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      font-size: 1.6rem;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below479} {
@@ -82,6 +86,11 @@ export const WorkDescription = styled.div`
 export const WorkMainImage = styled.div`
   display: flex;
   justify-content: center;
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 107%;
+    transform: translateX(-0.7rem);
+  }
 `;
 
 export const WorkBodyContainer = styled.div`

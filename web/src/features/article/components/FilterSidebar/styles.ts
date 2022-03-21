@@ -23,6 +23,10 @@ export const ClearFilterButton = styled.button`
   @media ${({ theme }) => theme.responsive.below479} {
     padding: 0.4rem 0.5rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    font-size: 1.15rem;
+  }
 `;
 
 export const SidebarContainer = styled.div`
@@ -43,6 +47,10 @@ export const SidebarTitle = styled.div`
 
     @media ${({ theme }) => theme.responsive.below479} {
       font-size: 1.7rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      font-size: 1.65rem;
     }
   }
 `;
@@ -98,6 +106,10 @@ export const CategoryName = styled.span`
   @media ${({ theme }) => theme.responsive.below599} {
     font-size: 1.35rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    font-size: 1.25rem;
+  }
 `;
 
 // TAGS
@@ -136,6 +148,14 @@ export const TagName = styled.span`
     font-style: italic;
     text-decoration: underline;
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    font-size: 1.35rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    font-size: 1.25rem;
+  }
 `;
 
 export const TagCheckbox = styled.div`
@@ -155,5 +175,9 @@ export const CheckboxInput = styled.input.attrs(() => ({
 
   @media ${({ theme }) => theme.responsive.below479} {
     width: 1.2rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 1.15rem;
   }
 `;

@@ -85,6 +85,11 @@ export const WorkContainerStyle = styled.div`
     margin-top: 3rem;
     margin-bottom: 3rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const WorkTitle = styled.div`
@@ -96,6 +101,10 @@ export const WorkTitle = styled.div`
     @media ${({ theme }) => theme.responsive.below899} {
       text-align: center;
     }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      text-align: left;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below899} {
@@ -106,6 +115,10 @@ export const WorkTitle = styled.div`
 
   @media ${({ theme }) => theme.responsive.below479} {
     padding: 1rem 1rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    text-align: left;
   }
 `;
 
@@ -133,10 +146,19 @@ export const WorkDescription = styled.div`
     @media ${({ theme }) => theme.responsive.below899} {
       text-align: center;
     }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below899} {
     text-align: center;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    text-align: left;
   }
 `;
 
@@ -149,6 +171,12 @@ export const WorkLinkWrapper = styled.div`
     @media ${({ theme }) => theme.responsive.below899} {
       text-align: center;
     }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      order: -1;
+      margin-bottom: 2rem;
+      text-align: right;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below899} {
@@ -158,6 +186,10 @@ export const WorkLinkWrapper = styled.div`
 
   @media ${({ theme }) => theme.responsive.below479} {
     padding: 0rem 1rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    text-align: right;
   }
 `;
 

@@ -64,6 +64,10 @@ const GlobalStyle = createGlobalStyle`
       /* FOR STICKY/FIXED POSITION NAVBAR */
       margin-top: 5rem;
     }
+  
+    @media ${({ theme }) => theme.responsive.below379} {
+      margin-top: 4rem;
+    }
   }
 
   .default-container {

@@ -54,6 +54,12 @@ export const PersonalContainerStyle = styled.div`
   @media ${({ theme }) => theme.responsive.below479} {
     margin-bottom: 1rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    margin-top: 4rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 `;
 
 export const PersonalDescription = styled.div`
@@ -70,6 +76,10 @@ export const PersonalDescription = styled.div`
 
   @media ${({ theme }) => theme.responsive.below479} {
     padding: 1rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    padding: 1rem 0.5rem;
   }
 `;
 

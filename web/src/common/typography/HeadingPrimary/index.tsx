@@ -22,6 +22,10 @@ const HeadingPrimary = styled.h1<IHeadingPrimary>`
   @media ${({ theme }) => theme.responsive.below479} {
     font-size: 2.7rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    font-size: 2.5rem;
+  }
 `;
 
 export default HeadingPrimary;

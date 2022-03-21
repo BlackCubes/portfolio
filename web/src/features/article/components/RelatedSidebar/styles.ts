@@ -7,6 +7,14 @@ export const SidebarTitle = styled.div`
 
   & h3 {
     font-size: 2rem;
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      font-size: 1.7rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      font-size: 1.6rem;
+    }
   }
 `;
 
@@ -110,5 +118,9 @@ export const RelatedTitle = styled.h4`
 
   @media ${({ theme }) => theme.responsive.below899} {
     font-size: 1.55rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    font-size: 1.5rem;
   }
 `;
