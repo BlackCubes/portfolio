@@ -107,10 +107,18 @@ export const BodyParagraph = styled.div`
   li {
     &:not(:first-child) {
       padding-top: 0.3rem;
+
+      @media ${({ theme }) => theme.responsive.below379} {
+        padding-top: 0.5rem;
+      }
     }
 
     &:not(:last-child) {
       padding-bottom: 0.3rem;
+
+      @media ${({ theme }) => theme.responsive.below379} {
+        padding-bottom: 0.5rem;
+      }
     }
   }
 
@@ -205,6 +213,10 @@ export const BodyParagraph = styled.div`
     @media ${({ theme }) => theme.responsive.below479} {
       margin-top: 1.5rem;
       margin-bottom: 1.5rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      line-height: 1.5;
     }
   }
 
