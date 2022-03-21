@@ -88,6 +88,10 @@ export const GlassContainer = styled.div<IGlassContainer>`
     @media ${({ theme }) => theme.responsive.below599} {
       width: 90%;
     }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      width: 100%;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below1199} {
