@@ -22,6 +22,12 @@ export const ArticleAdditionalInfo = styled.div`
   display: flex;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+
+  &.article__date-readtime {
+    @media ${({ theme }) => theme.responsive.below379} {
+      justify-content: space-between;
+    }
+  }
 `;
 
 export const ArticleCategory = styled.div`
@@ -102,6 +108,10 @@ export const ArticleDate = styled.div`
   & p {
     font-size: 1.3rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    margin-right: 0;
+  }
 `;
 
 export const ArticleReadTime = styled.div`
@@ -132,6 +142,10 @@ export const ArticleDescription = styled.div`
     @media ${({ theme }) => theme.responsive.below479} {
       font-size: 1.65rem;
     }
+
+    @media ${({ theme }) => theme.responsive.below379} {
+      font-size: 1.6rem;
+    }
   }
 
   @media ${({ theme }) => theme.responsive.below479} {
@@ -144,6 +158,11 @@ export const ArticleDescription = styled.div`
 export const ArticleHeaderImage = styled.div`
   display: flex;
   justify-content: center;
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 107%;
+    transform: translateX(-0.7rem);
+  }
 `;
 
 export const ArticleBodyContainer = styled.div`
