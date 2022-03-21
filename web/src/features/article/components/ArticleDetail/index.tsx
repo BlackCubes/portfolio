@@ -81,7 +81,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => (
       </AuthorTwitterLink>
     </AuthorTwitterContainer>
 
-    <ArticleAdditionalInfo>
+    <ArticleAdditionalInfo className="article__date-readtime">
       <ArticleDate>
         <Paragraph>
           {dateFormat('en-US', articleData.meta.first_published_at)}

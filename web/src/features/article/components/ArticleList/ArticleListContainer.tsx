@@ -111,7 +111,7 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
           )}
         </ArticleAdditionalInfo>
 
-        <ArticleAdditionalInfo>
+        <ArticleAdditionalInfo className="article__date-readtime">
           <ArticleDate>
             <Paragraph>{dateFormat('en-US', articleDate)}</Paragraph>
           </ArticleDate>
