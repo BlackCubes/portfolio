@@ -71,6 +71,10 @@ export const TalkContainerStyle = styled.div`
   @media ${({ theme }) => theme.responsive.below479} {
     padding-bottom: 1rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    padding-top: 3rem;
+  }
 `;
 
 export const TalkDescriptionContainer = styled.div`

@@ -42,6 +42,10 @@ export const Introduction = styled.div`
   @media ${({ theme }) => theme.responsive.below479} {
     padding: 5rem 1rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    padding: 4rem 1rem;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -73,6 +77,10 @@ export const ExploreMoreWrapper = styled.div`
 
   @media ${({ theme }) => theme.responsive.below479} {
     margin-top: 5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    margin-top: 3rem;
   }
 `;
 
