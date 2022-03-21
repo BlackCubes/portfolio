@@ -48,6 +48,10 @@ export const ArticleContainerStyle = styled.div`
   @media ${({ theme }) => theme.responsive.below479} {
     margin: 5rem auto 1rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    margin: 4rem auto 0.5rem;
+  }
 `;
 
 export const ArticleImageWrapper = styled.div`
@@ -93,6 +97,10 @@ export const ArticleAdditionalInfo = styled.div`
 
   @media ${({ theme }) => theme.responsive.below599} {
     justify-content: start;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    justify-content: space-between;
   }
 `;
 
@@ -148,6 +156,10 @@ export const ArticleDate = styled.div`
 
   @media ${({ theme }) => theme.responsive.below479} {
     margin-right: 1.5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    margin-right: 0;
   }
 `;
 
