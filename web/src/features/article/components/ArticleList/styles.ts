@@ -91,16 +91,18 @@ export const ArticleAdditionalInfo = styled.div`
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 
+  &.article__date-readtime {
+    @media ${({ theme }) => theme.responsive.below379} {
+      justify-content: space-between;
+    }
+  }
+
   @media ${({ theme }) => theme.responsive.below899} {
     justify-content: center;
   }
 
   @media ${({ theme }) => theme.responsive.below599} {
     justify-content: start;
-  }
-
-  @media ${({ theme }) => theme.responsive.below379} {
-    justify-content: space-between;
   }
 `;
 
