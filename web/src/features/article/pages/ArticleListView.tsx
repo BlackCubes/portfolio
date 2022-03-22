@@ -8,6 +8,8 @@ import SEO from 'common/components/SEO';
 
 import { ArticleList, FilterSidebar } from 'features/article/components';
 
+import { PageContainer } from './styles';
+
 type TCategoryTagIdQueryState = {
   category: number;
   tags: Array<number> | [];
@@ -191,19 +193,21 @@ const ArticleListView: FC = () => {
         ]}
       />
 
-      {categoriesData?.items &&
-        categoriesData.items.length > 0 &&
-        tagsData?.items &&
-        tagsData.items.length > 0 && (
-          <FilterSidebar
-            categoriesData={categoriesData.items}
-            handleCategoryTagQuery={handleCategoryTagQuery}
-            handleClearFilter={handleClearFiltering}
-            tagsData={tagsData.items}
-          />
-        )}
+      <PageContainer className="default-container navbar-footer-space">
+        {categoriesData?.items &&
+          categoriesData.items.length > 0 &&
+          tagsData?.items &&
+          tagsData.items.length > 0 && (
+            <FilterSidebar
+              categoriesData={categoriesData.items}
+              handleCategoryTagQuery={handleCategoryTagQuery}
+              handleClearFilter={handleClearFiltering}
+              tagsData={tagsData.items}
+            />
+          )}
 
-      <ArticleList articlesData={articlesData?.items ?? []} />
+        <ArticleList articlesData={articlesData?.items ?? []} />
+      </PageContainer>
     </>
   );
 };

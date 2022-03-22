@@ -31,7 +31,7 @@ interface IArticleList {
 }
 
 const ArticleList: FC<IArticleList> = ({ articlesData }) => (
-  <Section className="default-container default-margin-bottom navbar-footer-space">
+  <Section>
     <SectionTitle>
       <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
         Articles
