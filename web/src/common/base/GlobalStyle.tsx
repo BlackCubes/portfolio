@@ -51,15 +51,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Nunito', 'Open Sans', 'Poppins', 'Roboto', sans-serif;
     font-weight: 400;
-    /* Is this the valid way to hide the overflow at the x-direction by
-    putting it on the body? */
-    overflow-x: hidden;
   }
 
   #root {
-    overflow-x: hidden;
-    overflow-y: hidden;
-
     @media ${({ theme }) => theme.responsive.below599} {
       /* FOR STICKY/FIXED POSITION NAVBAR */
       margin-top: 5rem;

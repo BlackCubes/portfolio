@@ -36,7 +36,7 @@ interface IArticleDetail {
 }
 
 const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => (
-  <Article className="navbar-footer-space">
+  <Article>
     <ArticleAdditionalInfo>
       <ArticleCategory
         {...(articleData.tags.length > 0 && {

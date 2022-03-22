@@ -2,18 +2,19 @@ import styled from 'styled-components';
 
 export const Sidebar = styled.aside`
   &.filter-sidebar {
-    position: fixed;
-    top: 30rem;
-    left: 24rem;
+    position: sticky;
+    top: 10rem;
+    padding-top: 10rem;
 
     @media ${({ theme }) => theme.responsive.below1199} {
-      display: block;
       position: static;
+      top: auto;
       max-width: 75rem;
       margin-top: 10rem;
       margin-right: auto;
       margin-bottom: 5rem;
       margin-left: auto;
+      padding-top: 0;
     }
 
     @media ${({ theme }) => theme.responsive.below899} {
@@ -27,19 +28,19 @@ export const Sidebar = styled.aside`
   }
 
   &.related-sidebar {
-    position: absolute;
-    top: 30rem;
-    right: 14rem;
+    position: sticky;
+    top: 10rem;
+    padding-top: 10rem;
 
     @media ${({ theme }) => theme.responsive.below1199} {
-      display: block;
       position: static;
+      top: auto;
+      display: block;
       max-width: 75rem;
       margin-top: 15rem;
       margin-left: auto;
       margin-right: auto;
-      top: auto;
-      right: auto;
+      padding-top: 0;
     }
 
     @media ${({ theme }) => theme.responsive.below899} {
@@ -69,7 +70,7 @@ export const SidebarContainer = styled.div`
   }
 
   &.related-sidebar {
-    width: 35rem;
+    width: 20rem;
 
     @media ${({ theme }) => theme.responsive.below1199} {
       width: 100%;

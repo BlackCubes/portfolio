@@ -12,6 +12,8 @@ import SEO from 'common/components/SEO';
 
 import { ArticleDetail, RelatedSidebar } from 'features/article/components';
 
+import { PageContainer } from './styles';
+
 type TArticleParams = {
   articleId: string;
 };
@@ -76,138 +78,138 @@ const ArticleDetailView: FC = () => {
 
   return (
     <>
-      {articleData ? (
-        <>
-          <SEO
-            articleMetaTags={[
-              {
-                property: 'article:published_time',
-                content: articleData.meta.first_published_at,
-              },
-              {
-                property: 'article:section',
-                content: articleData.category?.name ?? '',
-              },
-              {
-                property: 'article:tag',
-                content:
-                  articleData.tags.length > 0
-                    ? articleData.tags.map((tag) => tag.name).join(', ')
-                    : '',
-              },
-            ]}
-            openGraphMetaTags={[
-              {
-                property: 'og:description',
-                content:
-                  articleData.meta.search_description.length > 0
-                    ? articleData.meta.search_description
-                    : articleData.description,
-              },
-              {
-                property: 'og:image',
-                content: articleData.header_image
-                  ? `http://localhost:8000${articleData.header_image}`
-                  : noImage,
-              },
-              {
-                property: 'og:image:height',
-                content: '720',
-              },
-              {
-                property: 'og:image:width',
-                content: '1200',
-              },
-              {
-                property: 'og:site_name',
-                content: "Elias Gutierrez's Portfolio",
-              },
-              {
-                property: 'og:title',
-                content:
-                  articleData.meta.seo_title.length > 0
-                    ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-                    : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
-              },
-              {
-                property: 'og:type',
-                content: 'article',
-              },
-              {
-                property: 'og:url',
-                content: window.location.href,
-              },
-            ]}
-            primaryMetaTags={[
-              {
-                name: 'description',
-                content:
-                  articleData.meta.search_description.length > 0
-                    ? articleData.meta.search_description
-                    : articleData.description,
-              },
-              {
-                name: 'title',
-                content:
-                  articleData.meta.seo_title.length > 0
-                    ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-                    : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
-              },
-            ]}
-            title={
-              articleData.meta.seo_title.length > 0
-                ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-                : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-            }
-            twitterMetaTags={[
-              {
-                property: 'twitter:card',
-                content: 'summary_large_image',
-              },
-              {
-                property: 'twitter:creator',
-                content: '@_BlackCubes_',
-              },
-              {
-                property: 'twitter:description',
-                content:
-                  articleData.meta.search_description.length > 0
-                    ? articleData.meta.search_description
-                    : articleData.description,
-              },
-              {
-                property: 'twitter:image',
-                content: articleData.header_image
-                  ? `http://localhost:8000${articleData.header_image}`
-                  : noImage,
-              },
-              {
-                property: 'twitter:site',
-                content: '@_BlackCubes_',
-              },
-              {
-                property: 'twitter:title',
-                content:
-                  articleData.meta.seo_title.length > 0
-                    ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-                    : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
-              },
-              {
-                property: 'twitter:url',
-                content: window.location.href,
-              },
-            ]}
-          />
-
-          <ArticleDetail articleData={articleData} />
-        </>
-      ) : null}
-
-      {relatedArticlesByCategoryData.length > 0 && (
-        <RelatedSidebar
-          relatedArticlesByCategoryData={relatedArticlesByCategoryData}
+      {articleData && (
+        <SEO
+          articleMetaTags={[
+            {
+              property: 'article:published_time',
+              content: articleData.meta.first_published_at,
+            },
+            {
+              property: 'article:section',
+              content: articleData.category?.name ?? '',
+            },
+            {
+              property: 'article:tag',
+              content:
+                articleData.tags.length > 0
+                  ? articleData.tags.map((tag) => tag.name).join(', ')
+                  : '',
+            },
+          ]}
+          openGraphMetaTags={[
+            {
+              property: 'og:description',
+              content:
+                articleData.meta.search_description.length > 0
+                  ? articleData.meta.search_description
+                  : articleData.description,
+            },
+            {
+              property: 'og:image',
+              content: articleData.header_image
+                ? `http://localhost:8000${articleData.header_image}`
+                : noImage,
+            },
+            {
+              property: 'og:image:height',
+              content: '720',
+            },
+            {
+              property: 'og:image:width',
+              content: '1200',
+            },
+            {
+              property: 'og:site_name',
+              content: "Elias Gutierrez's Portfolio",
+            },
+            {
+              property: 'og:title',
+              content:
+                articleData.meta.seo_title.length > 0
+                  ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                  : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
+            },
+            {
+              property: 'og:type',
+              content: 'article',
+            },
+            {
+              property: 'og:url',
+              content: window.location.href,
+            },
+          ]}
+          primaryMetaTags={[
+            {
+              name: 'description',
+              content:
+                articleData.meta.search_description.length > 0
+                  ? articleData.meta.search_description
+                  : articleData.description,
+            },
+            {
+              name: 'title',
+              content:
+                articleData.meta.seo_title.length > 0
+                  ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                  : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
+            },
+          ]}
+          title={
+            articleData.meta.seo_title.length > 0
+              ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+              : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+          }
+          twitterMetaTags={[
+            {
+              property: 'twitter:card',
+              content: 'summary_large_image',
+            },
+            {
+              property: 'twitter:creator',
+              content: '@_BlackCubes_',
+            },
+            {
+              property: 'twitter:description',
+              content:
+                articleData.meta.search_description.length > 0
+                  ? articleData.meta.search_description
+                  : articleData.description,
+            },
+            {
+              property: 'twitter:image',
+              content: articleData.header_image
+                ? `http://localhost:8000${articleData.header_image}`
+                : noImage,
+            },
+            {
+              property: 'twitter:site',
+              content: '@_BlackCubes_',
+            },
+            {
+              property: 'twitter:title',
+              content:
+                articleData.meta.seo_title.length > 0
+                  ? `${articleData.meta.seo_title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                  : `${articleData.title} - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
+            },
+            {
+              property: 'twitter:url',
+              content: window.location.href,
+            },
+          ]}
         />
       )}
+
+      <PageContainer className="default-container navbar-footer-space">
+        {articleData && <ArticleDetail articleData={articleData} />}
+
+        {relatedArticlesByCategoryData.length > 0 && (
+          <RelatedSidebar
+            relatedArticlesByCategoryData={relatedArticlesByCategoryData}
+          />
+        )}
+      </PageContainer>
     </>
   );
 };
