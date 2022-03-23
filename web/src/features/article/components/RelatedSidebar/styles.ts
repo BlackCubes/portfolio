@@ -44,7 +44,7 @@ export const RelatedItem = styled.li`
   margin-bottom: 1.2rem;
   padding-top: 0.4rem;
   border-top: 0.1rem solid
-    ${(props) => `rgba(${props.theme.colors.secondary.rgb}, 0.9)`};
+    ${(props) => `rgba(${props.theme.colors.secondary.rgb}, 0.4)`};
   list-style: none;
 
   @media ${({ theme }) => theme.responsive.below1199} {
