@@ -121,7 +121,6 @@ const Body: FC<IBody> = ({ bodyType, bodyValue }) => {
         <SyntaxHighlighter
           language={bodyValue.language}
           PreTag={CodePreTag}
-          showLineNumbers
           style={materialLight}
           wrapLongLines
         >
