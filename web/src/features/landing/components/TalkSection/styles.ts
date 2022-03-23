@@ -69,6 +69,16 @@ export const TalkTitleLink = styled.a`
   padding-right: 7rem;
   text-decoration: none;
 
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+
   @media ${({ theme }) => theme.responsive.below599} {
     padding-left: 2rem;
     padding-right: 2rem;
