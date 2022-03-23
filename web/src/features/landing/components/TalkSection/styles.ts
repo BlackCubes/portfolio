@@ -4,45 +4,7 @@ import styled from 'styled-components';
 export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
-  position: relative;
   text-align: center;
-
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    width: 1rem;
-    height: 6rem;
-    border-left: ${({ theme }) =>
-      `0.2rem dotted rgba(${theme.colors.primary.rgb}, 0.7)`};
-    opacity: 0.4;
-
-    @media ${({ theme }) => theme.responsive.below899} {
-      width: 1rem;
-      height: 6rem;
-      border-left: ${({ theme }) =>
-        `0.2rem dotted rgba(${theme.colors.primary.rgb}, 0.7)`};
-      opacity: 0.7;
-    }
-  }
-
-  &:before {
-    bottom: -0.6rem;
-    left: 109.5rem;
-    transform: rotate(-45deg);
-
-    @media ${({ theme }) => theme.responsive.below1199} {
-      left: 72.5rem;
-    }
-
-    @media ${({ theme }) => theme.responsive.below899} {
-      left: 68.2rem;
-    }
-  }
-
-  &:after {
-    left: -0.2rem;
-  }
 `;
 
 export const Container = styled.div`
@@ -106,6 +68,16 @@ export const TalkTitleLink = styled.a`
   padding-left: 7rem;
   padding-right: 7rem;
   text-decoration: none;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
 
   @media ${({ theme }) => theme.responsive.below599} {
     padding-left: 2rem;

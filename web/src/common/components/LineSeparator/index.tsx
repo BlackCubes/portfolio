@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Container, PrimarySolidLine, SecondaryDottedLine } from './styles';
+import { Container, PrimarySolidLine } from './styles';
 
 export interface ILineSeparator {
   rotateClass?: string;
@@ -8,11 +8,7 @@ export interface ILineSeparator {
 
 const LineSeparator: FC<ILineSeparator> = ({ rotateClass }) => (
   <Container className={rotateClass}>
-    <SecondaryDottedLine />
-
     <PrimarySolidLine className="default-container" />
-
-    <SecondaryDottedLine />
   </Container>
 );
 

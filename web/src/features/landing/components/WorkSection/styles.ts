@@ -6,8 +6,6 @@ export const Section = styled.section``;
 
 export const SectionTitle = styled.div`
   text-align: right;
-  border-right: ${({ theme }) =>
-    `0.1rem dotted rgba(${theme.colors.primary.rgb}, 0.7)`};
 `;
 
 export const Container = styled.div`

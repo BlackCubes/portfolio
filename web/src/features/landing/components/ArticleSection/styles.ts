@@ -4,10 +4,7 @@ import styled from 'styled-components';
 // ARTICLE SECTION
 export const Section = styled.section``;
 
-export const SectionTitle = styled.div`
-  border-left: ${({ theme }) =>
-    `0.1rem dotted rgba(${theme.colors.primary.rgb}, 0.7)`};
-`;
+export const SectionTitle = styled.div``;
 
 export const Container = styled.div`
   display: flex;
