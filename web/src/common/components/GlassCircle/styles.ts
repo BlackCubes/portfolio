@@ -46,6 +46,7 @@ export const GlassContainer = styled.div<IGlassContainer>`
 `;
 
 export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
+  position: relative;
   width: 14rem;
   height: 14rem;
   margin-left: auto;
@@ -68,5 +69,9 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
 `;
 
 export const GlassImage = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 200%;
+  transform: translate(-50%, -50%);
 `;
