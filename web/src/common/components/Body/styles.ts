@@ -338,14 +338,22 @@ export const BodyCode = styled.div`
   margin-bottom: 2.5rem;
   overflow-x: auto;
 
-  @media ${({ theme }) => theme.responsive.below479} {
+  @media ${({ theme }) => theme.responsive.below899} {
     font-size: 1.2rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    font-size: 1.1rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    font-size: 1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
 
   @media ${({ theme }) => theme.responsive.below379} {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     width: 106%;
     transform: translateX(-0.6rem);
   }
