@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* display: flex; */
-  display: none;
-  width: 200%;
-  margin-left: -50%;
+  width: 100%;
 
   &.positive-rotate {
     transform: rotate(4deg);
@@ -26,10 +23,4 @@ export const PrimarySolidLine = styled.div`
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-`;
-
-export const SecondaryDottedLine = styled.div`
-  width: 50%;
-  border: ${(props) =>
-    `0.1rem dotted rgba(${props.theme.colors.secondary.rgb}, 0.3)`};
 `;
