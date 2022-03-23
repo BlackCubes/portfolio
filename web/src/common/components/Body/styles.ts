@@ -365,15 +365,22 @@ export const CodePreTag = styled.pre`
 
 export const BodyEquation = styled.div`
   margin: 2.5rem auto;
-  transform: scale(1.35);
+  transform: scale(1.3);
+
+  & .MJX-TEX {
+    white-space: normal;
+  }
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    transform: scale(1.15);
+  }
 
   @media ${({ theme }) => theme.responsive.below599} {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   @media ${({ theme }) => theme.responsive.below479} {
     margin: 2rem auto;
-    transform: scale(1.1);
   }
 
   @media ${({ theme }) => theme.responsive.below379} {
