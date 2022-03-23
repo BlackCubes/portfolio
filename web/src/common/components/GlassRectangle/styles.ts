@@ -145,6 +145,10 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
     width: 100%;
   }
 
+  @media ${({ theme }) => theme.responsive.below599} {
+    width: ${({ hasContent }) => (hasContent ? '50%' : '12rem')};
+  }
+
   @media ${({ theme }) => theme.responsive.below479} {
     width: ${({ hasContent }) => (hasContent ? '75%' : '12rem')};
   }
