@@ -13,7 +13,7 @@ export const ProfileImageWrapper = styled.div`
   width: 15rem;
 
   & img {
-    width: 100%;
+    width: 105%;
   }
 
   @media ${({ theme }) => theme.responsive.below899} {
