@@ -42,6 +42,31 @@ const GlobalStyle = createGlobalStyle`
   html,
   body {
     min-height: 100vh;
+    
+    /* CUSTOM SCROLLBAR */
+    /* --FOR FIREFOX */
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) =>
+      `rgba(${theme.colors.glass.rgb}, 1) rgba(${theme.colors.glass.rgb}, 0.27)`};
+
+    /* --FOR NON-FIREFOX */
+    &::-webkit-scrollbar {
+      width: 1.05rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: ${({ theme }) => `rgba(${theme.colors.glass.rgb}, 1)`};
+      border-radius: 10rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) =>
+        `rgba(${theme.colors.glass.rgb}, 0.17)`};
+      border-radius: 10rem;
+      box-shadow: ${({ theme }) =>
+        `-0.3rem -0.3rem 0.4rem 0 rgba(${theme.colors.glassLightShadow.rgb}, 0.3),
+        0.3rem 0.3rem 0.4rem 0 rgba(${theme.colors.glassDarkShadow.rgb}, 0.47)`};
+    }
   }
 
   body {
