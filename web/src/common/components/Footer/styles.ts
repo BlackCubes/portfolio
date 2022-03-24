@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Foot = styled.footer`
@@ -19,6 +18,10 @@ export const Container = styled.div`
   height: inherit;
   padding: 4.5rem 3.5rem 0;
   border-top: 0.1rem dotted ${({ theme }) => theme.colors.primary.hex};
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding: 4.5rem 0.5rem 0;
+  }
 
   @media ${({ theme }) => theme.responsive.below599} {
     padding: 4rem 1rem 0;
@@ -43,35 +46,7 @@ export const Item = styled.li`
   }
 
   @media ${({ theme }) => theme.responsive.below1199} {
-    padding-right: 6rem;
-  }
-
-  @media ${({ theme }) => theme.responsive.below899} {
     padding-right: 4rem;
-  }
-`;
-
-export const ItemLink = styled(Link)`
-  display: inline-flex;
-  align-items: end;
-  height: inherit;
-  font-size: 2rem;
-  color: ${({ theme }) => theme.colors.primary.hex};
-  text-decoration: none;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.secondary.hex};
-    font-size: 1.89rem;
-    letter-spacing: 0.05rem;
-    border-top: 0.1rem solid ${({ theme }) => theme.colors.secondary.hex};
-
-    @media ${({ theme }) => theme.responsive.below899} {
-      font-size: 1.79rem;
-    }
-  }
-
-  @media ${({ theme }) => theme.responsive.below899} {
-    font-size: 1.9rem;
   }
 `;
 
