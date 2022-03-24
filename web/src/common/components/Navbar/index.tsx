@@ -2,43 +2,20 @@ import React, { FC, useEffect, useState } from 'react';
 
 import logo from 'assets/img/logo_bw.png';
 
+import { ItemLink, itemData } from '../ItemLink';
+
 import {
   Container,
   HamburgerMenu,
   HamburgerMenuCheckbox,
   HamburgerMenuContainer,
   Item,
-  ItemLink,
   ItemsContainer,
   Logo,
   LogoLink,
   LogoWrapper,
   Nav,
 } from './styles';
-
-type TItemData = {
-  id: string;
-  title: string;
-  path: string;
-};
-
-const itemData: TItemData[] = [
-  {
-    id: 'b1b19382-6b92-4515-93c7-5446bfa717d5',
-    title: 'Work',
-    path: '/work',
-  },
-  {
-    id: 'b9c2b576-5164-449a-ab4b-ad0ebeb39c27',
-    title: 'Articles',
-    path: '/articles',
-  },
-  {
-    id: '4c5c324a-92ed-4575-a731-25370c21379a',
-    title: 'About',
-    path: '/',
-  },
-];
 
 const Navbar: FC = () => {
   const [isMenuChecked, setIsMenuChecked] = useState(false);
@@ -107,9 +84,11 @@ const Navbar: FC = () => {
         <ItemsContainer windowHeight={screenDimension.screenHeight}>
           {itemData.map((item) => (
             <Item key={item.id}>
-              <ItemLink to={item.path} onClick={() => setIsMenuChecked(false)}>
-                {item.title}
-              </ItemLink>
+              <ItemLink
+                itemTitle={item.title}
+                onClick={() => setIsMenuChecked(false)}
+                to={item.path}
+              />
             </Item>
           ))}
         </ItemsContainer>

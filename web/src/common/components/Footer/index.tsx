@@ -4,11 +4,12 @@ import githubLogo from 'assets/img/github-logo_black.png';
 import linkedinLogo from 'assets/img/linkedin-logo_black.png';
 import twitterLogo from 'assets/img/twitter-logo_black.png';
 
+import { ItemLink, itemData } from '../ItemLink';
+
 import {
   Container,
   Foot,
   Item,
-  ItemLink,
   ItemsContainer,
   Logo,
   LogoLink,
@@ -20,17 +21,11 @@ const Footer: FC = () => (
   <Foot className="default-container navbar-footer-space">
     <Container>
       <ItemsContainer>
-        <Item>
-          <ItemLink to="/work">Work</ItemLink>
-        </Item>
-
-        <Item>
-          <ItemLink to="/articles">Articles</ItemLink>
-        </Item>
-
-        <Item>
-          <ItemLink to="/">About</ItemLink>
-        </Item>
+        {itemData.map((item) => (
+          <Item key={item.id}>
+            <ItemLink itemTitle={item.title} to={item.path} />
+          </Item>
+        ))}
       </ItemsContainer>
 
       <LogosContainer>
