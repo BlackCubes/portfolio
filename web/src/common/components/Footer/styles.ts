@@ -20,6 +20,10 @@ export const Container = styled.div`
   padding: 4.5rem 3.5rem 0;
   border-top: 0.1rem dotted ${({ theme }) => theme.colors.primary.hex};
 
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding: 4.5rem 0.5rem 0;
+  }
+
   @media ${({ theme }) => theme.responsive.below599} {
     padding: 4rem 1rem 0;
   }
@@ -43,10 +47,6 @@ export const Item = styled.li`
   }
 
   @media ${({ theme }) => theme.responsive.below1199} {
-    padding-right: 6rem;
-  }
-
-  @media ${({ theme }) => theme.responsive.below899} {
     padding-right: 4rem;
   }
 `;
@@ -57,13 +57,23 @@ export const ItemLink = styled(Link)`
   height: inherit;
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.primary.hex};
+  padding: 0.7rem;
   text-decoration: none;
+  transition: all 0.05s linear;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary.hex};
+    color: ${({ theme }) => `rgba(${theme.colors.primary.rgb}, 0.5)`};
     font-size: 1.89rem;
     letter-spacing: 0.05rem;
-    border-top: 0.1rem solid ${({ theme }) => theme.colors.secondary.hex};
+    border-top: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-right: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-bottom: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-left: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-radius: 1rem;
 
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 1.79rem;

@@ -154,10 +154,6 @@ export const Item = styled.li`
   padding-left: 11rem;
 
   @media ${({ theme }) => theme.responsive.below1199} {
-    padding-left: 6rem;
-  }
-
-  @media ${({ theme }) => theme.responsive.below899} {
     padding-left: 4rem;
   }
 
@@ -182,13 +178,23 @@ export const ItemLink = styled(Link)`
   height: inherit;
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.primary.hex};
+  padding: 0.7rem;
   text-decoration: none;
+  transition: all 0.05s linear;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary.hex};
+    color: ${({ theme }) => `rgba(${theme.colors.primary.rgb}, 0.5)`};
     font-size: 1.89rem;
     letter-spacing: 0.05rem;
-    border-bottom: 0.1rem solid ${({ theme }) => theme.colors.secondary.hex};
+    border-top: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-right: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-bottom: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
+    border-left: ${({ theme }) =>
+      `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
+    border-radius: 1rem;
 
     @media ${({ theme }) => theme.responsive.below899} {
       font-size: 1.79rem;
@@ -196,15 +202,6 @@ export const ItemLink = styled(Link)`
 
     @media ${({ theme }) => theme.responsive.below599} {
       font-size: 1.59rem;
-      border-top: ${({ theme }) =>
-        `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
-      border-right: ${({ theme }) =>
-        `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
-      border-bottom: ${({ theme }) =>
-        `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
-      border-left: ${({ theme }) =>
-        `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
-      border-radius: 1rem;
     }
 
     @media ${({ theme }) => theme.responsive.below479} {
@@ -223,8 +220,6 @@ export const ItemLink = styled(Link)`
   @media ${({ theme }) => theme.responsive.below599} {
     display: block;
     font-size: 1.7rem;
-    padding: 0.7rem 0.7rem;
-    transition: all 0.05s linear;
   }
 
   @media ${({ theme }) => theme.responsive.below479} {
