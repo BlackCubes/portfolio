@@ -1,8 +1,13 @@
 import { createContext, useContext } from 'react';
 
-type TThemeContext = 'light' | 'dark';
+interface IThemeContext {
+  isDark: boolean;
+  toggleDark?: () => void;
+}
 
-const ThemeContext = createContext<TThemeContext>('light');
+const ThemeContext = createContext<IThemeContext>({
+  isDark: false,
+});
 
 export const useThemeContext = () => useContext(ThemeContext);
 
