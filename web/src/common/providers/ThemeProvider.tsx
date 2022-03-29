@@ -50,13 +50,13 @@ const ThemeProvider: FC = ({ children }) => {
     setTheme((currentTheme) => {
       const colors = {
         ...currentTheme.colors,
-        glass: !isDark ? styledTheme.colors.glass : darkThemeColors.glass,
-        glassDarkShadow: !isDark
-          ? styledTheme.colors.glassDarkShadow
-          : darkThemeColors.glassDarkShadow,
-        glassLightShadow: !isDark
-          ? styledTheme.colors.glassLightShadow
-          : darkThemeColors.glassLightShadow,
+        // glass: !isDark ? styledTheme.colors.glass : darkThemeColors.glass,
+        // glassDarkShadow: !isDark
+        //   ? styledTheme.colors.glassDarkShadow
+        //   : darkThemeColors.glassDarkShadow,
+        // glassLightShadow: !isDark
+        //   ? styledTheme.colors.glassLightShadow
+        //   : darkThemeColors.glassLightShadow,
         primary: !isDark ? styledTheme.colors.primary : darkThemeColors.primary,
         secondary: !isDark
           ? styledTheme.colors.secondary
