@@ -46,6 +46,7 @@ const theme: Required<DefaultTheme> = {
     // 1.6rem = 16px
     paragraph: '1.6rem',
   },
+  isDarkTheme: false,
   responsive: {
     // MEDIA QUERY MANAGER
     /**

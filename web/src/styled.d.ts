@@ -25,6 +25,8 @@ interface IFontTheme {
   paragraph: string;
 }
 
+type TIsDarkTheme = boolean;
+
 interface IResponsiveTheme {
   below1199: string;
   below899: string;
@@ -39,6 +41,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: IColorTheme;
     fonts: IFontTheme;
+    isDarkTheme: TIsDarkTheme;
     responsive: IResponsiveTheme;
   }
 }
