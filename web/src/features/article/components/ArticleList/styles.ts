@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 // ARTICLE LIST
 export const Section = styled.section`
+  width: 100%;
+
   @media ${({ theme }) => theme.responsive.below1199} {
     margin-top: 0 !important;
   }
