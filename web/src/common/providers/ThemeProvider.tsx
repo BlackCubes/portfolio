@@ -47,7 +47,7 @@ const ThemeProvider: FC = ({ children }) => {
     return () => clearTimeout(timer);
   };
 
-  const providerValue = useMemo(() => ({ toggleDark }), []);
+  const providerValue = useMemo(() => ({ isDark, toggleDark }), []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
