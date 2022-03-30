@@ -133,7 +133,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   &::selection {
-    color: ${({ theme }) => theme.colors.white.hex};
+    color: ${({ theme }) =>
+      !theme.isDarkTheme ? theme.colors.white.hex : theme.colors.black.hex};
     background-color: ${({ theme }) => theme.colors.secondary.hex};
   }
 `;
