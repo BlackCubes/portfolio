@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { useThemeContext } from 'common/contexts';
 
-import { DarkModeWrapper, DarkModeButton } from './styles';
+import { DarkModeButton, DarkModeCircle, DarkModeWrapper } from './styles';
 
 const DarkModeToggle: FC = () => {
   const { toggleDark } = useThemeContext();
@@ -12,8 +12,10 @@ const DarkModeToggle: FC = () => {
   }
 
   return (
-    <DarkModeWrapper>
-      <DarkModeButton onClick={() => toggleDark()}>Toggle</DarkModeButton>
+    <DarkModeWrapper className="default-container">
+      <DarkModeButton onClick={() => toggleDark()}>
+        <DarkModeCircle />
+      </DarkModeButton>
     </DarkModeWrapper>
   );
 };
