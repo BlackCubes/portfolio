@@ -6,6 +6,10 @@ const theme: Required<DefaultTheme> = {
       hex: '#000',
       rgb: '0,0,0',
     },
+    body: {
+      hex: '#fff',
+      rgb: '255,255,255',
+    },
     white: {
       hex: '#fff',
       rgb: '255,255,255',
