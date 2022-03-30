@@ -64,8 +64,8 @@ const GlobalStyle = createGlobalStyle`
         `rgba(${theme.colors.glass.rgb}, 0.17)`};
       border-radius: 10rem;
       box-shadow: ${({ theme }) =>
-        `-0.3rem -0.3rem 0.4rem 0 rgba(${theme.colors.glassLightShadow.rgb}, 0.3),
-        0.3rem 0.3rem 0.4rem 0 rgba(${theme.colors.glassDarkShadow.rgb}, 0.47)`};
+        `-0.3rem -0.3rem 0.4rem 0 rgba(${theme.colors.glassLightShadow.rgb}, 0.8),
+        0.3rem 0.3rem 0.4rem 0 rgba(${theme.colors.glassDarkShadow.rgb}, 0.97)`};
     }
   }
 
