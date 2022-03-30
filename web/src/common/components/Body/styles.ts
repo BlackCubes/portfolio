@@ -372,6 +372,7 @@ export const CodePreTag = styled.pre`
 `;
 
 export const BodyEquation = styled.div`
+  color: ${({ theme }) => theme.colors.primary.hex};
   margin: 2.5rem auto;
   transform: scale(1.3);
 
