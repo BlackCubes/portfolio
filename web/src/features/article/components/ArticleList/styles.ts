@@ -115,7 +115,7 @@ export const ArticleCategory = styled.div`
     right: -0.3rem;
     display: block;
     height: 1.5rem;
-    border-right: 0.1rem solid ${(props) => props.theme.colors.black.hex};
+    border-right: 0.1rem solid ${(props) => props.theme.colors.primary.hex};
   }
 
   & p {
