@@ -70,9 +70,12 @@ const ThemeProvider: FC = ({ children }) => {
             : darkThemeColors.secondary,
         };
 
+        const isDarkTheme = isDark;
+
         return {
           ...currentTheme,
           colors,
+          isDarkTheme,
         };
       });
     }, 500);
