@@ -26,12 +26,12 @@ const darkThemeColors: Required<TDarkThemeColors> = {
     rgb: '57,113,255',
   },
   primary: {
-    hex: '#002d5f',
-    rgb: '0,45,95',
+    hex: '#e6edff',
+    rgb: '230,237,255',
   },
   secondary: {
-    hex: '#003d84',
-    rgb: '0,61,132',
+    hex: '#fafbff',
+    rgb: '250,251,255',
   },
 };
 
