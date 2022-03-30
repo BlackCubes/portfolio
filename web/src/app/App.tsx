@@ -1,10 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import { ThemeProvider } from 'styled-components';
 
 import { GlobalStyle } from 'common/base';
+
+import DarkModeToggle from 'common/components/DarkModeToggle';
 import Footer from 'common/components/Footer';
 import Navbar from 'common/components/Navbar';
+
 import { ThemeProvider } from 'common/providers';
 
 import ArticleRoutes from 'features/article/Routes';
@@ -18,6 +20,8 @@ const App = () => (
     <GlobalStyle />
 
     <Navbar />
+
+    <DarkModeToggle />
 
     <Routes>
       <Route path="/articles/*" element={<ArticleRoutes />} />
