@@ -1,23 +1,18 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
+import { IColorTheme } from 'styled';
+
 import { theme as styledTheme } from 'common/base';
 import { ThemeContext } from 'common/contexts';
 
-type TColorProperties = {
-  hex: string;
-  rgb: string;
-};
-
-type TDarkThemeColors = {
-  glass: TColorProperties;
-  glassDarkShadow: TColorProperties;
-  glassLightShadow: TColorProperties;
-  primary: TColorProperties;
-  secondary: TColorProperties;
-};
+type TDarkThemeColors = Omit<IColorTheme, 'black' | 'white'>;
 
 const darkThemeColors: Required<TDarkThemeColors> = {
+  body: {
+    hex: '#000',
+    rgb: '0,0,0',
+  },
   glass: {
     hex: '',
     rgb: '',
@@ -59,6 +54,7 @@ const ThemeProvider: FC = ({ children }) => {
       setTheme((currentTheme) => {
         const colors = {
           ...currentTheme.colors,
+          body: !isDark ? styledTheme.colors.body : darkThemeColors.body,
           // glass: !isDark ? styledTheme.colors.glass : darkThemeColors.glass,
           // glassDarkShadow: !isDark
           //   ? styledTheme.colors.glassDarkShadow
