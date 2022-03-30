@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { theme as styledTheme } from 'common/base';
@@ -44,33 +44,45 @@ const ThemeProvider: FC = ({ children }) => {
   const [isDark, setIsDark] = useState(false);
   const [theme, setTheme] = useState(styledTheme);
 
-  const toggleDark = useCallback(() => {
-    setIsDark((currentIsDark) => !currentIsDark);
+  const toggleDark = () => {
+    const timer = setTimeout(() => {
+      setIsDark((currentIsDark) => !currentIsDark);
+    }, 500);
 
-    setTheme((currentTheme) => {
-      const colors = {
-        ...currentTheme.colors,
-        // glass: !isDark ? styledTheme.colors.glass : darkThemeColors.glass,
-        // glassDarkShadow: !isDark
-        //   ? styledTheme.colors.glassDarkShadow
-        //   : darkThemeColors.glassDarkShadow,
-        // glassLightShadow: !isDark
-        //   ? styledTheme.colors.glassLightShadow
-        //   : darkThemeColors.glassLightShadow,
-        primary: !isDark ? styledTheme.colors.primary : darkThemeColors.primary,
-        secondary: !isDark
-          ? styledTheme.colors.secondary
-          : darkThemeColors.secondary,
-      };
-
-      return {
-        ...currentTheme,
-        colors,
-      };
-    });
-  }, [isDark]);
+    return () => clearTimeout(timer);
+  };
 
   const providerValue = useMemo(() => ({ isDark, toggleDark }), []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTheme((currentTheme) => {
+        const colors = {
+          ...currentTheme.colors,
+          // glass: !isDark ? styledTheme.colors.glass : darkThemeColors.glass,
+          // glassDarkShadow: !isDark
+          //   ? styledTheme.colors.glassDarkShadow
+          //   : darkThemeColors.glassDarkShadow,
+          // glassLightShadow: !isDark
+          //   ? styledTheme.colors.glassLightShadow
+          //   : darkThemeColors.glassLightShadow,
+          primary: !isDark
+            ? styledTheme.colors.primary
+            : darkThemeColors.primary,
+          secondary: !isDark
+            ? styledTheme.colors.secondary
+            : darkThemeColors.secondary,
+        };
+
+        return {
+          ...currentTheme,
+          colors,
+        };
+      });
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [isDark]);
 
   return (
     <ThemeContext.Provider value={providerValue}>
