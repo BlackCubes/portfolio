@@ -12,7 +12,7 @@ export const ClearFilter = styled.div`
 
 export const ClearFilterButton = styled.button`
   font-size: 1.2rem;
-  color: ${(props) => `rgba(${props.theme.colors.secondary.hex}, 0.9)`};
+  color: ${({ theme }) => `rgba(${theme.colors.secondary.rgb}, 0.9)`};
   background: none;
   appearance: none;
   padding: 0.4rem 0.8rem;
@@ -56,6 +56,8 @@ export const SidebarTitle = styled.div`
 `;
 
 export const SidebarList = styled.ul`
+  color: ${({ theme }) => theme.colors.secondary.hex};
+
   @media ${({ theme }) => theme.responsive.below1199} {
     display: flex;
     flex-wrap: wrap;
