@@ -66,7 +66,7 @@ const Body: FC<IBody> = ({ bodyType, bodyValue }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setBodyCodeStyle(!isDark ? materialLight : materialDark);
-    }, 500);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, [isDark]);
