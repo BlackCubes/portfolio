@@ -14,16 +14,16 @@ const darkThemeColors: Required<TDarkThemeColors> = {
     rgb: '0,0,0',
   },
   glass: {
-    hex: '',
-    rgb: '',
+    hex: '#98b5ff',
+    rgb: '152,181,255',
   },
   glassDarkShadow: {
-    hex: '',
-    rgb: '',
+    hex: '#103eb1',
+    rgb: '16,62,177',
   },
   glassLightShadow: {
-    hex: '',
-    rgb: '',
+    hex: '#3971ff',
+    rgb: '57,113,255',
   },
   primary: {
     hex: '#002d5f',
@@ -55,13 +55,13 @@ const ThemeProvider: FC = ({ children }) => {
         const colors = {
           ...currentTheme.colors,
           body: !isDark ? styledTheme.colors.body : darkThemeColors.body,
-          // glass: !isDark ? styledTheme.colors.glass : darkThemeColors.glass,
-          // glassDarkShadow: !isDark
-          //   ? styledTheme.colors.glassDarkShadow
-          //   : darkThemeColors.glassDarkShadow,
-          // glassLightShadow: !isDark
-          //   ? styledTheme.colors.glassLightShadow
-          //   : darkThemeColors.glassLightShadow,
+          glass: !isDark ? styledTheme.colors.glass : darkThemeColors.glass,
+          glassDarkShadow: !isDark
+            ? styledTheme.colors.glassDarkShadow
+            : darkThemeColors.glassDarkShadow,
+          glassLightShadow: !isDark
+            ? styledTheme.colors.glassLightShadow
+            : darkThemeColors.glassLightShadow,
           primary: !isDark
             ? styledTheme.colors.primary
             : darkThemeColors.primary,
