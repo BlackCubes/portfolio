@@ -75,6 +75,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Nunito', 'Open Sans', 'Poppins', 'Roboto', sans-serif;
     font-weight: 400;
+    background-color: ${({ theme }) => theme.colors.body.hex};
+    transition: all 0.25s linear;
   }
 
   #root {
