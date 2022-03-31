@@ -3,24 +3,24 @@ import { useParams } from 'react-router-dom';
 
 import noImage from 'assets/img/no-image.png';
 
-import { useGetWorkByIdQuery } from 'common/api/workExtendedApi';
+import { useGetWorkBySlugQuery } from 'common/api/workExtendedApi';
 
 import SEO from 'common/components/SEO';
 
 import { WorkDetail } from 'features/work/components';
 
 type TWorkParams = {
-  workId: string;
+  workSlug: string;
 };
 
 const WorkDetailView: FC = () => {
   const [doNotInitiateWorkQuery, setDoNotInitiateWorkQuery] =
     useState<boolean>(true);
 
-  const { workId } = useParams<TWorkParams>();
+  const { workSlug } = useParams<TWorkParams>();
 
-  const { data: workData } = useGetWorkByIdQuery(
-    workId ? parseInt(workId, 10) : 0,
+  const { data: workData } = useGetWorkBySlugQuery(
+    workSlug ?? 'does-not-exist',
     {
       skip: doNotInitiateWorkQuery,
     }
@@ -28,13 +28,13 @@ const WorkDetailView: FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (workId) {
+      if (workSlug) {
         setDoNotInitiateWorkQuery(false);
       }
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [workId]);
+  }, [workSlug]);
 
   if (!workData) {
     return null;
