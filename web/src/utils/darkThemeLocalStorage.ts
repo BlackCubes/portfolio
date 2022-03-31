@@ -9,11 +9,11 @@ export const saveDarkThemeState = (isDarkTheme: TDarkThemeState): void => {
   );
 };
 
-export const getDarkThemeState = (): TDarkThemeState | null => {
+export const getDarkThemeState = (): TDarkThemeState => {
   const theme = localStorage.getItem(LOCAL_STORAGE_DARK_THEME_KEY);
 
   if (!theme) {
-    return null;
+    return false;
   }
 
   return JSON.parse(theme);
