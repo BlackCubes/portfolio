@@ -55,7 +55,7 @@ const ArticleList: FC<IArticleList> = ({ articlesData }) => (
                 ? `http://localhost:8000${article.header_image}`
                 : noImage
             }
-            articleLinkPath={`/articles/${article.id}`}
+            articleLinkPath={`/articles/${article.meta.slug}`}
             articleReadingTime={article.reading_time}
             articleTags={article.tags}
             articleTitle={article.title}

@@ -45,9 +45,9 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
       providesTags: ['Work'],
     }),
 
-    getWorkById: builder.query<IWork, number>({
-      query: (id) => ({
-        url: `/pages/${id}/?fields=_,id,uuid,first_published_at,slug,seo_title,search_description,title,description,main_image,logo_image,company,first_released_at,category,body`,
+    getWorkBySlug: builder.query<IWork, string>({
+      query: (slug) => ({
+        url: `/pages/${slug}/?fields=_,id,uuid,first_published_at,slug,seo_title,search_description,title,description,main_image,logo_image,company,first_released_at,category,body`,
       }),
 
       providesTags: ['Work'],
@@ -57,5 +57,5 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetWorkByIdQuery, useGetWorksByCategoryQuery } =
+export const { useGetWorkBySlugQuery, useGetWorksByCategoryQuery } =
   workExtendedApi;

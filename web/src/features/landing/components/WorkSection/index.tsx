@@ -63,7 +63,7 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
                     : noImage
                 }
                 workLinkContent="View"
-                workLinkPath={`/work/${workData.id}`}
+                workLinkPath={`/work/${workData.meta.slug}`}
                 workTitle={workData.title}
                 {...(workIndex % 2 !== 0 && {
                   reverseClass: 'reverse',

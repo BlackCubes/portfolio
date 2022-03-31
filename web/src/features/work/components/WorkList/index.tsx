@@ -49,7 +49,7 @@ const WorkList: FC<IWorkList> = ({ worksData }) => (
               ? `http://localhost:8000${workData.logo_image}`
               : noImage
           }
-          workLinkPath={`/work/${workData.id}`}
+          workLinkPath={`/work/${workData.meta.slug}`}
           workTitle={workData.title}
           {...(workIndex % 2 === 0 && {
             reverseClass: 'reverse',

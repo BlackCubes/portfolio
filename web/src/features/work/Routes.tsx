@@ -5,7 +5,7 @@ import { WorkDetailView, WorkListView } from './pages';
 
 const WorkRoutes: FC = () => (
   <Routes>
-    <Route path="/:workId" element={<WorkDetailView />} />
+    <Route path="/:workSlug" element={<WorkDetailView />} />
     <Route path="" element={<WorkListView />} />
   </Routes>
 );
