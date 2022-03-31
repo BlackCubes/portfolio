@@ -50,6 +50,8 @@ const TalkContainer: FC<ITalkContainer> = ({
 
         <TalkTitleLink
           href={talkLinkPath}
+          target="_blank"
+          rel="noopener"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
