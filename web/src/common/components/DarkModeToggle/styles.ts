@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DarkModeWrapper = styled.div`
-  margin-top: 2rem;
+  margin-top: 4rem;
   text-align: right;
   transition: all 0.25s linear;
 
