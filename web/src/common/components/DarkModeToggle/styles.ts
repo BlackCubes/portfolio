@@ -67,7 +67,32 @@ export const DarkModeCircle = styled.div`
       !theme.isDarkTheme ? theme.colors.black.rgb : theme.colors.white.rgb
     }, 0.55)
   `};
+  border-top: ${({ theme }) =>
+    `0.1rem solid rgba(${
+      !theme.isDarkTheme ? theme.colors.black.rgb : theme.colors.white.rgb
+    }, 0.17)`};
+  border-right: ${({ theme }) =>
+    `0.1rem solid rgba(${
+      !theme.isDarkTheme ? theme.colors.black.rgb : theme.colors.white.rgb
+    }, 0.27)`};
+  border-bottom: ${({ theme }) =>
+    `0.1rem solid rgba(${
+      !theme.isDarkTheme ? theme.colors.black.rgb : theme.colors.white.rgb
+    }, 0.27)`};
+  border-left: ${({ theme }) =>
+    `0.1rem solid rgba(${
+      !theme.isDarkTheme ? theme.colors.black.rgb : theme.colors.white.rgb
+    }, 0.17)`};
   border-radius: 50%;
+  transition: all 1s ease-out;
+
+  &:hover {
+    background-color: ${({ theme }) => `
+      rgba(${
+        !theme.isDarkTheme ? theme.colors.black.rgb : theme.colors.white.rgb
+      }, 1)
+    `};
+  }
 
   @media ${({ theme }) => theme.responsive.below599} {
     width: 1.4rem;
