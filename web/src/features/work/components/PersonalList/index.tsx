@@ -49,7 +49,7 @@ const PersonalList: FC<IPersonalList> = ({ personalsData }) => (
               ? `http://localhost:8000${personalData.logo_image}`
               : noImage
           }
-          personalPath={`/work/${personalData.id}`}
+          personalPath={`/work/${personalData.meta.slug}`}
           personalTitle={personalData.title}
           {...(personalIndex % 2 !== 0 && {
             reverseClass: 'reverse',

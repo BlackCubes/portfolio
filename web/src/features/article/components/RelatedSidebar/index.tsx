@@ -49,7 +49,7 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
           <SidebarList>
             {relatedArticlesByCategoryData.slice(0, 4).map((relatedArticle) => (
               <RelatedItem key={relatedArticle.uuid}>
-                <RelatedLink to={`/articles/${relatedArticle.id}`}>
+                <RelatedLink to={`/articles/${relatedArticle.meta.slug}`}>
                   <RelatedContainer>
                     <RelatedImageWrapper>
                       <GlassCircle
