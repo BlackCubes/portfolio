@@ -21,8 +21,8 @@ export const DarkModeWrapper = styled.div`
 export const DarkModeButton = styled.button.attrs(() => ({
   type: 'button',
 }))`
-  width: 8rem;
-  height: 3rem;
+  width: 6rem;
+  height: 2.5rem;
   padding: 0.5rem 0.7rem;
   border: none;
   background-color: ${({ theme }) => `rgba(${theme.colors.glass.rgb}, 0.17)`};
@@ -49,14 +49,19 @@ export const DarkModeButton = styled.button.attrs(() => ({
     padding: 0.3rem 0.4rem;
   }
 
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 4.5rem;
+    height: 2rem;
+  }
+
   @media ${({ theme }) => theme.responsive.between991And600} {
-    width: 7rem;
+    width: 6rem;
   }
 `;
 
 export const DarkModeCircle = styled.div`
-  width: 2rem;
-  height: 2rem;
+  width: 1.6rem;
+  height: 1.6rem;
   background-color: ${({ theme }) => `
     rgba(${
       !theme.isDarkTheme ? theme.colors.black.rgb : theme.colors.white.rgb
@@ -67,5 +72,10 @@ export const DarkModeCircle = styled.div`
   @media ${({ theme }) => theme.responsive.below599} {
     width: 1.4rem;
     height: 1.4rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 1.2rem;
+    height: 1.2rem;
   }
 `;
