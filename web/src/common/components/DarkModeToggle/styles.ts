@@ -34,6 +34,14 @@ export const DarkModeButton = styled.button.attrs(() => ({
 
   &:hover {
     cursor: pointer;
+
+    & > div {
+      background-color: ${({ theme }) => `
+        rgba(${
+          !theme.isDarkTheme ? theme.colors.black.rgb : theme.colors.white.rgb
+        }, 1)
+      `};
+    }
   }
 
   &:focus {
@@ -86,7 +94,7 @@ export const DarkModeCircle = styled.div`
   border-radius: 50%;
   transition: all 1s ease-out;
 
-  &:hover {
+  &.clicked {
     background-color: ${({ theme }) => `
       rgba(${
         !theme.isDarkTheme ? theme.colors.black.rgb : theme.colors.white.rgb
