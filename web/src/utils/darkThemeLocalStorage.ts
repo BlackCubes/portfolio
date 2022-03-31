@@ -1,6 +1,6 @@
-type TDarkThemeState = boolean;
-
 const LOCAL_STORAGE_DARK_THEME_KEY = 'isDarkTheme';
+
+export type TDarkThemeState = boolean;
 
 export const saveDarkThemeState = (isDarkTheme: TDarkThemeState): void => {
   localStorage.setItem(
