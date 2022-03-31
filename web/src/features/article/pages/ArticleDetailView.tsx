@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import noImage from 'assets/img/no-image.png';
 
 import {
-  useGetArticleByIdQuery,
+  useGetArticleBySlugQuery,
   useGetArticlesByRelatedCategoryQuery,
 } from 'common/api/articleExtendedApi';
 
@@ -15,7 +15,7 @@ import { ArticleDetail, RelatedSidebar } from 'features/article/components';
 import { PageContainer } from './styles';
 
 type TArticleParams = {
-  articleId: string;
+  articleSlug: string;
 };
 
 const ArticleDetailView: FC = () => {
@@ -26,11 +26,11 @@ const ArticleDetailView: FC = () => {
     setDoNotInitiateRelatedArticlesQuery,
   ] = useState<boolean>(true);
 
-  const { articleId } = useParams<TArticleParams>();
+  const { articleSlug } = useParams<TArticleParams>();
   const [categoryId, setCategoryId] = useState<number>(0);
 
-  const { data: articleData } = useGetArticleByIdQuery(
-    articleId ? parseInt(articleId, 10) : 0,
+  const { data: articleData } = useGetArticleBySlugQuery(
+    articleSlug ?? 'does-not-exist',
     {
       skip: doNotInitiateArticleQuery,
     }
@@ -48,7 +48,7 @@ const ArticleDetailView: FC = () => {
         dataWithoutCurrentArticle: result.data
           ? result.data.items.filter(
               // articleId is a string from URL params.
-              (relatedArticle) => `${relatedArticle.id}` !== articleId
+              (relatedArticle) => relatedArticle.meta.slug !== articleSlug
             )
           : [],
       }),
@@ -56,13 +56,13 @@ const ArticleDetailView: FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (articleId) {
+      if (articleSlug) {
         setDoNotInitiateArticleQuery(false);
       }
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [articleId]);
+  }, [articleSlug]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
