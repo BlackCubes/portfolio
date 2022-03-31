@@ -62,9 +62,9 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
       providesTags: ['Article'],
     }),
 
-    getArticleById: builder.query<IArticle, number>({
-      query: (id) => ({
-        url: `/pages/${id}/?fields=_,id,uuid,title,slug,description,header_image,body,tags,category,seo_title,search_description,first_published_at,reading_time`,
+    getArticleBySlug: builder.query<IArticle, string>({
+      query: (slug) => ({
+        url: `/pages/${slug}/?fields=_,id,uuid,title,slug,description,header_image,body,tags,category,seo_title,search_description,first_published_at,reading_time`,
       }),
       providesTags: ['Article'],
     }),
@@ -84,7 +84,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
 });
 
 export const {
-  useGetArticleByIdQuery,
+  useGetArticleBySlugQuery,
   useGetArticlesByRelatedCategoryQuery,
   useGetArticlesQuery,
 } = articleExtendedApi;
