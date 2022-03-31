@@ -6,6 +6,8 @@ import { IColorTheme } from 'styled';
 import { theme as styledTheme } from 'common/base';
 import { ThemeContext } from 'common/contexts';
 
+import { darkThemeLocalStorage } from 'utils';
+
 type TDarkThemeColors = Omit<IColorTheme, 'black' | 'white'>;
 
 const darkThemeColors: Required<TDarkThemeColors> = {
@@ -35,8 +37,11 @@ const darkThemeColors: Required<TDarkThemeColors> = {
   },
 };
 
+const initialDarkThemeState: darkThemeLocalStorage.TDarkThemeState =
+  darkThemeLocalStorage.getDarkThemeState();
+
 const ThemeProvider: FC = ({ children }) => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(initialDarkThemeState);
   const [theme, setTheme] = useState(styledTheme);
 
   const toggleDark = () => {
@@ -71,6 +76,8 @@ const ThemeProvider: FC = ({ children }) => {
         };
 
         const isDarkTheme = isDark;
+
+        darkThemeLocalStorage.saveDarkThemeState(isDarkTheme);
 
         return {
           ...currentTheme,
