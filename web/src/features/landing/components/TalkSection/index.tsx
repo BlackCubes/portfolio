@@ -22,7 +22,8 @@ const talkContainerData: ITalkContainer[] = [
     reverseClass: 'reverse',
     talkImageAlt: 'Redux Toolkit Presentation',
     talkImageSrc: talkPresentation2,
-    talkLinkPath: '#',
+    talkLinkPath:
+      'https://us02web.zoom.us/rec/play/coJ_z0w_gxEy5gP6iFtG1FLEuzuWey7dumrFH2xZ3rQQwGCBdy91Exb3Jyu2odOXj39rp-WKgEmPad2J.9De7TgEACj6xPmx3?continueMode=true',
     talkTitle:
       '"Converting Legacy Redux To Redux Toolkit" Developer Connect Presentation @ Bitwise Industries',
   },
