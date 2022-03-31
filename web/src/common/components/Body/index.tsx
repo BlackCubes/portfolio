@@ -1,12 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import parse from 'html-react-parser';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {
+  materialLight,
+  materialDark,
+} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import noImage from 'assets/img/no-image.png';
 
 import GlassRectangle from 'common/components/GlassRectangle';
+
+import { useThemeContext } from 'common/contexts';
 
 import Paragraph from 'common/typography/Paragraph';
 
@@ -54,6 +59,18 @@ interface IBody {
 }
 
 const Body: FC<IBody> = ({ bodyType, bodyValue }) => {
+  const [bodyCodeStyle, setBodyCodeStyle] = useState(materialLight);
+
+  const { isDark } = useThemeContext();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBodyCodeStyle(!isDark ? materialLight : materialDark);
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [isDark]);
+
   if (bodyType === 'paragraph' && typeof bodyValue === 'string') {
     return (
       <BodyParagraph>
@@ -121,7 +138,7 @@ const Body: FC<IBody> = ({ bodyType, bodyValue }) => {
         <SyntaxHighlighter
           language={bodyValue.language}
           PreTag={CodePreTag}
-          style={materialLight}
+          style={bodyCodeStyle}
           wrapLongLines
         >
           {bodyValue.code}

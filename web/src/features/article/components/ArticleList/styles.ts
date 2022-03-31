@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 // ARTICLE LIST
 export const Section = styled.section`
+  width: 100%;
+
   @media ${({ theme }) => theme.responsive.below1199} {
     margin-top: 0 !important;
   }
@@ -115,7 +117,7 @@ export const ArticleCategory = styled.div`
     right: -0.3rem;
     display: block;
     height: 1.5rem;
-    border-right: 0.1rem solid ${(props) => props.theme.colors.black.hex};
+    border-right: 0.1rem solid ${(props) => props.theme.colors.primary.hex};
   }
 
   & p {

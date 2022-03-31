@@ -7,14 +7,14 @@ export const ItemLinkStyle = styled(Link)`
   align-items: end;
   height: inherit;
   font-size: 2rem;
-  color: ${({ theme }) => theme.colors.primary.hex};
+  color: ${({ theme }) => theme.colors.secondary.hex};
   padding: 0.7rem;
   text-decoration: none;
   transition: all 0.05s linear;
 
   &:hover,
   &.active {
-    color: ${({ theme }) => `rgba(${theme.colors.primary.rgb}, 0.5)`};
+    color: ${({ theme }) => `rgba(${theme.colors.secondary.rgb}, 0.6)`};
     font-size: 1.89rem;
     letter-spacing: 0.05rem;
     border-top: ${({ theme }) =>

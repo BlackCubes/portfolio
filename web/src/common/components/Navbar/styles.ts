@@ -7,7 +7,8 @@ type TItemsContainer = {
 
 export const Nav = styled.nav`
   height: 11rem;
-  background-color: ${({ theme }) => theme.colors.white.hex};
+  background-color: ${({ theme }) => theme.colors.body.hex};
+  transition: all 0.25s linear;
 
   &.scrolling {
     @media ${({ theme }) => theme.responsive.below599} {
@@ -26,7 +27,6 @@ export const Nav = styled.nav`
     padding-left: 1rem;
     border-bottom: ${({ theme }) =>
       `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0)`};
-    transition: border 0.3s ease-in-out;
     z-index: 100;
   }
 
@@ -142,7 +142,7 @@ export const ItemsContainer = styled.ul<TItemsContainer>`
     width: 100%;
     height: ${({ windowHeight }) => `${windowHeight / 10}rem`};
     padding-top: 2rem;
-    background-color: ${({ theme }) => theme.colors.white.hex};
+    background-color: ${({ theme }) => theme.colors.body.hex};
     border-top: ${({ theme }) =>
       `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
     background-attachment: scroll !important;

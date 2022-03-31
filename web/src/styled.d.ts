@@ -1,14 +1,21 @@
 import 'styled-components';
 
 // RGB IS IN DECIMAL
-interface IColorTheme {
-  black: { hex: string; rgb: string };
-  white: { hex: string; rgb: string };
-  primary: { hex: string; rgb: string };
-  secondary: { hex: string; rgb: string };
-  glass: { hex: string; rgb: string };
-  glassLightShadow: { hex: string; rgb: string };
-  glassDarkShadow: { hex: string; rgb: string };
+type TColorProperties = {
+  hex: string;
+  rgb: string;
+};
+
+// THIS IS BEING EXPORTED SINCE IT IS BEING USED IN `ThemeProvider.tsx`
+export interface IColorTheme {
+  black: TColorProperties;
+  body: TColorProperties;
+  white: TColorProperties;
+  primary: TColorProperties;
+  secondary: TColorProperties;
+  glass: TColorProperties;
+  glassLightShadow: TColorProperties;
+  glassDarkShadow: TColorProperties;
 }
 
 interface IFontTheme {
@@ -17,6 +24,8 @@ interface IFontTheme {
   headingTertiary: string;
   paragraph: string;
 }
+
+type TIsDarkTheme = boolean;
 
 interface IResponsiveTheme {
   below1199: string;
@@ -32,6 +41,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: IColorTheme;
     fonts: IFontTheme;
+    isDarkTheme: TIsDarkTheme;
     responsive: IResponsiveTheme;
   }
 }

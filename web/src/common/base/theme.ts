@@ -6,6 +6,10 @@ const theme: Required<DefaultTheme> = {
       hex: '#000',
       rgb: '0,0,0',
     },
+    body: {
+      hex: '#fff',
+      rgb: '255,255,255',
+    },
     white: {
       hex: '#fff',
       rgb: '255,255,255',
@@ -42,6 +46,7 @@ const theme: Required<DefaultTheme> = {
     // 1.6rem = 16px
     paragraph: '1.6rem',
   },
+  isDarkTheme: false,
   responsive: {
     // MEDIA QUERY MANAGER
     /**
