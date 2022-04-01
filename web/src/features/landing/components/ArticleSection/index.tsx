@@ -75,7 +75,7 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
                       ? `http://localhost:8000${articleData.header_image}`
                       : noImage
                   }
-                  articleLinkPath={`/article/${articleData.meta.slug}`}
+                  articleLinkPath={`/articles/${articleData.meta.slug}`}
                   articleTitle={articleData.title}
                 />
               </React.Fragment>
