@@ -225,5 +225,18 @@ export const ArticleImageWrapper = styled.div`
 `;
 
 export const ArticleTitleLink = styled(Link)`
+  text-align: center;
   text-decoration: none;
+
+  & h3 {
+    max-width: 30.1rem;
+    max-height: 3.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+
+    @media ${({ theme }) => theme.responsive.below899} {
+      max-height: 2.5rem;
+    }
+  }
 `;

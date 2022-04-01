@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
 import SEO from 'common/components/SEO';
@@ -12,6 +13,12 @@ import {
 } from 'features/landing/components';
 
 const LandingListView: FC = () => {
+  const { data: articlesData } = useGetArticlesQuery({
+    category: 0,
+    limit: 3,
+    tags: [],
+  });
+
   const { selectedData: worksData } = useGetWorksByCategoryQuery(
     { category: 'Work', limit: 5 },
     {
@@ -108,7 +115,7 @@ const LandingListView: FC = () => {
 
       <WorkSection worksData={worksData} />
 
-      <ArticleSection />
+      <ArticleSection articlesData={articlesData?.items ?? []} />
 
       <TalkSection />
     </>
