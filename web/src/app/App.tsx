@@ -28,7 +28,7 @@ const App = () => (
 
       <Route path="/work/*" element={<WorkRoutes />} />
 
-      <Route path="/" element={<LandingRoutes />} />
+      <Route path="/*" element={<LandingRoutes />} />
     </Routes>
 
     <Footer />
