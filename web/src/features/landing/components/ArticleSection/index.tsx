@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
-import dummyArticle1 from 'assets/img/dummy-article1.png';
-import dummyArticle2 from 'assets/img/dummy-article2.png';
-import dummyArticle3 from 'assets/img/dummy-article3.jpg';
+import noImage from 'assets/img/no-image.png';
 
 import LineSeparator from 'common/components/LineSeparator';
 
 import { useIsHovering } from 'common/hooks';
+
+import { IArticle } from 'common/models';
 
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 import Paragraph from 'common/typography/Paragraph';
@@ -20,34 +20,27 @@ import {
   SectionTitle,
   Wrapper,
 } from './styles';
-import ArticleContainer, { IArticleContainer } from './ArticleContainer';
+import ArticleContainer from './ArticleContainer';
 
-const articleContainerData: Omit<IArticleContainer, 'isExploreLinkHovering'>[] =
-  [
-    {
-      articleClass: 'article1',
-      articleImageAlt: 'Dummy Article 1',
-      articleImageSrc: dummyArticle1,
-      articleLinkPath: '/',
-      articleTitle: 'Article Title',
-    },
-    {
-      articleClass: 'article2',
-      articleImageAlt: 'Dummy Article 2',
-      articleImageSrc: dummyArticle2,
-      articleLinkPath: '/',
-      articleTitle: 'Article Title',
-    },
-    {
-      articleClass: 'article3',
-      articleImageAlt: 'Dummy Article 3',
-      articleImageSrc: dummyArticle3,
-      articleLinkPath: '/',
-      articleTitle: 'Article Title',
-    },
-  ];
+type TArticlesData = Pick<
+  IArticle,
+  | 'description'
+  | 'header_image'
+  | 'id'
+  | 'title'
+  | 'uuid'
+  | 'reading_time'
+  | 'category'
+  | 'tags'
+> & {
+  meta: Pick<IArticle['meta'], 'slug' | 'first_published_at'>;
+};
 
-const ArticleSection: FC = () => {
+interface IArticleSection {
+  articlesData: TArticlesData[] | [];
+}
+
+const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
   const [isHovering, setIsHovering] = useIsHovering();
 
   return (
@@ -70,20 +63,23 @@ const ArticleSection: FC = () => {
         </Introduction>
 
         <Wrapper>
-          {articleContainerData.map((articleData) => (
-            <React.Fragment
-              key={articleData.articleTitle.toLowerCase().split(' ').join('-')}
-            >
-              <ArticleContainer
-                isExploreLinkHovering={isHovering}
-                articleClass={articleData.articleClass}
-                articleImageAlt={articleData.articleImageAlt}
-                articleImageSrc={articleData.articleImageSrc}
-                articleLinkPath={articleData.articleLinkPath}
-                articleTitle={articleData.articleTitle}
-              />
-            </React.Fragment>
-          ))}
+          {articlesData.length > 0 &&
+            articlesData.map((articleData, articleIndex) => (
+              <React.Fragment key={articleData.uuid}>
+                <ArticleContainer
+                  isExploreLinkHovering={isHovering}
+                  articleClass={`article${articleIndex + 1}`}
+                  articleImageAlt={articleData.title}
+                  articleImageSrc={
+                    articleData.header_image
+                      ? `http://localhost:8000${articleData.header_image}`
+                      : noImage
+                  }
+                  articleLinkPath={`/article/${articleData.meta.slug}`}
+                  articleTitle={articleData.title}
+                />
+              </React.Fragment>
+            ))}
         </Wrapper>
       </Container>
 
