@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { motion } from 'framer-motion';
 
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
@@ -17,7 +18,7 @@ const WorkListView: FC = () => {
   });
 
   return (
-    <>
+    <motion.div exit={{ opacity: 0 }}>
       <SEO
         openGraphMetaTags={[
           {
@@ -94,7 +95,7 @@ const WorkListView: FC = () => {
       <WorkList worksData={worksData?.items ?? []} />
 
       <PersonalList personalsData={personalsData?.items ?? []} />
-    </>
+    </motion.div>
   );
 };
 

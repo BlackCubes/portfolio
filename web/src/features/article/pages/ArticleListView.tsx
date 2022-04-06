@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import { motion } from 'framer-motion';
 
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetCategoriesQuery } from 'common/api/categoryExtendedApi';
@@ -119,7 +120,7 @@ const ArticleListView: FC = () => {
   };
 
   return (
-    <>
+    <motion.div exit={{ opacity: 0 }}>
       <SEO
         openGraphMetaTags={[
           {
@@ -208,7 +209,7 @@ const ArticleListView: FC = () => {
 
         <ArticleList articlesData={articlesData?.items ?? []} />
       </PageContainer>
-    </>
+    </motion.div>
   );
 };
 

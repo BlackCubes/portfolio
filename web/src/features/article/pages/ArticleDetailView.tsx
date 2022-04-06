@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -77,7 +78,7 @@ const ArticleDetailView: FC = () => {
   }, [articleData]);
 
   return (
-    <>
+    <motion.div exit={{ opacity: 0 }}>
       {articleData && (
         <SEO
           articleMetaTags={[
@@ -210,7 +211,7 @@ const ArticleDetailView: FC = () => {
           />
         )}
       </PageContainer>
-    </>
+    </motion.div>
   );
 };
 
