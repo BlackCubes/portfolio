@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import { GlobalStyle } from 'common/base';
 
@@ -9,30 +10,43 @@ import Navbar from 'common/components/Navbar';
 
 import { ThemeProvider } from 'common/providers';
 
-import ArticleRoutes from 'features/article/Routes';
-import LandingRoutes from 'features/landing/Routes';
-import WorkRoutes from 'features/work/Routes';
+import { ArticleDetailView, ArticleListView } from 'features/article/pages';
+import { LandingListView } from 'features/landing/pages';
+import { WorkDetailView, WorkListView } from 'features/work/pages';
 
-const App = () => (
-  // ThemeProvider, for some reason, was not working in
-  // `/web/index.tsx`, but it works here.
-  <ThemeProvider>
-    <GlobalStyle />
+const App = () => {
+  const location = useLocation();
 
-    <Navbar />
+  return (
+    // ThemeProvider, for some reason, was not working in
+    // `/web/index.tsx`, but it works here.
+    <ThemeProvider>
+      <GlobalStyle />
 
-    <DarkModeToggle />
+      <Navbar />
 
-    <Routes>
-      <Route path="/articles/*" element={<ArticleRoutes />} />
+      <DarkModeToggle />
 
-      <Route path="/work/*" element={<WorkRoutes />} />
+      <AnimatePresence exitBeforeEnter>
+        <Routes location={location} key={location.pathname}>
+          <Route path="" element={<LandingListView />} />
 
-      <Route path="/" element={<LandingRoutes />} />
-    </Routes>
+          <Route path="/work" element={<WorkListView />} />
 
-    <Footer />
-  </ThemeProvider>
-);
+          <Route path="/work/:workSlug" element={<WorkDetailView />} />
+
+          <Route path="/articles" element={<ArticleListView />} />
+
+          <Route
+            path="/articles/:articleSlug"
+            element={<ArticleDetailView />}
+          />
+        </Routes>
+      </AnimatePresence>
+
+      <Footer />
+    </ThemeProvider>
+  );
+};
 
 export default App;

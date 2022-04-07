@@ -1,25 +1,42 @@
 import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 
+import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
 import SEO from 'common/components/SEO';
 
-import { PersonalList, WorkList } from 'features/work/components';
+import {
+  ArticleSection,
+  HeroBanner,
+  TalkSection,
+  WorkSection,
+} from 'features/landing/components';
 
-const WorkListView: FC = () => {
-  const { data: worksData } = useGetWorksByCategoryQuery({
-    category: 'Work',
-    limit: 4,
+const LandingListView: FC = () => {
+  const { data: articlesData } = useGetArticlesQuery({
+    category: 0,
+    limit: 3,
+    tags: [],
   });
-  const { data: personalsData } = useGetWorksByCategoryQuery({
-    category: 'Personal',
-    limit: 4,
-  });
+
+  const { selectedData: worksData } = useGetWorksByCategoryQuery(
+    { category: 'Work', limit: 5 },
+    {
+      selectFromResult: (result) => ({
+        ...result,
+        selectedData: result.data
+          ? result.data.items.filter(
+              (resultData) => resultData.title !== 'Node News API'
+            )
+          : [],
+      }),
+    }
+  );
 
   return (
     <motion.div
-      key="work-list"
+      key="landing-list"
       animate="animate"
       exit="exit"
       initial="initial"
@@ -34,7 +51,8 @@ const WorkListView: FC = () => {
         openGraphMetaTags={[
           {
             property: 'og:description',
-            content: 'Latest Work and Projects by Elias Gutierrez',
+            content:
+              'Software Engineer and Full-Stack Web Developer. Architecturing the art and mathemical model to create beautiful user experiences.',
           },
           {
             property: 'og:image',
@@ -47,7 +65,7 @@ const WorkListView: FC = () => {
           {
             property: 'og:title',
             content:
-              'Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer',
+              'Elias Gutierrez, Software Engineer & Full-Stack Web Developer',
           },
           {
             property: 'og:type',
@@ -61,15 +79,16 @@ const WorkListView: FC = () => {
         primaryMetaTags={[
           {
             name: 'description',
-            content: 'Latest Work and Projects by Elias Gutierrez',
+            content:
+              'Software Engineer and Full-Stack Web Developer. Architecturing the art and mathemical model to create beautiful user experiences.',
           },
           {
             name: 'title',
             content:
-              'Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer',
+              'Elias Gutierrez, Software Engineer & Full-Stack Web Developer',
           },
         ]}
-        title="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+        title="Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
         twitterMetaTags={[
           {
             property: 'twitter:card',
@@ -81,7 +100,8 @@ const WorkListView: FC = () => {
           },
           {
             property: 'twitter:description',
-            content: 'Latest Work and Projects by Elias Gutierrez',
+            content:
+              'Software Engineer and Full-Stack Web Developer. Architecturing the art and mathemical model to create beautiful user experiences.',
           },
           {
             property: 'twitter:image',
@@ -94,7 +114,7 @@ const WorkListView: FC = () => {
           {
             property: 'twitter:title',
             content:
-              'Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer',
+              'Elias Gutierrez, Software Engineer & Full-Stack Web Developer',
           },
           {
             property: 'twitter:url',
@@ -103,11 +123,15 @@ const WorkListView: FC = () => {
         ]}
       />
 
-      <WorkList worksData={worksData?.items ?? []} />
+      <HeroBanner />
 
-      <PersonalList personalsData={personalsData?.items ?? []} />
+      <WorkSection worksData={worksData} />
+
+      <ArticleSection articlesData={articlesData?.items ?? []} />
+
+      <TalkSection />
     </motion.div>
   );
 };
 
-export default WorkListView;
+export default LandingListView;

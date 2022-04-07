@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -41,7 +42,18 @@ const WorkDetailView: FC = () => {
   }
 
   return (
-    <>
+    <motion.div
+      key="work-detail"
+      animate="animate"
+      exit="exit"
+      initial="initial"
+      transition={{ duration: 1, ease: 'easeOut' }}
+      variants={{
+        animate: { opacity: 1, x: 0 },
+        exit: { opacity: 0, x: '-100%', transition: { duration: 0.3 } },
+        initial: { opacity: 0, x: 0 },
+      }}
+    >
       <SEO
         openGraphMetaTags={[
           {
@@ -139,7 +151,7 @@ const WorkDetailView: FC = () => {
       />
 
       <WorkDetail workData={workData} />
-    </>
+    </motion.div>
   );
 };
 
