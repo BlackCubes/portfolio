@@ -11,7 +11,7 @@ import Navbar from 'common/components/Navbar';
 import { ThemeProvider } from 'common/providers';
 
 import { ArticleDetailView, ArticleListView } from 'features/article/pages';
-import LandingListView from 'features/landing/pages';
+import { LandingListView } from 'features/landing/pages';
 import { WorkDetailView, WorkListView } from 'features/work/pages';
 
 const App = () => {
