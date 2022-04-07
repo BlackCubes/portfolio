@@ -7,7 +7,7 @@ import { DarkModeButton, DarkModeCircle, DarkModeWrapper } from './styles';
 const DarkModeToggle: FC = () => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
-  const { toggleDark } = useThemeContext();
+  const { isDark, toggleDark } = useThemeContext();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,14 +26,19 @@ const DarkModeToggle: FC = () => {
   return (
     <DarkModeWrapper className="default-container">
       <DarkModeButton
-        className={isButtonClicked ? 'clicked' : ''}
+        className={isDark ? 'dark-mode' : ''}
         onClick={() => {
           toggleDark();
 
           setIsButtonClicked(true);
         }}
       >
-        <DarkModeCircle className={isButtonClicked ? 'clicked' : ''} />
+        <DarkModeCircle
+          key="dark-mode-circle"
+          className={isButtonClicked ? 'clicked' : ''}
+          layout
+          transition={{ type: 'spring', stiffness: 700, damping: 30 }}
+        />
       </DarkModeButton>
     </DarkModeWrapper>
   );

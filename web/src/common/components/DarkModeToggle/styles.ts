@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const DarkModeWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
   margin-top: 4rem;
   text-align: right;
   transition: all 0.25s linear;
@@ -21,6 +24,8 @@ export const DarkModeWrapper = styled.div`
 export const DarkModeButton = styled.button.attrs(() => ({
   type: 'button',
 }))`
+  display: flex;
+  justify-content: flex-start;
   width: 6rem;
   height: 2.5rem;
   padding: 0.5rem 0.7rem;
@@ -31,6 +36,10 @@ export const DarkModeButton = styled.button.attrs(() => ({
     -0.3rem -0.3rem 0.4rem 0 rgba(${theme.colors.glassLightShadow.rgb}, 0.17),
     0.3rem 0.3rem 0.4rem 0 rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)
   `};
+
+  &.dark-mode {
+    justify-content: flex-end;
+  }
 
   &:hover {
     cursor: pointer;
@@ -67,7 +76,7 @@ export const DarkModeButton = styled.button.attrs(() => ({
   }
 `;
 
-export const DarkModeCircle = styled.div`
+export const DarkModeCircle = styled(motion.div)`
   width: 1.6rem;
   height: 1.6rem;
   background-color: ${({ theme }) => `
