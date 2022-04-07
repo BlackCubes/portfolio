@@ -18,7 +18,18 @@ const WorkListView: FC = () => {
   });
 
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <motion.div
+      key="work-list"
+      animate="animate"
+      exit="exit"
+      initial="initial"
+      transition={{ duration: 1, ease: 'easeOut' }}
+      variants={{
+        animate: { opacity: 1, x: 0 },
+        exit: { opacity: 0, x: '-100%', transition: { duration: 0.3 } },
+        initial: { opacity: 0, x: 0 },
+      }}
+    >
       <SEO
         openGraphMetaTags={[
           {
