@@ -10,9 +10,9 @@ import Navbar from 'common/components/Navbar';
 
 import { ThemeProvider } from 'common/providers';
 
-import ArticleRoutes from 'features/article/Routes';
-import LandingRoutes from 'features/landing/Routes';
-import WorkRoutes from 'features/work/Routes';
+import { ArticleDetailView, ArticleListView } from 'features/article/pages';
+import LandingListView from 'features/landing/pages';
+import { WorkDetailView, WorkListView } from 'features/work/pages';
 
 const App = () => {
   const location = useLocation();
@@ -28,12 +28,19 @@ const App = () => {
       <DarkModeToggle />
 
       <AnimatePresence exitBeforeEnter>
-        <Routes key={location.pathname}>
-          <Route path="/articles/*" element={<ArticleRoutes />} />
+        <Routes location={location} key={location.pathname}>
+          <Route path="" element={<LandingListView />} />
 
-          <Route path="/work/*" element={<WorkRoutes />} />
+          <Route path="/work" element={<WorkListView />} />
 
-          <Route path="/*" element={<LandingRoutes />} />
+          <Route path="/work/:workSlug" element={<WorkDetailView />} />
+
+          <Route path="/articles" element={<ArticleListView />} />
+
+          <Route
+            path="/articles/:articleSlug"
+            element={<ArticleDetailView />}
+          />
         </Routes>
       </AnimatePresence>
 
