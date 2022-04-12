@@ -52,7 +52,16 @@ const LoadingIcon: FC = () => (
       </LinearGradient2>
     </Defs>
 
-    <Polygon />
+    <Polygon
+      initial={{ pathLength: 0.02 }}
+      animate={{ pathLength: 1 }}
+      transition={{
+        duration: 1.5,
+        ease: 'easeInOut',
+        repeat: Infinity,
+        repeatType: 'reverse',
+      }}
+    />
   </Svg>
 );
 
