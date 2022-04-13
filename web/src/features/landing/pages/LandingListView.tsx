@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
+import LoadingIcon from 'common/components/LoadingIcon';
+import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import {
@@ -13,28 +15,32 @@ import {
   WorkSection,
 } from 'features/landing/components';
 
+import { isLoadingOverall } from 'utils';
+
 import { PageContainer } from './styles';
 
 const LandingListView: FC = () => {
-  const { data: articlesData } = useGetArticlesQuery({
-    category: 0,
-    limit: 3,
-    tags: [],
-  });
+  const { data: articlesData, isFetching: articlesFetching } =
+    useGetArticlesQuery({
+      category: 0,
+      limit: 3,
+      tags: [],
+    });
 
-  const { selectedData: worksData } = useGetWorksByCategoryQuery(
-    { category: 'Work', limit: 5 },
-    {
-      selectFromResult: (result) => ({
-        ...result,
-        selectedData: result.data
-          ? result.data.items.filter(
-              (resultData) => resultData.title !== 'Node News API'
-            )
-          : [],
-      }),
-    }
-  );
+  const { selectedData: worksData, isFetching: worksFetching } =
+    useGetWorksByCategoryQuery(
+      { category: 'Work', limit: 5 },
+      {
+        selectFromResult: (result) => ({
+          ...result,
+          selectedData: result.data
+            ? result.data.items.filter(
+                (resultData) => resultData.title !== 'Node News API'
+              )
+            : [],
+        }),
+      }
+    );
 
   return (
     <motion.div
@@ -126,13 +132,22 @@ const LandingListView: FC = () => {
       />
 
       <PageContainer className="default-container navbar-footer-space">
-        <HeroBanner />
+        <LoadingOverlay
+          contentComponent={
+            <>
+              <HeroBanner />
 
-        <WorkSection worksData={worksData} />
+              <WorkSection worksData={worksData} />
 
-        <ArticleSection articlesData={articlesData?.items ?? []} />
+              <ArticleSection articlesData={articlesData?.items ?? []} />
 
-        <TalkSection />
+              <TalkSection />
+            </>
+          }
+          isLoading={isLoadingOverall(worksFetching, articlesFetching)}
+          loaderComponent={<LoadingIcon />}
+          loaderDuration={1000}
+        />
       </PageContainer>
     </motion.div>
   );
