@@ -28,7 +28,7 @@ interface IWorkDetail {
 }
 
 const WorkDetail: FC<IWorkDetail> = ({ workData }) => (
-  <Work className="navbar-footer-space">
+  <Work>
     <WorkAdditionalInfo>
       <WorkCategory>
         <Paragraph>{workData.category?.name ?? ''}</Paragraph>
