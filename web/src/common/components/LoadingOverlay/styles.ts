@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 /* eslint-disable-next-line import/prefer-default-export */
-export const LoaderComponentWrapper = styled(motion.div)`
+export const LoaderComponentWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   margin-top: -30rem;
