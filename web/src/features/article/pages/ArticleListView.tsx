@@ -236,6 +236,7 @@ const ArticleListView: FC = () => {
             tagsFetching
           )}
           loaderComponent={<LoadingIcon />}
+          loaderDuration={1000}
         />
       </PageContainer>
     </motion.div>

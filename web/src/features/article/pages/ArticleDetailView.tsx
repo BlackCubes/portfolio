@@ -232,6 +232,7 @@ const ArticleDetailView: FC = () => {
           }
           isLoading={isLoadingOverall(articleFetching, relatedArticlesFetching)}
           loaderComponent={<LoadingIcon />}
+          loaderDuration={2500}
         />
       </PageContainer>
     </motion.div>

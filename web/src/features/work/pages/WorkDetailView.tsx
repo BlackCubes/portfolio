@@ -162,6 +162,7 @@ const WorkDetailView: FC = () => {
           }
           isLoading={isLoadingOverall(workFetching)}
           loaderComponent={<LoadingIcon />}
+          loaderDuration={3000}
         />
       </PageContainer>
     </motion.div>

@@ -122,6 +122,7 @@ const WorkListView: FC = () => {
           }
           isLoading={isLoadingOverall(worksFetching, personalsFetching)}
           loaderComponent={<LoadingIcon />}
+          loaderDuration={1000}
         />
       </PageContainer>
     </motion.div>
