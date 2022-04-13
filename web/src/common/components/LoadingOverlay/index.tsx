@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const LoaderHeightStyled = styled.div`
@@ -35,12 +35,23 @@ const LoadingOverlay: FC<ILoadingOverlay> = ({
   contentComponent,
   isLoading,
   loaderComponent,
-}) =>
-  isLoading ? (
+}) => {
+  const [isLoadingFinal, setIsLoadingFinal] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoadingFinal(isLoading);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [isLoading]);
+
+  return isLoadingFinal ? (
     <LoaderHeightStyled>{loaderComponent}</LoaderHeightStyled>
   ) : (
     /* eslint-disable-next-line react/jsx-no-useless-fragment */
     <>{contentComponent}</>
   );
+};
 
 export default LoadingOverlay;
