@@ -7,7 +7,15 @@ export const Svg = styled(motion.svg).attrs(() => ({
   xmlnsXlink: 'http://www.w3.org/1999/xlink',
   viewBox: '0 0 550 550',
 }))`
-  transform: scale(0.3);
+  transform: scale(0.2);
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    transform: scale(0.25);
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    transform: scale(0.3);
+  }
 `;
 
 export const Defs = styled.defs``;
@@ -40,4 +48,12 @@ export const Polygon = styled(motion.polygon).attrs(() => ({
   stroke: url(#loading-icon-linear-gradient-2);
   stroke-miterlimit: 10;
   stroke-width: 4rem;
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    stroke-width: 3.5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    stroke-width: 3.2rem;
+  }
 `;
