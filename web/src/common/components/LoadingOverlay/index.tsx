@@ -29,22 +29,24 @@ interface ILoadingOverlay {
   contentComponent: JSX.Element | JSX.Element[];
   isLoading: boolean;
   loaderComponent: JSX.Element | JSX.Element[];
+  loaderDuration: number;
 }
 
 const LoadingOverlay: FC<ILoadingOverlay> = ({
   contentComponent,
   isLoading,
   loaderComponent,
+  loaderDuration,
 }) => {
   const [isLoadingFinal, setIsLoadingFinal] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoadingFinal(isLoading);
-    }, 1000);
+    }, loaderDuration);
 
     return () => clearTimeout(timer);
-  }, [isLoading]);
+  }, [isLoading, loaderDuration]);
 
   return isLoadingFinal ? (
     <LoaderHeightStyled>{loaderComponent}</LoaderHeightStyled>
