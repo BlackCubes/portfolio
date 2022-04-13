@@ -28,10 +28,10 @@ const LoadingIcon: FC = () => (
     </Defs>
 
     <Polygon
-      initial={{ pathLength: 0.02 }}
+      initial={{ pathLength: 0.018 }}
       animate={{ pathLength: 1 }}
       transition={{
-        duration: 1.5,
+        duration: 1,
         ease: 'easeInOut',
         repeat: Infinity,
         repeatType: 'reverse',
