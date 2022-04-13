@@ -13,6 +13,8 @@ import {
   WorkSection,
 } from 'features/landing/components';
 
+import { PageContainer } from './styles';
+
 const LandingListView: FC = () => {
   const { data: articlesData } = useGetArticlesQuery({
     category: 0,
@@ -123,13 +125,15 @@ const LandingListView: FC = () => {
         ]}
       />
 
-      <HeroBanner />
+      <PageContainer className="default-container navbar-footer-space">
+        <HeroBanner />
 
-      <WorkSection worksData={worksData} />
+        <WorkSection worksData={worksData} />
 
-      <ArticleSection articlesData={articlesData?.items ?? []} />
+        <ArticleSection articlesData={articlesData?.items ?? []} />
 
-      <TalkSection />
+        <TalkSection />
+      </PageContainer>
     </motion.div>
   );
 };
