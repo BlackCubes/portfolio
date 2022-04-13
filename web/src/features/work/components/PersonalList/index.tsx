@@ -29,7 +29,7 @@ interface IPersonalList {
 }
 
 const PersonalList: FC<IPersonalList> = ({ personalsData }) => (
-  <Section className="default-container">
+  <Section>
     <SectionTitle>
       <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
         Personal

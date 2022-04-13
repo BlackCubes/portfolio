@@ -29,7 +29,7 @@ interface IWorkList {
 }
 
 const WorkList: FC<IWorkList> = ({ worksData }) => (
-  <Section className="default-container default-margin-bottom navbar-footer-space">
+  <Section className="default-margin-bottom">
     <SectionTitle>
       <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
         Work
