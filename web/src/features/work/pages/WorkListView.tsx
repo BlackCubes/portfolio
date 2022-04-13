@@ -3,19 +3,27 @@ import { motion } from 'framer-motion';
 
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
+import LoadingIcon from 'common/components/LoadingIcon';
+import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import { PersonalList, WorkList } from 'features/work/components';
 
+import { isLoadingOverall } from 'utils';
+
+import { PageContainer } from './styles';
+
 const WorkListView: FC = () => {
-  const { data: worksData } = useGetWorksByCategoryQuery({
-    category: 'Work',
-    limit: 4,
-  });
-  const { data: personalsData } = useGetWorksByCategoryQuery({
-    category: 'Personal',
-    limit: 4,
-  });
+  const { data: worksData, isFetching: worksFetching } =
+    useGetWorksByCategoryQuery({
+      category: 'Work',
+      limit: 4,
+    });
+  const { data: personalsData, isFetching: personalsFetching } =
+    useGetWorksByCategoryQuery({
+      category: 'Personal',
+      limit: 4,
+    });
 
   return (
     <motion.div
@@ -103,9 +111,19 @@ const WorkListView: FC = () => {
         ]}
       />
 
-      <WorkList worksData={worksData?.items ?? []} />
+      <PageContainer className="default-container navbar-footer-space">
+        <LoadingOverlay
+          contentComponent={
+            <>
+              <WorkList worksData={worksData?.items ?? []} />
 
-      <PersonalList personalsData={personalsData?.items ?? []} />
+              <PersonalList personalsData={personalsData?.items ?? []} />
+            </>
+          }
+          isLoading={isLoadingOverall(worksFetching, personalsFetching)}
+          loaderComponent={<LoadingIcon />}
+        />
+      </PageContainer>
     </motion.div>
   );
 };

@@ -6,9 +6,15 @@ import noImage from 'assets/img/no-image.png';
 
 import { useGetWorkBySlugQuery } from 'common/api/workExtendedApi';
 
+import LoadingIcon from 'common/components/LoadingIcon';
+import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import { WorkDetail } from 'features/work/components';
+
+import { isLoadingOverall } from 'utils';
+
+import { PageContainer } from './styles';
 
 type TWorkParams = {
   workSlug: string;
@@ -20,7 +26,7 @@ const WorkDetailView: FC = () => {
 
   const { workSlug } = useParams<TWorkParams>();
 
-  const { data: workData } = useGetWorkBySlugQuery(
+  const { data: workData, isFetching: workFetching } = useGetWorkBySlugQuery(
     workSlug ?? 'does-not-exist',
     {
       skip: doNotInitiateWorkQuery,
@@ -150,7 +156,13 @@ const WorkDetailView: FC = () => {
         ]}
       />
 
-      <WorkDetail workData={workData} />
+      <PageContainer className="default-container navbar-footer-space">
+        <LoadingOverlay
+          contentComponent={<WorkDetail workData={workData} />}
+          isLoading={isLoadingOverall(workFetching)}
+          loaderComponent={<LoadingIcon />}
+        />
+      </PageContainer>
     </motion.div>
   );
 };
