@@ -41,10 +41,7 @@ const App = () => {
 
       <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
-          <Route
-            path=""
-            element={<LandingListView isFirstMount={isFirstMount} />}
-          />
+          <Route path="" element={<LandingListView />} />
 
           <Route path="/work" element={<WorkListView />} />
 
