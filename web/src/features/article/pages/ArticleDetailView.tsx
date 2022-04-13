@@ -9,9 +9,13 @@ import {
   useGetArticlesByRelatedCategoryQuery,
 } from 'common/api/articleExtendedApi';
 
+import LoadingIcon from 'common/components/LoadingIcon';
+import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import { ArticleDetail, RelatedSidebar } from 'features/article/components';
+
+import { isLoadingOverall } from 'utils';
 
 import { PageContainer } from './styles';
 
@@ -30,30 +34,30 @@ const ArticleDetailView: FC = () => {
   const { articleSlug } = useParams<TArticleParams>();
   const [categoryId, setCategoryId] = useState<number>(0);
 
-  const { data: articleData } = useGetArticleBySlugQuery(
-    articleSlug ?? 'does-not-exist',
-    {
+  const { data: articleData, isFetching: articleFetching } =
+    useGetArticleBySlugQuery(articleSlug ?? 'does-not-exist', {
       skip: doNotInitiateArticleQuery,
-    }
-  );
-  const { dataWithoutCurrentArticle: relatedArticlesByCategoryData } =
-    useGetArticlesByRelatedCategoryQuery(categoryId, {
-      skip: doNotInitiateRelatedArticlesQuery,
-      // selectFromResult is used to return related articles without the current
-      // article in the current page view.
-      selectFromResult: (result) => ({
-        // Return original result from RTK for any debugging or needing it.
-        ...result,
-        // Create new property that returns the related articles without the
-        // current one in the page view.
-        dataWithoutCurrentArticle: result.data
-          ? result.data.items.filter(
-              // articleId is a string from URL params.
-              (relatedArticle) => relatedArticle.meta.slug !== articleSlug
-            )
-          : [],
-      }),
     });
+  const {
+    dataWithoutCurrentArticle: relatedArticlesByCategoryData,
+    isFetching: relatedArticlesFetching,
+  } = useGetArticlesByRelatedCategoryQuery(categoryId, {
+    skip: doNotInitiateRelatedArticlesQuery,
+    // selectFromResult is used to return related articles without the current
+    // article in the current page view.
+    selectFromResult: (result) => ({
+      // Return original result from RTK for any debugging or needing it.
+      ...result,
+      // Create new property that returns the related articles without the
+      // current one in the page view.
+      dataWithoutCurrentArticle: result.data
+        ? result.data.items.filter(
+            // articleId is a string from URL params.
+            (relatedArticle) => relatedArticle.meta.slug !== articleSlug
+          )
+        : [],
+    }),
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -214,13 +218,22 @@ const ArticleDetailView: FC = () => {
       )}
 
       <PageContainer className="default-container navbar-footer-space">
-        {articleData && <ArticleDetail articleData={articleData} />}
+        <LoadingOverlay
+          contentComponent={
+            <>
+              {articleData && <ArticleDetail articleData={articleData} />}
 
-        {relatedArticlesByCategoryData.length > 0 && (
-          <RelatedSidebar
-            relatedArticlesByCategoryData={relatedArticlesByCategoryData}
-          />
-        )}
+              {relatedArticlesByCategoryData.length > 0 && (
+                <RelatedSidebar
+                  relatedArticlesByCategoryData={relatedArticlesByCategoryData}
+                />
+              )}
+            </>
+          }
+          isLoading={isLoadingOverall(articleFetching, relatedArticlesFetching)}
+          loaderComponent={<LoadingIcon />}
+          loaderDuration={2500}
+        />
       </PageContainer>
     </motion.div>
   );

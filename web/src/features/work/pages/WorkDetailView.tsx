@@ -6,9 +6,15 @@ import noImage from 'assets/img/no-image.png';
 
 import { useGetWorkBySlugQuery } from 'common/api/workExtendedApi';
 
+import LoadingIcon from 'common/components/LoadingIcon';
+import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import { WorkDetail } from 'features/work/components';
+
+import { isLoadingOverall } from 'utils';
+
+import { PageContainer } from './styles';
 
 type TWorkParams = {
   workSlug: string;
@@ -20,7 +26,7 @@ const WorkDetailView: FC = () => {
 
   const { workSlug } = useParams<TWorkParams>();
 
-  const { data: workData } = useGetWorkBySlugQuery(
+  const { data: workData, isFetching: workFetching } = useGetWorkBySlugQuery(
     workSlug ?? 'does-not-exist',
     {
       skip: doNotInitiateWorkQuery,
@@ -37,10 +43,6 @@ const WorkDetailView: FC = () => {
     return () => clearTimeout(timer);
   }, [workSlug]);
 
-  if (!workData) {
-    return null;
-  }
-
   return (
     <motion.div
       key="work-detail"
@@ -54,103 +56,115 @@ const WorkDetailView: FC = () => {
         initial: { opacity: 0, x: 0 },
       }}
     >
-      <SEO
-        openGraphMetaTags={[
-          {
-            property: 'og:description',
-            content:
-              workData.meta.search_description.length > 0
-                ? workData.meta.search_description
-                : workData.description,
-          },
-          {
-            property: 'og:image',
-            content: workData.main_image
-              ? `http://localhost:8000${workData.main_image}`
-              : noImage,
-          },
-          {
-            property: 'og:site_name',
-            content: "Elias Gutierrez's Portfolio",
-          },
-          {
-            property: 'og:title',
-            content:
-              workData.meta.seo_title.length > 0
-                ? `${workData.meta.seo_title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-                : `${workData.title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
-          },
-          {
-            property: 'og:type',
-            content: 'website',
-          },
-          {
-            property: 'og:url',
-            content: window.location.href,
-          },
-        ]}
-        primaryMetaTags={[
-          {
-            name: 'description',
-            content:
-              workData.meta.search_description.length > 0
-                ? workData.meta.search_description
-                : workData.description,
-          },
-          {
-            name: 'title',
-            content:
-              workData.meta.seo_title.length > 0
-                ? `${workData.meta.seo_title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-                : `${workData.title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
-          },
-        ]}
-        title={
-          workData.meta.seo_title.length > 0
-            ? `${workData.meta.seo_title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-            : `${workData.title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-        }
-        twitterMetaTags={[
-          {
-            property: 'twitter:card',
-            content: 'summmary_large_image',
-          },
-          {
-            property: 'twitter:creator',
-            content: '@_BlackCubes_',
-          },
-          {
-            property: 'twitter:description',
-            content:
-              workData.meta.search_description.length > 0
-                ? workData.meta.search_description
-                : workData.description,
-          },
-          {
-            property: 'twitter:image',
-            content: workData.main_image
-              ? `http://localhost:8000${workData.main_image}`
-              : noImage,
-          },
-          {
-            property: 'twitter:site',
-            content: '@_BlackCubes_',
-          },
-          {
-            property: 'twitter:title',
-            content:
-              workData.meta.seo_title.length > 0
-                ? `${workData.meta.seo_title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
-                : `${workData.title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
-          },
-          {
-            property: 'twitter:url',
-            content: window.location.href,
-          },
-        ]}
-      />
+      {workData && (
+        <SEO
+          openGraphMetaTags={[
+            {
+              property: 'og:description',
+              content:
+                workData.meta.search_description.length > 0
+                  ? workData.meta.search_description
+                  : workData.description,
+            },
+            {
+              property: 'og:image',
+              content: workData.main_image
+                ? `http://localhost:8000${workData.main_image}`
+                : noImage,
+            },
+            {
+              property: 'og:site_name',
+              content: "Elias Gutierrez's Portfolio",
+            },
+            {
+              property: 'og:title',
+              content:
+                workData.meta.seo_title.length > 0
+                  ? `${workData.meta.seo_title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                  : `${workData.title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
+            },
+            {
+              property: 'og:type',
+              content: 'website',
+            },
+            {
+              property: 'og:url',
+              content: window.location.href,
+            },
+          ]}
+          primaryMetaTags={[
+            {
+              name: 'description',
+              content:
+                workData.meta.search_description.length > 0
+                  ? workData.meta.search_description
+                  : workData.description,
+            },
+            {
+              name: 'title',
+              content:
+                workData.meta.seo_title.length > 0
+                  ? `${workData.meta.seo_title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                  : `${workData.title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
+            },
+          ]}
+          title={
+            workData.meta.seo_title.length > 0
+              ? `${workData.meta.seo_title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+              : `${workData.title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+          }
+          twitterMetaTags={[
+            {
+              property: 'twitter:card',
+              content: 'summmary_large_image',
+            },
+            {
+              property: 'twitter:creator',
+              content: '@_BlackCubes_',
+            },
+            {
+              property: 'twitter:description',
+              content:
+                workData.meta.search_description.length > 0
+                  ? workData.meta.search_description
+                  : workData.description,
+            },
+            {
+              property: 'twitter:image',
+              content: workData.main_image
+                ? `http://localhost:8000${workData.main_image}`
+                : noImage,
+            },
+            {
+              property: 'twitter:site',
+              content: '@_BlackCubes_',
+            },
+            {
+              property: 'twitter:title',
+              content:
+                workData.meta.seo_title.length > 0
+                  ? `${workData.meta.seo_title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`
+                  : `${workData.title} - Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer`,
+            },
+            {
+              property: 'twitter:url',
+              content: window.location.href,
+            },
+          ]}
+        />
+      )}
 
-      <WorkDetail workData={workData} />
+      <PageContainer className="default-container navbar-footer-space">
+        <LoadingOverlay
+          contentComponent={
+            /* eslint-disable-next-line react/jsx-no-useless-fragment */
+            <>{workData && <WorkDetail workData={workData} />}</>
+          }
+          isLoading={isLoadingOverall(workFetching)}
+          loaderComponent={<LoadingIcon />}
+          loaderDuration={3000}
+        />
+      </PageContainer>
     </motion.div>
   );
 };

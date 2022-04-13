@@ -5,9 +5,13 @@ import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetCategoriesQuery } from 'common/api/categoryExtendedApi';
 import { useGetTagsQuery } from 'common/api/tagExtendedApi';
 
+import LoadingIcon from 'common/components/LoadingIcon';
+import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import { ArticleList, FilterSidebar } from 'features/article/components';
+
+import { isLoadingOverall } from 'utils';
 
 import { PageContainer } from './styles';
 
@@ -23,12 +27,14 @@ const ArticleListView: FC = () => {
       tags: [],
     });
 
-  const { data: articlesData } = useGetArticlesQuery({
-    category: categoryTagIdQuery.category,
-    tags: categoryTagIdQuery.tags,
-  });
-  const { data: categoriesData } = useGetCategoriesQuery();
-  const { data: tagsData } = useGetTagsQuery();
+  const { data: articlesData, isFetching: articlesFetching } =
+    useGetArticlesQuery({
+      category: categoryTagIdQuery.category,
+      tags: categoryTagIdQuery.tags,
+    });
+  const { data: categoriesData, isFetching: categoriesFetching } =
+    useGetCategoriesQuery();
+  const { data: tagsData, isFetching: tagsFetching } = useGetTagsQuery();
 
   /**
    * Used to dynamically change the filtering to update the article API based
@@ -206,19 +212,32 @@ const ArticleListView: FC = () => {
       />
 
       <PageContainer className="default-container navbar-footer-space">
-        {categoriesData?.items &&
-          categoriesData.items.length > 0 &&
-          tagsData?.items &&
-          tagsData.items.length > 0 && (
-            <FilterSidebar
-              categoriesData={categoriesData.items}
-              handleCategoryTagQuery={handleCategoryTagQuery}
-              handleClearFilter={handleClearFiltering}
-              tagsData={tagsData.items}
-            />
-          )}
+        <LoadingOverlay
+          contentComponent={
+            <>
+              {categoriesData?.items &&
+                categoriesData.items.length > 0 &&
+                tagsData?.items &&
+                tagsData.items.length > 0 && (
+                  <FilterSidebar
+                    categoriesData={categoriesData.items}
+                    handleCategoryTagQuery={handleCategoryTagQuery}
+                    handleClearFilter={handleClearFiltering}
+                    tagsData={tagsData.items}
+                  />
+                )}
 
-        <ArticleList articlesData={articlesData?.items ?? []} />
+              <ArticleList articlesData={articlesData?.items ?? []} />
+            </>
+          }
+          isLoading={isLoadingOverall(
+            articlesFetching,
+            categoriesFetching,
+            tagsFetching
+          )}
+          loaderComponent={<LoadingIcon />}
+          loaderDuration={1000}
+        />
       </PageContainer>
     </motion.div>
   );
