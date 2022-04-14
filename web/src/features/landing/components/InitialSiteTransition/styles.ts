@@ -1,13 +1,31 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const Wrapper = styled(motion.div)`
+export const Wrapper = styled(motion.div).attrs(({ theme }) => ({
+  animate: 'animate',
+  initial: 'initial',
+  variants: {
+    animate: {
+      backgroundColor: theme.colors.black.hex,
+      transition: {
+        when: 'afterChildren',
+        duration: 2,
+        ease: [0.87, 0, 0.13, 1],
+      },
+    },
+    initial: {
+      backgroundColor: theme.colors.white.hex,
+    },
+  },
+}))`
   position: absolute;
+  bottom: 0;
+  left: 0;
   justify-content: center;
   align-items: center;
   display: flex;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.black.hex};
+  height: 100%;
   z-index: 50;
 `;
 

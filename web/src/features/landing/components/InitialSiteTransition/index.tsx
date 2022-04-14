@@ -11,21 +11,7 @@ import {
 } from './styles';
 
 const InitialSiteTransition: FC = () => (
-  <Wrapper
-    animate="animate"
-    initial="initial"
-    variants={{
-      animate: {
-        height: 0,
-        transition: {
-          when: 'afterChildren',
-          duration: 2,
-          ease: [0.87, 0, 0.13, 1],
-        },
-      },
-      initial: { height: '100%', bottom: 0, left: 0 },
-    }}
-  >
+  <Wrapper>
     <Svg>
       <Defs>
         <LinearGradient1>
