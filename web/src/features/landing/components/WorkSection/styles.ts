@@ -203,7 +203,24 @@ export const WorkLink = styled(Link)`
   }
 `;
 
-export const WorkImageWrapper = styled(motion.div)`
+export const WorkImageWrapper = styled(motion.div).attrs(({ className }) => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: className?.includes('reverse') ? -100 : -150,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   width: 18%;
   margin-left: 3rem;
 

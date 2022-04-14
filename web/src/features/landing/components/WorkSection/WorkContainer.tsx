@@ -92,26 +92,7 @@ const WorkContainer: FC<IWorkContainer> = ({
         </WorkLinkWrapper>
       </WorkDescriptionContainer>
 
-      <WorkImageWrapper
-        animate={controls}
-        className={reverseClass}
-        initial="hidden"
-        variants={{
-          hidden: {
-            opacity: 0,
-            y: reverseClass ? -100 : -150,
-          },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-              type: 'spring',
-              bounce: 0.4,
-              duration: 0.5,
-            },
-          },
-        }}
-      >
+      <WorkImageWrapper animate={controls} className={reverseClass}>
         <GlassRectangle
           glassDarkShadowBlur={
             isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
