@@ -40,7 +40,7 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
   const [isHovering, setIsHovering] = useIsHovering();
 
   return (
-    <Section className="default-container default-margin-bottom">
+    <Section className="default-margin-bottom">
       <SectionTitle>
         <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
           Work

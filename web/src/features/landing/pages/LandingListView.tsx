@@ -1,38 +1,63 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
+import LoadingIcon from 'common/components/LoadingIcon';
+import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import {
   ArticleSection,
   HeroBanner,
+  InitialSiteTransition,
   TalkSection,
   WorkSection,
 } from 'features/landing/components';
 
-const LandingListView: FC = () => {
-  const { data: articlesData } = useGetArticlesQuery({
-    category: 0,
-    limit: 3,
-    tags: [],
-  });
+import { isLoadingOverall } from 'utils';
 
-  const { selectedData: worksData } = useGetWorksByCategoryQuery(
-    { category: 'Work', limit: 5 },
-    {
-      selectFromResult: (result) => ({
-        ...result,
-        selectedData: result.data
-          ? result.data.items.filter(
-              (resultData) => resultData.title !== 'Node News API'
-            )
-          : [],
-      }),
-    }
-  );
+import { PageContainer } from './styles';
+
+interface ILandingListView {
+  isFirstMount: boolean;
+}
+
+const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
+  const [finishIsFirstMount, setFinishIsFirstMount] = useState(isFirstMount);
+
+  const { data: articlesData, isFetching: articlesFetching } =
+    useGetArticlesQuery({
+      category: 0,
+      limit: 3,
+      tags: [],
+    });
+
+  const { selectedData: worksData, isFetching: worksFetching } =
+    useGetWorksByCategoryQuery(
+      { category: 'Work', limit: 5 },
+      {
+        selectFromResult: (result) => ({
+          ...result,
+          selectedData: result.data
+            ? result.data.items.filter(
+                (resultData) => resultData.title !== 'Node News API'
+              )
+            : [],
+        }),
+      }
+    );
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isFirstMount) {
+        setFinishIsFirstMount(isFirstMount);
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [isFirstMount]);
 
   return (
     <motion.div
@@ -44,7 +69,7 @@ const LandingListView: FC = () => {
       variants={{
         animate: { opacity: 1, x: 0 },
         exit: { opacity: 0, x: '-100%', transition: { duration: 0.3 } },
-        initial: { opacity: 0, x: 0 },
+        initial: { opacity: isFirstMount ? 1 : 0, x: 0 },
       }}
     >
       <SEO
@@ -123,13 +148,30 @@ const LandingListView: FC = () => {
         ]}
       />
 
-      <HeroBanner />
+      <PageContainer className="default-container navbar-footer-space">
+        <LoadingOverlay
+          contentComponent={
+            <>
+              {finishIsFirstMount && (
+                <InitialSiteTransition isFirstMount={isFirstMount} />
+              )}
 
-      <WorkSection worksData={worksData} />
+              <HeroBanner />
 
-      <ArticleSection articlesData={articlesData?.items ?? []} />
+              <WorkSection worksData={worksData} />
 
-      <TalkSection />
+              <ArticleSection articlesData={articlesData?.items ?? []} />
+
+              <TalkSection />
+            </>
+          }
+          isLoading={isLoadingOverall(worksFetching, articlesFetching)}
+          loaderDuration={1000}
+          {...(!finishIsFirstMount && {
+            loaderComponent: <LoadingIcon />,
+          })}
+        />
+      </PageContainer>
     </motion.div>
   );
 };

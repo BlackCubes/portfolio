@@ -16,7 +16,7 @@ import {
 } from './styles';
 
 const HeroBanner: FC = () => (
-  <Container className="default-container default-margin-bottom navbar-footer-space">
+  <Container className="default-margin-bottom">
     <ProfileImageWrapper>
       <GlassCircle
         glassDarkShadowBlur={0.4}

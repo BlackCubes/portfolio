@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
@@ -15,7 +15,33 @@ import { LandingListView } from 'features/landing/pages';
 import { WorkDetailView, WorkListView } from 'features/work/pages';
 
 const App = () => {
+  const [isFirstMount, setIsFirstMount] = useState(true);
+
   const location = useLocation();
+
+  const unloadedScrollToTop = (event: BeforeUnloadEvent): void => {
+    event.preventDefault();
+
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', unloadedScrollToTop);
+
+    return () => {
+      window.removeEventListener('beforeunload', unloadedScrollToTop);
+    };
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isFirstMount) {
+        setIsFirstMount(false);
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [isFirstMount]);
 
   return (
     // ThemeProvider, for some reason, was not working in
@@ -29,7 +55,10 @@ const App = () => {
 
       <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
-          <Route path="" element={<LandingListView />} />
+          <Route
+            path=""
+            element={<LandingListView isFirstMount={isFirstMount} />}
+          />
 
           <Route path="/work" element={<WorkListView />} />
 

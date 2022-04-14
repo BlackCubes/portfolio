@@ -1,11 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 
-import { LoaderComponentWrapper } from './styles';
-
-interface ILoadingOverlay {
+export interface ILoadingOverlay {
   contentComponent: JSX.Element | JSX.Element[];
   isLoading: boolean;
-  loaderComponent: JSX.Element | JSX.Element[];
+  loaderComponent?: JSX.Element | JSX.Element[];
   loaderDuration: number;
 }
 
@@ -25,8 +23,14 @@ const LoadingOverlay: FC<ILoadingOverlay> = ({
     return () => clearTimeout(timer);
   }, [isLoading, loaderDuration]);
 
+  if (!loaderComponent) {
+    /* eslint-disable-next-line react/jsx-no-useless-fragment */
+    return <>{contentComponent}</>;
+  }
+
   return isLoadingFinal ? (
-    <LoaderComponentWrapper>{loaderComponent}</LoaderComponentWrapper>
+    /* eslint-disable-next-line react/jsx-no-useless-fragment */
+    <>{loaderComponent}</>
   ) : (
     /* eslint-disable-next-line react/jsx-no-useless-fragment */
     <>{contentComponent}</>
