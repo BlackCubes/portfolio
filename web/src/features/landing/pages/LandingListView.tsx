@@ -4,13 +4,14 @@ import { motion } from 'framer-motion';
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
-import LoadingIcon from 'common/components/LoadingIcon';
+// import LoadingIcon from 'common/components/LoadingIcon';
 import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import {
   ArticleSection,
   HeroBanner,
+  InitialSiteTransition,
   TalkSection,
   WorkSection,
 } from 'features/landing/components';
@@ -19,7 +20,11 @@ import { isLoadingOverall } from 'utils';
 
 import { PageContainer } from './styles';
 
-const LandingListView: FC = () => {
+interface ILandingListView {
+  isFirstMount: boolean;
+}
+
+const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
   const { data: articlesData, isFetching: articlesFetching } =
     useGetArticlesQuery({
       category: 0,
@@ -52,7 +57,7 @@ const LandingListView: FC = () => {
       variants={{
         animate: { opacity: 1, x: 0 },
         exit: { opacity: 0, x: '-100%', transition: { duration: 0.3 } },
-        initial: { opacity: 0, x: 0 },
+        initial: { opacity: isFirstMount ? 1 : 0, x: 0 },
       }}
     >
       <SEO
@@ -145,8 +150,8 @@ const LandingListView: FC = () => {
             </>
           }
           isLoading={isLoadingOverall(worksFetching, articlesFetching)}
-          loaderComponent={<LoadingIcon />}
-          loaderDuration={1000}
+          loaderComponent={<InitialSiteTransition />}
+          loaderDuration={2000}
         />
       </PageContainer>
     </motion.div>
