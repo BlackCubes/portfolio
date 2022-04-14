@@ -23,7 +23,7 @@ const InitialSiteTransition: FC = () => (
           ease: [0.87, 0, 0.13, 1],
         },
       },
-      initial: { height: '100vh', bottom: 0 },
+      initial: { height: '100%', bottom: 0, left: 0 },
     }}
   >
     <Svg>
