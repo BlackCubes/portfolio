@@ -7,7 +7,7 @@ export const Container = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 110vh;
-  z-index: 50;
+  z-index: 999;
 `;
 
 export const Wrapper = styled(motion.div).attrs(({ theme }) => ({
@@ -35,7 +35,7 @@ export const Wrapper = styled(motion.div).attrs(({ theme }) => ({
   align-items: center;
   width: 100%;
   height: 100%;
-  z-index: 50;
+  z-index: 999;
 `;
 
 export const Svg = styled(motion.svg).attrs(() => ({
@@ -46,7 +46,7 @@ export const Svg = styled(motion.svg).attrs(() => ({
 }))`
   position: absolute;
   transform: scale(0.2);
-  z-index: 50;
+  z-index: 999;
 
   @media ${({ theme }) => theme.responsive.below1199} {
     transform: scale(0.25);
