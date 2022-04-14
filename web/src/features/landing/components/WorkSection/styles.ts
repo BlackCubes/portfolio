@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // WORK SECTION
 export const Section = styled.section``;
@@ -202,7 +203,7 @@ export const WorkLink = styled(Link)`
   }
 `;
 
-export const WorkImageWrapper = styled.div`
+export const WorkImageWrapper = styled(motion.div)`
   width: 18%;
   margin-left: 3rem;
 
