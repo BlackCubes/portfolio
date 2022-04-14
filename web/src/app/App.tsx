@@ -19,6 +19,20 @@ const App = () => {
 
   const location = useLocation();
 
+  const unloadedScrollToTop = (event: BeforeUnloadEvent): void => {
+    event.preventDefault();
+
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', unloadedScrollToTop);
+
+    return () => {
+      window.removeEventListener('beforeunload', unloadedScrollToTop);
+    };
+  }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (isFirstMount) {
