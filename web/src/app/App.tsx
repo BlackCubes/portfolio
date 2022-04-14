@@ -20,13 +20,13 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const simpleCleanupTimer = setTimeout(() => {
+    const timer = setTimeout(() => {
       if (isFirstMount) {
         setIsFirstMount(false);
       }
-    }, 1);
+    }, 2000);
 
-    return () => clearTimeout(simpleCleanupTimer);
+    return () => clearTimeout(timer);
   }, [isFirstMount]);
 
   return (
