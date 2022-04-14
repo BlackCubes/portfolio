@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
+export const Container = styled(motion.div)`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+`;
+
 export const Wrapper = styled(motion.div).attrs(({ theme }) => ({
   animate: 'animate',
   initial: 'initial',
@@ -21,9 +30,9 @@ export const Wrapper = styled(motion.div).attrs(({ theme }) => ({
   position: absolute;
   bottom: 0;
   left: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
   width: 100%;
   height: 100%;
   z-index: 50;

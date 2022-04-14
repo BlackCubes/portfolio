@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import {
+  Container,
   Defs,
   LinearGradient1,
   LinearGradient2,
@@ -10,28 +11,43 @@ import {
   Wrapper,
 } from './styles';
 
-const InitialSiteTransition: FC = () => (
-  <Wrapper>
-    <Svg>
-      <Defs>
-        <LinearGradient1>
-          <Stop offset="0" stopColor="#fff" />
+interface IInitialSiteTransition {
+  isFirstMount: boolean;
+}
 
-          <Stop offset="0.35" stopColor="#231f20" />
+const InitialSiteTransition: FC<IInitialSiteTransition> = ({
+  isFirstMount,
+}) => (
+  <Container
+    {...(!isFirstMount && {
+      animate: {
+        opacity: 0,
+        transition: { duration: 2 },
+      },
+    })}
+  >
+    <Wrapper>
+      <Svg>
+        <Defs>
+          <LinearGradient1>
+            <Stop offset="0" stopColor="#fff" />
 
-          <Stop offset="1" stopColor="#000" />
-        </LinearGradient1>
+            <Stop offset="0.35" stopColor="#231f20" />
 
-        <LinearGradient2>
-          <Stop offset="0" stopColor="#fff" />
+            <Stop offset="1" stopColor="#000" />
+          </LinearGradient1>
 
-          <Stop offset="1" stopColor="#000" />
-        </LinearGradient2>
-      </Defs>
+          <LinearGradient2>
+            <Stop offset="0" stopColor="#fff" />
 
-      <Polygon />
-    </Svg>
-  </Wrapper>
+            <Stop offset="1" stopColor="#000" />
+          </LinearGradient2>
+        </Defs>
+
+        <Polygon />
+      </Svg>
+    </Wrapper>
+  </Container>
 );
 
 export default InitialSiteTransition;
