@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GlassRectangle from 'common/components/GlassRectangle';
 
@@ -40,10 +42,23 @@ const WorkContainer: FC<IWorkContainer> = ({
   workLinkPath,
   workTitle,
 }) => {
+  const controls = useAnimation();
+  const { inView, ref } = useInView();
+
   const [isHovering, setIsHovering] = useIsHovering();
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (inView) {
+        controls.start('visible');
+      }
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, [controls, inView]);
+
   return (
-    <WorkContainerStyle className={reverseClass}>
+    <WorkContainerStyle className={reverseClass} ref={ref}>
       <WorkTitle className={reverseClass}>
         <HeadingTertiary
           {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
@@ -77,7 +92,26 @@ const WorkContainer: FC<IWorkContainer> = ({
         </WorkLinkWrapper>
       </WorkDescriptionContainer>
 
-      <WorkImageWrapper className={reverseClass}>
+      <WorkImageWrapper
+        animate={controls}
+        className={reverseClass}
+        initial="hidden"
+        variants={{
+          hidden: {
+            opacity: 0,
+            y: reverseClass ? -100 : -150,
+          },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 0.5,
+            },
+          },
+        }}
+      >
         <GlassRectangle
           glassDarkShadowBlur={
             isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
