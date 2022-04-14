@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
-// import LoadingIcon from 'common/components/LoadingIcon';
+import LoadingIcon from 'common/components/LoadingIcon';
 import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
@@ -25,6 +25,8 @@ interface ILandingListView {
 }
 
 const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
+  const [finishIsFirstMount, setFinishIsFirstMount] = useState(isFirstMount);
+
   const { data: articlesData, isFetching: articlesFetching } =
     useGetArticlesQuery({
       category: 0,
@@ -46,6 +48,16 @@ const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
         }),
       }
     );
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isFirstMount) {
+        setFinishIsFirstMount(isFirstMount);
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [isFirstMount]);
 
   return (
     <motion.div
@@ -140,6 +152,10 @@ const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
         <LoadingOverlay
           contentComponent={
             <>
+              {finishIsFirstMount && (
+                <InitialSiteTransition isFirstMount={isFirstMount} />
+              )}
+
               <HeroBanner />
 
               <WorkSection worksData={worksData} />
@@ -150,8 +166,10 @@ const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
             </>
           }
           isLoading={isLoadingOverall(worksFetching, articlesFetching)}
-          loaderComponent={<InitialSiteTransition />}
-          loaderDuration={2000}
+          loaderDuration={1000}
+          {...(!finishIsFirstMount && {
+            loaderComponent: <LoadingIcon />,
+          })}
         />
       </PageContainer>
     </motion.div>
