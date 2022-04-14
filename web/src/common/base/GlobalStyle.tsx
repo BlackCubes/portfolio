@@ -77,6 +77,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     background-color: ${({ theme }) => theme.colors.body.hex};
     transition: all 0.25s linear;
+
+    &.hidden-overflow {
+      overflow: hidden;
+    }
   }
 
   #root {

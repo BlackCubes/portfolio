@@ -19,6 +19,9 @@ const InitialSiteTransition: FC<IInitialSiteTransition> = ({
   isFirstMount,
 }) => (
   <Container
+    onAnimationComplete={() =>
+      document.body.classList.remove('hidden-overflow')
+    }
     {...(!isFirstMount && {
       animate: {
         opacity: 0,
@@ -26,7 +29,9 @@ const InitialSiteTransition: FC<IInitialSiteTransition> = ({
       },
     })}
   >
-    <Wrapper>
+    <Wrapper
+      onAnimationStart={() => document.body.classList.add('hidden-overflow')}
+    >
       <Svg>
         <Defs>
           <LinearGradient1>
