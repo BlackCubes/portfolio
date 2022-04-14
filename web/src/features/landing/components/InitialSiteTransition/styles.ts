@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div)`
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 110vh;
   z-index: 50;
 `;
 
