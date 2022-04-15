@@ -46,6 +46,9 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
   const titleAnimateControls = useAnimation();
   const { inView: titleInView, ref: titleRef } = useInView();
 
+  const introAnimateControls = useAnimation();
+  const { inView: introInView, ref: introRef } = useInView();
+
   const [isHovering, setIsHovering] = useIsHovering();
 
   useEffect(() => {
@@ -58,6 +61,16 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
     return () => clearTimeout(timer);
   }, [titleAnimateControls, titleInView]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (introInView) {
+        introAnimateControls.start('visible');
+      }
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [introAnimateControls, introInView]);
+
   return (
     <Section className="default-margin-bottom">
       <SectionTitle animate={titleAnimateControls} ref={titleRef}>
@@ -69,7 +82,7 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
       <Container>
         <LineSeparator rotateClass="positive-rotate" />
 
-        <Introduction>
+        <Introduction animate={introAnimateControls} ref={introRef}>
           <Paragraph>
             Massa eget egestas purus viverra accumsan in nisl nisi scelerisque
             eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius
