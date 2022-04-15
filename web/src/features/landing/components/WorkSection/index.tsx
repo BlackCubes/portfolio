@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -37,11 +39,24 @@ interface IWorkSection {
 }
 
 const WorkSection: FC<IWorkSection> = ({ worksData }) => {
+  const controls = useAnimation();
+  const { inView, ref } = useInView();
+
   const [isHovering, setIsHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (inView) {
+        controls.start('visible');
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  });
 
   return (
     <Section className="default-margin-bottom">
-      <SectionTitle>
+      <SectionTitle animate={controls} ref={ref}>
         <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
           Work
         </HeadingSecondary>
