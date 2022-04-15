@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GlassTriangle from 'common/components/GlassTriangle';
 
@@ -28,12 +30,25 @@ const TalkContainer: FC<ITalkContainer> = ({
   talkLinkPath,
   talkTitle,
 }) => {
+  const controls = useAnimation();
+  const { inView, ref } = useInView();
+
   const [isHovering, setIsHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (inView) {
+        controls.start('visible');
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [controls, inView]);
 
   return (
     <TalkContainerStyle>
       <TalkDescriptionContainer className={reverseClass}>
-        <TalkImageWrapper className={reverseClass}>
+        <TalkImageWrapper animate={controls} className={reverseClass} ref={ref}>
           <GlassTriangle
             glassDarkShadowBlur={isHovering ? 0.4 : 0}
             glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
