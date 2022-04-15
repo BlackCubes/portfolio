@@ -104,7 +104,18 @@ export const WorkContainerStyle = styled.div`
   }
 `;
 
-export const WorkTitle = styled.div`
+export const WorkTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))`
   width: 35%;
 
   &.reverse {
@@ -149,7 +160,18 @@ export const WorkDescriptionContainer = styled.div`
   }
 `;
 
-export const WorkDescription = styled.div`
+export const WorkDescription = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))`
   margin-bottom: 2rem;
 
   &.reverse {
