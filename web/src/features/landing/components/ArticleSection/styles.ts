@@ -38,7 +38,20 @@ export const Container = styled.div`
   }
 `;
 
-export const Introduction = styled.div`
+export const Introduction = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: -10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   text-align: center;
   padding: 5rem 15rem;
 
