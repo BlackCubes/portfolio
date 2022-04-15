@@ -40,7 +40,18 @@ export const Container = styled.div`
   }
 `;
 
-export const ExploreMoreWrapper = styled.div`
+export const ExploreMoreWrapper = styled(motion.div).attrs(() => ({
+  variants: {
+    visible: {
+      rotate: [0, 15, 7.5, 15, 0],
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        times: [0, 0.2, 0.5, 0.8, 1],
+      },
+    },
+  },
+}))`
   margin-top: 5rem;
   text-align: center;
 
