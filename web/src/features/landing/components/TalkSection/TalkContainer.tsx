@@ -30,25 +30,29 @@ const TalkContainer: FC<ITalkContainer> = ({
   talkLinkPath,
   talkTitle,
 }) => {
-  const controls = useAnimation();
-  const { inView, ref } = useInView();
+  const imageAnimateControls = useAnimation();
+  const { inView: imageInView, ref: imageRef } = useInView();
 
   const [isHovering, setIsHovering] = useIsHovering();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (inView) {
-        controls.start('visible');
+      if (imageInView) {
+        imageAnimateControls.start('visible');
       }
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [controls, inView]);
+  }, [imageAnimateControls, imageInView]);
 
   return (
     <TalkContainerStyle>
       <TalkDescriptionContainer className={reverseClass}>
-        <TalkImageWrapper animate={controls} className={reverseClass} ref={ref}>
+        <TalkImageWrapper
+          animate={imageAnimateControls}
+          className={reverseClass}
+          ref={imageRef}
+        >
           <GlassTriangle
             glassDarkShadowBlur={isHovering ? 0.4 : 0}
             glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
