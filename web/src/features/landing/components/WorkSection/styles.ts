@@ -196,7 +196,24 @@ export const WorkDescription = styled(motion.div).attrs(() => ({
   }
 `;
 
-export const WorkLinkWrapper = styled.div`
+export const WorkLinkWrapper = styled(motion.div).attrs(({ className }) => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: className?.includes('reverse') ? -100 : -150,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   text-align: right;
 
   &.reverse {
