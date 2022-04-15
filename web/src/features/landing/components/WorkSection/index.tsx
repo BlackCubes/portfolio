@@ -52,7 +52,7 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
     }, 500);
 
     return () => clearTimeout(timer);
-  });
+  }, [controls, inView]);
 
   return (
     <Section className="default-margin-bottom">
