@@ -52,13 +52,13 @@ const WorkContainer: FC<IWorkContainer> = ({
       if (inView) {
         controls.start('visible');
       }
-    }, 700);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [controls, inView]);
 
   return (
-    <WorkContainerStyle className={reverseClass} ref={ref}>
+    <WorkContainerStyle className={reverseClass}>
       <WorkTitle className={reverseClass}>
         <HeadingTertiary
           {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
@@ -92,7 +92,7 @@ const WorkContainer: FC<IWorkContainer> = ({
         </WorkLinkWrapper>
       </WorkDescriptionContainer>
 
-      <WorkImageWrapper animate={controls} className={reverseClass}>
+      <WorkImageWrapper animate={controls} className={reverseClass} ref={ref}>
         <GlassRectangle
           glassDarkShadowBlur={
             isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
