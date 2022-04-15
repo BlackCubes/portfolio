@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 // TALK SECTION
 export const Section = styled.section``;
@@ -55,7 +56,24 @@ export const TalkDescriptionContainer = styled.div`
   }
 `;
 
-export const TalkImageWrapper = styled.div`
+export const TalkImageWrapper = styled(motion.div).attrs(({ className }) => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: className?.includes('reverse') ? 100 : -100,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   margin-bottom: 2rem;
 
   &.reverse {
