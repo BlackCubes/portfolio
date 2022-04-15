@@ -42,10 +42,36 @@ const WorkContainer: FC<IWorkContainer> = ({
   workLinkPath,
   workTitle,
 }) => {
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
+
+  const descriptionAnimateControls = useAnimation();
+  const { inView: descriptionInView, ref: descriptionRef } = useInView();
+
   const imageAnimateControls = useAnimation();
   const { inView: imageInView, ref: imageRef } = useInView();
 
   const [isHovering, setIsHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [titleAnimateControls, titleInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (descriptionInView) {
+        descriptionAnimateControls.start('visible');
+      }
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, [descriptionAnimateControls, descriptionInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -59,7 +85,11 @@ const WorkContainer: FC<IWorkContainer> = ({
 
   return (
     <WorkContainerStyle className={reverseClass}>
-      <WorkTitle className={reverseClass}>
+      <WorkTitle
+        animate={titleAnimateControls}
+        className={reverseClass}
+        ref={titleRef}
+      >
         <HeadingTertiary
           {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
             opacity: 0.8,
@@ -71,7 +101,11 @@ const WorkContainer: FC<IWorkContainer> = ({
       </WorkTitle>
 
       <WorkDescriptionContainer>
-        <WorkDescription className={reverseClass}>
+        <WorkDescription
+          animate={descriptionAnimateControls}
+          className={reverseClass}
+          ref={descriptionRef}
+        >
           <Paragraph
             {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
               opacity: 0.8,
