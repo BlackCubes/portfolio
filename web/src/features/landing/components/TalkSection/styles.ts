@@ -95,6 +95,19 @@ export const TalkImageWrapper = styled(motion.div).attrs(({ className }) => ({
   }
 `;
 
+export const TalkTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))``;
+
 export const TalkTitleLink = styled.a`
   padding-left: 7rem;
   padding-right: 7rem;
