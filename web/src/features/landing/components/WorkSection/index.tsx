@@ -42,6 +42,9 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
   const titleAnimateControls = useAnimation();
   const { inView: titleInView, ref: titleRef } = useInView();
 
+  const viewMoreAnimateControls = useAnimation();
+  const { inView: viewMoreInView, ref: viewMoreRef } = useInView();
+
   const [isHovering, setIsHovering] = useIsHovering();
 
   useEffect(() => {
@@ -53,6 +56,16 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
 
     return () => clearTimeout(timer);
   }, [titleAnimateControls, titleInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (viewMoreInView) {
+        viewMoreAnimateControls.start('visible');
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [viewMoreAnimateControls, viewMoreInView]);
 
   return (
     <Section className="default-margin-bottom">
@@ -88,7 +101,7 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
           ))}
       </Container>
 
-      <ExploreMoreWrapper>
+      <ExploreMoreWrapper animate={viewMoreAnimateControls} ref={viewMoreRef}>
         <ExploreMoreLink
           to="/work"
           onMouseEnter={() => setIsHovering(true)}
