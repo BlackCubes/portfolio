@@ -14,6 +14,7 @@ import {
   ArticleContainerStyle,
   ArticleDescriptionContainer,
   ArticleImageWrapper,
+  ArticleTitle,
   ArticleTitleLink,
 } from './styles';
 
@@ -34,10 +35,23 @@ const ArticleContainer: FC<IArticleContainer> = ({
   articleLinkPath,
   articleTitle,
 }) => {
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
+
   const imageAnimateControls = useAnimation();
   const { inView: imageInView, ref: imageRef } = useInView();
 
   const [isHovering, setIsHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (titleInView) {
+        titleAnimateControls.start('visible');
+      }
+
+      return () => clearTimeout(timer);
+    }, 600);
+  }, [titleAnimateControls, titleInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -80,20 +94,22 @@ const ArticleContainer: FC<IArticleContainer> = ({
           />
         </ArticleImageWrapper>
 
-        <ArticleTitleLink
-          to={articleLinkPath}
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-        >
-          <HeadingTertiary
-            {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
-              opacity: 0.8,
-              textDecoration: 'underline',
-            })}
+        <ArticleTitle animate={titleAnimateControls} ref={titleRef}>
+          <ArticleTitleLink
+            to={articleLinkPath}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
           >
-            {articleTitle}
-          </HeadingTertiary>
-        </ArticleTitleLink>
+            <HeadingTertiary
+              {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
+                opacity: 0.8,
+                textDecoration: 'underline',
+              })}
+            >
+              {articleTitle}
+            </HeadingTertiary>
+          </ArticleTitleLink>
+        </ArticleTitle>
       </ArticleDescriptionContainer>
     </ArticleContainerStyle>
   );
