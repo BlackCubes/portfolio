@@ -259,6 +259,19 @@ export const ArticleImageWrapper = styled(motion.div).attrs(
   margin-bottom: 2rem;
 `;
 
+export const ArticleTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))``;
+
 export const ArticleTitleLink = styled(Link)`
   text-align: center;
   text-decoration: none;
