@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import talkPresentation1 from 'assets/img/talk-presentation1.png';
 import talkPresentation2 from 'assets/img/talk-presentation2.png';
@@ -29,32 +31,47 @@ const talkContainerData: ITalkContainer[] = [
   },
 ];
 
-const TalkSection: FC = () => (
-  <Section>
-    <SectionTitle>
-      <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
-        Talks
-      </HeadingSecondary>
-    </SectionTitle>
+const TalkSection: FC = () => {
+  const controls = useAnimation();
+  const { inView, ref } = useInView();
 
-    <LineSeparator />
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (inView) {
+        controls.start('visible');
+      }
+    }, 500);
 
-    <Container>
-      {talkContainerData.map((talkData) => (
-        <React.Fragment
-          key={talkData.talkImageAlt.toLowerCase().split(' ').join('-')}
-        >
-          <TalkContainer
-            reverseClass={talkData.reverseClass}
-            talkImageAlt={talkData.talkImageAlt}
-            talkImageSrc={talkData.talkImageSrc}
-            talkLinkPath={talkData.talkLinkPath}
-            talkTitle={talkData.talkTitle}
-          />
-        </React.Fragment>
-      ))}
-    </Container>
-  </Section>
-);
+    return () => clearTimeout(timer);
+  }, [controls, inView]);
+
+  return (
+    <Section>
+      <SectionTitle animate={controls} ref={ref}>
+        <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
+          Talks
+        </HeadingSecondary>
+      </SectionTitle>
+
+      <LineSeparator />
+
+      <Container>
+        {talkContainerData.map((talkData) => (
+          <React.Fragment
+            key={talkData.talkImageAlt.toLowerCase().split(' ').join('-')}
+          >
+            <TalkContainer
+              reverseClass={talkData.reverseClass}
+              talkImageAlt={talkData.talkImageAlt}
+              talkImageSrc={talkData.talkImageSrc}
+              talkLinkPath={talkData.talkLinkPath}
+              talkTitle={talkData.talkTitle}
+            />
+          </React.Fragment>
+        ))}
+      </Container>
+    </Section>
+  );
+};
 
 export default TalkSection;
