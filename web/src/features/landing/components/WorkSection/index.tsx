@@ -39,24 +39,24 @@ interface IWorkSection {
 }
 
 const WorkSection: FC<IWorkSection> = ({ worksData }) => {
-  const controls = useAnimation();
-  const { inView, ref } = useInView();
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
 
   const [isHovering, setIsHovering] = useIsHovering();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (inView) {
-        controls.start('visible');
+      if (titleInView) {
+        titleAnimateControls.start('visible');
       }
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [controls, inView]);
+  }, [titleAnimateControls, titleInView]);
 
   return (
     <Section className="default-margin-bottom">
-      <SectionTitle animate={controls} ref={ref}>
+      <SectionTitle animate={titleAnimateControls} ref={titleRef}>
         <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
           Work
         </HeadingSecondary>
