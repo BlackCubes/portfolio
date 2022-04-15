@@ -12,6 +12,7 @@ import {
   TalkContainerStyle,
   TalkDescriptionContainer,
   TalkImageWrapper,
+  TalkTitle,
   TalkTitleLink,
 } from './styles';
 
@@ -30,10 +31,23 @@ const TalkContainer: FC<ITalkContainer> = ({
   talkLinkPath,
   talkTitle,
 }) => {
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
+
   const imageAnimateControls = useAnimation();
   const { inView: imageInView, ref: imageRef } = useInView();
 
   const [isHovering, setIsHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, [titleAnimateControls, titleInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -67,22 +81,24 @@ const TalkContainer: FC<ITalkContainer> = ({
           />
         </TalkImageWrapper>
 
-        <TalkTitleLink
-          href={talkLinkPath}
-          target="_blank"
-          rel="noopener"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-        >
-          <HeadingTertiary
-            {...(isHovering && {
-              opacity: 0.8,
-              textDecoration: 'underline',
-            })}
+        <TalkTitle animate={titleAnimateControls} ref={titleRef}>
+          <TalkTitleLink
+            href={talkLinkPath}
+            target="_blank"
+            rel="noopener"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
           >
-            {talkTitle}
-          </HeadingTertiary>
-        </TalkTitleLink>
+            <HeadingTertiary
+              {...(isHovering && {
+                opacity: 0.8,
+                textDecoration: 'underline',
+              })}
+            >
+              {talkTitle}
+            </HeadingTertiary>
+          </TalkTitleLink>
+        </TalkTitle>
       </TalkDescriptionContainer>
     </TalkContainerStyle>
   );
