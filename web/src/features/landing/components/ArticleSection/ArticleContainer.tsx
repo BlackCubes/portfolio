@@ -34,25 +34,25 @@ const ArticleContainer: FC<IArticleContainer> = ({
   articleLinkPath,
   articleTitle,
 }) => {
-  const controls = useAnimation();
-  const { inView, ref } = useInView();
+  const imageAnimateControls = useAnimation();
+  const { inView: imageInView, ref: imageRef } = useInView();
 
   const [isHovering, setIsHovering] = useIsHovering();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (inView) {
-        controls.start('visible');
+      if (imageInView) {
+        imageAnimateControls.start('visible');
       }
     }, 900);
 
     return () => clearTimeout(timer);
-  }, [controls, inView]);
+  }, [imageAnimateControls, imageInView]);
 
   return (
     <ArticleContainerStyle className={articleClass}>
       <ArticleDescriptionContainer>
-        <ArticleImageWrapper animate={controls} ref={ref}>
+        <ArticleImageWrapper animate={imageAnimateControls} ref={imageRef}>
           <GlassCircle
             glassDarkShadowBlur={
               isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
