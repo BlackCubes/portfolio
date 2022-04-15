@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // ARTICLE SECTION
 export const Section = styled.section``;
@@ -220,7 +221,28 @@ export const ArticleDescriptionContainer = styled.div`
   align-items: center;
 `;
 
-export const ArticleImageWrapper = styled.div`
+export const ArticleImageWrapper = styled(motion.div).attrs(
+  ({ className }) => ({
+    initial: 'hidden',
+    variants: {
+      hidden: {
+        opacity: 0,
+        rotate: className?.includes('article3') ? 720 : 0,
+        scale: 0,
+      },
+      visible: {
+        opacity: 1,
+        rotate: className?.includes('article3') ? 0 : 720,
+        scale: 1,
+        transition: {
+          type: 'spring',
+          bounce: 0.4,
+          duration: 0.5,
+        },
+      },
+    },
+  })
+)`
   margin-bottom: 2rem;
 `;
 
