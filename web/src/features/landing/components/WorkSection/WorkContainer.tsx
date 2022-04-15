@@ -48,6 +48,9 @@ const WorkContainer: FC<IWorkContainer> = ({
   const descriptionAnimateControls = useAnimation();
   const { inView: descriptionInView, ref: descriptionRef } = useInView();
 
+  const linkAnimateControls = useAnimation();
+  const { inView: linkInView, ref: linkRef } = useInView();
+
   const imageAnimateControls = useAnimation();
   const { inView: imageInView, ref: imageRef } = useInView();
 
@@ -72,6 +75,16 @@ const WorkContainer: FC<IWorkContainer> = ({
 
     return () => clearTimeout(timer);
   }, [descriptionAnimateControls, descriptionInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (linkInView) {
+        linkAnimateControls.start('visible');
+      }
+    }, 1700);
+
+    return () => clearTimeout(timer);
+  }, [linkAnimateControls, linkInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -115,7 +128,11 @@ const WorkContainer: FC<IWorkContainer> = ({
           </Paragraph>
         </WorkDescription>
 
-        <WorkLinkWrapper className={reverseClass}>
+        <WorkLinkWrapper
+          animate={linkAnimateControls}
+          className={reverseClass}
+          ref={linkRef}
+        >
           <WorkLink
             to={workLinkPath}
             onMouseEnter={() => setIsHovering(true)}
