@@ -42,20 +42,20 @@ const WorkContainer: FC<IWorkContainer> = ({
   workLinkPath,
   workTitle,
 }) => {
-  const controls = useAnimation();
-  const { inView, ref } = useInView();
+  const imageAnimateControls = useAnimation();
+  const { inView: imageInView, ref: imageRef } = useInView();
 
   const [isHovering, setIsHovering] = useIsHovering();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (inView) {
-        controls.start('visible');
+      if (imageInView) {
+        imageAnimateControls.start('visible');
       }
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, [controls, inView]);
+  }, [imageAnimateControls, imageInView]);
 
   return (
     <WorkContainerStyle className={reverseClass}>
@@ -92,7 +92,11 @@ const WorkContainer: FC<IWorkContainer> = ({
         </WorkLinkWrapper>
       </WorkDescriptionContainer>
 
-      <WorkImageWrapper animate={controls} className={reverseClass} ref={ref}>
+      <WorkImageWrapper
+        animate={imageAnimateControls}
+        className={reverseClass}
+        ref={imageRef}
+      >
         <GlassRectangle
           glassDarkShadowBlur={
             isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
