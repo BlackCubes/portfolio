@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GlassCircle from 'common/components/GlassCircle';
 
@@ -32,12 +34,25 @@ const ArticleContainer: FC<IArticleContainer> = ({
   articleLinkPath,
   articleTitle,
 }) => {
+  const controls = useAnimation();
+  const { inView, ref } = useInView();
+
   const [isHovering, setIsHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (inView) {
+        controls.start('visible');
+      }
+    }, 900);
+
+    return () => clearTimeout(timer);
+  }, [controls, inView]);
 
   return (
     <ArticleContainerStyle className={articleClass}>
       <ArticleDescriptionContainer>
-        <ArticleImageWrapper>
+        <ArticleImageWrapper animate={controls} ref={ref}>
           <GlassCircle
             glassDarkShadowBlur={
               isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
