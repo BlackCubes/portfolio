@@ -53,9 +53,9 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
       if (inView) {
         controls.start('visible');
       }
-
-      return () => clearTimeout(timer);
     }, 500);
+
+    return () => clearTimeout(timer);
   }, [controls, inView]);
 
   return (
