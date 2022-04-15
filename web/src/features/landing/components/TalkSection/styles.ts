@@ -4,7 +4,20 @@ import { motion } from 'framer-motion';
 // TALK SECTION
 export const Section = styled.section``;
 
-export const SectionTitle = styled.div`
+export const SectionTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   text-align: center;
 `;
 
