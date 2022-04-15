@@ -49,6 +49,9 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
   const introAnimateControls = useAnimation();
   const { inView: introInView, ref: introRef } = useInView();
 
+  const viewMoreAnimateControls = useAnimation();
+  const { inView: viewMoreInView, ref: viewMoreRef } = useInView();
+
   const [isHovering, setIsHovering] = useIsHovering();
 
   useEffect(() => {
@@ -70,6 +73,16 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
 
     return () => clearTimeout(timer);
   }, [introAnimateControls, introInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (viewMoreInView) {
+        viewMoreAnimateControls.start('visible');
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [viewMoreAnimateControls, viewMoreInView]);
 
   return (
     <Section className="default-margin-bottom">
@@ -111,7 +124,7 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
         </Wrapper>
       </Container>
 
-      <ExploreMoreWrapper>
+      <ExploreMoreWrapper animate={viewMoreAnimateControls} ref={viewMoreRef}>
         <ExploreMoreLink
           to="/articles"
           onMouseEnter={() => setIsHovering(true)}
