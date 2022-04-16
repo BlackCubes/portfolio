@@ -65,6 +65,14 @@ const ArticleContainer: FC<IArticleContainer> = ({
     return () => clearTimeout(timer);
   }, [imageAnimateControls, imageInView]);
 
+  useEffect(() => {
+    if (isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)) {
+      imageAnimateControls.start('hovering');
+    } else {
+      imageAnimateControls.start('nonHovering');
+    }
+  }, [isImageLinkHovering, isExploreLinkHovering, imageAnimateControls]);
+
   return (
     <ArticleContainerStyle className={articleClass}>
       <ArticleDescriptionContainer>
@@ -78,67 +86,39 @@ const ArticleContainer: FC<IArticleContainer> = ({
           <ArticleImageLink to={articleLinkPath}>
             <GlassCircle
               glassDarkShadowBlur={
-                isHoveringOverall(
-                  isImageLinkHovering,
-                  isTitleLinkHovering,
-                  isExploreLinkHovering
-                )
+                isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)
                   ? 0.4
                   : 0
               }
               glassDarkShadowHorizontalOffset={
-                isHoveringOverall(
-                  isImageLinkHovering,
-                  isTitleLinkHovering,
-                  isExploreLinkHovering
-                )
+                isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)
                   ? 0.3
                   : 0.1
               }
               glassDarkShadowVerticalOffset={
-                isHoveringOverall(
-                  isImageLinkHovering,
-                  isTitleLinkHovering,
-                  isExploreLinkHovering
-                )
+                isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)
                   ? 0.3
                   : 0.1
               }
               glassLightShadowBlur={
-                isHoveringOverall(
-                  isImageLinkHovering,
-                  isTitleLinkHovering,
-                  isExploreLinkHovering
-                )
+                isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)
                   ? 0.4
                   : 0
               }
               glassLightShadowHorizontalOffset={
-                isHoveringOverall(
-                  isImageLinkHovering,
-                  isTitleLinkHovering,
-                  isExploreLinkHovering
-                )
+                isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)
                   ? -0.3
                   : -0.1
               }
               glassLightShadowVerticalOffset={
-                isHoveringOverall(
-                  isImageLinkHovering,
-                  isTitleLinkHovering,
-                  isExploreLinkHovering
-                )
+                isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)
                   ? -0.3
                   : -0.1
               }
               imageAlt={articleImageAlt}
               imageSrc={articleImageSrc}
               opacity={
-                isHoveringOverall(
-                  isImageLinkHovering,
-                  isTitleLinkHovering,
-                  isExploreLinkHovering
-                )
+                isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)
                   ? 0.75
                   : 1
               }

@@ -267,6 +267,19 @@ export const ArticleImageWrapper = styled(motion.div).attrs(
         rotate: 0,
         scale: 0,
       },
+      hovering: {
+        rotate: className?.includes('article3') ? 720 : -720,
+        scale: 1.12,
+        transition: {
+          type: 'spring',
+          bounce: 0.4,
+          duration: 0.2,
+        },
+      },
+      nonHovering: {
+        rotate: 0,
+        scale: 1,
+      },
       visible: {
         opacity: 1,
         rotate: className?.includes('article3') ? -720 : 720,
