@@ -54,7 +54,7 @@ const WorkContainer: FC<IWorkContainer> = ({
   const imageAnimateControls = useAnimation();
   const { inView: imageInView, ref: imageRef } = useInView();
 
-  const [isHovering, setIsHovering] = useIsHovering();
+  const [isWorkLinkHovering, setIsWorkLinkHovering] = useIsHovering();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -104,7 +104,7 @@ const WorkContainer: FC<IWorkContainer> = ({
         ref={titleRef}
       >
         <HeadingTertiary
-          {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
+          {...(isHoveringOverall(isWorkLinkHovering, isExploreLinkHovering) && {
             opacity: 0.8,
             textDecoration: 'underline',
           })}
@@ -120,7 +120,10 @@ const WorkContainer: FC<IWorkContainer> = ({
           ref={descriptionRef}
         >
           <Paragraph
-            {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
+            {...(isHoveringOverall(
+              isWorkLinkHovering,
+              isExploreLinkHovering
+            ) && {
               opacity: 0.8,
             })}
           >
@@ -135,8 +138,8 @@ const WorkContainer: FC<IWorkContainer> = ({
         >
           <WorkLink
             to={workLinkPath}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
+            onMouseEnter={() => setIsWorkLinkHovering(true)}
+            onMouseLeave={() => setIsWorkLinkHovering(false)}
           >
             {workLinkContent}
           </WorkLink>
@@ -150,27 +153,41 @@ const WorkContainer: FC<IWorkContainer> = ({
       >
         <GlassRectangle
           glassDarkShadowBlur={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
+            isHoveringOverall(isWorkLinkHovering, isExploreLinkHovering)
+              ? 0.4
+              : 0
           }
           glassDarkShadowHorizontalOffset={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.3 : 0.1
+            isHoveringOverall(isWorkLinkHovering, isExploreLinkHovering)
+              ? 0.3
+              : 0.1
           }
           glassDarkShadowVerticalOffset={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.3 : 0.1
+            isHoveringOverall(isWorkLinkHovering, isExploreLinkHovering)
+              ? 0.3
+              : 0.1
           }
           glassLightShadowBlur={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
+            isHoveringOverall(isWorkLinkHovering, isExploreLinkHovering)
+              ? 0.4
+              : 0
           }
           glassLightShadowHorizontalOffset={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? -0.3 : -0.1
+            isHoveringOverall(isWorkLinkHovering, isExploreLinkHovering)
+              ? -0.3
+              : -0.1
           }
           glassLightShadowVerticalOffset={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? -0.3 : -0.1
+            isHoveringOverall(isWorkLinkHovering, isExploreLinkHovering)
+              ? -0.3
+              : -0.1
           }
           imageAlt={workImageAlt}
           imageSrc={workImageSrc}
           opacity={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.75 : 1
+            isHoveringOverall(isWorkLinkHovering, isExploreLinkHovering)
+              ? 0.75
+              : 1
           }
         />
       </WorkImageWrapper>
