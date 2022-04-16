@@ -41,7 +41,7 @@ const ArticleContainer: FC<IArticleContainer> = ({
   const imageAnimateControls = useAnimation();
   const { inView: imageInView, ref: imageRef } = useInView();
 
-  const [isHovering, setIsHovering] = useIsHovering();
+  const [isTitleLinkHovering, setIsTitleLinkHovering] = useIsHovering();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -69,27 +69,41 @@ const ArticleContainer: FC<IArticleContainer> = ({
         <ArticleImageWrapper animate={imageAnimateControls} ref={imageRef}>
           <GlassCircle
             glassDarkShadowBlur={
-              isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
+              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
+                ? 0.4
+                : 0
             }
             glassDarkShadowHorizontalOffset={
-              isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.3 : 0.1
+              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
+                ? 0.3
+                : 0.1
             }
             glassDarkShadowVerticalOffset={
-              isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.3 : 0.1
+              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
+                ? 0.3
+                : 0.1
             }
             glassLightShadowBlur={
-              isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
+              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
+                ? 0.4
+                : 0
             }
             glassLightShadowHorizontalOffset={
-              isHoveringOverall(isHovering, isExploreLinkHovering) ? -0.3 : -0.1
+              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
+                ? -0.3
+                : -0.1
             }
             glassLightShadowVerticalOffset={
-              isHoveringOverall(isHovering, isExploreLinkHovering) ? -0.3 : -0.1
+              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
+                ? -0.3
+                : -0.1
             }
             imageAlt={articleImageAlt}
             imageSrc={articleImageSrc}
             opacity={
-              isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.75 : 1
+              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
+                ? 0.75
+                : 1
             }
           />
         </ArticleImageWrapper>
@@ -97,11 +111,14 @@ const ArticleContainer: FC<IArticleContainer> = ({
         <ArticleTitle animate={titleAnimateControls} ref={titleRef}>
           <ArticleTitleLink
             to={articleLinkPath}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
+            onMouseEnter={() => setIsTitleLinkHovering(true)}
+            onMouseLeave={() => setIsTitleLinkHovering(false)}
           >
             <HeadingTertiary
-              {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
+              {...(isHoveringOverall(
+                isTitleLinkHovering,
+                isExploreLinkHovering
+              ) && {
                 opacity: 0.8,
                 textDecoration: 'underline',
               })}
