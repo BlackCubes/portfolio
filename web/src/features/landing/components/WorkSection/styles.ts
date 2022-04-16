@@ -156,6 +156,10 @@ export const WorkTitle = styled(motion.div).attrs(() => ({
   }
 `;
 
+export const WorkTitleLink = styled(Link)`
+  text-decoration: none;
+`;
+
 export const WorkDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -306,3 +310,5 @@ export const WorkImageWrapper = styled(motion.div).attrs(({ className }) => ({
     padding: 1rem 1rem;
   }
 `;
+
+export const WorkImageLink = styled(Link)``;
