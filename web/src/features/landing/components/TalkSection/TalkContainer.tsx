@@ -11,6 +11,7 @@ import HeadingTertiary from 'common/typography/HeadingTertiary';
 import {
   TalkContainerStyle,
   TalkDescriptionContainer,
+  TalkImageLink,
   TalkImageWrapper,
   TalkTitle,
   TalkTitleLink,
@@ -67,18 +68,20 @@ const TalkContainer: FC<ITalkContainer> = ({
           className={reverseClass}
           ref={imageRef}
         >
-          <GlassTriangle
-            glassDarkShadowBlur={isHovering ? 0.4 : 0}
-            glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
-            glassDarkShadowVerticalOffset={isHovering ? 0.3 : 0.1}
-            glassLightShadowBlur={isHovering ? 0.4 : 0}
-            glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
-            glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
-            imageAlt={talkImageAlt}
-            imageSrc={talkImageSrc}
-            opacity={isHovering ? 0.75 : 1}
-            reverseClass={reverseClass}
-          />
+          <TalkImageLink href={talkLinkPath} target="_blank" rel="noopener">
+            <GlassTriangle
+              glassDarkShadowBlur={isHovering ? 0.4 : 0}
+              glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
+              glassDarkShadowVerticalOffset={isHovering ? 0.3 : 0.1}
+              glassLightShadowBlur={isHovering ? 0.4 : 0}
+              glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
+              glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
+              imageAlt={talkImageAlt}
+              imageSrc={talkImageSrc}
+              opacity={isHovering ? 0.75 : 1}
+              reverseClass={reverseClass}
+            />
+          </TalkImageLink>
         </TalkImageWrapper>
 
         <TalkTitle animate={titleAnimateControls} ref={titleRef}>
