@@ -283,6 +283,8 @@ export const ArticleImageWrapper = styled(motion.div).attrs(
   margin-bottom: 2rem;
 `;
 
+export const ArticleImageLink = styled(Link)``;
+
 export const ArticleTitle = styled(motion.div).attrs(() => ({
   initial: 'hidden',
   variants: {
