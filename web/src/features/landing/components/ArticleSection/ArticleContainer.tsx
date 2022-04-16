@@ -13,6 +13,7 @@ import { isHoveringOverall } from 'utils';
 import {
   ArticleContainerStyle,
   ArticleDescriptionContainer,
+  ArticleImageLink,
   ArticleImageWrapper,
   ArticleTitle,
   ArticleTitleLink,
@@ -42,6 +43,7 @@ const ArticleContainer: FC<IArticleContainer> = ({
   const { inView: imageInView, ref: imageRef } = useInView();
 
   const [isTitleLinkHovering, setIsTitleLinkHovering] = useIsHovering();
+  const [isImageLinkHovering, setIsImageLinkHovering] = useIsHovering();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -66,46 +68,81 @@ const ArticleContainer: FC<IArticleContainer> = ({
   return (
     <ArticleContainerStyle className={articleClass}>
       <ArticleDescriptionContainer>
-        <ArticleImageWrapper animate={imageAnimateControls} ref={imageRef}>
-          <GlassCircle
-            glassDarkShadowBlur={
-              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
-                ? 0.4
-                : 0
-            }
-            glassDarkShadowHorizontalOffset={
-              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
-                ? 0.3
-                : 0.1
-            }
-            glassDarkShadowVerticalOffset={
-              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
-                ? 0.3
-                : 0.1
-            }
-            glassLightShadowBlur={
-              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
-                ? 0.4
-                : 0
-            }
-            glassLightShadowHorizontalOffset={
-              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
-                ? -0.3
-                : -0.1
-            }
-            glassLightShadowVerticalOffset={
-              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
-                ? -0.3
-                : -0.1
-            }
-            imageAlt={articleImageAlt}
-            imageSrc={articleImageSrc}
-            opacity={
-              isHoveringOverall(isTitleLinkHovering, isExploreLinkHovering)
-                ? 0.75
-                : 1
-            }
-          />
+        <ArticleImageWrapper
+          animate={imageAnimateControls}
+          onHoverStart={() => setIsImageLinkHovering(true)}
+          onHoverEnd={() => setIsImageLinkHovering(false)}
+          ref={imageRef}
+        >
+          <ArticleImageLink to={articleLinkPath}>
+            <GlassCircle
+              glassDarkShadowBlur={
+                isHoveringOverall(
+                  isImageLinkHovering,
+                  isTitleLinkHovering,
+                  isExploreLinkHovering
+                )
+                  ? 0.4
+                  : 0
+              }
+              glassDarkShadowHorizontalOffset={
+                isHoveringOverall(
+                  isImageLinkHovering,
+                  isTitleLinkHovering,
+                  isExploreLinkHovering
+                )
+                  ? 0.3
+                  : 0.1
+              }
+              glassDarkShadowVerticalOffset={
+                isHoveringOverall(
+                  isImageLinkHovering,
+                  isTitleLinkHovering,
+                  isExploreLinkHovering
+                )
+                  ? 0.3
+                  : 0.1
+              }
+              glassLightShadowBlur={
+                isHoveringOverall(
+                  isImageLinkHovering,
+                  isTitleLinkHovering,
+                  isExploreLinkHovering
+                )
+                  ? 0.4
+                  : 0
+              }
+              glassLightShadowHorizontalOffset={
+                isHoveringOverall(
+                  isImageLinkHovering,
+                  isTitleLinkHovering,
+                  isExploreLinkHovering
+                )
+                  ? -0.3
+                  : -0.1
+              }
+              glassLightShadowVerticalOffset={
+                isHoveringOverall(
+                  isImageLinkHovering,
+                  isTitleLinkHovering,
+                  isExploreLinkHovering
+                )
+                  ? -0.3
+                  : -0.1
+              }
+              imageAlt={articleImageAlt}
+              imageSrc={articleImageSrc}
+              opacity={
+                isHoveringOverall(
+                  isImageLinkHovering,
+                  isTitleLinkHovering,
+                  isExploreLinkHovering
+                )
+                  ? 0.75
+                  : 1
+              }
+            />
+          </ArticleImageLink>
         </ArticleImageWrapper>
 
         <ArticleTitle animate={titleAnimateControls} ref={titleRef}>
