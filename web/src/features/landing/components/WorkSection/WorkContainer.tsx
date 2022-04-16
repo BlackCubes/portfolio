@@ -100,6 +100,25 @@ const WorkContainer: FC<IWorkContainer> = ({
     return () => clearTimeout(timer);
   }, [imageAnimateControls, imageInView]);
 
+  useEffect(() => {
+    if (
+      isHoveringOverall(
+        isImageLinkHovering,
+        isWorkLinkHovering,
+        isExploreLinkHovering
+      )
+    ) {
+      imageAnimateControls.start('hovering');
+    } else {
+      imageAnimateControls.start('nonHovering');
+    }
+  }, [
+    isImageLinkHovering,
+    isWorkLinkHovering,
+    isExploreLinkHovering,
+    imageAnimateControls,
+  ]);
+
   return (
     <WorkContainerStyle className={reverseClass}>
       <WorkTitle
@@ -163,13 +182,11 @@ const WorkContainer: FC<IWorkContainer> = ({
       <WorkImageWrapper
         animate={imageAnimateControls}
         className={reverseClass}
+        onHoverStart={() => setIsImageLinkHovering(true)}
+        onHoverEnd={() => setIsImageLinkHovering(false)}
         ref={imageRef}
       >
-        <WorkImageLink
-          to={workLinkPath}
-          onMouseEnter={() => setIsImageLinkHovering(true)}
-          onMouseLeave={() => setIsImageLinkHovering(false)}
-        >
+        <WorkImageLink to={workLinkPath}>
           <GlassRectangle
             glassDarkShadowBlur={
               isHoveringOverall(

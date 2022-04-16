@@ -277,6 +277,19 @@ export const WorkImageWrapper = styled(motion.div).attrs(({ className }) => ({
       opacity: 0,
       y: className?.includes('reverse') ? -100 : -150,
     },
+    hovering: {
+      rotate: className?.includes('reverse') ? 15 : -15,
+      scale: 1.1,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.2,
+      },
+    },
+    nonHovering: {
+      rotate: 0,
+      scale: 1,
+    },
     visible: {
       opacity: 1,
       y: 0,
