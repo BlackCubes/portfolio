@@ -39,6 +39,7 @@ const TalkContainer: FC<ITalkContainer> = ({
   const { inView: imageInView, ref: imageRef } = useInView();
 
   const [isTitleLinkHovering, setIsTitleLinkHovering] = useIsHovering();
+  const [isImageLinkHovering, setIsImageLinkHovering] = useIsHovering();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -66,21 +67,23 @@ const TalkContainer: FC<ITalkContainer> = ({
         <TalkImageWrapper
           animate={imageAnimateControls}
           className={reverseClass}
+          onHoverStart={() => setIsImageLinkHovering(true)}
+          onHoverEnd={() => setIsImageLinkHovering(false)}
           ref={imageRef}
         >
           <TalkImageLink href={talkLinkPath} target="_blank" rel="noopener">
             <GlassTriangle
-              glassDarkShadowBlur={isTitleLinkHovering ? 0.4 : 0}
-              glassDarkShadowHorizontalOffset={isTitleLinkHovering ? 0.3 : 0.1}
-              glassDarkShadowVerticalOffset={isTitleLinkHovering ? 0.3 : 0.1}
-              glassLightShadowBlur={isTitleLinkHovering ? 0.4 : 0}
+              glassDarkShadowBlur={isImageLinkHovering ? 0.4 : 0}
+              glassDarkShadowHorizontalOffset={isImageLinkHovering ? 0.3 : 0.1}
+              glassDarkShadowVerticalOffset={isImageLinkHovering ? 0.3 : 0.1}
+              glassLightShadowBlur={isImageLinkHovering ? 0.4 : 0}
               glassLightShadowHorizontalOffset={
-                isTitleLinkHovering ? -0.3 : -0.1
+                isImageLinkHovering ? -0.3 : -0.1
               }
-              glassLightShadowVerticalOffset={isTitleLinkHovering ? -0.3 : -0.1}
+              glassLightShadowVerticalOffset={isImageLinkHovering ? -0.3 : -0.1}
               imageAlt={talkImageAlt}
               imageSrc={talkImageSrc}
-              opacity={isTitleLinkHovering ? 0.75 : 1}
+              opacity={isImageLinkHovering ? 0.75 : 1}
               reverseClass={reverseClass}
             />
           </TalkImageLink>
