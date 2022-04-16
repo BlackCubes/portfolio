@@ -264,12 +264,12 @@ export const ArticleImageWrapper = styled(motion.div).attrs(
     variants: {
       hidden: {
         opacity: 0,
-        rotate: className?.includes('article3') ? 720 : 0,
+        rotate: 0,
         scale: 0,
       },
       visible: {
         opacity: 1,
-        rotate: className?.includes('article3') ? 0 : 720,
+        rotate: className?.includes('article3') ? -720 : 720,
         scale: 1,
         transition: {
           type: 'spring',

@@ -70,6 +70,7 @@ const ArticleContainer: FC<IArticleContainer> = ({
       <ArticleDescriptionContainer>
         <ArticleImageWrapper
           animate={imageAnimateControls}
+          className={articleClass}
           onHoverStart={() => setIsImageLinkHovering(true)}
           onHoverEnd={() => setIsImageLinkHovering(false)}
           ref={imageRef}
