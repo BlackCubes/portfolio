@@ -268,7 +268,7 @@ export const ArticleImageWrapper = styled(motion.div).attrs(
         scale: 0,
       },
       hovering: {
-        rotate: className?.includes('article3') ? 720 : -720,
+        rotate: !className?.includes('article2') ? -720 : 720,
         scale: 1.12,
         transition: {
           type: 'spring',
@@ -282,7 +282,7 @@ export const ArticleImageWrapper = styled(motion.div).attrs(
       },
       visible: {
         opacity: 1,
-        rotate: className?.includes('article3') ? -720 : 720,
+        rotate: !className?.includes('article2') ? 720 : -720,
         scale: 1,
         transition: {
           type: 'spring',
