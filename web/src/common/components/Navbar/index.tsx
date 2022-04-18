@@ -2,6 +2,8 @@ import React, { FC, useEffect, useState } from 'react';
 
 import logo from 'assets/img/logo_bw.png';
 
+import { useScreenDimensions } from 'common/hooks';
+
 import { ItemLink, itemData } from '../ItemLink';
 
 import {
@@ -19,26 +21,9 @@ import {
 
 const Navbar: FC = () => {
   const [isMenuChecked, setIsMenuChecked] = useState(false);
-  const [screenDimension, setScreenDimension] = useState({
-    screenHeight: window.innerHeight,
-    screenWidth: window.innerWidth,
-  });
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const getScreenDimension = (): void =>
-    setScreenDimension((currentScreenDimension) => ({
-      ...currentScreenDimension,
-      screenHeight: window.innerHeight,
-      screenWidth: window.innerWidth,
-    }));
-
-  useEffect(() => {
-    window.addEventListener('resize', getScreenDimension);
-
-    return () => {
-      window.removeEventListener('resize', getScreenDimension);
-    };
-  }, [screenDimension]);
+  const screenDimensions = useScreenDimensions();
 
   const handleScroll = (): void => {
     setScrollPosition(window.scrollY);
@@ -68,7 +53,7 @@ const Navbar: FC = () => {
         </LogoWrapper>
 
         {/* FOR RESPONSIVE DESIGN ON MAX-WIDTH 599PX AND BELOW */}
-        {screenDimension.screenWidth <= 599 && (
+        {screenDimensions.screenWidth <= 599 && (
           <HamburgerMenuCheckbox
             checked={isMenuChecked}
             onChange={() => {
@@ -81,7 +66,7 @@ const Navbar: FC = () => {
           <HamburgerMenu />
         </HamburgerMenuContainer>
 
-        <ItemsContainer windowHeight={screenDimension.screenHeight}>
+        <ItemsContainer windowHeight={screenDimensions.screenHeight}>
           {itemData.map((item) => (
             <Item key={item.id}>
               <ItemLink
