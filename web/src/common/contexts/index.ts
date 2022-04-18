@@ -1,5 +1,2 @@
-export {
-  default as FirstMountContext,
-  useFirstMountContext,
-} from './FirstMountContext';
+/* eslint-disable-next-line import/prefer-default-export */
 export { default as ThemeContext, useThemeContext } from './ThemeContext';
