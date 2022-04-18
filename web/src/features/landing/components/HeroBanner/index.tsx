@@ -41,7 +41,7 @@ const HeroBanner: FC = () => (
 
       <SecondaryBiographyWrapper>
         <Paragraph>
-          I enjoy architecturing with the art and mathematical model of nature
+          I enjoy on architecting with the art and mathematical model of nature
           to create beautiful user experiences for the web, native mobile apps,
           and data science
         </Paragraph>

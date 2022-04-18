@@ -1,10 +1,24 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // ARTICLE SECTION
 export const Section = styled.section``;
 
-export const SectionTitle = styled.div``;
+export const SectionTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))``;
 
 export const Container = styled.div`
   display: flex;
@@ -24,7 +38,20 @@ export const Container = styled.div`
   }
 `;
 
-export const Introduction = styled.div`
+export const Introduction = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: -10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   text-align: center;
   padding: 5rem 15rem;
 
@@ -64,7 +91,18 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const ExploreMoreWrapper = styled.div`
+export const ExploreMoreWrapper = styled(motion.div).attrs(() => ({
+  variants: {
+    visible: {
+      rotate: [0, 15, 7.5, 15, 0],
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        times: [0, 0.2, 0.5, 0.8, 1],
+      },
+    },
+  },
+}))`
   margin-top: 10rem;
   text-align: center;
 
@@ -220,9 +258,58 @@ export const ArticleDescriptionContainer = styled.div`
   align-items: center;
 `;
 
-export const ArticleImageWrapper = styled.div`
+export const ArticleImageWrapper = styled(motion.div).attrs(
+  ({ className }) => ({
+    initial: 'hidden',
+    variants: {
+      hidden: {
+        opacity: 0,
+        rotate: 0,
+        scale: 0,
+      },
+      hovering: {
+        rotate: !className?.includes('article2') ? -720 : 720,
+        scale: 1.12,
+        transition: {
+          type: 'spring',
+          bounce: 0.4,
+          duration: 0.2,
+        },
+      },
+      nonHovering: {
+        rotate: 0,
+        scale: 1,
+      },
+      visible: {
+        opacity: 1,
+        rotate: !className?.includes('article2') ? 720 : -720,
+        scale: 1,
+        transition: {
+          type: 'spring',
+          bounce: 0.4,
+          duration: 0.5,
+        },
+      },
+    },
+  })
+)`
   margin-bottom: 2rem;
 `;
+
+export const ArticleImageLink = styled(Link)``;
+
+export const ArticleTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))``;
 
 export const ArticleTitleLink = styled(Link)`
   text-align: center;

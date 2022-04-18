@@ -1,10 +1,24 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // WORK SECTION
 export const Section = styled.section``;
 
-export const SectionTitle = styled.div`
+export const SectionTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   text-align: right;
 `;
 
@@ -26,7 +40,18 @@ export const Container = styled.div`
   }
 `;
 
-export const ExploreMoreWrapper = styled.div`
+export const ExploreMoreWrapper = styled(motion.div).attrs(() => ({
+  variants: {
+    visible: {
+      rotate: [0, 15, 7.5, 15, 0],
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        times: [0, 0.2, 0.5, 0.8, 1],
+      },
+    },
+  },
+}))`
   margin-top: 5rem;
   text-align: center;
 
@@ -90,7 +115,18 @@ export const WorkContainerStyle = styled.div`
   }
 `;
 
-export const WorkTitle = styled.div`
+export const WorkTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))`
   width: 35%;
 
   &.reverse {
@@ -120,6 +156,10 @@ export const WorkTitle = styled.div`
   }
 `;
 
+export const WorkTitleLink = styled(Link)`
+  text-decoration: none;
+`;
+
 export const WorkDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -135,7 +175,18 @@ export const WorkDescriptionContainer = styled.div`
   }
 `;
 
-export const WorkDescription = styled.div`
+export const WorkDescription = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))`
   margin-bottom: 2rem;
 
   &.reverse {
@@ -160,7 +211,24 @@ export const WorkDescription = styled.div`
   }
 `;
 
-export const WorkLinkWrapper = styled.div`
+export const WorkLinkWrapper = styled(motion.div).attrs(({ className }) => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: className?.includes('reverse') ? -100 : -150,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   text-align: right;
 
   &.reverse {
@@ -202,7 +270,37 @@ export const WorkLink = styled(Link)`
   }
 `;
 
-export const WorkImageWrapper = styled.div`
+export const WorkImageWrapper = styled(motion.div).attrs(({ className }) => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: className?.includes('reverse') ? -100 : -150,
+    },
+    hovering: {
+      rotate: className?.includes('reverse') ? 15 : -15,
+      scale: 1.1,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.2,
+      },
+    },
+    nonHovering: {
+      rotate: 0,
+      scale: 1,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   width: 18%;
   margin-left: 3rem;
 
@@ -225,3 +323,5 @@ export const WorkImageWrapper = styled.div`
     padding: 1rem 1rem;
   }
 `;
+
+export const WorkImageLink = styled(Link)``;

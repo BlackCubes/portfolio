@@ -1,9 +1,23 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 // TALK SECTION
 export const Section = styled.section``;
 
-export const SectionTitle = styled.div`
+export const SectionTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   text-align: center;
 `;
 
@@ -53,9 +67,30 @@ export const TalkDescriptionContainer = styled.div`
       padding-top: 0;
     }
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    overflow-x: hidden;
+  }
 `;
 
-export const TalkImageWrapper = styled.div`
+export const TalkImageWrapper = styled(motion.div).attrs(({ className }) => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: className?.includes('reverse') ? 100 : -100,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   margin-bottom: 2rem;
 
   &.reverse {
@@ -63,6 +98,21 @@ export const TalkImageWrapper = styled.div`
     margin-bottom: 0;
   }
 `;
+
+export const TalkImageLink = styled.a``;
+
+export const TalkTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))``;
 
 export const TalkTitleLink = styled.a`
   padding-left: 7rem;

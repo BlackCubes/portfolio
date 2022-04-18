@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GlassTriangle from 'common/components/GlassTriangle';
 
@@ -9,11 +11,14 @@ import HeadingTertiary from 'common/typography/HeadingTertiary';
 import {
   TalkContainerStyle,
   TalkDescriptionContainer,
+  TalkImageLink,
   TalkImageWrapper,
+  TalkTitle,
   TalkTitleLink,
 } from './styles';
 
 export interface ITalkContainer {
+  finishIsFirstMount: boolean;
   reverseClass?: string;
   talkImageAlt: string;
   talkImageSrc: string;
@@ -22,48 +27,88 @@ export interface ITalkContainer {
 }
 
 const TalkContainer: FC<ITalkContainer> = ({
+  finishIsFirstMount,
   reverseClass,
   talkImageAlt,
   talkImageSrc,
   talkLinkPath,
   talkTitle,
 }) => {
-  const [isHovering, setIsHovering] = useIsHovering();
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
+
+  const imageAnimateControls = useAnimation();
+  const { inView: imageInView, ref: imageRef } = useInView();
+
+  const [isTitleLinkHovering, setIsTitleLinkHovering] = useIsHovering();
+  const [isImageLinkHovering, setIsImageLinkHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, titleAnimateControls, titleInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && imageInView) {
+        imageAnimateControls.start('visible');
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, imageAnimateControls, imageInView]);
 
   return (
     <TalkContainerStyle>
       <TalkDescriptionContainer className={reverseClass}>
-        <TalkImageWrapper className={reverseClass}>
-          <GlassTriangle
-            glassDarkShadowBlur={isHovering ? 0.4 : 0}
-            glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
-            glassDarkShadowVerticalOffset={isHovering ? 0.3 : 0.1}
-            glassLightShadowBlur={isHovering ? 0.4 : 0}
-            glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
-            glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
-            imageAlt={talkImageAlt}
-            imageSrc={talkImageSrc}
-            opacity={isHovering ? 0.75 : 1}
-            reverseClass={reverseClass}
-          />
+        <TalkImageWrapper
+          animate={imageAnimateControls}
+          className={reverseClass}
+          onHoverStart={() => setIsImageLinkHovering(true)}
+          onHoverEnd={() => setIsImageLinkHovering(false)}
+          ref={imageRef}
+        >
+          <TalkImageLink href={talkLinkPath} target="_blank" rel="noopener">
+            <GlassTriangle
+              glassDarkShadowBlur={isImageLinkHovering ? 0.4 : 0}
+              glassDarkShadowHorizontalOffset={isImageLinkHovering ? 0.3 : 0.1}
+              glassDarkShadowVerticalOffset={isImageLinkHovering ? 0.3 : 0.1}
+              glassLightShadowBlur={isImageLinkHovering ? 0.4 : 0}
+              glassLightShadowHorizontalOffset={
+                isImageLinkHovering ? -0.3 : -0.1
+              }
+              glassLightShadowVerticalOffset={isImageLinkHovering ? -0.3 : -0.1}
+              imageAlt={talkImageAlt}
+              imageSrc={talkImageSrc}
+              opacity={isImageLinkHovering ? 0.75 : 1}
+              reverseClass={reverseClass}
+            />
+          </TalkImageLink>
         </TalkImageWrapper>
 
-        <TalkTitleLink
-          href={talkLinkPath}
-          target="_blank"
-          rel="noopener"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-        >
-          <HeadingTertiary
-            {...(isHovering && {
-              opacity: 0.8,
-              textDecoration: 'underline',
-            })}
+        <TalkTitle animate={titleAnimateControls} ref={titleRef}>
+          <TalkTitleLink
+            href={talkLinkPath}
+            target="_blank"
+            rel="noopener"
+            onMouseEnter={() => setIsTitleLinkHovering(true)}
+            onMouseLeave={() => setIsTitleLinkHovering(false)}
           >
-            {talkTitle}
-          </HeadingTertiary>
-        </TalkTitleLink>
+            <HeadingTertiary
+              {...(isTitleLinkHovering && {
+                opacity: 0.8,
+                textDecoration: 'underline',
+              })}
+            >
+              {talkTitle}
+            </HeadingTertiary>
+          </TalkTitleLink>
+        </TalkTitle>
       </TalkDescriptionContainer>
     </TalkContainerStyle>
   );

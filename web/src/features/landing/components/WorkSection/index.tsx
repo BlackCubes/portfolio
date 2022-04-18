@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -33,15 +35,42 @@ type TWorksData = Pick<
 };
 
 interface IWorkSection {
+  finishIsFirstMount: boolean;
   worksData: TWorksData[];
 }
 
-const WorkSection: FC<IWorkSection> = ({ worksData }) => {
+const WorkSection: FC<IWorkSection> = ({ finishIsFirstMount, worksData }) => {
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
+
+  const viewMoreAnimateControls = useAnimation();
+  const { inView: viewMoreInView, ref: viewMoreRef } = useInView();
+
   const [isHovering, setIsHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, titleAnimateControls, titleInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && viewMoreInView) {
+        viewMoreAnimateControls.start('visible');
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, viewMoreAnimateControls, viewMoreInView]);
 
   return (
     <Section className="default-margin-bottom">
-      <SectionTitle>
+      <SectionTitle animate={titleAnimateControls} ref={titleRef}>
         <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
           Work
         </HeadingSecondary>
@@ -54,6 +83,7 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
               <LineSeparator rotateClass="negative-rotate" />
 
               <WorkContainer
+                finishIsFirstMount={finishIsFirstMount}
                 isExploreLinkHovering={isHovering}
                 workDescription={workData.description}
                 workImageAlt={workData.title}
@@ -73,7 +103,7 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
           ))}
       </Container>
 
-      <ExploreMoreWrapper>
+      <ExploreMoreWrapper animate={viewMoreAnimateControls} ref={viewMoreRef}>
         <ExploreMoreLink
           to="/work"
           onMouseEnter={() => setIsHovering(true)}

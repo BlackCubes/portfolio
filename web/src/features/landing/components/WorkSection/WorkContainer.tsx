@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GlassRectangle from 'common/components/GlassRectangle';
 
@@ -13,13 +15,16 @@ import {
   WorkContainerStyle,
   WorkDescription,
   WorkDescriptionContainer,
+  WorkImageLink,
   WorkImageWrapper,
   WorkLink,
   WorkLinkWrapper,
   WorkTitle,
+  WorkTitleLink,
 } from './styles';
 
 export interface IWorkContainer {
+  finishIsFirstMount: boolean;
   isExploreLinkHovering: boolean;
   reverseClass?: string;
   workDescription: string;
@@ -31,6 +36,7 @@ export interface IWorkContainer {
 }
 
 const WorkContainer: FC<IWorkContainer> = ({
+  finishIsFirstMount,
   isExploreLinkHovering,
   reverseClass,
   workDescription,
@@ -40,25 +46,121 @@ const WorkContainer: FC<IWorkContainer> = ({
   workLinkPath,
   workTitle,
 }) => {
-  const [isHovering, setIsHovering] = useIsHovering();
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
+
+  const descriptionAnimateControls = useAnimation();
+  const { inView: descriptionInView, ref: descriptionRef } = useInView();
+
+  const linkAnimateControls = useAnimation();
+  const { inView: linkInView, ref: linkRef } = useInView();
+
+  const imageAnimateControls = useAnimation();
+  const { inView: imageInView, ref: imageRef } = useInView();
+
+  const [isTitleLinkHovering, setIsTitleLinkHovering] = useIsHovering();
+  const [isImageLinkHovering, setIsImageLinkHovering] = useIsHovering();
+  const [isWorkLinkHovering, setIsWorkLinkHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, titleAnimateControls, titleInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && descriptionInView) {
+        descriptionAnimateControls.start('visible');
+      }
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, descriptionAnimateControls, descriptionInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && linkInView) {
+        linkAnimateControls.start('visible');
+      }
+    }, 1700);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, linkAnimateControls, linkInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && imageInView) {
+        imageAnimateControls.start('visible');
+      }
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, imageAnimateControls, imageInView]);
+
+  useEffect(() => {
+    if (
+      !finishIsFirstMount &&
+      isHoveringOverall(
+        isImageLinkHovering,
+        isWorkLinkHovering,
+        isExploreLinkHovering
+      )
+    ) {
+      imageAnimateControls.start('hovering');
+    } else {
+      imageAnimateControls.start('nonHovering');
+    }
+  }, [
+    finishIsFirstMount,
+    isImageLinkHovering,
+    isWorkLinkHovering,
+    isExploreLinkHovering,
+    imageAnimateControls,
+  ]);
 
   return (
     <WorkContainerStyle className={reverseClass}>
-      <WorkTitle className={reverseClass}>
-        <HeadingTertiary
-          {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
-            opacity: 0.8,
-            textDecoration: 'underline',
-          })}
+      <WorkTitle
+        animate={titleAnimateControls}
+        className={reverseClass}
+        ref={titleRef}
+      >
+        <WorkTitleLink
+          to={workLinkPath}
+          onMouseEnter={() => setIsTitleLinkHovering(true)}
+          onMouseLeave={() => setIsTitleLinkHovering(false)}
         >
-          {workTitle}
-        </HeadingTertiary>
+          <HeadingTertiary
+            {...(isHoveringOverall(
+              isTitleLinkHovering,
+              isWorkLinkHovering,
+              isExploreLinkHovering
+            ) && {
+              opacity: 0.8,
+              textDecoration: 'underline',
+            })}
+          >
+            {workTitle}
+          </HeadingTertiary>
+        </WorkTitleLink>
       </WorkTitle>
 
       <WorkDescriptionContainer>
-        <WorkDescription className={reverseClass}>
+        <WorkDescription
+          animate={descriptionAnimateControls}
+          className={reverseClass}
+          ref={descriptionRef}
+        >
           <Paragraph
-            {...(isHoveringOverall(isHovering, isExploreLinkHovering) && {
+            {...(isHoveringOverall(
+              isWorkLinkHovering,
+              isExploreLinkHovering
+            ) && {
               opacity: 0.8,
             })}
           >
@@ -66,43 +168,97 @@ const WorkContainer: FC<IWorkContainer> = ({
           </Paragraph>
         </WorkDescription>
 
-        <WorkLinkWrapper className={reverseClass}>
+        <WorkLinkWrapper
+          animate={linkAnimateControls}
+          className={reverseClass}
+          ref={linkRef}
+        >
           <WorkLink
             to={workLinkPath}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
+            onMouseEnter={() => setIsWorkLinkHovering(true)}
+            onMouseLeave={() => setIsWorkLinkHovering(false)}
           >
             {workLinkContent}
           </WorkLink>
         </WorkLinkWrapper>
       </WorkDescriptionContainer>
 
-      <WorkImageWrapper className={reverseClass}>
-        <GlassRectangle
-          glassDarkShadowBlur={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
-          }
-          glassDarkShadowHorizontalOffset={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.3 : 0.1
-          }
-          glassDarkShadowVerticalOffset={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.3 : 0.1
-          }
-          glassLightShadowBlur={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.4 : 0
-          }
-          glassLightShadowHorizontalOffset={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? -0.3 : -0.1
-          }
-          glassLightShadowVerticalOffset={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? -0.3 : -0.1
-          }
-          imageAlt={workImageAlt}
-          imageSrc={workImageSrc}
-          opacity={
-            isHoveringOverall(isHovering, isExploreLinkHovering) ? 0.75 : 1
-          }
-        />
+      <WorkImageWrapper
+        animate={imageAnimateControls}
+        className={reverseClass}
+        onHoverStart={() => setIsImageLinkHovering(true)}
+        onHoverEnd={() => setIsImageLinkHovering(false)}
+        ref={imageRef}
+      >
+        <WorkImageLink to={workLinkPath}>
+          <GlassRectangle
+            glassDarkShadowBlur={
+              isHoveringOverall(
+                isImageLinkHovering,
+                isWorkLinkHovering,
+                isExploreLinkHovering
+              )
+                ? 0.4
+                : 0
+            }
+            glassDarkShadowHorizontalOffset={
+              isHoveringOverall(
+                isImageLinkHovering,
+                isWorkLinkHovering,
+                isExploreLinkHovering
+              )
+                ? 0.3
+                : 0.1
+            }
+            glassDarkShadowVerticalOffset={
+              isHoveringOverall(
+                isImageLinkHovering,
+                isWorkLinkHovering,
+                isExploreLinkHovering
+              )
+                ? 0.3
+                : 0.1
+            }
+            glassLightShadowBlur={
+              isHoveringOverall(
+                isImageLinkHovering,
+                isWorkLinkHovering,
+                isExploreLinkHovering
+              )
+                ? 0.4
+                : 0
+            }
+            glassLightShadowHorizontalOffset={
+              isHoveringOverall(
+                isImageLinkHovering,
+                isWorkLinkHovering,
+                isExploreLinkHovering
+              )
+                ? -0.3
+                : -0.1
+            }
+            glassLightShadowVerticalOffset={
+              isHoveringOverall(
+                isImageLinkHovering,
+                isWorkLinkHovering,
+                isExploreLinkHovering
+              )
+                ? -0.3
+                : -0.1
+            }
+            imageAlt={workImageAlt}
+            imageSrc={workImageSrc}
+            opacity={
+              isHoveringOverall(
+                isImageLinkHovering,
+                isWorkLinkHovering,
+                isExploreLinkHovering
+              )
+                ? 0.75
+                : 1
+            }
+          />
+        </WorkImageLink>
       </WorkImageWrapper>
     </WorkContainerStyle>
   );

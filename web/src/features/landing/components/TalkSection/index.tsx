@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import talkPresentation1 from 'assets/img/talk-presentation1.png';
 import talkPresentation2 from 'assets/img/talk-presentation2.png';
@@ -10,7 +12,7 @@ import HeadingSecondary from 'common/typography/HeadingSecondary';
 import { Container, Section, SectionTitle } from './styles';
 import TalkContainer, { ITalkContainer } from './TalkContainer';
 
-const talkContainerData: ITalkContainer[] = [
+const talkContainerData: Omit<ITalkContainer, 'finishIsFirstMount'>[] = [
   {
     talkImageAlt: 'Django Part 1 Presentation',
     talkImageSrc: talkPresentation1,
@@ -29,32 +31,52 @@ const talkContainerData: ITalkContainer[] = [
   },
 ];
 
-const TalkSection: FC = () => (
-  <Section>
-    <SectionTitle>
-      <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
-        Talks
-      </HeadingSecondary>
-    </SectionTitle>
+interface ITalkSection {
+  finishIsFirstMount: boolean;
+}
 
-    <LineSeparator />
+const TalkSection: FC<ITalkSection> = ({ finishIsFirstMount }) => {
+  const controls = useAnimation();
+  const { inView, ref } = useInView();
 
-    <Container>
-      {talkContainerData.map((talkData) => (
-        <React.Fragment
-          key={talkData.talkImageAlt.toLowerCase().split(' ').join('-')}
-        >
-          <TalkContainer
-            reverseClass={talkData.reverseClass}
-            talkImageAlt={talkData.talkImageAlt}
-            talkImageSrc={talkData.talkImageSrc}
-            talkLinkPath={talkData.talkLinkPath}
-            talkTitle={talkData.talkTitle}
-          />
-        </React.Fragment>
-      ))}
-    </Container>
-  </Section>
-);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && inView) {
+        controls.start('visible');
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, controls, inView]);
+
+  return (
+    <Section>
+      <SectionTitle animate={controls} ref={ref}>
+        <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
+          Talks
+        </HeadingSecondary>
+      </SectionTitle>
+
+      <LineSeparator />
+
+      <Container>
+        {talkContainerData.map((talkData) => (
+          <React.Fragment
+            key={talkData.talkImageAlt.toLowerCase().split(' ').join('-')}
+          >
+            <TalkContainer
+              finishIsFirstMount={finishIsFirstMount}
+              reverseClass={talkData.reverseClass}
+              talkImageAlt={talkData.talkImageAlt}
+              talkImageSrc={talkData.talkImageSrc}
+              talkLinkPath={talkData.talkLinkPath}
+              talkTitle={talkData.talkTitle}
+            />
+          </React.Fragment>
+        ))}
+      </Container>
+    </Section>
+  );
+};
 
 export default TalkSection;

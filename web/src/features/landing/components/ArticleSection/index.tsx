@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -38,14 +40,57 @@ type TArticlesData = Pick<
 
 interface IArticleSection {
   articlesData: TArticlesData[] | [];
+  finishIsFirstMount: boolean;
 }
 
-const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
+const ArticleSection: FC<IArticleSection> = ({
+  articlesData,
+  finishIsFirstMount,
+}) => {
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
+
+  const introAnimateControls = useAnimation();
+  const { inView: introInView, ref: introRef } = useInView();
+
+  const viewMoreAnimateControls = useAnimation();
+  const { inView: viewMoreInView, ref: viewMoreRef } = useInView();
+
   const [isHovering, setIsHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, titleAnimateControls, titleInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && introInView) {
+        introAnimateControls.start('visible');
+      }
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, introAnimateControls, introInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && viewMoreInView) {
+        viewMoreAnimateControls.start('visible');
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, viewMoreAnimateControls, viewMoreInView]);
 
   return (
     <Section className="default-margin-bottom">
-      <SectionTitle>
+      <SectionTitle animate={titleAnimateControls} ref={titleRef}>
         <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
           Articles
         </HeadingSecondary>
@@ -54,7 +99,7 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
       <Container>
         <LineSeparator rotateClass="positive-rotate" />
 
-        <Introduction>
+        <Introduction animate={introAnimateControls} ref={introRef}>
           <Paragraph>
             Massa eget egestas purus viverra accumsan in nisl nisi scelerisque
             eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius
@@ -77,13 +122,14 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
                   }
                   articleLinkPath={`/articles/${articleData.meta.slug}`}
                   articleTitle={articleData.title}
+                  finishIsFirstMount={finishIsFirstMount}
                 />
               </React.Fragment>
             ))}
         </Wrapper>
       </Container>
 
-      <ExploreMoreWrapper>
+      <ExploreMoreWrapper animate={viewMoreAnimateControls} ref={viewMoreRef}>
         <ExploreMoreLink
           to="/articles"
           onMouseEnter={() => setIsHovering(true)}
