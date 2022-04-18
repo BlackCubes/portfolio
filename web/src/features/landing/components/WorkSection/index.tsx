@@ -35,10 +35,11 @@ type TWorksData = Pick<
 };
 
 interface IWorkSection {
+  finishIsFirstMount: boolean;
   worksData: TWorksData[];
 }
 
-const WorkSection: FC<IWorkSection> = ({ worksData }) => {
+const WorkSection: FC<IWorkSection> = ({ finishIsFirstMount, worksData }) => {
   const titleAnimateControls = useAnimation();
   const { inView: titleInView, ref: titleRef } = useInView();
 
@@ -49,23 +50,23 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (titleInView) {
+      if (!finishIsFirstMount && titleInView) {
         titleAnimateControls.start('visible');
       }
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [titleAnimateControls, titleInView]);
+  }, [finishIsFirstMount, titleAnimateControls, titleInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (viewMoreInView) {
+      if (!finishIsFirstMount && viewMoreInView) {
         viewMoreAnimateControls.start('visible');
       }
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, [viewMoreAnimateControls, viewMoreInView]);
+  }, [finishIsFirstMount, viewMoreAnimateControls, viewMoreInView]);
 
   return (
     <Section className="default-margin-bottom">
@@ -82,6 +83,7 @@ const WorkSection: FC<IWorkSection> = ({ worksData }) => {
               <LineSeparator rotateClass="negative-rotate" />
 
               <WorkContainer
+                finishIsFirstMount={finishIsFirstMount}
                 isExploreLinkHovering={isHovering}
                 workDescription={workData.description}
                 workImageAlt={workData.title}

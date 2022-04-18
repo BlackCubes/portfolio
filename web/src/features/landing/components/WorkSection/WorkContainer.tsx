@@ -24,6 +24,7 @@ import {
 } from './styles';
 
 export interface IWorkContainer {
+  finishIsFirstMount: boolean;
   isExploreLinkHovering: boolean;
   reverseClass?: string;
   workDescription: string;
@@ -35,6 +36,7 @@ export interface IWorkContainer {
 }
 
 const WorkContainer: FC<IWorkContainer> = ({
+  finishIsFirstMount,
   isExploreLinkHovering,
   reverseClass,
   workDescription,
@@ -62,46 +64,47 @@ const WorkContainer: FC<IWorkContainer> = ({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (titleInView) {
+      if (!finishIsFirstMount && titleInView) {
         titleAnimateControls.start('visible');
       }
     }, 600);
 
     return () => clearTimeout(timer);
-  }, [titleAnimateControls, titleInView]);
+  }, [finishIsFirstMount, titleAnimateControls, titleInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (descriptionInView) {
+      if (!finishIsFirstMount && descriptionInView) {
         descriptionAnimateControls.start('visible');
       }
     }, 800);
 
     return () => clearTimeout(timer);
-  }, [descriptionAnimateControls, descriptionInView]);
+  }, [finishIsFirstMount, descriptionAnimateControls, descriptionInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (linkInView) {
+      if (!finishIsFirstMount && linkInView) {
         linkAnimateControls.start('visible');
       }
     }, 1700);
 
     return () => clearTimeout(timer);
-  }, [linkAnimateControls, linkInView]);
+  }, [finishIsFirstMount, linkAnimateControls, linkInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (imageInView) {
+      if (!finishIsFirstMount && imageInView) {
         imageAnimateControls.start('visible');
       }
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, [imageAnimateControls, imageInView]);
+  }, [finishIsFirstMount, imageAnimateControls, imageInView]);
 
   useEffect(() => {
     if (
+      !finishIsFirstMount &&
       isHoveringOverall(
         isImageLinkHovering,
         isWorkLinkHovering,
@@ -113,6 +116,7 @@ const WorkContainer: FC<IWorkContainer> = ({
       imageAnimateControls.start('nonHovering');
     }
   }, [
+    finishIsFirstMount,
     isImageLinkHovering,
     isWorkLinkHovering,
     isExploreLinkHovering,

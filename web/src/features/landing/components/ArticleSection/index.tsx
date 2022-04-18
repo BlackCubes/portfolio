@@ -40,9 +40,13 @@ type TArticlesData = Pick<
 
 interface IArticleSection {
   articlesData: TArticlesData[] | [];
+  finishIsFirstMount: boolean;
 }
 
-const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
+const ArticleSection: FC<IArticleSection> = ({
+  articlesData,
+  finishIsFirstMount,
+}) => {
   const titleAnimateControls = useAnimation();
   const { inView: titleInView, ref: titleRef } = useInView();
 
@@ -56,33 +60,33 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (titleInView) {
+      if (!finishIsFirstMount && titleInView) {
         titleAnimateControls.start('visible');
       }
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [titleAnimateControls, titleInView]);
+  }, [finishIsFirstMount, titleAnimateControls, titleInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (introInView) {
+      if (!finishIsFirstMount && introInView) {
         introAnimateControls.start('visible');
       }
     }, 600);
 
     return () => clearTimeout(timer);
-  }, [introAnimateControls, introInView]);
+  }, [finishIsFirstMount, introAnimateControls, introInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (viewMoreInView) {
+      if (!finishIsFirstMount && viewMoreInView) {
         viewMoreAnimateControls.start('visible');
       }
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, [viewMoreAnimateControls, viewMoreInView]);
+  }, [finishIsFirstMount, viewMoreAnimateControls, viewMoreInView]);
 
   return (
     <Section className="default-margin-bottom">
@@ -118,6 +122,7 @@ const ArticleSection: FC<IArticleSection> = ({ articlesData }) => {
                   }
                   articleLinkPath={`/articles/${articleData.meta.slug}`}
                   articleTitle={articleData.title}
+                  finishIsFirstMount={finishIsFirstMount}
                 />
               </React.Fragment>
             ))}

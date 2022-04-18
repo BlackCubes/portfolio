@@ -18,6 +18,7 @@ import {
 } from './styles';
 
 export interface ITalkContainer {
+  finishIsFirstMount: boolean;
   reverseClass?: string;
   talkImageAlt: string;
   talkImageSrc: string;
@@ -26,6 +27,7 @@ export interface ITalkContainer {
 }
 
 const TalkContainer: FC<ITalkContainer> = ({
+  finishIsFirstMount,
   reverseClass,
   talkImageAlt,
   talkImageSrc,
@@ -43,23 +45,23 @@ const TalkContainer: FC<ITalkContainer> = ({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (titleInView) {
+      if (!finishIsFirstMount && titleInView) {
         titleAnimateControls.start('visible');
       }
     }, 700);
 
     return () => clearTimeout(timer);
-  }, [titleAnimateControls, titleInView]);
+  }, [finishIsFirstMount, titleAnimateControls, titleInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (imageInView) {
+      if (!finishIsFirstMount && imageInView) {
         imageAnimateControls.start('visible');
       }
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [imageAnimateControls, imageInView]);
+  }, [finishIsFirstMount, imageAnimateControls, imageInView]);
 
   return (
     <TalkContainerStyle>

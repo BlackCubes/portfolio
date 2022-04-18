@@ -158,11 +158,17 @@ const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
 
               <HeroBanner />
 
-              <WorkSection worksData={worksData} />
+              <WorkSection
+                finishIsFirstMount={finishIsFirstMount}
+                worksData={worksData}
+              />
 
-              <ArticleSection articlesData={articlesData?.items ?? []} />
+              <ArticleSection
+                articlesData={articlesData?.items ?? []}
+                finishIsFirstMount={finishIsFirstMount}
+              />
 
-              <TalkSection />
+              <TalkSection finishIsFirstMount={finishIsFirstMount} />
             </>
           }
           isLoading={isLoadingOverall(worksFetching, articlesFetching)}

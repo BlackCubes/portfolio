@@ -20,21 +20,23 @@ import {
 } from './styles';
 
 export interface IArticleContainer {
-  isExploreLinkHovering: boolean;
   articleClass: string;
   articleImageAlt: string;
   articleImageSrc: string;
   articleLinkPath: string;
   articleTitle: string;
+  finishIsFirstMount: boolean;
+  isExploreLinkHovering: boolean;
 }
 
 const ArticleContainer: FC<IArticleContainer> = ({
-  isExploreLinkHovering,
   articleClass,
   articleImageAlt,
   articleImageSrc,
   articleLinkPath,
   articleTitle,
+  finishIsFirstMount,
+  isExploreLinkHovering,
 }) => {
   const titleAnimateControls = useAnimation();
   const { inView: titleInView, ref: titleRef } = useInView();
@@ -47,31 +49,39 @@ const ArticleContainer: FC<IArticleContainer> = ({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (titleInView) {
+      if (!finishIsFirstMount && titleInView) {
         titleAnimateControls.start('visible');
       }
 
       return () => clearTimeout(timer);
     }, 600);
-  }, [titleAnimateControls, titleInView]);
+  }, [finishIsFirstMount, titleAnimateControls, titleInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (imageInView) {
+      if (!finishIsFirstMount && imageInView) {
         imageAnimateControls.start('visible');
       }
     }, 900);
 
     return () => clearTimeout(timer);
-  }, [imageAnimateControls, imageInView]);
+  }, [finishIsFirstMount, imageAnimateControls, imageInView]);
 
   useEffect(() => {
-    if (isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)) {
+    if (
+      !finishIsFirstMount &&
+      isHoveringOverall(isImageLinkHovering, isExploreLinkHovering)
+    ) {
       imageAnimateControls.start('hovering');
     } else {
       imageAnimateControls.start('nonHovering');
     }
-  }, [isImageLinkHovering, isExploreLinkHovering, imageAnimateControls]);
+  }, [
+    finishIsFirstMount,
+    isImageLinkHovering,
+    isExploreLinkHovering,
+    imageAnimateControls,
+  ]);
 
   return (
     <ArticleContainerStyle className={articleClass}>

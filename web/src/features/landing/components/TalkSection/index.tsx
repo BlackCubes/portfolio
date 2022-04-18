@@ -12,7 +12,7 @@ import HeadingSecondary from 'common/typography/HeadingSecondary';
 import { Container, Section, SectionTitle } from './styles';
 import TalkContainer, { ITalkContainer } from './TalkContainer';
 
-const talkContainerData: ITalkContainer[] = [
+const talkContainerData: Omit<ITalkContainer, 'finishIsFirstMount'>[] = [
   {
     talkImageAlt: 'Django Part 1 Presentation',
     talkImageSrc: talkPresentation1,
@@ -31,19 +31,23 @@ const talkContainerData: ITalkContainer[] = [
   },
 ];
 
-const TalkSection: FC = () => {
+interface ITalkSection {
+  finishIsFirstMount: boolean;
+}
+
+const TalkSection: FC<ITalkSection> = ({ finishIsFirstMount }) => {
   const controls = useAnimation();
   const { inView, ref } = useInView();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (inView) {
+      if (!finishIsFirstMount && inView) {
         controls.start('visible');
       }
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [controls, inView]);
+  }, [finishIsFirstMount, controls, inView]);
 
   return (
     <Section>
@@ -61,6 +65,7 @@ const TalkSection: FC = () => {
             key={talkData.talkImageAlt.toLowerCase().split(' ').join('-')}
           >
             <TalkContainer
+              finishIsFirstMount={finishIsFirstMount}
               reverseClass={talkData.reverseClass}
               talkImageAlt={talkData.talkImageAlt}
               talkImageSrc={talkData.talkImageSrc}
