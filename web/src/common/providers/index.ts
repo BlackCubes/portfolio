@@ -1,2 +1,2 @@
-/* eslint-disable-next-line import/prefer-default-export */
+export { default as FirstMountProvider } from './FirstMountProvider';
 export { default as ThemeProvider } from './ThemeProvider';
