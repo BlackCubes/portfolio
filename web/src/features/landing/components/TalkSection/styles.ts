@@ -67,6 +67,10 @@ export const TalkDescriptionContainer = styled.div`
       padding-top: 0;
     }
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    overflow-x: hidden;
+  }
 `;
 
 export const TalkImageWrapper = styled(motion.div).attrs(({ className }) => ({
