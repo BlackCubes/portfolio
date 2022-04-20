@@ -117,11 +117,11 @@ export const PersonalImageWrapper = styled(motion.div).attrs(() => ({
   variants: {
     hidden: {
       opacity: 0,
-      y: -100,
+      x: 100,
     },
     visible: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         type: 'spring',
         bounce: 0.4,
