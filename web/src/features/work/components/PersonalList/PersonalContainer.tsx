@@ -32,13 +32,13 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
   personalPath,
   personalTitle,
 }) => {
-  const [isHovering, setIsHovering] = useIsHovering();
+  const [isPersonalLinkHovering, setIsPersonalLinkHovering] = useIsHovering();
 
   return (
     <PersonalContainerStyle>
       <PersonalDescription>
         <Paragraph
-          {...(isHovering && {
+          {...(isPersonalLinkHovering && {
             opacity: 0.8,
           })}
         >
@@ -48,20 +48,24 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
 
       <PersonalLink
         to={personalPath}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
+        onMouseEnter={() => setIsPersonalLinkHovering(true)}
+        onMouseLeave={() => setIsPersonalLinkHovering(false)}
       >
         <PersonalImageWrapper>
           <GlassTriangle
-            glassDarkShadowBlur={isHovering ? 0.4 : 0}
-            glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
-            glassDarkShadowVerticalOffset={isHovering ? 0.3 : 0.1}
-            glassLightShadowBlur={isHovering ? 0.4 : 0}
-            glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
-            glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
+            glassDarkShadowBlur={isPersonalLinkHovering ? 0.4 : 0}
+            glassDarkShadowHorizontalOffset={isPersonalLinkHovering ? 0.3 : 0.1}
+            glassDarkShadowVerticalOffset={isPersonalLinkHovering ? 0.3 : 0.1}
+            glassLightShadowBlur={isPersonalLinkHovering ? 0.4 : 0}
+            glassLightShadowHorizontalOffset={
+              isPersonalLinkHovering ? -0.3 : -0.1
+            }
+            glassLightShadowVerticalOffset={
+              isPersonalLinkHovering ? -0.3 : -0.1
+            }
             imageAlt={personalImageAlt}
             imageSrc={personalImageSrc}
-            opacity={isHovering ? 0.75 : 1}
+            opacity={isPersonalLinkHovering ? 0.75 : 1}
             reverseClass={reverseClass}
           />
         </PersonalImageWrapper>
@@ -69,7 +73,7 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
 
       <PersonalTitle>
         <HeadingTertiary
-          {...(isHovering && {
+          {...(isPersonalLinkHovering && {
             opacity: 0.8,
           })}
         >
