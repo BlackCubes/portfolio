@@ -178,3 +178,7 @@ export const PersonalTitle = styled(motion.div).attrs(() => ({
     text-align: center;
   }
 `;
+
+export const PersonalTitleLink = styled(Link)`
+  text-decoration: none;
+`;
