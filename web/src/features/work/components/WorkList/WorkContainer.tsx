@@ -26,25 +26,25 @@ const WorkContainer: FC<IWorkContainer> = ({
   workLinkPath,
   workTitle,
 }) => {
-  const [isHovering, setIsHovering] = useIsHovering();
+  const [isWorkLinkHovering, setIsWorkLinkHovering] = useIsHovering();
 
   return (
     <WorkContainerStyle className={reverseClass}>
       <WorkLink
         to={workLinkPath}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
+        onMouseEnter={() => setIsWorkLinkHovering(true)}
+        onMouseLeave={() => setIsWorkLinkHovering(false)}
       >
         <GlassRectangle
-          glassDarkShadowBlur={isHovering ? 0.4 : 0}
-          glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
-          glassDarkShadowVerticalOffset={isHovering ? 0.3 : 0.1}
-          glassLightShadowBlur={isHovering ? 0.4 : 0}
-          glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
-          glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
+          glassDarkShadowBlur={isWorkLinkHovering ? 0.4 : 0}
+          glassDarkShadowHorizontalOffset={isWorkLinkHovering ? 0.3 : 0.1}
+          glassDarkShadowVerticalOffset={isWorkLinkHovering ? 0.3 : 0.1}
+          glassLightShadowBlur={isWorkLinkHovering ? 0.4 : 0}
+          glassLightShadowHorizontalOffset={isWorkLinkHovering ? -0.3 : -0.1}
+          glassLightShadowVerticalOffset={isWorkLinkHovering ? -0.3 : -0.1}
           glassContentElement={
             <Paragraph
-              {...(isHovering && {
+              {...(isWorkLinkHovering && {
                 opacity: 0.8,
               })}
             >
@@ -53,7 +53,7 @@ const WorkContainer: FC<IWorkContainer> = ({
           }
           glassTitleElement={
             <HeadingTertiary
-              {...(isHovering && {
+              {...(isWorkLinkHovering && {
                 opacity: 0.8,
               })}
             >
@@ -63,7 +63,7 @@ const WorkContainer: FC<IWorkContainer> = ({
           hasContent
           imageAlt={workImageAlt}
           imageSrc={workImageSrc}
-          opacity={isHovering ? 0.75 : 1}
+          opacity={isWorkLinkHovering ? 0.75 : 1}
         />
       </WorkLink>
     </WorkContainerStyle>
