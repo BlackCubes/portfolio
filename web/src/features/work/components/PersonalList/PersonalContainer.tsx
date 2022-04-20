@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GlassTriangle from 'common/components/GlassTriangle';
 
@@ -32,7 +34,21 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
   personalPath,
   personalTitle,
 }) => {
+  const imageAnimateControls = useAnimation();
+
+  const { inView: imageInView, ref: imageRef } = useInView();
+
   const [isPersonalLinkHovering, setIsPersonalLinkHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (imageInView) {
+        imageAnimateControls.start('visible');
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [imageAnimateControls, imageInView]);
 
   return (
     <PersonalContainerStyle>
@@ -51,7 +67,7 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
         onMouseEnter={() => setIsPersonalLinkHovering(true)}
         onMouseLeave={() => setIsPersonalLinkHovering(false)}
       >
-        <PersonalImageWrapper>
+        <PersonalImageWrapper animate={imageAnimateControls} ref={imageRef}>
           <GlassTriangle
             glassDarkShadowBlur={isPersonalLinkHovering ? 0.4 : 0}
             glassDarkShadowHorizontalOffset={isPersonalLinkHovering ? 0.3 : 0.1}
