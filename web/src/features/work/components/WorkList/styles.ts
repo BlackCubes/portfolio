@@ -44,6 +44,17 @@ export const WorkContainerStyle = styled(motion.div).attrs(({ className }) => ({
       opacity: 0,
       x: className?.includes('reverse') ? 100 : -100,
     },
+    hovering: {
+      scale: 1.05,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.2,
+      },
+    },
+    nonHovering: {
+      scale: 1,
+    },
     visible: {
       opacity: 1,
       x: 0,

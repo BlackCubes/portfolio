@@ -44,6 +44,14 @@ const WorkContainer: FC<IWorkContainer> = ({
     return () => clearTimeout(timer);
   }, [workAnimateControls, workInView]);
 
+  useEffect(() => {
+    if (isWorkLinkHovering) {
+      workAnimateControls.start('hovering');
+    } else {
+      workAnimateControls.start('nonHovering');
+    }
+  }, [isWorkLinkHovering, workAnimateControls]);
+
   return (
     <WorkContainerStyle
       animate={workAnimateControls}
