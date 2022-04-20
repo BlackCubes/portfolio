@@ -66,6 +66,7 @@ export const WorkContainerStyle = styled.div`
     margin-top: 5rem;
     margin-bottom: 2rem;
     padding-left: 0;
+    overflow-x: hidden;
   }
 
   @media ${({ theme }) => theme.responsive.below479} {
@@ -105,7 +106,12 @@ export const WorkImageWrapper = styled(motion.div).attrs(({ className }) => ({
       },
     },
   },
-}))``;
+}))`
+  @media ${({ theme }) => theme.responsive.below599} {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+`;
 
 export const WorkLink = styled(Link)`
   text-decoration: none;
