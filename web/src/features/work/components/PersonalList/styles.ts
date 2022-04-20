@@ -61,6 +61,7 @@ export const PersonalContainerStyle = styled.div`
     padding-right: 1rem;
     padding-bottom: 0;
     padding-left: 1rem;
+    overflow-x: hidden;
   }
 
   @media ${({ theme }) => theme.responsive.below479} {
