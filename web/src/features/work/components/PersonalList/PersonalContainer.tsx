@@ -15,6 +15,7 @@ import {
   PersonalImageWrapper,
   PersonalLink,
   PersonalTitle,
+  PersonalTitleLink,
 } from './styles';
 
 export interface IPortfolioContainer {
@@ -41,6 +42,7 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
   const imageAnimateControls = useAnimation();
   const { inView: imageInView, ref: imageRef } = useInView();
 
+  const [isTitleLinkHovering, setIsTitleLinkHovering] = useIsHovering();
   const [isPersonalLinkHovering, setIsPersonalLinkHovering] = useIsHovering();
 
   useEffect(() => {
@@ -111,13 +113,19 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
       </PersonalLink>
 
       <PersonalTitle animate={titleAnimateControls}>
-        <HeadingTertiary
-          {...(isPersonalLinkHovering && {
-            opacity: 0.8,
-          })}
+        <PersonalTitleLink
+          to={personalPath}
+          onMouseEnter={() => setIsTitleLinkHovering(true)}
+          onMouseLeave={() => setIsTitleLinkHovering(false)}
         >
-          {personalTitle}
-        </HeadingTertiary>
+          <HeadingTertiary
+            {...(isTitleLinkHovering && {
+              opacity: 0.8,
+            })}
+          >
+            {personalTitle}
+          </HeadingTertiary>
+        </PersonalTitleLink>
       </PersonalTitle>
     </PersonalContainerStyle>
   );
