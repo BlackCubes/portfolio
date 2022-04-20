@@ -1,10 +1,24 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // PERSONAL LIST
 export const Section = styled.section``;
 
-export const SectionTitle = styled.div`
+export const SectionTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   text-align: right;
 `;
 
@@ -47,6 +61,7 @@ export const PersonalContainerStyle = styled.div`
     padding-right: 1rem;
     padding-bottom: 0;
     padding-left: 1rem;
+    overflow-x: hidden;
   }
 
   @media ${({ theme }) => theme.responsive.below479} {
@@ -60,7 +75,24 @@ export const PersonalContainerStyle = styled.div`
   }
 `;
 
-export const PersonalDescription = styled.div`
+export const PersonalDescription = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: -40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.5,
+    },
+  },
+}))`
   display: flex;
   align-items: center;
   width: 100%;
@@ -81,7 +113,24 @@ export const PersonalDescription = styled.div`
   }
 `;
 
-export const PersonalImageWrapper = styled.div`
+export const PersonalImageWrapper = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: 100,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   & img {
     width: 60%;
   }
@@ -99,7 +148,24 @@ export const PersonalImageWrapper = styled.div`
 
 export const PersonalLink = styled(Link)``;
 
-export const PersonalTitle = styled.div`
+export const PersonalTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.5,
+    },
+  },
+}))`
   display: flex;
   align-items: center;
   width: 40%;
@@ -111,4 +177,8 @@ export const PersonalTitle = styled.div`
     padding-left: 0;
     text-align: center;
   }
+`;
+
+export const PersonalTitleLink = styled(Link)`
+  text-decoration: none;
 `;

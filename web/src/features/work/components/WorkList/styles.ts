@@ -1,10 +1,24 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // WORK LIST
 export const Section = styled.section``;
 
-export const SectionTitle = styled.div`
+export const SectionTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   text-align: right;
 `;
 
@@ -52,6 +66,7 @@ export const WorkContainerStyle = styled.div`
     margin-top: 5rem;
     margin-bottom: 2rem;
     padding-left: 0;
+    overflow-x: hidden;
   }
 
   @media ${({ theme }) => theme.responsive.below479} {
@@ -60,6 +75,41 @@ export const WorkContainerStyle = styled.div`
 
   @media ${({ theme }) => theme.responsive.below379} {
     margin-top: 4rem;
+  }
+`;
+
+export const WorkImageWrapper = styled(motion.div).attrs(({ className }) => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: className?.includes('reverse') ? 100 : -100,
+    },
+    hovering: {
+      scale: 1.05,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.2,
+      },
+    },
+    nonHovering: {
+      scale: 1,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
+  @media ${({ theme }) => theme.responsive.below599} {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 `;
 

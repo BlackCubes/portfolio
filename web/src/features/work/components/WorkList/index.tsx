@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -28,36 +30,52 @@ interface IWorkList {
   worksData: TWorksData[];
 }
 
-const WorkList: FC<IWorkList> = ({ worksData }) => (
-  <Section className="default-margin-bottom">
-    <SectionTitle>
-      <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
-        Work
-      </HeadingSecondary>
-    </SectionTitle>
+const WorkList: FC<IWorkList> = ({ worksData }) => {
+  const titleAnimateControls = useAnimation();
 
-    <Container>
-      <LineSeparator rotateClass="negative-rotate" />
+  const { inView: titleInView, ref: titleRef } = useInView();
 
-      {worksData.map((workData, workIndex) => (
-        <WorkContainer
-          key={workData.uuid}
-          workDescription={workData.description}
-          workImageAlt={workData.title}
-          workImageSrc={
-            workData.logo_image
-              ? `http://localhost:8000${workData.logo_image}`
-              : noImage
-          }
-          workLinkPath={`/work/${workData.meta.slug}`}
-          workTitle={workData.title}
-          {...(workIndex % 2 === 0 && {
-            reverseClass: 'reverse',
-          })}
-        />
-      ))}
-    </Container>
-  </Section>
-);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [titleAnimateControls, titleInView]);
+
+  return (
+    <Section className="default-margin-bottom">
+      <SectionTitle animate={titleAnimateControls} ref={titleRef}>
+        <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
+          Work
+        </HeadingSecondary>
+      </SectionTitle>
+
+      <Container>
+        <LineSeparator rotateClass="negative-rotate" />
+
+        {worksData.map((workData, workIndex) => (
+          <WorkContainer
+            key={workData.uuid}
+            workDescription={workData.description}
+            workImageAlt={workData.title}
+            workImageSrc={
+              workData.logo_image
+                ? `http://localhost:8000${workData.logo_image}`
+                : noImage
+            }
+            workLinkPath={`/work/${workData.meta.slug}`}
+            workTitle={workData.title}
+            {...(workIndex % 2 === 0 && {
+              reverseClass: 'reverse',
+            })}
+          />
+        ))}
+      </Container>
+    </Section>
+  );
+};
 
 export default WorkList;

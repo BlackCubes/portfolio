@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GlassTriangle from 'common/components/GlassTriangle';
 
@@ -13,6 +15,7 @@ import {
   PersonalImageWrapper,
   PersonalLink,
   PersonalTitle,
+  PersonalTitleLink,
 } from './styles';
 
 export interface IPortfolioContainer {
@@ -32,13 +35,51 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
   personalPath,
   personalTitle,
 }) => {
-  const [isHovering, setIsHovering] = useIsHovering();
+  const titleAnimateControls = useAnimation();
+
+  const descriptionAnimateControls = useAnimation();
+
+  const imageAnimateControls = useAnimation();
+  const { inView: imageInView, ref: imageRef } = useInView();
+
+  const [isTitleLinkHovering, setIsTitleLinkHovering] = useIsHovering();
+  const [isPersonalLinkHovering, setIsPersonalLinkHovering] = useIsHovering();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (imageInView) {
+        imageAnimateControls.start('visible');
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [imageAnimateControls, imageInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (imageInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 1600);
+
+    return () => clearTimeout(timer);
+  }, [imageInView, titleAnimateControls]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (imageInView) {
+        descriptionAnimateControls.start('visible');
+      }
+    }, 2200);
+
+    return () => clearTimeout(timer);
+  }, [descriptionAnimateControls, imageInView]);
 
   return (
     <PersonalContainerStyle>
-      <PersonalDescription>
+      <PersonalDescription animate={descriptionAnimateControls}>
         <Paragraph
-          {...(isHovering && {
+          {...(isPersonalLinkHovering && {
             opacity: 0.8,
           })}
         >
@@ -48,33 +89,43 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
 
       <PersonalLink
         to={personalPath}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
+        onMouseEnter={() => setIsPersonalLinkHovering(true)}
+        onMouseLeave={() => setIsPersonalLinkHovering(false)}
       >
-        <PersonalImageWrapper>
+        <PersonalImageWrapper animate={imageAnimateControls} ref={imageRef}>
           <GlassTriangle
-            glassDarkShadowBlur={isHovering ? 0.4 : 0}
-            glassDarkShadowHorizontalOffset={isHovering ? 0.3 : 0.1}
-            glassDarkShadowVerticalOffset={isHovering ? 0.3 : 0.1}
-            glassLightShadowBlur={isHovering ? 0.4 : 0}
-            glassLightShadowHorizontalOffset={isHovering ? -0.3 : -0.1}
-            glassLightShadowVerticalOffset={isHovering ? -0.3 : -0.1}
+            glassDarkShadowBlur={isPersonalLinkHovering ? 0.4 : 0}
+            glassDarkShadowHorizontalOffset={isPersonalLinkHovering ? 0.3 : 0.1}
+            glassDarkShadowVerticalOffset={isPersonalLinkHovering ? 0.3 : 0.1}
+            glassLightShadowBlur={isPersonalLinkHovering ? 0.4 : 0}
+            glassLightShadowHorizontalOffset={
+              isPersonalLinkHovering ? -0.3 : -0.1
+            }
+            glassLightShadowVerticalOffset={
+              isPersonalLinkHovering ? -0.3 : -0.1
+            }
             imageAlt={personalImageAlt}
             imageSrc={personalImageSrc}
-            opacity={isHovering ? 0.75 : 1}
+            opacity={isPersonalLinkHovering ? 0.75 : 1}
             reverseClass={reverseClass}
           />
         </PersonalImageWrapper>
       </PersonalLink>
 
-      <PersonalTitle>
-        <HeadingTertiary
-          {...(isHovering && {
-            opacity: 0.8,
-          })}
+      <PersonalTitle animate={titleAnimateControls}>
+        <PersonalTitleLink
+          to={personalPath}
+          onMouseEnter={() => setIsTitleLinkHovering(true)}
+          onMouseLeave={() => setIsTitleLinkHovering(false)}
         >
-          {personalTitle}
-        </HeadingTertiary>
+          <HeadingTertiary
+            {...(isTitleLinkHovering && {
+              opacity: 0.8,
+            })}
+          >
+            {personalTitle}
+          </HeadingTertiary>
+        </PersonalTitleLink>
       </PersonalTitle>
     </PersonalContainerStyle>
   );

@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -28,36 +30,52 @@ interface IPersonalList {
   personalsData: TPersonalsData[];
 }
 
-const PersonalList: FC<IPersonalList> = ({ personalsData }) => (
-  <Section>
-    <SectionTitle>
-      <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
-        Personal
-      </HeadingSecondary>
-    </SectionTitle>
+const PersonalList: FC<IPersonalList> = ({ personalsData }) => {
+  const titleAnimateControls = useAnimation();
 
-    <Container>
-      <LineSeparator rotateClass="negative-rotate" />
+  const { inView: titleInView, ref: titleRef } = useInView();
 
-      {personalsData.map((personalData, personalIndex) => (
-        <PersonalContainer
-          key={personalData.uuid}
-          personalDescription={personalData.description}
-          personalImageAlt={personalData.title}
-          personalImageSrc={
-            personalData.logo_image
-              ? `http://localhost:8000${personalData.logo_image}`
-              : noImage
-          }
-          personalPath={`/work/${personalData.meta.slug}`}
-          personalTitle={personalData.title}
-          {...(personalIndex % 2 !== 0 && {
-            reverseClass: 'reverse',
-          })}
-        />
-      ))}
-    </Container>
-  </Section>
-);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [titleAnimateControls, titleInView]);
+
+  return (
+    <Section>
+      <SectionTitle animate={titleAnimateControls} ref={titleRef}>
+        <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
+          Personal
+        </HeadingSecondary>
+      </SectionTitle>
+
+      <Container>
+        <LineSeparator rotateClass="negative-rotate" />
+
+        {personalsData.map((personalData, personalIndex) => (
+          <PersonalContainer
+            key={personalData.uuid}
+            personalDescription={personalData.description}
+            personalImageAlt={personalData.title}
+            personalImageSrc={
+              personalData.logo_image
+                ? `http://localhost:8000${personalData.logo_image}`
+                : noImage
+            }
+            personalPath={`/work/${personalData.meta.slug}`}
+            personalTitle={personalData.title}
+            {...(personalIndex % 2 !== 0 && {
+              reverseClass: 'reverse',
+            })}
+          />
+        ))}
+      </Container>
+    </Section>
+  );
+};
 
 export default PersonalList;
