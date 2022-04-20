@@ -74,7 +74,24 @@ export const PersonalContainerStyle = styled.div`
   }
 `;
 
-export const PersonalDescription = styled.div`
+export const PersonalDescription = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: -40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.5,
+    },
+  },
+}))`
   display: flex;
   align-items: center;
   width: 100%;
@@ -130,7 +147,24 @@ export const PersonalImageWrapper = styled(motion.div).attrs(() => ({
 
 export const PersonalLink = styled(Link)``;
 
-export const PersonalTitle = styled.div`
+export const PersonalTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.5,
+    },
+  },
+}))`
   display: flex;
   align-items: center;
   width: 40%;

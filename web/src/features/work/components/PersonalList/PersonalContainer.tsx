@@ -34,8 +34,11 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
   personalPath,
   personalTitle,
 }) => {
-  const imageAnimateControls = useAnimation();
+  const titleAnimateControls = useAnimation();
 
+  const descriptionAnimateControls = useAnimation();
+
+  const imageAnimateControls = useAnimation();
   const { inView: imageInView, ref: imageRef } = useInView();
 
   const [isPersonalLinkHovering, setIsPersonalLinkHovering] = useIsHovering();
@@ -50,9 +53,29 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
     return () => clearTimeout(timer);
   }, [imageAnimateControls, imageInView]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (imageInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 1600);
+
+    return () => clearTimeout(timer);
+  }, [imageInView, titleAnimateControls]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (imageInView) {
+        descriptionAnimateControls.start('visible');
+      }
+    }, 2200);
+
+    return () => clearTimeout(timer);
+  }, [descriptionAnimateControls, imageInView]);
+
   return (
     <PersonalContainerStyle>
-      <PersonalDescription>
+      <PersonalDescription animate={descriptionAnimateControls}>
         <Paragraph
           {...(isPersonalLinkHovering && {
             opacity: 0.8,
@@ -87,7 +110,7 @@ const PersonalContainer: FC<IPortfolioContainer> = ({
         </PersonalImageWrapper>
       </PersonalLink>
 
-      <PersonalTitle>
+      <PersonalTitle animate={titleAnimateControls}>
         <HeadingTertiary
           {...(isPersonalLinkHovering && {
             opacity: 0.8,
