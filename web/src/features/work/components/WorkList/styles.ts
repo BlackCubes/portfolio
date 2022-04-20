@@ -37,7 +37,24 @@ export const Container = styled.div`
 `;
 
 // WORK CONTAINER
-export const WorkContainerStyle = styled.div`
+export const WorkContainerStyle = styled(motion.div).attrs(({ className }) => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: className?.includes('reverse') ? 100 : -100,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
