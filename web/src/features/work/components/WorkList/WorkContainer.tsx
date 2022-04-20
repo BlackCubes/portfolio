@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GlassRectangle from 'common/components/GlassRectangle';
 
@@ -26,10 +28,28 @@ const WorkContainer: FC<IWorkContainer> = ({
   workLinkPath,
   workTitle,
 }) => {
+  const workAnimateControls = useAnimation();
+
+  const { inView: workInView, ref: workRef } = useInView();
+
   const [isWorkLinkHovering, setIsWorkLinkHovering] = useIsHovering();
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (workInView) {
+        workAnimateControls.start('visible');
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [workAnimateControls, workInView]);
+
   return (
-    <WorkContainerStyle className={reverseClass}>
+    <WorkContainerStyle
+      animate={workAnimateControls}
+      className={reverseClass}
+      ref={workRef}
+    >
       <WorkLink
         to={workLinkPath}
         onMouseEnter={() => setIsWorkLinkHovering(true)}
