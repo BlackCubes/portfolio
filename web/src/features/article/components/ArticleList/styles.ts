@@ -41,7 +41,16 @@ export const Container = styled.div`
 `;
 
 // ARTICLE LIST CONTAINER
-export const ArticleContainerStyle = styled.div`
+export const ArticleContainerStyle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 1 },
+    },
+  },
+}))`
   display: flex;
   width: 90%;
   margin: 7rem auto;
