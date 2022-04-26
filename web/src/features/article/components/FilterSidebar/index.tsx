@@ -47,11 +47,13 @@ const FilterSidebar: FC<IFilterSidebar> = ({
 
   const { inView: categoryContainerInView, ref: categoryContainerRef } =
     useInView();
+  const categoryTitleAnimateControls = useAnimation();
   const [isCategoryTitleBeingAnimated, setIsCategoryTitleBeingAnimated] =
     useState(false);
-  const categoryTitleAnimateControls = useAnimation();
 
+  const { inView: tagContainerInView, ref: tagContainerRef } = useInView();
   const tagTitleAnimateControls = useAnimation();
+  const [isTagTitleBeingAnimated, setIsTagTitleBeingAnimated] = useState(false);
 
   // For the UI side.
   const [tagCheckedState, setTagCheckedState] = useState<TTagCheckedState>(
@@ -85,17 +87,20 @@ const FilterSidebar: FC<IFilterSidebar> = ({
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [categoryTitleAnimateControls, categoryContainerInView]);
+  }, [categoryContainerInView, categoryTitleAnimateControls]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (isCategoryTitleBeingAnimated) {
+      if (tagContainerInView) {
         tagTitleAnimateControls.start('visible');
+
+        setIsTagTitleBeingAnimated(true);
       }
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [isCategoryTitleBeingAnimated, tagTitleAnimateControls]);
+  }, [tagContainerInView, tagTitleAnimateControls]);
+  console.log(isCategoryTitleBeingAnimated, isTagTitleBeingAnimated);
 
   return (
     <GeneralSidebar
@@ -159,7 +164,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
             </SidebarList>
           </SidebarContainer>
 
-          <SidebarContainer>
+          <SidebarContainer ref={tagContainerRef}>
             <SidebarTitle animate={tagTitleAnimateControls}>
               <HeadingTertiary>Tags</HeadingTertiary>
             </SidebarTitle>
