@@ -29,29 +29,29 @@ const TagItem: FC<ITagItem> = ({
   tagIndex,
   tagName,
 }) => {
-  const nameAnimateControls = useAnimation();
+  const nameCheckboxAnimateControls = useAnimation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (isTagTitleBeingAnimated) {
-        nameAnimateControls.start('visible');
+        nameCheckboxAnimateControls.start('visible');
       }
     }, 700);
 
     return () => clearTimeout(timer);
-  }, [isTagTitleBeingAnimated, nameAnimateControls]);
+  }, [isTagTitleBeingAnimated, nameCheckboxAnimateControls]);
 
   return (
     <TagItemContainer onClick={handleTagOnClick}>
       <TagName
-        animate={nameAnimateControls}
+        animate={nameCheckboxAnimateControls}
         className={isChecked ? 'checked' : ''}
         custom={tagIndex}
       >
         {tagName}
       </TagName>
 
-      <TagCheckbox animate={nameAnimateControls} custom={tagIndex}>
+      <TagCheckbox animate={nameCheckboxAnimateControls} custom={tagIndex}>
         <CheckboxInput
           checked={isChecked}
           onChange={handleCheckboxOnChange}
