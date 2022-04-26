@@ -45,14 +45,13 @@ const FilterSidebar: FC<IFilterSidebar> = ({
 }) => {
   const clearFilterAnimateControls = useAnimation();
 
+  const { inView: categoryContainerInView, ref: categoryContainerRef } =
+    useInView();
   const [isCategoryTitleBeingAnimated, setIsCategoryTitleBeingAnimated] =
     useState(false);
   const categoryTitleAnimateControls = useAnimation();
 
   const tagTitleAnimateControls = useAnimation();
-
-  const { inView: sidebarContainerInView, ref: sidebarContainerRef } =
-    useInView();
 
   // For the UI side.
   const [tagCheckedState, setTagCheckedState] = useState<TTagCheckedState>(
@@ -68,17 +67,17 @@ const FilterSidebar: FC<IFilterSidebar> = ({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (sidebarContainerInView) {
+      if (categoryContainerInView) {
         clearFilterAnimateControls.start('visible');
       }
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [clearFilterAnimateControls, sidebarContainerInView]);
+  }, [clearFilterAnimateControls, categoryContainerInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (sidebarContainerInView) {
+      if (categoryContainerInView) {
         categoryTitleAnimateControls.start('visible');
 
         setIsCategoryTitleBeingAnimated(true);
@@ -86,7 +85,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [categoryTitleAnimateControls, sidebarContainerInView]);
+  }, [categoryTitleAnimateControls, categoryContainerInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -122,7 +121,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
             </ClearFilterButton>
           </ClearFilter>
 
-          <SidebarContainer ref={sidebarContainerRef}>
+          <SidebarContainer ref={categoryContainerRef}>
             <SidebarTitle animate={categoryTitleAnimateControls}>
               <HeadingTertiary>Categories</HeadingTertiary>
             </SidebarTitle>
