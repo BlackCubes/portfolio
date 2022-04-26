@@ -129,7 +129,24 @@ export const CategoryItem = styled.li`
   }
 `;
 
-export const CategoryName = styled.span`
+export const CategoryName = styled(motion.span).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: -10,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   font-size: 1.4rem;
   font-style: normal;
   text-decoration: none;
@@ -175,7 +192,24 @@ export const TagItem = styled.li`
   }
 `;
 
-export const TagName = styled.span`
+export const TagName = styled(motion.span).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: -10,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   font-size: 1.4rem;
   font-style: normal;
   text-decoration: none;
