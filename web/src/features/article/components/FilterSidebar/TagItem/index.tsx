@@ -51,7 +51,7 @@ const TagItem: FC<ITagItem> = ({
         {tagName}
       </TagName>
 
-      <TagCheckbox>
+      <TagCheckbox animate={nameAnimateControls} custom={tagIndex}>
         <CheckboxInput
           checked={isChecked}
           onChange={handleCheckboxOnChange}
