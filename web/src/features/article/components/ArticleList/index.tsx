@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -30,39 +32,55 @@ interface IArticleList {
   articlesData: TArticlesData[] | [];
 }
 
-const ArticleList: FC<IArticleList> = ({ articlesData }) => (
-  <Section>
-    <SectionTitle>
-      <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
-        Articles
-      </HeadingSecondary>
-    </SectionTitle>
+const ArticleList: FC<IArticleList> = ({ articlesData }) => {
+  const titleAnimateControls = useAnimation();
 
-    <Container>
-      <LineSeparator rotateClass="positive-rotate" />
+  const { inView: titleInView, ref: titleRef } = useInView();
 
-      {articlesData &&
-        articlesData.length > 0 &&
-        articlesData.map((article) => (
-          <ArticleListContainer
-            key={article.uuid}
-            articleCategory={article.category?.name ?? ''}
-            articleDate={article.meta.first_published_at}
-            articleDescription={article.description}
-            articleImageAlt={article.title}
-            articleImageSrc={
-              article.header_image
-                ? `http://localhost:8000${article.header_image}`
-                : noImage
-            }
-            articleLinkPath={`/articles/${article.meta.slug}`}
-            articleReadingTime={article.reading_time}
-            articleTags={article.tags}
-            articleTitle={article.title}
-          />
-        ))}
-    </Container>
-  </Section>
-);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [titleAnimateControls, titleInView]);
+
+  return (
+    <Section>
+      <SectionTitle animate={titleAnimateControls} ref={titleRef}>
+        <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
+          Articles
+        </HeadingSecondary>
+      </SectionTitle>
+
+      <Container>
+        <LineSeparator rotateClass="positive-rotate" />
+
+        {articlesData &&
+          articlesData.length > 0 &&
+          articlesData.map((article) => (
+            <ArticleListContainer
+              key={article.uuid}
+              articleCategory={article.category?.name ?? ''}
+              articleDate={article.meta.first_published_at}
+              articleDescription={article.description}
+              articleImageAlt={article.title}
+              articleImageSrc={
+                article.header_image
+                  ? `http://localhost:8000${article.header_image}`
+                  : noImage
+              }
+              articleLinkPath={`/articles/${article.meta.slug}`}
+              articleReadingTime={article.reading_time}
+              articleTags={article.tags}
+              articleTitle={article.title}
+            />
+          ))}
+      </Container>
+    </Section>
+  );
+};
 
 export default ArticleList;

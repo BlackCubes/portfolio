@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GlassRectangle from 'common/components/GlassRectangle';
 
@@ -28,7 +30,7 @@ import {
   ArticleTitleLink,
 } from './styles';
 
-export interface IArticleListContainer {
+interface IArticleListContainer {
   articleCategory: string;
   articleDate: string;
   articleDescription: string;
@@ -51,12 +53,29 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
   articleTags,
   articleTitle,
 }) => {
+  const containerAnimateControls = useAnimation();
+
+  const { inView: containerInView, ref: containerRef } = useInView();
+
   const [isLinkHovering, setIsLinkHovering] = useIsHovering();
   const [isImageHovering, setIsImageHovering] = useIsHovering();
   const [isTitleHovering, setIsTitleHovering] = useIsHovering();
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (containerInView) {
+        containerAnimateControls.start('visible');
+      }
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, [containerAnimateControls, containerInView]);
+
   return (
-    <ArticleContainerStyle>
+    <ArticleContainerStyle
+      animate={containerAnimateControls}
+      ref={containerRef}
+    >
       <ArticleImageWrapper>
         <ArticleImageLink
           to={articleLinkPath}

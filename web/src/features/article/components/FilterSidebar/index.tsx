@@ -1,4 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GeneralSidebar from 'common/components/GeneralSidebar';
 
@@ -6,18 +8,14 @@ import { ICategory, ITag } from 'common/models';
 
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 
+import CategoryItem from './CategoryItem';
+import TagItem from './TagItem';
 import {
-  CategoryItem,
-  CategoryName,
-  CheckboxInput,
   ClearFilter,
   ClearFilterButton,
   SidebarContainer,
   SidebarList,
   SidebarTitle,
-  TagCheckbox,
-  TagItem,
-  TagName,
 } from './styles';
 
 type TTagCheckedState = Array<boolean>;
@@ -41,6 +39,18 @@ const FilterSidebar: FC<IFilterSidebar> = ({
   handleClearFilter,
   tagsData,
 }) => {
+  const clearFilterAnimateControls = useAnimation();
+
+  const { inView: categoryContainerInView, ref: categoryContainerRef } =
+    useInView();
+  const categoryTitleAnimateControls = useAnimation();
+  const [isCategoryTitleBeingAnimated, setIsCategoryTitleBeingAnimated] =
+    useState(false);
+
+  const { inView: tagContainerInView, ref: tagContainerRef } = useInView();
+  const tagTitleAnimateControls = useAnimation();
+  const [isTagTitleBeingAnimated, setIsTagTitleBeingAnimated] = useState(false);
+
   // For the UI side.
   const [tagCheckedState, setTagCheckedState] = useState<TTagCheckedState>(
     new Array(tagsData.length).fill(false)
@@ -53,13 +63,47 @@ const FilterSidebar: FC<IFilterSidebar> = ({
       },
     });
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (categoryContainerInView) {
+        clearFilterAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [clearFilterAnimateControls, categoryContainerInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (categoryContainerInView) {
+        categoryTitleAnimateControls.start('visible');
+
+        setIsCategoryTitleBeingAnimated(true);
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [categoryContainerInView, categoryTitleAnimateControls]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (tagContainerInView) {
+        tagTitleAnimateControls.start('visible');
+
+        setIsTagTitleBeingAnimated(true);
+      }
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, [tagContainerInView, tagTitleAnimateControls]);
+
   return (
     <GeneralSidebar
       sidebarClassName="filter-sidebar"
       sidebarContainerClassName="filter-sidebar"
       sidebarContentElement={
         <>
-          <ClearFilter>
+          <ClearFilter animate={clearFilterAnimateControls}>
             <ClearFilterButton
               onClick={() => {
                 handleClearFilter('clearAll');
@@ -77,8 +121,8 @@ const FilterSidebar: FC<IFilterSidebar> = ({
             </ClearFilterButton>
           </ClearFilter>
 
-          <SidebarContainer>
-            <SidebarTitle>
+          <SidebarContainer ref={categoryContainerRef}>
+            <SidebarTitle animate={categoryTitleAnimateControls}>
               <HeadingTertiary>Categories</HeadingTertiary>
             </SidebarTitle>
 
@@ -86,7 +130,9 @@ const FilterSidebar: FC<IFilterSidebar> = ({
               {categoriesData.map((category, categoryIndex) => (
                 <CategoryItem
                   key={`${category.uuid}`}
-                  onClick={() => {
+                  categoryIndex={categoryIndex}
+                  categoryName={category.name}
+                  handleCategoryOnClick={() => {
                     handleCategoryTagQuery('category', category.id);
 
                     setCategoryCheckedState((prevCategoryCheckedState) => ({
@@ -100,23 +146,17 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                       },
                     }));
                   }}
-                >
-                  <CategoryName
-                    className={
-                      categoryCheckedState.checked.indexNumber === categoryIndex
-                        ? 'checked'
-                        : ''
-                    }
-                  >
-                    {category.name}
-                  </CategoryName>
-                </CategoryItem>
+                  isCategoryTitleBeingAnimated={isCategoryTitleBeingAnimated}
+                  isChecked={
+                    categoryCheckedState.checked.indexNumber === categoryIndex
+                  }
+                />
               ))}
             </SidebarList>
           </SidebarContainer>
 
-          <SidebarContainer>
-            <SidebarTitle>
+          <SidebarContainer ref={tagContainerRef}>
+            <SidebarTitle animate={tagTitleAnimateControls}>
               <HeadingTertiary>Tags</HeadingTertiary>
             </SidebarTitle>
 
@@ -124,7 +164,13 @@ const FilterSidebar: FC<IFilterSidebar> = ({
               {tagsData.map((tag, tagIndex) => (
                 <TagItem
                   key={`${tag.slug}-${tag.id}`}
-                  onClick={() => {
+                  handleCheckboxOnChange={() =>
+                    handleCategoryTagQuery('tags', tag.id)
+                  }
+                  handleCheckboxOnClick={() =>
+                    handleCategoryTagQuery('tags', tag.id)
+                  }
+                  handleTagOnClick={() => {
                     handleCategoryTagQuery('tags', tag.id);
 
                     setTagCheckedState((prevTagCheckedState) =>
@@ -135,22 +181,12 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                       )
                     );
                   }}
-                >
-                  <TagName
-                    className={tagCheckedState[tagIndex] ? 'checked' : ''}
-                  >
-                    {tag.name}
-                  </TagName>
-
-                  <TagCheckbox>
-                    <CheckboxInput
-                      checked={tagCheckedState[tagIndex]}
-                      onChange={() => handleCategoryTagQuery('tags', tag.id)}
-                      onClick={() => handleCategoryTagQuery('tags', tag.id)}
-                      value={tag.id}
-                    />
-                  </TagCheckbox>
-                </TagItem>
+                  isChecked={tagCheckedState[tagIndex]}
+                  isTagTitleBeingAnimated={isTagTitleBeingAnimated}
+                  tagId={tag.id}
+                  tagIndex={tagIndex}
+                  tagName={tag.name}
+                />
               ))}
             </SidebarList>
           </SidebarContainer>
