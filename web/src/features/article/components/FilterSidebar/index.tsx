@@ -8,9 +8,9 @@ import { ICategory, ITag } from 'common/models';
 
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 
+import CategoryItem from './CategoryItem';
+
 import {
-  CategoryItem,
-  CategoryName,
   CheckboxInput,
   ClearFilter,
   ClearFilterButton,
@@ -135,7 +135,8 @@ const FilterSidebar: FC<IFilterSidebar> = ({
               {categoriesData.map((category, categoryIndex) => (
                 <CategoryItem
                   key={`${category.uuid}`}
-                  onClick={() => {
+                  categoryName={category.name}
+                  handleCategoryOnClick={() => {
                     handleCategoryTagQuery('category', category.id);
 
                     setCategoryCheckedState((prevCategoryCheckedState) => ({
@@ -149,17 +150,10 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                       },
                     }));
                   }}
-                >
-                  <CategoryName
-                    className={
-                      categoryCheckedState.checked.indexNumber === categoryIndex
-                        ? 'checked'
-                        : ''
-                    }
-                  >
-                    {category.name}
-                  </CategoryName>
-                </CategoryItem>
+                  isChecked={
+                    categoryCheckedState.checked.indexNumber === categoryIndex
+                  }
+                />
               ))}
             </SidebarList>
           </SidebarContainer>
