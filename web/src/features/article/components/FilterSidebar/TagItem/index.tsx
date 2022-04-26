@@ -13,6 +13,7 @@ interface ITagItem {
   handleTagOnClick: () => void;
   isChecked: boolean;
   tagId: number;
+  tagIndex: number;
   tagName: string;
 }
 
@@ -22,11 +23,14 @@ const TagItem: FC<ITagItem> = ({
   handleTagOnClick,
   isChecked,
   tagId,
+  tagIndex,
   tagName,
 }) => {
   return (
     <TagItemContainer onClick={handleTagOnClick}>
-      <TagName className={isChecked ? 'checked' : ''}>{tagName}</TagName>
+      <TagName className={isChecked ? 'checked' : ''} custom={tagIndex}>
+        {tagName}
+      </TagName>
 
       <TagCheckbox>
         <CheckboxInput

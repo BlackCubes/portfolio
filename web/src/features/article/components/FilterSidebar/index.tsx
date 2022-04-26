@@ -184,6 +184,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                   }}
                   isChecked={tagCheckedState[tagIndex]}
                   tagId={tag.id}
+                  tagIndex={tagIndex}
                   tagName={tag.name}
                 />
               ))}
