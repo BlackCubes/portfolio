@@ -64,7 +64,23 @@ export const TagName = styled(motion.span).attrs(() => ({
   }
 `;
 
-export const TagCheckbox = styled.div`
+export const TagCheckbox = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: (customDelay) => ({
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+        delay: customDelay * 0.1,
+      },
+    }),
+  },
+}))`
   height: 1.4rem;
   margin-left: 1rem;
 
