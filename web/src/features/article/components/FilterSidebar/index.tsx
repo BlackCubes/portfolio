@@ -146,6 +146,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                       },
                     }));
                   }}
+                  isCategoryTitleBeingAnimated={isCategoryTitleBeingAnimated}
                   isChecked={
                     categoryCheckedState.checked.indexNumber === categoryIndex
                   }
