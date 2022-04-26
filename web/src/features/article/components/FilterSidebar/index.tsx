@@ -1,4 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import GeneralSidebar from 'common/components/GeneralSidebar';
 
@@ -41,6 +43,17 @@ const FilterSidebar: FC<IFilterSidebar> = ({
   handleClearFilter,
   tagsData,
 }) => {
+  const clearFilterAnimateControls = useAnimation();
+
+  const [isCategoryTitleBeingAnimated, setIsCategoryTitleBeingAnimated] =
+    useState(false);
+  const categoryTitleAnimateControls = useAnimation();
+
+  const tagTitleAnimateControls = useAnimation();
+
+  const { inView: sidebarContainerInView, ref: sidebarContainerRef } =
+    useInView();
+
   // For the UI side.
   const [tagCheckedState, setTagCheckedState] = useState<TTagCheckedState>(
     new Array(tagsData.length).fill(false)
@@ -53,13 +66,45 @@ const FilterSidebar: FC<IFilterSidebar> = ({
       },
     });
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (sidebarContainerInView) {
+        clearFilterAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [clearFilterAnimateControls, sidebarContainerInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (sidebarContainerInView) {
+        categoryTitleAnimateControls.start('visible');
+
+        setIsCategoryTitleBeingAnimated(true);
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [categoryTitleAnimateControls, sidebarContainerInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isCategoryTitleBeingAnimated) {
+        tagTitleAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [isCategoryTitleBeingAnimated, tagTitleAnimateControls]);
+
   return (
     <GeneralSidebar
       sidebarClassName="filter-sidebar"
       sidebarContainerClassName="filter-sidebar"
       sidebarContentElement={
         <>
-          <ClearFilter>
+          <ClearFilter animate={clearFilterAnimateControls}>
             <ClearFilterButton
               onClick={() => {
                 handleClearFilter('clearAll');
@@ -77,8 +122,8 @@ const FilterSidebar: FC<IFilterSidebar> = ({
             </ClearFilterButton>
           </ClearFilter>
 
-          <SidebarContainer>
-            <SidebarTitle>
+          <SidebarContainer ref={sidebarContainerRef}>
+            <SidebarTitle animate={categoryTitleAnimateControls}>
               <HeadingTertiary>Categories</HeadingTertiary>
             </SidebarTitle>
 
@@ -116,7 +161,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
           </SidebarContainer>
 
           <SidebarContainer>
-            <SidebarTitle>
+            <SidebarTitle animate={tagTitleAnimateControls}>
               <HeadingTertiary>Tags</HeadingTertiary>
             </SidebarTitle>
 
