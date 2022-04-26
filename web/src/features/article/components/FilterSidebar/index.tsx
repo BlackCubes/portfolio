@@ -96,7 +96,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
 
         setIsTagTitleBeingAnimated(true);
       }
-    }, 300);
+    }, 700);
 
     return () => clearTimeout(timer);
   }, [tagContainerInView, tagTitleAnimateControls]);
