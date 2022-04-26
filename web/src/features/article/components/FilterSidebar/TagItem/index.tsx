@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
 
 import {
   CheckboxInput,
@@ -12,6 +13,7 @@ interface ITagItem {
   handleCheckboxOnClick: () => void;
   handleTagOnClick: () => void;
   isChecked: boolean;
+  isTagTitleBeingAnimated: boolean;
   tagId: number;
   tagIndex: number;
   tagName: string;
@@ -22,13 +24,30 @@ const TagItem: FC<ITagItem> = ({
   handleCheckboxOnClick,
   handleTagOnClick,
   isChecked,
+  isTagTitleBeingAnimated,
   tagId,
   tagIndex,
   tagName,
 }) => {
+  const nameAnimateControls = useAnimation();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isTagTitleBeingAnimated) {
+        nameAnimateControls.start('visible');
+      }
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, [isTagTitleBeingAnimated, nameAnimateControls]);
+
   return (
     <TagItemContainer onClick={handleTagOnClick}>
-      <TagName className={isChecked ? 'checked' : ''} custom={tagIndex}>
+      <TagName
+        animate={nameAnimateControls}
+        className={isChecked ? 'checked' : ''}
+        custom={tagIndex}
+      >
         {tagName}
       </TagName>
 

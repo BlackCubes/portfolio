@@ -33,15 +33,16 @@ export const TagName = styled(motion.span).attrs(() => ({
       opacity: 0,
       x: -10,
     },
-    visible: {
+    visible: (customDelay) => ({
       opacity: 1,
       x: 0,
       transition: {
         type: 'spring',
         bounce: 0.4,
         duration: 0.5,
+        delay: customDelay * 0.1,
       },
-    },
+    }),
   },
 }))`
   font-size: 1.4rem;
