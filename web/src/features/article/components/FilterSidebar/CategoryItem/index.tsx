@@ -4,6 +4,7 @@ import { useAnimation } from 'framer-motion';
 import { CategoryItemContainer, CategoryName } from './styles';
 
 interface ICategoryItem {
+  categoryIndex: number;
   categoryName: string;
   handleCategoryOnClick: () => void;
   isCategoryTitleBeingAnimated: boolean;
@@ -11,6 +12,7 @@ interface ICategoryItem {
 }
 
 const CategoryItem: FC<ICategoryItem> = ({
+  categoryIndex,
   categoryName,
   handleCategoryOnClick,
   isCategoryTitleBeingAnimated,
@@ -33,6 +35,7 @@ const CategoryItem: FC<ICategoryItem> = ({
       <CategoryName
         animate={nameAnimateControls}
         className={isChecked ? 'checked' : ''}
+        custom={categoryIndex}
       >
         {categoryName}
       </CategoryName>

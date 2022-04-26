@@ -131,6 +131,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
               {categoriesData.map((category, categoryIndex) => (
                 <CategoryItem
                   key={`${category.uuid}`}
+                  categoryIndex={categoryIndex}
                   categoryName={category.name}
                   handleCategoryOnClick={() => {
                     handleCategoryTagQuery('category', category.id);
