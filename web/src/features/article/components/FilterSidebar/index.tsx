@@ -9,17 +9,13 @@ import { ICategory, ITag } from 'common/models';
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 
 import CategoryItem from './CategoryItem';
-
+import TagItem from './TagItem';
 import {
-  CheckboxInput,
   ClearFilter,
   ClearFilterButton,
   SidebarContainer,
   SidebarList,
   SidebarTitle,
-  TagCheckbox,
-  TagItem,
-  TagName,
 } from './styles';
 
 type TTagCheckedState = Array<boolean>;
@@ -167,7 +163,13 @@ const FilterSidebar: FC<IFilterSidebar> = ({
               {tagsData.map((tag, tagIndex) => (
                 <TagItem
                   key={`${tag.slug}-${tag.id}`}
-                  onClick={() => {
+                  handleCheckboxOnChange={() =>
+                    handleCategoryTagQuery('tags', tag.id)
+                  }
+                  handleCheckboxOnClick={() =>
+                    handleCategoryTagQuery('tags', tag.id)
+                  }
+                  handleTagOnClick={() => {
                     handleCategoryTagQuery('tags', tag.id);
 
                     setTagCheckedState((prevTagCheckedState) =>
@@ -178,22 +180,10 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                       )
                     );
                   }}
-                >
-                  <TagName
-                    className={tagCheckedState[tagIndex] ? 'checked' : ''}
-                  >
-                    {tag.name}
-                  </TagName>
-
-                  <TagCheckbox>
-                    <CheckboxInput
-                      checked={tagCheckedState[tagIndex]}
-                      onChange={() => handleCategoryTagQuery('tags', tag.id)}
-                      onClick={() => handleCategoryTagQuery('tags', tag.id)}
-                      value={tag.id}
-                    />
-                  </TagCheckbox>
-                </TagItem>
+                  isChecked={tagCheckedState[tagIndex]}
+                  tagId={tag.id}
+                  tagName={tag.name}
+                />
               ))}
             </SidebarList>
           </SidebarContainer>
