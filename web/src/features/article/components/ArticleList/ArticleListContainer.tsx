@@ -66,7 +66,7 @@ const ArticleListContainer: FC<IArticleListContainer> = ({
       if (containerInView) {
         containerAnimateControls.start('visible');
       }
-    }, 1000);
+    }, 700);
 
     return () => clearTimeout(timer);
   }, [containerAnimateControls, containerInView]);
