@@ -1,7 +1,25 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 // GENERAL
-export const ClearFilter = styled.div`
+export const ClearFilter = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: -20,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   margin-bottom: 1rem;
   text-align: right;
 
@@ -39,7 +57,24 @@ export const SidebarContainer = styled.div`
   }
 `;
 
-export const SidebarTitle = styled.div`
+export const SidebarTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   margin-bottom: 1rem;
 
   & h3 {
