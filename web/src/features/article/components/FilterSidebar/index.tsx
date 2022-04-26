@@ -96,7 +96,6 @@ const FilterSidebar: FC<IFilterSidebar> = ({
 
     return () => clearTimeout(timer);
   }, [tagContainerInView, tagTitleAnimateControls]);
-  console.log(isCategoryTitleBeingAnimated, isTagTitleBeingAnimated);
 
   return (
     <GeneralSidebar
@@ -183,6 +182,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                     );
                   }}
                   isChecked={tagCheckedState[tagIndex]}
+                  isTagTitleBeingAnimated={isTagTitleBeingAnimated}
                   tagId={tag.id}
                   tagIndex={tagIndex}
                   tagName={tag.name}
