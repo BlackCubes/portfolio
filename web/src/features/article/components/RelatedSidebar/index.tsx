@@ -41,6 +41,9 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
   const titleAnimateControls = useAnimation();
   const { inView: titleInView, ref: titleRef } = useInView();
 
+  const itemAnimateControls = useAnimation();
+  const { inView: listInView, ref: listRef } = useInView();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (titleInView) {
@@ -50,6 +53,16 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
 
     return () => clearTimeout(timer);
   }, [titleInView, titleAnimateControls]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (listInView) {
+        itemAnimateControls.start('visible');
+      }
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, [listInView, itemAnimateControls]);
 
   return (
     <GeneralSidebar
@@ -62,11 +75,15 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
           </SidebarTitle>
 
           <SidebarContainer>
-            <SidebarList>
+            <SidebarList ref={listRef}>
               {relatedArticlesByCategoryData
                 .slice(0, 4)
-                .map((relatedArticle) => (
-                  <RelatedItem key={relatedArticle.uuid}>
+                .map((relatedArticle, relatedArticleIndex) => (
+                  <RelatedItem
+                    key={relatedArticle.uuid}
+                    animate={itemAnimateControls}
+                    custom={relatedArticleIndex}
+                  >
                     <RelatedLink to={`/articles/${relatedArticle.meta.slug}`}>
                       <RelatedContainer>
                         <RelatedImageWrapper>

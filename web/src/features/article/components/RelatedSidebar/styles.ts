@@ -58,7 +58,19 @@ export const SidebarList = styled.ul`
 `;
 
 // RELATED
-export const RelatedItem = styled.li`
+export const RelatedItem = styled(motion.li).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: (customDelay) => ({
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        delay: customDelay * 0.1,
+      },
+    }),
+  },
+}))`
   margin-bottom: 1.2rem;
   padding-top: 0.4rem;
   border-top: 0.1rem solid
