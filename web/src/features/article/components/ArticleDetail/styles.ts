@@ -283,7 +283,16 @@ export const ArticleHeaderImage = styled(motion.div).attrs(() => ({
   }
 `;
 
-export const ArticleBodyContainer = styled.div`
+export const ArticleBodyContainer = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   display: flex;
   flex-direction: column;
   margin-top: 4rem;

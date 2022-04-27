@@ -67,6 +67,9 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
   const headerImageAnimateControls = useAnimation();
   const { inView: headerImageInView, ref: headerImageRef } = useInView();
 
+  const bodyContainerAnimateControls = useAnimation();
+  const { inView: bodyContainerInView, ref: bodyContainerRef } = useInView();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTwitterIcon(!isDark ? twitterIconBlack : twitterIconWhite);
@@ -144,6 +147,16 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
     return () => clearTimeout(timer);
   }, [headerImageAnimateControls, headerImageInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (bodyContainerInView) {
+        bodyContainerAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [bodyContainerAnimateControls, bodyContainerInView]);
 
   return (
     <Article>
@@ -260,7 +273,10 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         />
       </ArticleHeaderImage>
 
-      <ArticleBodyContainer>
+      <ArticleBodyContainer
+        animate={bodyContainerAnimateControls}
+        ref={bodyContainerRef}
+      >
         {articleData.body.map((body) => (
           <Body key={body.id} bodyType={body.type} bodyValue={body.value} />
         ))}
