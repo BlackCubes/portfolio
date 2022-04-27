@@ -51,6 +51,9 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
   const titleAnimateControls = useAnimation();
   const { inView: titleInView, ref: titleRef } = useInView();
 
+  const authorAnimateControls = useAnimation();
+  const { inView: authorInView, ref: authorRef } = useInView();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTwitterIcon(!isDark ? twitterIconBlack : twitterIconWhite);
@@ -78,6 +81,16 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
     return () => clearTimeout(timer);
   }, [titleAnimateControls, titleInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (authorInView) {
+        authorAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [authorAnimateControls, authorInView]);
 
   return (
     <Article>
@@ -122,7 +135,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         <HeadingPrimary>{articleData.title}</HeadingPrimary>
       </ArticleTitle>
 
-      <ArticleAuthor>
+      <ArticleAuthor animate={authorAnimateControls} ref={authorRef}>
         <Paragraph>Elias Gutierrez</Paragraph>
       </ArticleAuthor>
 

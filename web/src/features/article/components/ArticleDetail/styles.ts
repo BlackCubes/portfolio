@@ -101,7 +101,24 @@ export const ArticleTitle = styled(motion.div).attrs(() => ({
   margin-bottom: 1.5rem;
 `;
 
-export const ArticleAuthor = styled.div``;
+export const ArticleAuthor = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: -10,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))``;
 
 export const AuthorTwitterContainer = styled.div`
   display: flex;
