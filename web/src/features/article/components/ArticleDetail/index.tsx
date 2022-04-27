@@ -58,6 +58,9 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
   const { inView: twitterContainerInView, ref: twitterContainerRef } =
     useInView();
 
+  const dateReadTimeAnimateControls = useAnimation();
+  const { inView: dateReadTimeInView, ref: dateReadTimeRef } = useInView();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTwitterIcon(!isDark ? twitterIconBlack : twitterIconWhite);
@@ -105,6 +108,16 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
     return () => clearTimeout(timer);
   }, [twitterIconLinkAnimateControls, twitterContainerInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (dateReadTimeInView) {
+        dateReadTimeAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [dateReadTimeAnimateControls, dateReadTimeInView]);
 
   return (
     <Article>
@@ -172,14 +185,17 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         </AuthorTwitterLink>
       </AuthorTwitterContainer>
 
-      <ArticleAdditionalInfo className="article__date-readtime">
-        <ArticleDate>
+      <ArticleAdditionalInfo
+        className="article__date-readtime"
+        ref={dateReadTimeRef}
+      >
+        <ArticleDate animate={dateReadTimeAnimateControls}>
           <Paragraph>
             {dateFormat('en-US', articleData.meta.first_published_at)}
           </Paragraph>
         </ArticleDate>
 
-        <ArticleReadTime>
+        <ArticleReadTime animate={dateReadTimeAnimateControls}>
           <Paragraph>
             {articleData.reading_time < 60
               ? `${Math.round(articleData.reading_time)} sec`

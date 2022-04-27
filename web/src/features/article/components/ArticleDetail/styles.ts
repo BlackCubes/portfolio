@@ -168,7 +168,24 @@ export const AuthorTwitterLink = styled(motion.a).attrs(() => ({
   text-decoration: none;
 `;
 
-export const ArticleDate = styled.div`
+export const ArticleDate = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   margin-right: 1.5rem;
 
   & p {
@@ -180,7 +197,24 @@ export const ArticleDate = styled.div`
   }
 `;
 
-export const ArticleReadTime = styled.div`
+export const ArticleReadTime = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   & p {
     font-size: 1.3rem;
     font-weight: 700;
