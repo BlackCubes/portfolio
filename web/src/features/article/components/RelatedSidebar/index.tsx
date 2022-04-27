@@ -49,7 +49,7 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
       if (titleInView) {
         titleAnimateControls.start('visible');
       }
-    }, 500);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [titleInView, titleAnimateControls]);
@@ -59,7 +59,7 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
       if (listInView) {
         itemAnimateControls.start('visible');
       }
-    }, 700);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [listInView, itemAnimateControls]);

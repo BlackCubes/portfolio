@@ -83,7 +83,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
       if (categoryTagsInView) {
         categoryTagsAnimateControls.start('visible');
       }
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [categoryTagsAnimateControls, categoryTagsInView]);
@@ -93,7 +93,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
       if (titleInView) {
         titleAnimateControls.start('visible');
       }
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [titleAnimateControls, titleInView]);
@@ -103,7 +103,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
       if (authorInView) {
         authorAnimateControls.start('visible');
       }
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [authorAnimateControls, authorInView]);
@@ -113,7 +113,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
       if (twitterContainerInView) {
         twitterIconLinkAnimateControls.start('visible');
       }
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [twitterIconLinkAnimateControls, twitterContainerInView]);
@@ -123,7 +123,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
       if (dateReadTimeInView) {
         dateReadTimeAnimateControls.start('visible');
       }
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [dateReadTimeAnimateControls, dateReadTimeInView]);
@@ -133,7 +133,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
       if (descriptionInView) {
         descriptionAnimateControls.start('visible');
       }
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [descriptionAnimateControls, descriptionInView]);
@@ -143,7 +143,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
       if (headerImageInView) {
         headerImageAnimateControls.start('visible');
       }
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [headerImageAnimateControls, headerImageInView]);
@@ -153,7 +153,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
       if (bodyContainerInView) {
         bodyContainerAnimateControls.start('visible');
       }
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [bodyContainerAnimateControls, bodyContainerInView]);
