@@ -80,8 +80,26 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
         {articleData.tags.length > 0 && (
           <ArticleTags>
-            {articleData.tags.map((tag) => (
-              <Paragraph key={`${tag.slug}-${tag.id}`}>{tag.name}</Paragraph>
+            {articleData.tags.map((tag, tagIndex) => (
+              <Paragraph
+                key={`${tag.slug}-${tag.id}`}
+                // FOR ANIMATING WITH FRAMER-MOTION
+                animate={categoryTagsAnimateControls}
+                custom={tagIndex}
+                initial="hidden"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: (customDelay) => ({
+                    opacity: 1,
+                    transition: {
+                      duration: 0.3,
+                      delay: customDelay * 0.1,
+                    },
+                  }),
+                }}
+              >
+                {tag.name}
+              </Paragraph>
             ))}
           </ArticleTags>
         )}
