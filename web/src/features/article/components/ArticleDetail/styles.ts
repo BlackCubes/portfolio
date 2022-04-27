@@ -222,7 +222,16 @@ export const ArticleReadTime = styled(motion.div).attrs(() => ({
   }
 `;
 
-export const ArticleDescription = styled.div`
+export const ArticleDescription = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   max-width: 54rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -255,7 +264,16 @@ export const ArticleDescription = styled.div`
   }
 `;
 
-export const ArticleHeaderImage = styled.div`
+export const ArticleHeaderImage = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   display: flex;
   justify-content: center;
 

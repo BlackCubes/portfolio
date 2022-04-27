@@ -61,6 +61,12 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
   const dateReadTimeAnimateControls = useAnimation();
   const { inView: dateReadTimeInView, ref: dateReadTimeRef } = useInView();
 
+  const descriptionAnimateControls = useAnimation();
+  const { inView: descriptionInView, ref: descriptionRef } = useInView();
+
+  const headerImageAnimateControls = useAnimation();
+  const { inView: headerImageInView, ref: headerImageRef } = useInView();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTwitterIcon(!isDark ? twitterIconBlack : twitterIconWhite);
@@ -118,6 +124,26 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
     return () => clearTimeout(timer);
   }, [dateReadTimeAnimateControls, dateReadTimeInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (descriptionInView) {
+        descriptionAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [descriptionAnimateControls, descriptionInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (headerImageInView) {
+        headerImageAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [headerImageAnimateControls, headerImageInView]);
 
   return (
     <Article>
@@ -205,11 +231,17 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         </ArticleReadTime>
       </ArticleAdditionalInfo>
 
-      <ArticleDescription>
+      <ArticleDescription
+        animate={descriptionAnimateControls}
+        ref={descriptionRef}
+      >
         <Paragraph>{articleData.description}</Paragraph>
       </ArticleDescription>
 
-      <ArticleHeaderImage>
+      <ArticleHeaderImage
+        animate={headerImageAnimateControls}
+        ref={headerImageRef}
+      >
         <GlassRectangle
           customClassName="article-detail-page__header-image"
           glassDarkShadowBlur={0.4}
