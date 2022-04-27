@@ -126,7 +126,24 @@ export const AuthorTwitterContainer = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-export const AuthorTwitterIconWrapper = styled.div`
+export const AuthorTwitterIconWrapper = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: -10,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   width: 1rem;
   margin-right: 0.2rem;
 `;
@@ -135,7 +152,16 @@ export const AuthorTwitterIcon = styled.img`
   width: 100%;
 `;
 
-export const AuthorTwitterLink = styled.a`
+export const AuthorTwitterLink = styled(motion.a).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   font-size: 1.1rem;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.secondary.hex};

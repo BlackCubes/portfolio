@@ -54,6 +54,10 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
   const authorAnimateControls = useAnimation();
   const { inView: authorInView, ref: authorRef } = useInView();
 
+  const twitterIconLinkAnimateControls = useAnimation();
+  const { inView: twitterContainerInView, ref: twitterContainerRef } =
+    useInView();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTwitterIcon(!isDark ? twitterIconBlack : twitterIconWhite);
@@ -91,6 +95,16 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
     return () => clearTimeout(timer);
   }, [authorAnimateControls, authorInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (twitterContainerInView) {
+        twitterIconLinkAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [twitterIconLinkAnimateControls, twitterContainerInView]);
 
   return (
     <Article>
@@ -139,8 +153,8 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         <Paragraph>Elias Gutierrez</Paragraph>
       </ArticleAuthor>
 
-      <AuthorTwitterContainer>
-        <AuthorTwitterIconWrapper>
+      <AuthorTwitterContainer ref={twitterContainerRef}>
+        <AuthorTwitterIconWrapper animate={twitterIconLinkAnimateControls}>
           <AuthorTwitterIcon
             src={twitterIcon}
             alt="Twitter Logo"
@@ -149,6 +163,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         </AuthorTwitterIconWrapper>
 
         <AuthorTwitterLink
+          animate={twitterIconLinkAnimateControls}
           href="https://twitter.com/_BlackCubes_"
           target="_blank"
           rel="noopener"
