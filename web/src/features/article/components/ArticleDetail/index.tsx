@@ -45,8 +45,11 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
   const { isDark } = useThemeContext();
 
-  const { inView: categoryTagsInView, ref: categoryTagsRef } = useInView();
   const categoryTagsAnimateControls = useAnimation();
+  const { inView: categoryTagsInView, ref: categoryTagsRef } = useInView();
+
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -65,6 +68,16 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
     return () => clearTimeout(timer);
   }, [categoryTagsAnimateControls, categoryTagsInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [titleAnimateControls, titleInView]);
 
   return (
     <Article>
@@ -105,7 +118,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         )}
       </ArticleAdditionalInfo>
 
-      <ArticleTitle>
+      <ArticleTitle animate={titleAnimateControls} ref={titleRef}>
         <HeadingPrimary>{articleData.title}</HeadingPrimary>
       </ArticleTitle>
 

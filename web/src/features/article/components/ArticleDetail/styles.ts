@@ -83,7 +83,20 @@ export const ArticleTags = styled.div`
   }
 `;
 
-export const ArticleTitle = styled.div`
+export const ArticleTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 `;
