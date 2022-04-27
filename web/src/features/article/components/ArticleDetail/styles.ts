@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const Article = styled.article`
   max-width: 75rem;
@@ -30,7 +31,16 @@ export const ArticleAdditionalInfo = styled.div`
   }
 `;
 
-export const ArticleCategory = styled.div`
+export const ArticleCategory = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))`
   position: relative;
   text-transform: uppercase;
   margin-right: 0.5rem;
