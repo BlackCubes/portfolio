@@ -1,4 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import noImage from 'assets/img/no-image.png';
 import twitterIconBlack from 'assets/img/twitter-logo_black.png';
@@ -43,6 +45,9 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
   const { isDark } = useThemeContext();
 
+  const { inView: categoryTagsInView, ref: categoryTagsRef } = useInView();
+  const categoryTagsAnimateControls = useAnimation();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTwitterIcon(!isDark ? twitterIconBlack : twitterIconWhite);
@@ -51,10 +56,21 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
     return () => clearTimeout(timer);
   }, [isDark]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (categoryTagsInView) {
+        categoryTagsAnimateControls.start('visible');
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [categoryTagsAnimateControls, categoryTagsInView]);
+
   return (
     <Article>
-      <ArticleAdditionalInfo>
+      <ArticleAdditionalInfo ref={categoryTagsRef}>
         <ArticleCategory
+          animate={categoryTagsAnimateControls}
           {...(articleData.tags.length > 0 && {
             className: 'has-tags',
           })}
