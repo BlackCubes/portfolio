@@ -10,6 +10,7 @@ import Navbar from 'common/components/Navbar';
 
 import { ThemeProvider } from 'common/providers';
 
+import { AboutListView } from 'features/about/pages';
 import { ArticleDetailView, ArticleListView } from 'features/article/pages';
 import { LandingListView } from 'features/landing/pages';
 import { WorkDetailView, WorkListView } from 'features/work/pages';
@@ -70,6 +71,8 @@ const App = () => {
             path="/articles/:articleSlug"
             element={<ArticleDetailView />}
           />
+
+          <Route path="/about" element={<AboutListView />} />
         </Routes>
       </AnimatePresence>
 
