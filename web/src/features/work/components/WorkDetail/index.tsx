@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import noImage from 'assets/img/no-image.png';
 
@@ -27,59 +29,160 @@ interface IWorkDetail {
   workData: IWork;
 }
 
-const WorkDetail: FC<IWorkDetail> = ({ workData }) => (
-  <Work>
-    <WorkAdditionalInfo>
-      <WorkCategory>
-        <Paragraph>{workData.category?.name ?? ''}</Paragraph>
-      </WorkCategory>
-    </WorkAdditionalInfo>
+const WorkDetail: FC<IWorkDetail> = ({ workData }) => {
+  const categoryAnimateControls = useAnimation();
+  const { inView: categoryInView, ref: categoryRef } = useInView();
 
-    <WorkTitle>
-      <HeadingPrimary>{workData.title}</HeadingPrimary>
-    </WorkTitle>
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
 
-    {workData.company && workData.company.length > 0 && (
-      <WorkCompany>
-        <Paragraph>{workData.company}</Paragraph>
-      </WorkCompany>
-    )}
+  const companyAnimateControls = useAnimation();
+  const { inView: companyInView, ref: companyRef } = useInView();
 
-    <WorkAdditionalInfo>
-      <WorkDate>
-        <Paragraph>{dateFormat('en-US', workData.first_released_at)}</Paragraph>
-      </WorkDate>
-    </WorkAdditionalInfo>
+  const dateAnimateControls = useAnimation();
+  const { inView: dateInView, ref: dateRef } = useInView();
 
-    <WorkDescription>
-      <Paragraph>{workData.description}</Paragraph>
-    </WorkDescription>
+  const descriptionAnimateControls = useAnimation();
+  const { inView: descriptionInView, ref: descriptionRef } = useInView();
 
-    <WorkMainImage>
-      <GlassRectangle
-        customClassName="work-detail-page__main-image"
-        glassDarkShadowBlur={0.4}
-        glassDarkShadowHorizontalOffset={0.3}
-        glassDarkShadowVerticalOffset={0.3}
-        glassLightShadowBlur={0.4}
-        glassLightShadowHorizontalOffset={-0.3}
-        glassLightShadowVerticalOffset={-0.3}
-        imageAlt="Header image for article"
-        imageSrc={
-          workData.main_image
-            ? `http://localhost:8000${workData.main_image}`
-            : noImage
-        }
-        opacity={1}
-      />
-    </WorkMainImage>
+  const mainImageAnimateControls = useAnimation();
+  const { inView: mainImageInView, ref: mainImageRef } = useInView();
 
-    <WorkBodyContainer>
-      {workData.body.map((body) => (
-        <Body key={body.id} bodyType={body.type} bodyValue={body.value} />
-      ))}
-    </WorkBodyContainer>
-  </Work>
-);
+  const bodyContainerAnimateControls = useAnimation();
+  const { inView: bodyContainerInView, ref: bodyContainerRef } = useInView();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (categoryInView) {
+        categoryAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [categoryAnimateControls, categoryInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [titleAnimateControls, titleInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (companyInView) {
+        companyAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [companyAnimateControls, companyInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (dateInView) {
+        dateAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [dateAnimateControls, dateInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (descriptionInView) {
+        descriptionAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [descriptionAnimateControls, descriptionInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (mainImageInView) {
+        mainImageAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [mainImageAnimateControls, mainImageInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (bodyContainerInView) {
+        bodyContainerAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [bodyContainerAnimateControls, bodyContainerInView]);
+
+  return (
+    <Work>
+      <WorkAdditionalInfo ref={categoryRef}>
+        <WorkCategory animate={categoryAnimateControls}>
+          <Paragraph>{workData.category?.name ?? ''}</Paragraph>
+        </WorkCategory>
+      </WorkAdditionalInfo>
+
+      <WorkTitle animate={titleAnimateControls} ref={titleRef}>
+        <HeadingPrimary>{workData.title}</HeadingPrimary>
+      </WorkTitle>
+
+      {workData.company && workData.company.length > 0 && (
+        <WorkCompany animate={companyAnimateControls} ref={companyRef}>
+          <Paragraph>{workData.company}</Paragraph>
+        </WorkCompany>
+      )}
+
+      <WorkAdditionalInfo ref={dateRef}>
+        <WorkDate animate={dateAnimateControls}>
+          <Paragraph>
+            {dateFormat('en-US', workData.first_released_at)}
+          </Paragraph>
+        </WorkDate>
+      </WorkAdditionalInfo>
+
+      <WorkDescription
+        animate={descriptionAnimateControls}
+        ref={descriptionRef}
+      >
+        <Paragraph>{workData.description}</Paragraph>
+      </WorkDescription>
+
+      <WorkMainImage animate={mainImageAnimateControls} ref={mainImageRef}>
+        <GlassRectangle
+          customClassName="work-detail-page__main-image"
+          glassDarkShadowBlur={0.4}
+          glassDarkShadowHorizontalOffset={0.3}
+          glassDarkShadowVerticalOffset={0.3}
+          glassLightShadowBlur={0.4}
+          glassLightShadowHorizontalOffset={-0.3}
+          glassLightShadowVerticalOffset={-0.3}
+          imageAlt="Header image for article"
+          imageSrc={
+            workData.main_image
+              ? `http://localhost:8000${workData.main_image}`
+              : noImage
+          }
+          opacity={1}
+        />
+      </WorkMainImage>
+
+      <WorkBodyContainer
+        animate={bodyContainerAnimateControls}
+        ref={bodyContainerRef}
+      >
+        {workData.body.map((body) => (
+          <Body key={body.id} bodyType={body.type} bodyValue={body.value} />
+        ))}
+      </WorkBodyContainer>
+    </Work>
+  );
+};
 
 export default WorkDetail;

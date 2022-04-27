@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const Work = styled.article`
   max-width: 75rem;
@@ -24,7 +25,16 @@ export const WorkAdditionalInfo = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-export const WorkCategory = styled.div`
+export const WorkCategory = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))`
   position: relative;
   text-transform: uppercase;
   margin-right: 0.5rem;
@@ -35,14 +45,61 @@ export const WorkCategory = styled.div`
   }
 `;
 
-export const WorkTitle = styled.div`
+export const WorkTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 `;
 
-export const WorkCompany = styled.div``;
+export const WorkCompany = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: -10,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))``;
 
-export const WorkDate = styled.div`
+export const WorkDate = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   margin-right: 1.5rem;
 
   & p {
@@ -50,7 +107,16 @@ export const WorkDate = styled.div`
   }
 `;
 
-export const WorkDescription = styled.div`
+export const WorkDescription = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   max-width: 54rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -83,7 +149,16 @@ export const WorkDescription = styled.div`
   }
 `;
 
-export const WorkMainImage = styled.div`
+export const WorkMainImage = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   display: flex;
   justify-content: center;
 
@@ -93,7 +168,16 @@ export const WorkMainImage = styled.div`
   }
 `;
 
-export const WorkBodyContainer = styled.div`
+export const WorkBodyContainer = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   display: flex;
   flex-direction: column;
   margin-top: 4rem;
