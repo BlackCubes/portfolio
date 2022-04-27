@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const Article = styled.article`
   max-width: 75rem;
@@ -30,7 +31,16 @@ export const ArticleAdditionalInfo = styled.div`
   }
 `;
 
-export const ArticleCategory = styled.div`
+export const ArticleCategory = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  },
+}))`
   position: relative;
   text-transform: uppercase;
   margin-right: 0.5rem;
@@ -73,12 +83,42 @@ export const ArticleTags = styled.div`
   }
 `;
 
-export const ArticleTitle = styled.div`
+export const ArticleTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 `;
 
-export const ArticleAuthor = styled.div``;
+export const ArticleAuthor = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: -10,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))``;
 
 export const AuthorTwitterContainer = styled.div`
   display: flex;
@@ -86,7 +126,24 @@ export const AuthorTwitterContainer = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-export const AuthorTwitterIconWrapper = styled.div`
+export const AuthorTwitterIconWrapper = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      x: -10,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   width: 1rem;
   margin-right: 0.2rem;
 `;
@@ -95,14 +152,40 @@ export const AuthorTwitterIcon = styled.img`
   width: 100%;
 `;
 
-export const AuthorTwitterLink = styled.a`
+export const AuthorTwitterLink = styled(motion.a).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   font-size: 1.1rem;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.secondary.hex};
   text-decoration: none;
 `;
 
-export const ArticleDate = styled.div`
+export const ArticleDate = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   margin-right: 1.5rem;
 
   & p {
@@ -114,7 +197,24 @@ export const ArticleDate = styled.div`
   }
 `;
 
-export const ArticleReadTime = styled.div`
+export const ArticleReadTime = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   & p {
     font-size: 1.3rem;
     font-weight: 700;
@@ -122,7 +222,16 @@ export const ArticleReadTime = styled.div`
   }
 `;
 
-export const ArticleDescription = styled.div`
+export const ArticleDescription = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   max-width: 54rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -155,7 +264,16 @@ export const ArticleDescription = styled.div`
   }
 `;
 
-export const ArticleHeaderImage = styled.div`
+export const ArticleHeaderImage = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   display: flex;
   justify-content: center;
 
@@ -165,7 +283,16 @@ export const ArticleHeaderImage = styled.div`
   }
 `;
 
-export const ArticleBodyContainer = styled.div`
+export const ArticleBodyContainer = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   display: flex;
   flex-direction: column;
   margin-top: 4rem;

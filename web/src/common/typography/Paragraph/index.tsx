@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 interface IParagraph {
   opacity?: number;
 }
 
-const Paragraph = styled.p<IParagraph>`
+const Paragraph = styled(motion.p)<IParagraph>`
   font-size: ${({ theme }) => theme.fonts.paragraph};
   font-weight: 400;
   color: ${({ theme }) => theme.colors.secondary.hex};

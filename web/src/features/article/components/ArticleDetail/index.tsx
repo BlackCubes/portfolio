@@ -1,4 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import noImage from 'assets/img/no-image.png';
 import twitterIconBlack from 'assets/img/twitter-logo_black.png';
@@ -43,6 +45,31 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
   const { isDark } = useThemeContext();
 
+  const categoryTagsAnimateControls = useAnimation();
+  const { inView: categoryTagsInView, ref: categoryTagsRef } = useInView();
+
+  const titleAnimateControls = useAnimation();
+  const { inView: titleInView, ref: titleRef } = useInView();
+
+  const authorAnimateControls = useAnimation();
+  const { inView: authorInView, ref: authorRef } = useInView();
+
+  const twitterIconLinkAnimateControls = useAnimation();
+  const { inView: twitterContainerInView, ref: twitterContainerRef } =
+    useInView();
+
+  const dateReadTimeAnimateControls = useAnimation();
+  const { inView: dateReadTimeInView, ref: dateReadTimeRef } = useInView();
+
+  const descriptionAnimateControls = useAnimation();
+  const { inView: descriptionInView, ref: descriptionRef } = useInView();
+
+  const headerImageAnimateControls = useAnimation();
+  const { inView: headerImageInView, ref: headerImageRef } = useInView();
+
+  const bodyContainerAnimateControls = useAnimation();
+  const { inView: bodyContainerInView, ref: bodyContainerRef } = useInView();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTwitterIcon(!isDark ? twitterIconBlack : twitterIconWhite);
@@ -51,10 +78,91 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
     return () => clearTimeout(timer);
   }, [isDark]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (categoryTagsInView) {
+        categoryTagsAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [categoryTagsAnimateControls, categoryTagsInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (titleInView) {
+        titleAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [titleAnimateControls, titleInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (authorInView) {
+        authorAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [authorAnimateControls, authorInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (twitterContainerInView) {
+        twitterIconLinkAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [twitterIconLinkAnimateControls, twitterContainerInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (dateReadTimeInView) {
+        dateReadTimeAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [dateReadTimeAnimateControls, dateReadTimeInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (descriptionInView) {
+        descriptionAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [descriptionAnimateControls, descriptionInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (headerImageInView) {
+        headerImageAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [headerImageAnimateControls, headerImageInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (bodyContainerInView) {
+        bodyContainerAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [bodyContainerAnimateControls, bodyContainerInView]);
+
   return (
     <Article>
-      <ArticleAdditionalInfo>
+      <ArticleAdditionalInfo ref={categoryTagsRef}>
         <ArticleCategory
+          animate={categoryTagsAnimateControls}
           {...(articleData.tags.length > 0 && {
             className: 'has-tags',
           })}
@@ -64,23 +172,41 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
 
         {articleData.tags.length > 0 && (
           <ArticleTags>
-            {articleData.tags.map((tag) => (
-              <Paragraph key={`${tag.slug}-${tag.id}`}>{tag.name}</Paragraph>
+            {articleData.tags.map((tag, tagIndex) => (
+              <Paragraph
+                key={`${tag.slug}-${tag.id}`}
+                // FOR ANIMATING WITH FRAMER-MOTION
+                animate={categoryTagsAnimateControls}
+                custom={tagIndex}
+                initial="hidden"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: (customDelay) => ({
+                    opacity: 1,
+                    transition: {
+                      duration: 0.3,
+                      delay: customDelay * 0.1,
+                    },
+                  }),
+                }}
+              >
+                {tag.name}
+              </Paragraph>
             ))}
           </ArticleTags>
         )}
       </ArticleAdditionalInfo>
 
-      <ArticleTitle>
+      <ArticleTitle animate={titleAnimateControls} ref={titleRef}>
         <HeadingPrimary>{articleData.title}</HeadingPrimary>
       </ArticleTitle>
 
-      <ArticleAuthor>
+      <ArticleAuthor animate={authorAnimateControls} ref={authorRef}>
         <Paragraph>Elias Gutierrez</Paragraph>
       </ArticleAuthor>
 
-      <AuthorTwitterContainer>
-        <AuthorTwitterIconWrapper>
+      <AuthorTwitterContainer ref={twitterContainerRef}>
+        <AuthorTwitterIconWrapper animate={twitterIconLinkAnimateControls}>
           <AuthorTwitterIcon
             src={twitterIcon}
             alt="Twitter Logo"
@@ -89,6 +215,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         </AuthorTwitterIconWrapper>
 
         <AuthorTwitterLink
+          animate={twitterIconLinkAnimateControls}
           href="https://twitter.com/_BlackCubes_"
           target="_blank"
           rel="noopener"
@@ -97,14 +224,17 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         </AuthorTwitterLink>
       </AuthorTwitterContainer>
 
-      <ArticleAdditionalInfo className="article__date-readtime">
-        <ArticleDate>
+      <ArticleAdditionalInfo
+        className="article__date-readtime"
+        ref={dateReadTimeRef}
+      >
+        <ArticleDate animate={dateReadTimeAnimateControls}>
           <Paragraph>
             {dateFormat('en-US', articleData.meta.first_published_at)}
           </Paragraph>
         </ArticleDate>
 
-        <ArticleReadTime>
+        <ArticleReadTime animate={dateReadTimeAnimateControls}>
           <Paragraph>
             {articleData.reading_time < 60
               ? `${Math.round(articleData.reading_time)} sec`
@@ -114,11 +244,17 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         </ArticleReadTime>
       </ArticleAdditionalInfo>
 
-      <ArticleDescription>
+      <ArticleDescription
+        animate={descriptionAnimateControls}
+        ref={descriptionRef}
+      >
         <Paragraph>{articleData.description}</Paragraph>
       </ArticleDescription>
 
-      <ArticleHeaderImage>
+      <ArticleHeaderImage
+        animate={headerImageAnimateControls}
+        ref={headerImageRef}
+      >
         <GlassRectangle
           customClassName="article-detail-page__header-image"
           glassDarkShadowBlur={0.4}
@@ -137,7 +273,10 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
         />
       </ArticleHeaderImage>
 
-      <ArticleBodyContainer>
+      <ArticleBodyContainer
+        animate={bodyContainerAnimateControls}
+        ref={bodyContainerRef}
+      >
         {articleData.body.map((body) => (
           <Body key={body.id} bodyType={body.type} bodyValue={body.value} />
         ))}

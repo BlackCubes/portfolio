@@ -1,8 +1,26 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // GENERAL
-export const SidebarTitle = styled.div`
+export const SidebarTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   margin-bottom: 1.5rem;
 
   & h3 {
@@ -40,7 +58,19 @@ export const SidebarList = styled.ul`
 `;
 
 // RELATED
-export const RelatedItem = styled.li`
+export const RelatedItem = styled(motion.li).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: (customDelay) => ({
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        delay: customDelay * 0.1,
+      },
+    }),
+  },
+}))`
   margin-bottom: 1.2rem;
   padding-top: 0.4rem;
   border-top: 0.1rem solid
