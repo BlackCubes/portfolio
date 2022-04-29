@@ -4,6 +4,13 @@ import LoadingIcon from 'common/components/LoadingIcon';
 import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
+import {
+  AboutSection,
+  BeliefsSection,
+  ExperienceSection,
+  MoreSection,
+} from 'features/about/components';
+
 import { PageContainer } from './styles';
 
 const AboutListView: FC = () => (
@@ -86,7 +93,17 @@ const AboutListView: FC = () => (
 
     <PageContainer className="default-container navbar-footer-space">
       <LoadingOverlay
-        contentComponent={<h1>The About Page!</h1>}
+        contentComponent={
+          <>
+            <AboutSection />
+
+            <ExperienceSection />
+
+            <BeliefsSection />
+
+            <MoreSection />
+          </>
+        }
         isLoading={false}
         loaderComponent={<LoadingIcon />}
         loaderDuration={1000}
