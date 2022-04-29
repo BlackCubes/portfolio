@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-/* eslint-disable-next-line import/prefer-default-export */
 export const PageContainer = styled(motion.div).attrs(() => ({
   animate: 'animate',
   exit: 'exit',
@@ -27,3 +26,12 @@ export const PageContainer = styled(motion.div).attrs(() => ({
     },
   },
 }))``;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Col = styled.div`
+  width: 50%;
+`;

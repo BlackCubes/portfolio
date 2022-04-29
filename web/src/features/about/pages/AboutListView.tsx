@@ -12,7 +12,7 @@ import {
   MoreSection,
 } from 'features/about/components';
 
-import { PageContainer } from './styles';
+import { Col, PageContainer, Row } from './styles';
 
 const AboutListView: FC = () => (
   <>
@@ -100,11 +100,21 @@ const AboutListView: FC = () => (
 
             <LineSeparator />
 
-            <ExperienceSection />
+            <Row className="default-margin-top">
+              <Col>
+                <ExperienceSection />
+              </Col>
+            </Row>
 
-            <BeliefsSection />
+            <Row>
+              <Col>
+                <BeliefsSection />
+              </Col>
 
-            <MoreSection />
+              <Col>
+                <MoreSection />
+              </Col>
+            </Row>
           </>
         }
         isLoading={false}
