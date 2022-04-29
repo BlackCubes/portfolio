@@ -116,6 +116,18 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100%;
   }
 
+  .default-margin-top {
+    margin-top: 15rem;
+
+    @media ${({ theme }) => theme.responsive.below599} {
+      margin-top: 12rem;
+    }
+
+    @media ${({ theme }) => theme.responsive.below479} {
+      margin-top: 10rem;
+    }
+  }
+
   .default-margin-bottom {
     margin-bottom: 15rem;
 
