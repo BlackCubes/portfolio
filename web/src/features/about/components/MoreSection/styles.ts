@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
+  margin-top: 12rem;
   padding-left: 12rem;
   text-align: right;
 `;
