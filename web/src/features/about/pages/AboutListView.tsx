@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import LineSeparator from 'common/components/LineSeparator';
 import LoadingIcon from 'common/components/LoadingIcon';
 import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
@@ -96,6 +97,8 @@ const AboutListView: FC = () => (
         contentComponent={
           <>
             <AboutSection />
+
+            <LineSeparator />
 
             <ExperienceSection />
 
