@@ -48,6 +48,13 @@ export const GlassContainer = styled.div<IGlassContainer>`
   }, 0.27)`};
   overflow: hidden;
 
+  &.about-page {
+    width: 51rem;
+    height: 48rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   &.article-list-page {
     width: 35rem;
     height: 20rem;
@@ -122,6 +129,10 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   margin-left: auto;
   margin-right: auto;
   opacity: ${({ opacity }) => opacity ?? '1'};
+
+  &.about-page {
+    width: 100%;
+  }
 
   &.article-list-page,
   &.article-detail-page__header-image,
