@@ -8,6 +8,7 @@ export const Section = styled.section`
 export const MainAboutWrapper = styled.div`
   width: 80%;
   margin-bottom: 3rem;
+  margin-left: auto;
 
   @media ${({ theme }) => theme.responsive.below899} {
     width: 100%;
@@ -21,4 +22,5 @@ export const MainAboutWrapper = styled.div`
 
 export const SecondaryAboutWrapper = styled.div`
   width: 95%;
+  margin-left: auto;
 `;
