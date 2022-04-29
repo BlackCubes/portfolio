@@ -7,7 +7,7 @@ import GlassRectangle from 'common/components/GlassRectangle';
 import { ImageWrapper } from './styles';
 
 const AboutImage: FC = () => (
-  <ImageWrapper>
+  <ImageWrapper className="default-margin-bottom">
     <GlassRectangle
       customClassName="about-page"
       glassDarkShadowBlur={0.4}
