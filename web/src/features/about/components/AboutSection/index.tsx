@@ -3,10 +3,10 @@ import React, { FC } from 'react';
 import HeadingPrimary from 'common/typography/HeadingPrimary';
 import Paragraph from 'common/typography/Paragraph';
 
-import { Container, MainAboutWrapper, SecondaryAboutWrapper } from './styles';
+import { MainAboutWrapper, SecondaryAboutWrapper, Section } from './styles';
 
 const AboutSection: FC = () => (
-  <Container className="default-margin-bottom">
+  <Section className="default-margin-bottom">
     <MainAboutWrapper>
       <HeadingPrimary>
         Hello! I love drinking coffee while learning and improving on new and
@@ -22,7 +22,7 @@ const AboutSection: FC = () => (
         creating and solving real-world problems for the users to enjoy
       </Paragraph>
     </SecondaryAboutWrapper>
-  </Container>
+  </Section>
 );
 
 export default AboutSection;

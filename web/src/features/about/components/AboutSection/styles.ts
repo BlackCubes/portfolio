@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
+export const Section = styled.section`
   width: 100%;
   text-align: right;
 `;
