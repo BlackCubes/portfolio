@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  padding-left: 5rem;
+  padding-left: 12rem;
   text-align: right;
 `;
 
