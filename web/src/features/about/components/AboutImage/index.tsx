@@ -9,6 +9,7 @@ import { ImageWrapper } from './styles';
 const AboutImage: FC = () => (
   <ImageWrapper>
     <GlassRectangle
+      customClassName="about-page"
       glassDarkShadowBlur={0.4}
       glassDarkShadowHorizontalOffset={0.3}
       glassDarkShadowVerticalOffset={0.3}
