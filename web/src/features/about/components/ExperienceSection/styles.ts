@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Section = styled.section``;
+export const Section = styled.section`
+  text-align: right;
+`;
 
 export const SectionTitle = styled.div`
   margin-bottom: 2.5rem;
