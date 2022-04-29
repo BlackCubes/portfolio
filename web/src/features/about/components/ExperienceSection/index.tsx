@@ -6,7 +6,7 @@ import Paragraph from 'common/typography/Paragraph';
 import { ParagraphWrapper, Section, SectionTitle } from './styles';
 
 const ExperienceSection: FC = () => (
-  <Section className="default-margin-bottom">
+  <Section>
     <SectionTitle>
       <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
         Experience

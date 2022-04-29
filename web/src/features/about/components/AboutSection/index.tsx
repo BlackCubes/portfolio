@@ -6,7 +6,7 @@ import Paragraph from 'common/typography/Paragraph';
 import { MainAboutWrapper, SecondaryAboutWrapper, Section } from './styles';
 
 const AboutSection: FC = () => (
-  <Section className="default-margin-bottom">
+  <Section>
     <MainAboutWrapper>
       <HeadingPrimary>
         Hello! I love drinking coffee while learning and improving on new and
