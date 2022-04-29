@@ -6,6 +6,7 @@ import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import {
+  AboutImage,
   AboutSection,
   BeliefsSection,
   ExperienceSection,
@@ -101,6 +102,10 @@ const AboutListView: FC = () => (
             <LineSeparator />
 
             <Row className="default-margin-top">
+              <Col>
+                <AboutImage />
+              </Col>
+
               <Col>
                 <ExperienceSection />
               </Col>
