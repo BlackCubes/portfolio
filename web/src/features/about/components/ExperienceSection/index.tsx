@@ -8,11 +8,21 @@ import Paragraph from 'common/typography/Paragraph';
 import { Italic, ParagraphWrapper, Section, SectionTitle } from './styles';
 
 const ExperienceSection: FC = () => {
+  const sectionAnimateControls = useAnimation();
+  const { inView: sectionInView, ref: sectionRef } = useInView();
+
   const titleAnimateControls = useAnimation();
   const { inView: titleInView, ref: titleRef } = useInView();
 
-  const sectionAnimateControls = useAnimation();
-  const { inView: sectionInView, ref: sectionRef } = useInView();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (sectionInView) {
+        sectionAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [sectionAnimateControls, sectionInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,15 +33,6 @@ const ExperienceSection: FC = () => {
 
     return () => clearTimeout(timer);
   }, [titleAnimateControls, titleInView]);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (sectionInView) {
-        sectionAnimateControls.start('visible');
-      }
-    }, 200);
-
-    return () => clearTimeout(timer);
-  }, [sectionAnimateControls, sectionInView]);
 
   return (
     <Section
