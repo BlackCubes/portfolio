@@ -72,7 +72,7 @@ const ExperienceSection: FC = () => {
         <Paragraph>
           During my apprenticeship, I was given an opportunity to co-teach a
           React course from Bitwise for 6-weeks, and currently help to sub
-          co-teach on React and other courses such as
+          co-teach on React and other courses such as&nbsp;
           <Italic>Websites for Beginners</Italic>.
         </Paragraph>
       </ParagraphWrapper>
