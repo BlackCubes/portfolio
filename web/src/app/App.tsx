@@ -54,7 +54,10 @@ const App = () => {
 
       <DarkModeToggle />
 
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence
+        exitBeforeEnter
+        onExitComplete={() => window.scroll(0, 0)}
+      >
         <Routes location={location} key={location.pathname}>
           <Route
             path=""
