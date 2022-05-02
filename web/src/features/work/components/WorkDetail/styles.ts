@@ -107,6 +107,24 @@ export const WorkDate = styled(motion.div).attrs(() => ({
   }
 `;
 
+export const WorkAppWrapper = styled.div`
+  display: flex;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+export const WorkAppLink = styled.a`
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.secondary.hex};
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+`;
+
 export const WorkDescription = styled(motion.div).attrs(() => ({
   initial: 'hidden',
   variants: {

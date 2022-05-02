@@ -16,6 +16,8 @@ import { dateFormat } from 'utils';
 import {
   Work,
   WorkAdditionalInfo,
+  WorkAppWrapper,
+  WorkAppLink,
   WorkBodyContainer,
   WorkCategory,
   WorkCompany,
@@ -146,6 +148,16 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => {
           </Paragraph>
         </WorkDate>
       </WorkAdditionalInfo>
+
+      <WorkAppWrapper>
+        <WorkAppLink
+          href="https://twitter.com/_BlackCubes_"
+          rel="noopener"
+          target="_blank"
+        >
+          View app
+        </WorkAppLink>
+      </WorkAppWrapper>
 
       <WorkDescription
         animate={descriptionAnimateControls}
