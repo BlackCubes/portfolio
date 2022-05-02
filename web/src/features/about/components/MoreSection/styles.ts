@@ -52,4 +52,14 @@ export const ParagraphWrapper = styled.div`
 
 export const Italic = styled.i``;
 
-export const ExternalLink = styled.a``;
+export const ExternalLink = styled.a`
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.primary.hex};
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+`;
