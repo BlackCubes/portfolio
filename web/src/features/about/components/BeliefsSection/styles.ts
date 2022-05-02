@@ -1,6 +1,16 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Section = styled.section`
+export const Section = styled(motion.section).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   margin-top: -28rem;
   padding-right: 12rem;
   text-align: left;
@@ -20,7 +30,20 @@ export const Section = styled.section`
   }
 `;
 
-export const SectionTitle = styled.div`
+export const SectionTitle = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   margin-bottom: 2.5rem;
 
   @media ${({ theme }) => theme.responsive.below599} {
