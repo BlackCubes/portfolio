@@ -18,7 +18,7 @@ const itemData: TItemData[] = [
   {
     id: '4c5c324a-92ed-4575-a731-25370c21379a',
     title: 'About',
-    path: '/',
+    path: '/about',
   },
 ];
 
