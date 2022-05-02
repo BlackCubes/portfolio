@@ -270,6 +270,17 @@ export const WorkLink = styled(Link)`
   }
 `;
 
+export const WorkExternalLink = styled.a`
+  font-size: ${({ theme }) => theme.fonts.paragraph};
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.primary.hex};
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
 export const WorkImageWrapper = styled(motion.div).attrs(({ className }) => ({
   initial: 'hidden',
   variants: {
