@@ -10,6 +10,10 @@ export const MainAboutWrapper = styled.div`
   margin-bottom: 3rem;
   margin-left: auto;
 
+  @media ${({ theme }) => theme.responsive.below1199} {
+    width: 97%;
+  }
+
   @media ${({ theme }) => theme.responsive.below899} {
     width: 100%;
     margin-bottom: 5rem;
@@ -24,6 +28,10 @@ export const SecondaryAboutWrapper = styled.div`
   width: 95%;
   margin-bottom: 3rem;
   margin-left: auto;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    width: 97%;
+  }
 
   @media ${({ theme }) => theme.responsive.below899} {
     width: 100%;
