@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 import Paragraph from 'common/typography/Paragraph';
 
-import { ParagraphWrapper, Section, SectionTitle } from './styles';
+import { Italic, ParagraphWrapper, Section, SectionTitle } from './styles';
 
 const ExperienceSection: FC = () => (
   <Section className="default-margin-bottom">
@@ -39,7 +39,7 @@ const ExperienceSection: FC = () => (
       <Paragraph>
         During my apprenticeship, I was given an opportunity to co-teach a React
         course from Bitwise for 6-weeks, and currently help to sub co-teach on
-        React and other courses such as Websites for Beginners.
+        React and other courses such as <Italic>Websites for Beginners</Italic>.
       </Paragraph>
     </ParagraphWrapper>
 

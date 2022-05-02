@@ -48,3 +48,5 @@ export const ParagraphWrapper = styled.div`
     line-height: 1.5;
   }
 `;
+
+export const Italic = styled.i``;
