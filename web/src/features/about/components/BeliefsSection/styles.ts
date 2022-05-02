@@ -4,6 +4,10 @@ export const Section = styled.section`
   margin-top: -28rem;
   padding-right: 12rem;
   text-align: left;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-right: 3rem;
+  }
 `;
 
 export const SectionTitle = styled.div`
