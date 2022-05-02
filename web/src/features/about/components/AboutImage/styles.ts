@@ -3,4 +3,8 @@ import styled from 'styled-components';
 /* eslint-disable-next-line import/prefer-default-export */
 export const ImageWrapper = styled.div`
   margin-top: 5rem;
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    margin-top: 0;
+  }
 `;
