@@ -55,7 +55,11 @@ const Footer: FC = () => {
 
         <LogosContainer>
           <LogoWrapper>
-            <LogoLink href="https://github.com/BlackCubes">
+            <LogoLink
+              href="https://github.com/BlackCubes"
+              rel="noopener"
+              target="_blank"
+            >
               <Logo
                 src={githubLogo}
                 alt="Github Logo"
@@ -65,7 +69,11 @@ const Footer: FC = () => {
           </LogoWrapper>
 
           <LogoWrapper>
-            <LogoLink href="https://twitter.com/_BlackCubes_">
+            <LogoLink
+              href="https://twitter.com/_BlackCubes_"
+              rel="noopener"
+              target="_blank"
+            >
               <Logo
                 src={twitterLogo}
                 alt="Twitter Logo"
@@ -75,7 +83,11 @@ const Footer: FC = () => {
           </LogoWrapper>
 
           <LogoWrapper>
-            <LogoLink href="https://www.linkedin.com/in/eliasgutierrez1991/">
+            <LogoLink
+              href="https://www.linkedin.com/in/eliasgutierrez1991/"
+              rel="noopener"
+              target="_blank"
+            >
               <Logo
                 src={linkedinLogo}
                 alt="LinkedIn Logo"
