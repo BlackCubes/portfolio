@@ -11,6 +11,11 @@ export const Section = styled.section`
   @media ${({ theme }) => theme.responsive.below899} {
     padding-right: 3rem;
   }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    padding-right: 0;
+    padding-left: 0;
+  }
 `;
 
 export const SectionTitle = styled.div`
