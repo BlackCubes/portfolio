@@ -184,7 +184,7 @@ const WorkContainer: FC<IWorkContainer> = ({
 
         <WorkLinkWrapper
           animate={externalLinkAnimateControls}
-          className={reverseClass}
+          className={`external-link ${reverseClass}`}
           ref={externalLinkRef}
         >
           <WorkExternalLink

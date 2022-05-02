@@ -231,6 +231,10 @@ export const WorkLinkWrapper = styled(motion.div).attrs(({ className }) => ({
 }))`
   text-align: right;
 
+  &.external-link {
+    margin-bottom: 2rem;
+  }
+
   &.reverse {
     text-align: left;
 
