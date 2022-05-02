@@ -92,7 +92,6 @@ const WorkSection: FC<IWorkSection> = ({ finishIsFirstMount, worksData }) => {
                     ? `http://localhost:8000${workData.logo_image}`
                     : noImage
                 }
-                workLinkContent="View"
                 workLinkPath={`/work/${workData.meta.slug}`}
                 workTitle={workData.title}
                 {...(workIndex % 2 !== 0 && {
