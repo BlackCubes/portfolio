@@ -53,6 +53,9 @@ const WorkContainer: FC<IWorkContainer> = ({
   const descriptionAnimateControls = useAnimation();
   const { inView: descriptionInView, ref: descriptionRef } = useInView();
 
+  const externalLinkAnimateControls = useAnimation();
+  const { inView: externalLinkInView, ref: externalLinkRef } = useInView();
+
   const linkAnimateControls = useAnimation();
   const { inView: linkInView, ref: linkRef } = useInView();
 
@@ -82,6 +85,16 @@ const WorkContainer: FC<IWorkContainer> = ({
 
     return () => clearTimeout(timer);
   }, [finishIsFirstMount, descriptionAnimateControls, descriptionInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && externalLinkInView) {
+        externalLinkAnimateControls.start('visible');
+      }
+    }, 1700);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, externalLinkAnimateControls, externalLinkInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -169,7 +182,11 @@ const WorkContainer: FC<IWorkContainer> = ({
           </Paragraph>
         </WorkDescription>
 
-        <WorkLinkWrapper className={reverseClass}>
+        <WorkLinkWrapper
+          animate={externalLinkAnimateControls}
+          className={reverseClass}
+          ref={externalLinkRef}
+        >
           <WorkExternalLink
             href={workExternalLinkPath}
             rel="noopener"
