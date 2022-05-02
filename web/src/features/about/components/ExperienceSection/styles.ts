@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Section = styled.section`
   padding-left: 12rem;
   text-align: right;
+
+  @media ${({ theme }) => theme.responsive.below1199} {
+    padding-left: 3rem;
+  }
 `;
 
 export const SectionTitle = styled.div`
