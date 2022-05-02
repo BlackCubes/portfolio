@@ -15,6 +15,7 @@ import {
   WorkContainerStyle,
   WorkDescription,
   WorkDescriptionContainer,
+  WorkExternalLink,
   WorkImageLink,
   WorkImageWrapper,
   WorkLink,
@@ -28,6 +29,7 @@ export interface IWorkContainer {
   isExploreLinkHovering: boolean;
   reverseClass?: string;
   workDescription: string;
+  workExternalLinkPath: string;
   workImageAlt: string;
   workImageSrc: string;
   workLinkPath: string;
@@ -39,6 +41,7 @@ const WorkContainer: FC<IWorkContainer> = ({
   isExploreLinkHovering,
   reverseClass,
   workDescription,
+  workExternalLinkPath,
   workImageAlt,
   workImageSrc,
   workLinkPath,
@@ -166,6 +169,16 @@ const WorkContainer: FC<IWorkContainer> = ({
           </Paragraph>
         </WorkDescription>
 
+        <WorkLinkWrapper className={reverseClass}>
+          <WorkExternalLink
+            href={workExternalLinkPath}
+            rel="noopener"
+            target="_blank"
+          >
+            App
+          </WorkExternalLink>
+        </WorkLinkWrapper>
+
         <WorkLinkWrapper
           animate={linkAnimateControls}
           className={reverseClass}
@@ -176,7 +189,7 @@ const WorkContainer: FC<IWorkContainer> = ({
             onMouseEnter={() => setIsWorkLinkHovering(true)}
             onMouseLeave={() => setIsWorkLinkHovering(false)}
           >
-            View
+            About
           </WorkLink>
         </WorkLinkWrapper>
       </WorkDescriptionContainer>
