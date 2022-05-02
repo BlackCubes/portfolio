@@ -30,7 +30,6 @@ export interface IWorkContainer {
   workDescription: string;
   workImageAlt: string;
   workImageSrc: string;
-  workLinkContent: string;
   workLinkPath: string;
   workTitle: string;
 }
@@ -42,7 +41,6 @@ const WorkContainer: FC<IWorkContainer> = ({
   workDescription,
   workImageAlt,
   workImageSrc,
-  workLinkContent,
   workLinkPath,
   workTitle,
 }) => {
@@ -178,7 +176,7 @@ const WorkContainer: FC<IWorkContainer> = ({
             onMouseEnter={() => setIsWorkLinkHovering(true)}
             onMouseLeave={() => setIsWorkLinkHovering(false)}
           >
-            {workLinkContent}
+            View
           </WorkLink>
         </WorkLinkWrapper>
       </WorkDescriptionContainer>
