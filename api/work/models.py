@@ -92,6 +92,11 @@ class WorkPage(Page):
     )
     company = models.CharField(max_length=100, blank=True, null=True)
     first_released_at = models.DateTimeField(default=timezone.now)
+    work_url = models.URLField(
+        blank=True,
+        null=True,
+        help_text="Preferably use the released website. If not, use a GitHub link, if possible.",
+    )
     category = models.ForeignKey(
         "work.WorkCategory", null=True, on_delete=models.SET_NULL
     )
@@ -138,6 +143,7 @@ class WorkPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel("company"),
+                FieldPanel("work_url"),
                 FieldPanel("first_released_at"),
                 FieldPanel("category", widget=forms.RadioSelect),
             ],
@@ -152,6 +158,7 @@ class WorkPage(Page):
         APIField("main_image", serializer=WorkMainImageSerializedField()),
         APIField("logo_image", serializer=WorkLogoImageSerializedField()),
         APIField("company"),
+        APIField("work_url"),
         APIField("first_released_at"),
         APIField("category", serializer=WorkCategorySerializedField()),
         APIField("body", serializer=WorkBodySerializedField()),
