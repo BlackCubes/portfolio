@@ -97,6 +97,10 @@ class WorkPage(Page):
         null=True,
         help_text="Preferably use the released website. If not, use a GitHub link, if possible.",
     )
+    show_to_public = models.BooleanField(
+        default=True,
+        help_text="If you want to show to the public on your personal portfolio website.",
+    )
     category = models.ForeignKey(
         "work.WorkCategory", null=True, on_delete=models.SET_NULL
     )
@@ -145,6 +149,7 @@ class WorkPage(Page):
                 FieldPanel("company"),
                 FieldPanel("work_url"),
                 FieldPanel("first_released_at"),
+                FieldPanel("show_to_public"),
                 FieldPanel("category", widget=forms.RadioSelect),
             ],
             heading="Work/Personal information",
@@ -159,6 +164,7 @@ class WorkPage(Page):
         APIField("logo_image", serializer=WorkLogoImageSerializedField()),
         APIField("company"),
         APIField("work_url"),
+        APIField("show_to_public"),
         APIField("first_released_at"),
         APIField("category", serializer=WorkCategorySerializedField()),
         APIField("body", serializer=WorkBodySerializedField()),
