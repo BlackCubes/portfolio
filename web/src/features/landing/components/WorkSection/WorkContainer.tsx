@@ -182,19 +182,21 @@ const WorkContainer: FC<IWorkContainer> = ({
           </Paragraph>
         </WorkDescription>
 
-        <WorkLinkWrapper
-          animate={externalLinkAnimateControls}
-          className={`external-link ${reverseClass}`}
-          ref={externalLinkRef}
-        >
-          <WorkExternalLink
-            href={workExternalLinkPath}
-            rel="noopener"
-            target="_blank"
+        {workExternalLinkPath.length > 0 && (
+          <WorkLinkWrapper
+            animate={externalLinkAnimateControls}
+            className={`external-link ${reverseClass}`}
+            ref={externalLinkRef}
           >
-            App
-          </WorkExternalLink>
-        </WorkLinkWrapper>
+            <WorkExternalLink
+              href={workExternalLinkPath}
+              rel="noopener"
+              target="_blank"
+            >
+              App
+            </WorkExternalLink>
+          </WorkLinkWrapper>
+        )}
 
         <WorkLinkWrapper
           animate={linkAnimateControls}
