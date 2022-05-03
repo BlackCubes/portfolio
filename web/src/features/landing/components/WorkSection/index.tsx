@@ -30,6 +30,7 @@ type TWorksData = Pick<
   | 'logo_image'
   | 'title'
   | 'uuid'
+  | 'work_url'
 > & {
   meta: Pick<IWork['meta'], 'first_published_at' | 'slug'>;
 };
@@ -86,7 +87,7 @@ const WorkSection: FC<IWorkSection> = ({ finishIsFirstMount, worksData }) => {
                 finishIsFirstMount={finishIsFirstMount}
                 isExploreLinkHovering={isHovering}
                 workDescription={workData.description}
-                workExternalLinkPath="https://twitter.com/_BlackCubes_"
+                workExternalLinkPath={workData.work_url ?? ''}
                 workImageAlt={workData.title}
                 workImageSrc={
                   workData.logo_image

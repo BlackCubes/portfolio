@@ -162,16 +162,18 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => {
         </WorkDate>
       </WorkAdditionalInfo>
 
-      <WorkAppWrapper ref={appLinkRef}>
-        <WorkAppLink
-          animate={appLinkAnimateControls}
-          href="https://twitter.com/_BlackCubes_"
-          rel="noopener"
-          target="_blank"
-        >
-          View app
-        </WorkAppLink>
-      </WorkAppWrapper>
+      {workData.work_url && workData.work_url.length > 0 && (
+        <WorkAppWrapper ref={appLinkRef}>
+          <WorkAppLink
+            animate={appLinkAnimateControls}
+            href={workData.work_url}
+            rel="noopener"
+            target="_blank"
+          >
+            View app
+          </WorkAppLink>
+        </WorkAppWrapper>
+      )}
 
       <WorkDescription
         animate={descriptionAnimateControls}

@@ -11,6 +11,7 @@ type TGetWorks = Pick<
   | 'logo_image'
   | 'title'
   | 'uuid'
+  | 'work_url'
 > & {
   meta: Pick<IWork['meta'], 'first_published_at' | 'slug'>;
 };
@@ -38,7 +39,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
         if (category === 'Personal') categoryId = 2;
 
         return {
-          url: `/pages/?type=work.WorkPage&fields=_,id,uuid,title,slug,description,logo_image,category,first_published_at,first_released_at&category=${categoryId}&limit=${limit}&order=-first_released_at`,
+          url: `/pages/?type=work.WorkPage&fields=_,id,uuid,title,slug,description,logo_image,work_url,category,first_published_at,first_released_at&category=${categoryId}&limit=${limit}&order=-first_released_at`,
         };
       },
 
@@ -47,7 +48,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
 
     getWorkBySlug: builder.query<IWork, string>({
       query: (slug) => ({
-        url: `/pages/${slug}/?fields=_,id,uuid,first_published_at,slug,seo_title,search_description,title,description,main_image,logo_image,company,first_released_at,category,body`,
+        url: `/pages/${slug}/?fields=_,id,uuid,first_published_at,slug,seo_title,search_description,title,description,main_image,logo_image,company,work_url,first_released_at,category,body`,
       }),
 
       providesTags: ['Work'],
