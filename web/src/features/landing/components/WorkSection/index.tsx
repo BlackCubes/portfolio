@@ -86,13 +86,13 @@ const WorkSection: FC<IWorkSection> = ({ finishIsFirstMount, worksData }) => {
                 finishIsFirstMount={finishIsFirstMount}
                 isExploreLinkHovering={isHovering}
                 workDescription={workData.description}
+                workExternalLinkPath="https://twitter.com/_BlackCubes_"
                 workImageAlt={workData.title}
                 workImageSrc={
                   workData.logo_image
                     ? `http://localhost:8000${workData.logo_image}`
                     : noImage
                 }
-                workLinkContent="View"
                 workLinkPath={`/work/${workData.meta.slug}`}
                 workTitle={workData.title}
                 {...(workIndex % 2 !== 0 && {

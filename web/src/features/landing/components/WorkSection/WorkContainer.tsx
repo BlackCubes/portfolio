@@ -15,6 +15,7 @@ import {
   WorkContainerStyle,
   WorkDescription,
   WorkDescriptionContainer,
+  WorkExternalLink,
   WorkImageLink,
   WorkImageWrapper,
   WorkLink,
@@ -28,9 +29,9 @@ export interface IWorkContainer {
   isExploreLinkHovering: boolean;
   reverseClass?: string;
   workDescription: string;
+  workExternalLinkPath: string;
   workImageAlt: string;
   workImageSrc: string;
-  workLinkContent: string;
   workLinkPath: string;
   workTitle: string;
 }
@@ -40,9 +41,9 @@ const WorkContainer: FC<IWorkContainer> = ({
   isExploreLinkHovering,
   reverseClass,
   workDescription,
+  workExternalLinkPath,
   workImageAlt,
   workImageSrc,
-  workLinkContent,
   workLinkPath,
   workTitle,
 }) => {
@@ -51,6 +52,9 @@ const WorkContainer: FC<IWorkContainer> = ({
 
   const descriptionAnimateControls = useAnimation();
   const { inView: descriptionInView, ref: descriptionRef } = useInView();
+
+  const externalLinkAnimateControls = useAnimation();
+  const { inView: externalLinkInView, ref: externalLinkRef } = useInView();
 
   const linkAnimateControls = useAnimation();
   const { inView: linkInView, ref: linkRef } = useInView();
@@ -81,6 +85,16 @@ const WorkContainer: FC<IWorkContainer> = ({
 
     return () => clearTimeout(timer);
   }, [finishIsFirstMount, descriptionAnimateControls, descriptionInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!finishIsFirstMount && externalLinkInView) {
+        externalLinkAnimateControls.start('visible');
+      }
+    }, 1700);
+
+    return () => clearTimeout(timer);
+  }, [finishIsFirstMount, externalLinkAnimateControls, externalLinkInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -169,6 +183,20 @@ const WorkContainer: FC<IWorkContainer> = ({
         </WorkDescription>
 
         <WorkLinkWrapper
+          animate={externalLinkAnimateControls}
+          className={`external-link ${reverseClass}`}
+          ref={externalLinkRef}
+        >
+          <WorkExternalLink
+            href={workExternalLinkPath}
+            rel="noopener"
+            target="_blank"
+          >
+            App
+          </WorkExternalLink>
+        </WorkLinkWrapper>
+
+        <WorkLinkWrapper
           animate={linkAnimateControls}
           className={reverseClass}
           ref={linkRef}
@@ -178,7 +206,7 @@ const WorkContainer: FC<IWorkContainer> = ({
             onMouseEnter={() => setIsWorkLinkHovering(true)}
             onMouseLeave={() => setIsWorkLinkHovering(false)}
           >
-            {workLinkContent}
+            About
           </WorkLink>
         </WorkLinkWrapper>
       </WorkDescriptionContainer>

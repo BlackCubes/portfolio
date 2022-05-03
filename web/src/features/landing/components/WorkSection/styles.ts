@@ -231,6 +231,10 @@ export const WorkLinkWrapper = styled(motion.div).attrs(({ className }) => ({
 }))`
   text-align: right;
 
+  &.external-link {
+    margin-bottom: 2rem;
+  }
+
   &.reverse {
     text-align: left;
 
@@ -260,6 +264,17 @@ export const WorkLinkWrapper = styled(motion.div).attrs(({ className }) => ({
 `;
 
 export const WorkLink = styled(Link)`
+  font-size: ${({ theme }) => theme.fonts.paragraph};
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.primary.hex};
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
+export const WorkExternalLink = styled.a`
   font-size: ${({ theme }) => theme.fonts.paragraph};
   font-weight: 700;
   color: ${({ theme }) => theme.colors.primary.hex};
