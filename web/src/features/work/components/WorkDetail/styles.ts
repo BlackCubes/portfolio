@@ -113,7 +113,16 @@ export const WorkAppWrapper = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-export const WorkAppLink = styled.a`
+export const WorkAppLink = styled(motion.a).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   font-size: 1.4rem;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.secondary.hex};

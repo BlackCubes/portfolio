@@ -44,6 +44,9 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => {
   const dateAnimateControls = useAnimation();
   const { inView: dateInView, ref: dateRef } = useInView();
 
+  const appLinkAnimateControls = useAnimation();
+  const { inView: appLinkInView, ref: appLinkRef } = useInView();
+
   const descriptionAnimateControls = useAnimation();
   const { inView: descriptionInView, ref: descriptionRef } = useInView();
 
@@ -92,6 +95,16 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => {
 
     return () => clearTimeout(timer);
   }, [dateAnimateControls, dateInView]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (appLinkInView) {
+        appLinkAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [appLinkAnimateControls, appLinkInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -149,8 +162,9 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => {
         </WorkDate>
       </WorkAdditionalInfo>
 
-      <WorkAppWrapper>
+      <WorkAppWrapper ref={appLinkRef}>
         <WorkAppLink
+          animate={appLinkAnimateControls}
           href="https://twitter.com/_BlackCubes_"
           rel="noopener"
           target="_blank"
