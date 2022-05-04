@@ -8,6 +8,7 @@ import { useGetWorkBySlugQuery } from 'common/api/workExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
 import LoadingOverlay from 'common/components/LoadingOverlay';
+import NotFound from 'common/components/NotFound';
 import SEO from 'common/components/SEO';
 
 import { WorkDetail } from 'features/work/components';
@@ -26,12 +27,13 @@ const WorkDetailView: FC = () => {
 
   const { workSlug } = useParams<TWorkParams>();
 
-  const { data: workData, isFetching: workFetching } = useGetWorkBySlugQuery(
-    workSlug ?? 'does-not-exist',
-    {
-      skip: doNotInitiateWorkQuery,
-    }
-  );
+  const {
+    data: workData,
+    isError: workError,
+    isFetching: workFetching,
+  } = useGetWorkBySlugQuery(workSlug ?? 'does-not-exist', {
+    skip: doNotInitiateWorkQuery,
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -157,8 +159,12 @@ const WorkDetailView: FC = () => {
       <PageContainer className="default-container navbar-footer-space">
         <LoadingOverlay
           contentComponent={
-            /* eslint-disable-next-line react/jsx-no-useless-fragment */
-            <>{workData && <WorkDetail workData={workData} />}</>
+            workError ? (
+              <NotFound />
+            ) : (
+              /* eslint-disable-next-line react/jsx-no-useless-fragment */
+              <>{workData && <WorkDetail workData={workData} />}</>
+            )
           }
           isLoading={isLoadingOverall(workFetching)}
           loaderComponent={<LoadingIcon />}
