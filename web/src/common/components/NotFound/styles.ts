@@ -14,6 +14,8 @@ export const Container = styled(motion.div).attrs(() => ({
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: auto;
+  margin-left: auto;
 `;
 
 export const ImageWrapper = styled.div`
