@@ -1,5 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import notFoundPic from 'assets/img/not-found.png';
 
@@ -16,8 +18,22 @@ import {
 const NotFound: FC = () => {
   const navigate = useNavigate();
 
+  const containerAnimateControls = useAnimation();
+
+  const { inView: containerInView, ref: containerRef } = useInView();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (containerInView) {
+        containerAnimateControls.start('visible');
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [containerAnimateControls, containerInView]);
+
   return (
-    <Container>
+    <Container animate={containerAnimateControls} ref={containerRef}>
       <ImageWrapper>
         <Image
           alt="An image that shows the website logo and a 404 code wrapped in a comic bubble"
