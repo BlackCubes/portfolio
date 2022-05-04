@@ -13,6 +13,14 @@ export const ImageWrapper = styled.div`
   @media ${({ theme }) => theme.responsive.below599} {
     width: 90%;
   }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    width: 95%;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 100%;
+  }
 `;
 
 export const Image = styled.img`
@@ -39,17 +47,23 @@ export const DescriptionWrapper = styled.div`
 
     @media ${({ theme }) => theme.responsive.below479} {
       font-size: 2.3rem;
-      letter-spacing: 1rem;
     }
 
     @media ${({ theme }) => theme.responsive.below379} {
       font-size: 2rem;
-      letter-spacing: 0.8rem;
     }
   }
 
   @media ${({ theme }) => theme.responsive.below599} {
     width: 90%;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    width: 95%;
+  }
+
+  @media ${({ theme }) => theme.responsive.below379} {
+    width: 100%;
   }
 `;
 
