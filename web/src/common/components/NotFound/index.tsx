@@ -33,7 +33,11 @@ const NotFound: FC = () => {
   }, [containerAnimateControls, containerInView]);
 
   return (
-    <Container animate={containerAnimateControls} ref={containerRef}>
+    <Container
+      animate={containerAnimateControls}
+      className="not-found"
+      ref={containerRef}
+    >
       <ImageWrapper>
         <Image
           alt="An image that shows the website logo and a 404 code wrapped in a comic bubble"
