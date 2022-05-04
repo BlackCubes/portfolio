@@ -9,6 +9,10 @@ export const Container = styled.div`
 export const ImageWrapper = styled.div`
   width: 50rem;
   margin-bottom: 5rem;
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    width: 90%;
+  }
 `;
 
 export const Image = styled.img`
@@ -42,6 +46,10 @@ export const DescriptionWrapper = styled.div`
       font-size: 2rem;
       letter-spacing: 0.8rem;
     }
+  }
+
+  @media ${({ theme }) => theme.responsive.below599} {
+    width: 90%;
   }
 `;
 
