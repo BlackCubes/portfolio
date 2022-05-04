@@ -7,6 +7,7 @@ import { GlobalStyle } from 'common/base';
 import DarkModeToggle from 'common/components/DarkModeToggle';
 import Footer from 'common/components/Footer';
 import Navbar from 'common/components/Navbar';
+import NotFound from 'common/components/NotFound';
 
 import { ThemeProvider } from 'common/providers';
 
@@ -76,6 +77,15 @@ const App = () => {
           />
 
           <Route path="/about" element={<AboutListView />} />
+
+          <Route
+            path="*"
+            element={
+              <div className="default-container navbar-footer-space">
+                <NotFound />
+              </div>
+            }
+          />
         </Routes>
       </AnimatePresence>
 
