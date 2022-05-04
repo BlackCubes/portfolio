@@ -43,7 +43,7 @@ const NotFound: FC = () => {
 
       <DescriptionWrapper>
         <Paragraph>
-          Something went wrong, or this page doesn&apos;t exist anymore.
+          Something went wrong, or this page doesn&apos;t exist.
         </Paragraph>
       </DescriptionWrapper>
 
