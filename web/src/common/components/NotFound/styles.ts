@@ -10,6 +10,10 @@ export const ImageWrapper = styled.div`
   width: 50rem;
   margin-bottom: 5rem;
 
+  @media ${({ theme }) => theme.responsive.below899} {
+    width: 40rem;
+  }
+
   @media ${({ theme }) => theme.responsive.below599} {
     width: 90%;
   }
@@ -52,6 +56,10 @@ export const DescriptionWrapper = styled.div`
     @media ${({ theme }) => theme.responsive.below379} {
       font-size: 2rem;
     }
+  }
+
+  @media ${({ theme }) => theme.responsive.below899} {
+    width: 40rem;
   }
 
   @media ${({ theme }) => theme.responsive.below599} {
