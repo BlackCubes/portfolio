@@ -11,6 +11,7 @@ import {
 
 import LoadingIcon from 'common/components/LoadingIcon';
 import LoadingOverlay from 'common/components/LoadingOverlay';
+import NotFound from 'common/components/NotFound';
 import SEO from 'common/components/SEO';
 
 import { ArticleDetail, RelatedSidebar } from 'features/article/components';
@@ -34,10 +35,13 @@ const ArticleDetailView: FC = () => {
   const { articleSlug } = useParams<TArticleParams>();
   const [categoryId, setCategoryId] = useState<number>(0);
 
-  const { data: articleData, isFetching: articleFetching } =
-    useGetArticleBySlugQuery(articleSlug ?? 'does-not-exist', {
-      skip: doNotInitiateArticleQuery,
-    });
+  const {
+    data: articleData,
+    isError: articleError,
+    isFetching: articleFetching,
+  } = useGetArticleBySlugQuery(articleSlug ?? 'does-not-exist', {
+    skip: doNotInitiateArticleQuery,
+  });
   const {
     dataWithoutCurrentArticle: relatedArticlesByCategoryData,
     isFetching: relatedArticlesFetching,
@@ -220,15 +224,21 @@ const ArticleDetailView: FC = () => {
       <PageContainer className="default-container navbar-footer-space">
         <LoadingOverlay
           contentComponent={
-            <>
-              {articleData && <ArticleDetail articleData={articleData} />}
+            articleError ? (
+              <NotFound />
+            ) : (
+              <>
+                {articleData && <ArticleDetail articleData={articleData} />}
 
-              {relatedArticlesByCategoryData.length > 0 && (
-                <RelatedSidebar
-                  relatedArticlesByCategoryData={relatedArticlesByCategoryData}
-                />
-              )}
-            </>
+                {relatedArticlesByCategoryData.length > 0 && (
+                  <RelatedSidebar
+                    relatedArticlesByCategoryData={
+                      relatedArticlesByCategoryData
+                    }
+                  />
+                )}
+              </>
+            )
           }
           isLoading={isLoadingOverall(articleFetching, relatedArticlesFetching)}
           loaderComponent={<LoadingIcon />}
