@@ -4,7 +4,7 @@ import { PageContainerStyle } from './styles';
 
 export interface IPageContainer {
   className?: string;
-  isFirstMount: boolean;
+  isFirstMount?: boolean;
 }
 
 const PageContainer: FC<IPageContainer> = ({
