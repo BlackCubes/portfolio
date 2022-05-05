@@ -135,7 +135,10 @@ const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
         ]}
       />
 
-      <PageContainer extraClassName="landing-list-page">
+      <PageContainer
+        extraClassName="landing-list-page"
+        isFirstMount={isFirstMount}
+      >
         <WithLoadingOverlay
           contentComponent={
             <>
