@@ -5,8 +5,8 @@ import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
-import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
+import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import {
   ArticleSection,
@@ -149,7 +149,7 @@ const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
       />
 
       <PageContainer className="default-container navbar-footer-space">
-        <LoadingOverlay
+        <WithLoadingOverlay
           contentComponent={
             <>
               {finishIsFirstMount && (

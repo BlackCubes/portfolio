@@ -6,8 +6,8 @@ import { useGetCategoriesQuery } from 'common/api/categoryExtendedApi';
 import { useGetTagsQuery } from 'common/api/tagExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
-import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
+import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import { ArticleList, FilterSidebar } from 'features/article/components';
 
@@ -212,7 +212,7 @@ const ArticleListView: FC = () => {
       />
 
       <PageContainer className="default-container navbar-footer-space">
-        <LoadingOverlay
+        <WithLoadingOverlay
           contentComponent={
             <>
               {categoriesData?.items &&

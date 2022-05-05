@@ -1,13 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
 
-export interface ILoadingOverlay {
+export interface IWithLoadingOverlay {
   contentComponent: JSX.Element | JSX.Element[];
   isLoading: boolean;
   loaderComponent?: JSX.Element | JSX.Element[];
   loaderDuration: number;
 }
 
-const LoadingOverlay: FC<ILoadingOverlay> = ({
+const WithLoadingOverlay: FC<IWithLoadingOverlay> = ({
   contentComponent,
   isLoading,
   loaderComponent,
@@ -37,4 +37,4 @@ const LoadingOverlay: FC<ILoadingOverlay> = ({
   );
 };
 
-export default LoadingOverlay;
+export default WithLoadingOverlay;

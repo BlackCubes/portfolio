@@ -10,9 +10,9 @@ import {
 } from 'common/api/articleExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
-import LoadingOverlay from 'common/components/LoadingOverlay';
 import NotFound from 'common/components/NotFound';
 import SEO from 'common/components/SEO';
+import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import { ArticleDetail, RelatedSidebar } from 'features/article/components';
 
@@ -222,7 +222,7 @@ const ArticleDetailView: FC = () => {
       )}
 
       <PageContainer className="default-container navbar-footer-space">
-        <LoadingOverlay
+        <WithLoadingOverlay
           contentComponent={
             articleError ? (
               <NotFound />
