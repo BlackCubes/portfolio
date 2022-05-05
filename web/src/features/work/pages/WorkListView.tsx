@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
-import LoadingOverlay from 'common/components/LoadingOverlay';
 import SEO from 'common/components/SEO';
+import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import { PersonalList, WorkList } from 'features/work/components';
 
@@ -112,7 +112,7 @@ const WorkListView: FC = () => {
       />
 
       <PageContainer className="default-container navbar-footer-space">
-        <LoadingOverlay
+        <WithLoadingOverlay
           contentComponent={
             <>
               <WorkList worksData={worksData?.items ?? []} />
