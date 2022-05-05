@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 
 import LineSeparator from 'common/components/LineSeparator';
 import LoadingIcon from 'common/components/LoadingIcon';
+import PageContainer from 'common/components/PageContainer';
 import SEO from 'common/components/SEO';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
@@ -13,7 +14,7 @@ import {
   MoreSection,
 } from 'features/about/components';
 
-import { Col, PageContainer, Row } from './styles';
+import { Col, Row } from './styles';
 
 const AboutListView: FC = () => (
   <>
@@ -93,7 +94,7 @@ const AboutListView: FC = () => (
       ]}
     />
 
-    <PageContainer className="default-container navbar-footer-space">
+    <PageContainer>
       <WithLoadingOverlay
         contentComponent={
           <>
