@@ -43,7 +43,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
     getArticles: builder.query<TGetArticlesResponse, TGetArticlesRequest>({
       query: ({ category, limit, offset, tags }) => {
         let categoryFiltering: string = '';
-        let limitFiltering: string = '';
+        let limitPagination: string = '';
         let offsetPagination: string = '';
         let tagsFiltering: string = '';
 
@@ -54,9 +54,9 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
         }
 
         if (limit) {
-          limitFiltering = `&limit=${limit}`;
+          limitPagination = `&limit=${limit}`;
         } else {
-          limitFiltering = '';
+          limitPagination = '';
         }
 
         if (offsetPagination) {
@@ -72,7 +72,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
         }
 
         return {
-          url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,tags,category,first_published_at,reading_time${categoryFiltering}${tagsFiltering}${limitFiltering}${offsetPagination}`,
+          url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,tags,category,first_published_at,reading_time${categoryFiltering}${tagsFiltering}${limitPagination}${offsetPagination}`,
         };
       },
       providesTags: ['Article'],
