@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import LineSeparator from 'common/components/LineSeparator';
 import LoadingIcon from 'common/components/LoadingIcon';
-import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 import SEO from 'common/components/SEO';
+import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import {
   AboutImage,
