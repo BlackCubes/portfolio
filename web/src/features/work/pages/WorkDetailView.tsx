@@ -7,9 +7,9 @@ import noImage from 'assets/img/no-image.png';
 import { useGetWorkBySlugQuery } from 'common/api/workExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
-import LoadingOverlay from 'common/components/LoadingOverlay';
 import NotFound from 'common/components/NotFound';
 import SEO from 'common/components/SEO';
+import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import { WorkDetail } from 'features/work/components';
 
@@ -157,7 +157,7 @@ const WorkDetailView: FC = () => {
       )}
 
       <PageContainer className="default-container navbar-footer-space">
-        <LoadingOverlay
+        <WithLoadingOverlay
           contentComponent={
             workError ? (
               <NotFound />
