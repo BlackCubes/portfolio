@@ -3,17 +3,17 @@ import React, { FC } from 'react';
 import { PageContainerStyle } from './styles';
 
 export interface IPageContainer {
-  className?: string;
+  extraClassName?: string;
   isFirstMount?: boolean;
 }
 
 const PageContainer: FC<IPageContainer> = ({
   children,
-  className = '',
+  extraClassName = '',
   isFirstMount,
 }) => (
   <PageContainerStyle
-    className={className}
+    className={`default-container navbar-footer-space ${extraClassName}`}
     variants={{
       animate: {
         opacity: 1,
