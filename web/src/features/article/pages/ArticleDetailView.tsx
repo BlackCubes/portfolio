@@ -208,7 +208,7 @@ const ArticleDetailView: FC = () => {
         />
       )}
 
-      <PageContainer>
+      <PageContainer extraClassName="article-detail-page">
         <WithLoadingOverlay
           contentComponent={
             articleError ? (
