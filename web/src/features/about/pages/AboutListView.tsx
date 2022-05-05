@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import LineSeparator from 'common/components/LineSeparator';
 import LoadingIcon from 'common/components/LoadingIcon';
-import LoadingOverlay from 'common/components/LoadingOverlay';
+import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 import SEO from 'common/components/SEO';
 
 import {
@@ -94,7 +94,7 @@ const AboutListView: FC = () => (
     />
 
     <PageContainer className="default-container navbar-footer-space">
-      <LoadingOverlay
+      <WithLoadingOverlay
         contentComponent={
           <>
             <AboutSection />
