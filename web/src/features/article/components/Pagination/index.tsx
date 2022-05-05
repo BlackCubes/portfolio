@@ -21,44 +21,49 @@ const Pagination: FC<IPagination> = ({
   limitNumber,
   offsetNumber,
   totalCount,
-}) => {
-  return (
-    <PaginationList>
-      {offsetNumber > 0 && (
-        <PaginationNextPrevButton
-          onClick={() => handlePagination(offsetNumber - limitNumber)}
-        >
-          <PaginationNextPrevArrow className="prev-arrow" />
-        </PaginationNextPrevButton>
-      )}
+}) => (
+  <PaginationList>
+    {offsetNumber > 0 && (
+      <PaginationNextPrevButton
+        onClick={() => handlePagination(offsetNumber - limitNumber)}
+      >
+        <PaginationNextPrevArrow className="prev-arrow" />
+      </PaginationNextPrevButton>
+    )}
 
-      {Array.from(Array(totalCount).keys()).map((pageNumber) => {
-        if (pageNumber === offsetNumber)
+    {Array.from(Array(Math.ceil(totalCount / limitNumber)).keys()).map(
+      (pageNumber) => {
+        // Since the keys are also values in the array generator from the above
+        // code, ``pageNumber`` will start off as 0. That's why further below the
+        // code, there is ``pageNumber + 1``.
+        const pageNumberOffsetNumber: number = pageNumber * limitNumber;
+
+        if (pageNumberOffsetNumber === offsetNumber)
           return (
-            <PaginationCurrentNumber key={pageNumber + 1}>
+            <PaginationCurrentNumber key={pageNumber}>
               {pageNumber + 1}
             </PaginationCurrentNumber>
           );
 
         return (
           <PaginationNumberButton
-            key={pageNumber + 1}
-            onClick={() => handlePagination(pageNumber)}
+            key={pageNumber}
+            onClick={() => handlePagination(pageNumberOffsetNumber)}
           >
             {pageNumber + 1}
           </PaginationNumberButton>
         );
-      })}
+      }
+    )}
 
-      {offsetNumber + limitNumber <= totalCount && (
-        <PaginationNextPrevButton
-          onClick={() => handlePagination(offsetNumber + limitNumber)}
-        >
-          <PaginationNextPrevArrow className="next-arrow" />
-        </PaginationNextPrevButton>
-      )}
-    </PaginationList>
-  );
-};
+    {offsetNumber + limitNumber <= totalCount && (
+      <PaginationNextPrevButton
+        onClick={() => handlePagination(offsetNumber + limitNumber)}
+      >
+        <PaginationNextPrevArrow className="next-arrow" />
+      </PaginationNextPrevButton>
+    )}
+  </PaginationList>
+);
 
 export default Pagination;
