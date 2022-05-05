@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
+import PageContainer from 'common/components/PageContainer';
 import SEO from 'common/components/SEO';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
@@ -17,8 +17,6 @@ import {
 } from 'features/landing/components';
 
 import { isLoadingOverall } from 'utils';
-
-import { PageContainer } from './styles';
 
 interface ILandingListView {
   isFirstMount: boolean;
@@ -60,18 +58,7 @@ const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
   }, [isFirstMount]);
 
   return (
-    <motion.div
-      key="landing-list"
-      animate="animate"
-      exit="exit"
-      initial="initial"
-      transition={{ duration: 1, ease: 'easeOut' }}
-      variants={{
-        animate: { opacity: 1, x: 0 },
-        exit: { opacity: 0, x: '-100%', transition: { duration: 0.3 } },
-        initial: { opacity: isFirstMount ? 1 : 0, x: 0 },
-      }}
-    >
+    <>
       <SEO
         openGraphMetaTags={[
           {
@@ -148,7 +135,7 @@ const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
         ]}
       />
 
-      <PageContainer className="default-container navbar-footer-space">
+      <PageContainer extraClassName="landing-list-page">
         <WithLoadingOverlay
           contentComponent={
             <>
@@ -178,7 +165,7 @@ const LandingListView: FC<ILandingListView> = ({ isFirstMount }) => {
           })}
         />
       </PageContainer>
-    </motion.div>
+    </>
   );
 };
 
