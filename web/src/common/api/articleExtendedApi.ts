@@ -59,7 +59,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
           limitPagination = '';
         }
 
-        if (offsetPagination) {
+        if (offset) {
           offsetPagination = `&offset=${offset}`;
         } else {
           offsetPagination = '';
