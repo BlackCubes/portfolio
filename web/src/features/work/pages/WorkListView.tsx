@@ -1,17 +1,15 @@
 import React, { FC } from 'react';
-import { motion } from 'framer-motion';
 
 import { useGetWorksByCategoryQuery } from 'common/api/workExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
+import PageContainer from 'common/components/PageContainer';
 import SEO from 'common/components/SEO';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import { PersonalList, WorkList } from 'features/work/components';
 
 import { isLoadingOverall } from 'utils';
-
-import { PageContainer } from './styles';
 
 const WorkListView: FC = () => {
   const { data: worksData, isFetching: worksFetching } =
@@ -26,18 +24,7 @@ const WorkListView: FC = () => {
     });
 
   return (
-    <motion.div
-      key="work-list"
-      animate="animate"
-      exit="exit"
-      initial="initial"
-      transition={{ duration: 1, ease: 'easeOut' }}
-      variants={{
-        animate: { opacity: 1, x: 0 },
-        exit: { opacity: 0, x: '-100%', transition: { duration: 0.3 } },
-        initial: { opacity: 0, x: 0 },
-      }}
-    >
+    <>
       <SEO
         openGraphMetaTags={[
           {
@@ -111,7 +98,7 @@ const WorkListView: FC = () => {
         ]}
       />
 
-      <PageContainer className="default-container navbar-footer-space">
+      <PageContainer>
         <WithLoadingOverlay
           contentComponent={
             <>
@@ -125,7 +112,7 @@ const WorkListView: FC = () => {
           loaderDuration={1000}
         />
       </PageContainer>
-    </motion.div>
+    </>
   );
 };
 

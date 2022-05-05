@@ -1,19 +1,17 @@
 import React, { FC, useState } from 'react';
-import { motion } from 'framer-motion';
 
 import { useGetArticlesQuery } from 'common/api/articleExtendedApi';
 import { useGetCategoriesQuery } from 'common/api/categoryExtendedApi';
 import { useGetTagsQuery } from 'common/api/tagExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
+import PageContainer from 'common/components/PageContainer';
 import SEO from 'common/components/SEO';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import { ArticleList, FilterSidebar } from 'features/article/components';
 
 import { isLoadingOverall } from 'utils';
-
-import { PageContainer } from './styles';
 
 type TCategoryTagIdQueryState = {
   category: number;
@@ -126,18 +124,7 @@ const ArticleListView: FC = () => {
   };
 
   return (
-    <motion.div
-      key="article-list"
-      animate="animate"
-      exit="exit"
-      initial="initial"
-      transition={{ duration: 1, ease: 'easeOut' }}
-      variants={{
-        animate: { opacity: 1, x: 0 },
-        exit: { opacity: 0, x: '-100%', transition: { duration: 0.3 } },
-        initial: { opacity: 0, x: 0 },
-      }}
-    >
+    <>
       <SEO
         openGraphMetaTags={[
           {
@@ -211,7 +198,7 @@ const ArticleListView: FC = () => {
         ]}
       />
 
-      <PageContainer className="default-container navbar-footer-space">
+      <PageContainer extraClassName="article-list-page">
         <WithLoadingOverlay
           contentComponent={
             <>
@@ -239,7 +226,7 @@ const ArticleListView: FC = () => {
           loaderDuration={1000}
         />
       </PageContainer>
-    </motion.div>
+    </>
   );
 };
 
