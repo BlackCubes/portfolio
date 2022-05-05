@@ -19,7 +19,7 @@ type TGetArticles = Pick<
 type TGetArticlesRequest = {
   category: number;
   limit?: number;
-  page: number;
+  offset: number;
   tags: Array<number> | [];
 };
 
@@ -41,7 +41,7 @@ type TGetArticlesByRelatedCategoryResponse = IPaginationResponse & {
 const articleExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({
     getArticles: builder.query<TGetArticlesResponse, TGetArticlesRequest>({
-      query: ({ category, limit, page, tags }) => {
+      query: ({ category, limit, offset, tags }) => {
         let categoryFiltering: string = '';
         let limitFiltering: string = '';
         let tagsFiltering: string = '';
@@ -65,9 +65,7 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
         }
 
         return {
-          url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,tags,category,first_published_at,reading_time${categoryFiltering}${tagsFiltering}${limitFiltering}&offset=${
-            page - 1
-          }`,
+          url: `/pages/?type=article.ArticlePage&fields=_,id,uuid,title,slug,description,header_image,tags,category,first_published_at,reading_time${categoryFiltering}${tagsFiltering}${limitFiltering}&offset=${offset}`,
         };
       },
       providesTags: ['Article'],
