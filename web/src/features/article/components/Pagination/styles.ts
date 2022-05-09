@@ -106,6 +106,8 @@ export const PaginationCurrentNumber = styled.span`
   }
 `;
 
+export const PaginationOtherNumbers = styled(PaginationCurrentNumber)``;
+
 export const PaginationNextPrevButton = styled(Button)`
   &:hover svg {
     fill: ${({ theme }) => `rgba(${theme.colors.secondary.rgb}, 0.6)`};

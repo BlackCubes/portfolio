@@ -7,6 +7,7 @@ import {
   PaginationList,
   PaginationNextPrevButton,
   PaginationNumberButton,
+  PaginationOtherNumbers,
 } from './styles';
 
 interface IPagination {
@@ -90,9 +91,9 @@ const Pagination: FC<IPagination> = ({
           pageNumber === 1
         )
           return (
-            <PaginationCurrentNumber key={pageNumber}>
+            <PaginationOtherNumbers key={pageNumber}>
               ...
-            </PaginationCurrentNumber>
+            </PaginationOtherNumbers>
           );
 
         // If the rest of the page numbers are not in the range from the last
