@@ -82,15 +82,23 @@ const Pagination: FC<IPagination> = ({
             </PaginationNumberButton>
           );
 
+        // If it is the last page number and it is not in the range from the last
+        // if-statement, then render it as a ``span`` element represented as dots.
+        if (
+          pageNumber === Math.ceil(totalCount / limitNumber) - 1 ||
+          pageNumber === 1
+        )
+          return (
+            <PaginationCurrentNumber key={pageNumber}>
+              ...
+            </PaginationCurrentNumber>
+          );
+
         // If the rest of the page numbers are not in the range from the last
-        // if-statement, then render them as ``span`` elements represented as dots.
-        // This is done so that not all the page numbers would get rendered
+        // if-statement nor is it the last page number, then render nothing.
+        // This is done so that not all of the page numbers would get rendered
         // (if there are A LOT of articles) which would break UIs.
-        return (
-          <PaginationCurrentNumber key={pageNumber}>
-            ...
-          </PaginationCurrentNumber>
-        );
+        return null;
       }
     )}
 
