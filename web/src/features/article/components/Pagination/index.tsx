@@ -82,8 +82,9 @@ const Pagination: FC<IPagination> = ({
             </PaginationNumberButton>
           );
 
-        // If it is the last page number and it is not in the range from the last
-        // if-statement, then render it as a ``span`` element represented as dots.
+        // If it is the last page number or if it is the second page number (for UI
+        // purposes), and it is not in the range from the last if-statement, then
+        // render it as a ``span`` element represented as dots.
         if (
           pageNumber === Math.ceil(totalCount / limitNumber) - 1 ||
           pageNumber === 1
