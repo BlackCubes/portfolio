@@ -71,8 +71,6 @@ export const PaginationList = styled.div`
   }
 `;
 
-export const PaginationWrapper = styled.div``;
-
 export const PaginationNumberButton = styled(Button)``;
 
 export const PaginationCurrentNumber = styled.span`
