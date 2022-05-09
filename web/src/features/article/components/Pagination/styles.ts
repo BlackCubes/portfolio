@@ -51,6 +51,7 @@ const Button = styled.button.attrs(() => ({
 
 export const PaginationList = styled.div`
   display: flex;
+  margin-top: 1rem;
   padding-right: 2rem;
   padding-left: 2rem;
 
@@ -62,6 +63,11 @@ export const PaginationList = styled.div`
   @media ${({ theme }) => theme.responsive.below899} {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
+  }
+
+  @media ${({ theme }) => theme.responsive.below479} {
+    padding-right: 0;
+    padding-left: 0;
   }
 `;
 
