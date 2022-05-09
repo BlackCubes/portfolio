@@ -41,6 +41,20 @@ const Pagination: FC<IPagination> = ({
         // code, there is ``pageNumber + 1``.
         const pageNumberOffsetNumber: number = pageNumber * limitNumber;
 
+        // If this is the initial page number (i.e. 'page 1') and it is not the
+        // current offset number from the API, then render it.
+        if (pageNumber === 0 && pageNumberOffsetNumber !== offsetNumber)
+          return (
+            <PaginationNumberButton
+              key={pageNumber}
+              onClick={() => handlePagination(0)}
+            >
+              {pageNumber + 1}
+            </PaginationNumberButton>
+          );
+
+        // If this is the current offset number, make into a ``span`` element and
+        // not a ``button`` element.
         if (pageNumberOffsetNumber === offsetNumber)
           return (
             <PaginationCurrentNumber key={pageNumber}>
@@ -48,13 +62,34 @@ const Pagination: FC<IPagination> = ({
             </PaginationCurrentNumber>
           );
 
+        // If the page number is in the range of the current offset number from the
+        // API, then make those into buttons.
+        // Example: If the current offset number from the API is 10 and ``limitNumber``
+        // is 5 (which is what is being used), then ``offsetNumber`` / ``limitNumber``
+        // = 10 / 5 = 2 (or page 3 since this is 0-based index). Now, 2 - 1 = 1 and
+        // 2 + 1 = 3, but since this is 0-based index, it equates to page numbers
+        // 2 and 4 that will be rendered as buttons, respectfully.
+        if (
+          pageNumber === offsetNumber / limitNumber - 1 ||
+          pageNumber === offsetNumber / limitNumber + 1
+        )
+          return (
+            <PaginationNumberButton
+              key={pageNumber}
+              onClick={() => handlePagination(pageNumberOffsetNumber)}
+            >
+              {pageNumber + 1}
+            </PaginationNumberButton>
+          );
+
+        // If the rest of the page numbers are not in the range from the last
+        // if-statement, then render them as ``span`` elements represented as dots.
+        // This is done so that not all the page numbers would get rendered
+        // (if there are A LOT of articles) which would break UIs.
         return (
-          <PaginationNumberButton
-            key={pageNumber}
-            onClick={() => handlePagination(pageNumberOffsetNumber)}
-          >
-            {pageNumber + 1}
-          </PaginationNumberButton>
+          <PaginationCurrentNumber key={pageNumber}>
+            ...
+          </PaginationCurrentNumber>
         );
       }
     )}
