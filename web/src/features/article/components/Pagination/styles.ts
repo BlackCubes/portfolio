@@ -89,10 +89,8 @@ export const PaginationCurrentNumber = styled.span`
 `;
 
 export const PaginationNextPrevButton = styled(Button)`
-  &:hover span {
-    border: solid ${({ theme }) => `rgba(${theme.colors.secondary.rgb}, 0.6)`};
-    border-width: 0 0.3rem 0.3rem 0;
-    border-radius: 0.1rem;
+  &:hover svg {
+    fill: ${({ theme }) => `rgba(${theme.colors.secondary.rgb}, 0.6)`};
   }
 `;
 
@@ -101,6 +99,8 @@ export const NextPrevArrowSvg = styled.svg.attrs(() => ({
   viewBox: '0 0 6 12',
   width: '6',
 }))`
+  fill: ${({ theme }) => theme.colors.secondary.hex};
+
   &.next-arrow {
     transform: rotate(180deg);
   }
