@@ -9,9 +9,15 @@ import PageContainer from 'common/components/PageContainer';
 import SEO from 'common/components/SEO';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
-import { ArticleList, FilterSidebar } from 'features/article/components';
+import {
+  ArticleList,
+  FilterSidebar,
+  Pagination,
+} from 'features/article/components';
 
 import { isLoadingOverall } from 'utils';
+
+import { ArticleListPaginationContainer } from './styles';
 
 type TCategoryTagIdQueryState = {
   category: number;
@@ -25,9 +31,14 @@ const ArticleListView: FC = () => {
       tags: [],
     });
 
+  const paginationLimit = 5;
+  const [paginationOffset, setPaginationOffset] = useState(0);
+
   const { data: articlesData, isFetching: articlesFetching } =
     useGetArticlesQuery({
       category: categoryTagIdQuery.category,
+      limit: paginationLimit,
+      offset: paginationOffset,
       tags: categoryTagIdQuery.tags,
     });
   const { data: categoriesData, isFetching: categoriesFetching } =
@@ -123,6 +134,10 @@ const ArticleListView: FC = () => {
     });
   };
 
+  const handlePagination = (offsetNumber: number) => {
+    setPaginationOffset(offsetNumber);
+  };
+
   return (
     <>
       <SEO
@@ -214,7 +229,18 @@ const ArticleListView: FC = () => {
                   />
                 )}
 
-              <ArticleList articlesData={articlesData?.items ?? []} />
+              {articlesData && (
+                <ArticleListPaginationContainer>
+                  <ArticleList articlesData={articlesData.items} />
+
+                  <Pagination
+                    handlePagination={handlePagination}
+                    limitNumber={paginationLimit}
+                    offsetNumber={paginationOffset}
+                    totalCount={articlesData.meta.total_count}
+                  />
+                </ArticleListPaginationContainer>
+              )}
             </>
           }
           isLoading={isLoadingOverall(
