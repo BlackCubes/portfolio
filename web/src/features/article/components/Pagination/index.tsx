@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 
 import {
+  NextPrevArrowPath,
+  NextPrevArrowSvg,
   PaginationCurrentNumber,
   PaginationList,
-  PaginationNextPrevArrow,
   PaginationNextPrevButton,
   PaginationNumberButton,
 } from './styles';
@@ -27,7 +28,9 @@ const Pagination: FC<IPagination> = ({
       <PaginationNextPrevButton
         onClick={() => handlePagination(offsetNumber - limitNumber)}
       >
-        <PaginationNextPrevArrow className="prev-arrow" />
+        <NextPrevArrowSvg>
+          <NextPrevArrowPath />
+        </NextPrevArrowSvg>
       </PaginationNextPrevButton>
     )}
 
@@ -60,7 +63,9 @@ const Pagination: FC<IPagination> = ({
       <PaginationNextPrevButton
         onClick={() => handlePagination(offsetNumber + limitNumber)}
       >
-        <PaginationNextPrevArrow className="next-arrow" />
+        <NextPrevArrowSvg className="next-arrow">
+          <NextPrevArrowPath />
+        </NextPrevArrowSvg>
       </PaginationNextPrevButton>
     )}
   </PaginationList>

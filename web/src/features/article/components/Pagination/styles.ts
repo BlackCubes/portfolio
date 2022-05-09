@@ -96,20 +96,16 @@ export const PaginationNextPrevButton = styled(Button)`
   }
 `;
 
-export const PaginationNextPrevArrow = styled.span`
-  display: inline-block;
-  border: solid ${({ theme }) => theme.colors.secondary.hex};
-  border-width: 0 0.3rem 0.3rem 0;
-  border-radius: 0.1rem;
-  padding: 0.3rem;
-
-  &.prev-arrow {
-    margin: 0 -0.3rem 0.3rem 0; /* THIS IS TO KEEP IT AT THE CENTER DUE TO PADDING */
-    transform: rotate(135deg);
-  }
-
+export const NextPrevArrowSvg = styled.svg.attrs(() => ({
+  height: '12',
+  viewBox: '0 0 6 12',
+  width: '6',
+}))`
   &.next-arrow {
-    margin: 0 0.3rem 0.3rem 0;
-    transform: rotate(-45deg);
+    transform: rotate(180deg);
   }
 `;
+
+export const NextPrevArrowPath = styled.path.attrs(() => ({
+  d: 'M6 11.5 1.5 6 6 .5 5.5 0 0 5.75v.5L5.5 12l.5-.5Z',
+}))``;
