@@ -51,6 +51,8 @@ const Button = styled.button.attrs(() => ({
 
 export const PaginationList = styled.div`
   display: flex;
+  padding-right: 2rem;
+  padding-left: 2rem;
 `;
 
 export const PaginationWrapper = styled.div``;
