@@ -17,6 +17,8 @@ import {
 
 import { isLoadingOverall } from 'utils';
 
+import { ArticleListPaginationContainer } from './styles';
+
 type TCategoryTagIdQueryState = {
   category: number;
   tags: Array<number> | [];
@@ -228,7 +230,7 @@ const ArticleListView: FC = () => {
                 )}
 
               {articlesData && (
-                <>
+                <ArticleListPaginationContainer>
                   <ArticleList articlesData={articlesData.items} />
 
                   <Pagination
@@ -237,7 +239,7 @@ const ArticleListView: FC = () => {
                     offsetNumber={paginationOffset}
                     totalCount={articlesData.meta.total_count}
                   />
-                </>
+                </ArticleListPaginationContainer>
               )}
             </>
           }
