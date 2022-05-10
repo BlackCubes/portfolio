@@ -5,8 +5,10 @@ import {
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/dist/query';
 
+import environment from 'environment';
+
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://127.0.0.1:8000/api/v1',
+  baseUrl: environment.apiRoute,
 });
 
 const customBaseQuery: BaseQueryFn<
