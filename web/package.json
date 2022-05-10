@@ -34,8 +34,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env PORT=4200 react-scripts start",
     "build": "react-scripts build",
+    "predeploy:staging": "cross-env REACT_APP_CONFIGURATION=staging react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
