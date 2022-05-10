@@ -101,9 +101,10 @@ const ArticleSection: FC<IArticleSection> = ({
 
         <Introduction animate={introAnimateControls} ref={introRef}>
           <Paragraph>
-            Massa eget egestas purus viverra accumsan in nisl nisi scelerisque
-            eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius
-            vel pharetra velh.
+            I like to write that helps others understand programming,
+            mathematics, science, and other related technical fields. I also
+            like to write film and book analysis, philosophy, and other things
+            that I am interested in.
           </Paragraph>
         </Introduction>
 
