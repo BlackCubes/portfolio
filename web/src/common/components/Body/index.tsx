@@ -15,6 +15,8 @@ import { useThemeContext } from 'common/contexts';
 
 import Paragraph from 'common/typography/Paragraph';
 
+import environment from 'environment';
+
 import {
   BlockQuoteContent,
   BlockQuoteQuotation,
@@ -101,9 +103,7 @@ const Body: FC<IBody> = ({ bodyType, bodyValue }) => {
             glassLightShadowVerticalOffset={-0.1}
             imageAlt={bodyValue.caption}
             imageSrc={
-              bodyValue.image
-                ? `http://localhost:8000${bodyValue.image}`
-                : noImage
+              bodyValue.image ? environment.apiRoute + bodyValue.image : noImage
             }
             opacity={1}
           />

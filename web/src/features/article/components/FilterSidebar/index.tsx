@@ -28,8 +28,11 @@ type TCategoryCheckedState = {
 
 interface IFilterSidebar {
   categoriesData: ICategory[];
-  handleCategoryTagQuery: Function;
-  handleClearFilter: Function;
+  handleCategoryTagQuery: (
+    categoryTagName: 'category' | 'tags',
+    categoryTagId: number
+  ) => void;
+  handleClearFilter: (clearCase: 'clearAll') => void;
   tagsData: ITag[];
 }
 

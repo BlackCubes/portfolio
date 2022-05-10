@@ -12,6 +12,8 @@ import { IWork } from 'common/models';
 import HeadingPrimary from 'common/typography/HeadingPrimary';
 import Paragraph from 'common/typography/Paragraph';
 
+import environment from 'environment';
+
 import { dateFormat } from 'utils';
 import {
   Work,
@@ -194,7 +196,7 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => {
           imageAlt="Header image for article"
           imageSrc={
             workData.main_image
-              ? `http://localhost:8000${workData.main_image}`
+              ? environment.apiRoute + workData.main_image
               : noImage
           }
           opacity={1}

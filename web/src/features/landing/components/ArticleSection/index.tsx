@@ -13,6 +13,8 @@ import { IArticle } from 'common/models';
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 import Paragraph from 'common/typography/Paragraph';
 
+import environment from 'environment';
+
 import {
   Container,
   ExploreMoreLink,
@@ -118,7 +120,7 @@ const ArticleSection: FC<IArticleSection> = ({
                   articleImageAlt={articleData.title}
                   articleImageSrc={
                     articleData.header_image
-                      ? `http://localhost:8000${articleData.header_image}`
+                      ? environment.apiRoute + articleData.header_image
                       : noImage
                   }
                   articleLinkPath={`/articles/${articleData.meta.slug}`}

@@ -10,6 +10,8 @@ import { IArticle } from 'common/models';
 
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 
+import environment from 'environment';
+
 import ArticleListContainer from './ArticleListContainer';
 import { Container, Section, SectionTitle } from './styles';
 
@@ -69,7 +71,7 @@ const ArticleList: FC<IArticleList> = ({ articlesData }) => {
               articleImageAlt={article.title}
               articleImageSrc={
                 article.header_image
-                  ? `http://localhost:8000${article.header_image}`
+                  ? environment.apiRoute + article.header_image
                   : noImage
               }
               articleLinkPath={`/articles/${article.meta.slug}`}

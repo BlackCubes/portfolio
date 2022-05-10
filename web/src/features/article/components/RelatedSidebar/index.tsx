@@ -12,6 +12,8 @@ import { IArticle } from 'common/models';
 
 import HeadingTertiary from 'common/typography/HeadingTertiary';
 
+import environment from 'environment';
+
 import {
   RelatedContainer,
   RelatedImageWrapper,
@@ -99,7 +101,8 @@ const RelatedSidebar: FC<IRelatedSidebar> = ({
                             imageAlt={relatedArticle.title}
                             imageSrc={
                               relatedArticle.header_image
-                                ? `http://localhost:8000${relatedArticle.header_image}`
+                                ? environment.apiRoute +
+                                  relatedArticle.header_image
                                 : noImage
                             }
                             opacity={1}

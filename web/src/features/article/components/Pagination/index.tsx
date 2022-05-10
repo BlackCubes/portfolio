@@ -11,7 +11,6 @@ import {
 } from './styles';
 
 interface IPagination {
-  /* eslint-disable no-unused-vars */
   handlePagination: (offsetNumber: number) => void;
   limitNumber: number;
   offsetNumber: number;
