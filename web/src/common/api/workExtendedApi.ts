@@ -32,7 +32,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
       TGetWorksByCategoryRequest
     >({
       query: ({ category, limit }) => {
-        let categoryId: number = -1;
+        let categoryId = -1;
 
         if (category === 'Work') categoryId = 1;
 
