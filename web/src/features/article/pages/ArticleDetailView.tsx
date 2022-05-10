@@ -14,6 +14,8 @@ import PageContainer from 'common/components/PageContainer';
 import SEO from 'common/components/SEO';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
+import environment from 'environment';
+
 import { ArticleDetail, RelatedSidebar } from 'features/article/components';
 
 import { isLoadingOverall } from 'utils';
@@ -115,7 +117,7 @@ const ArticleDetailView: FC = () => {
             {
               property: 'og:image',
               content: articleData.header_image
-                ? `http://localhost:8000${articleData.header_image}`
+                ? environment.apiRoute + articleData.header_image
                 : noImage,
             },
             {
@@ -186,7 +188,7 @@ const ArticleDetailView: FC = () => {
             {
               property: 'twitter:image',
               content: articleData.header_image
-                ? `http://localhost:8000${articleData.header_image}`
+                ? environment.apiRoute + articleData.header_image
                 : noImage,
             },
             {

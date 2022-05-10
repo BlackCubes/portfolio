@@ -16,6 +16,8 @@ import { IArticle } from 'common/models';
 import HeadingPrimary from 'common/typography/HeadingPrimary';
 import Paragraph from 'common/typography/Paragraph';
 
+import environment from 'environment';
+
 import { dateFormat } from 'utils';
 
 import {
@@ -266,7 +268,7 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
           imageAlt="Header image for article"
           imageSrc={
             articleData.header_image
-              ? `http://localhost:8000${articleData.header_image}`
+              ? environment.apiRoute + articleData.header_image
               : noImage
           }
           opacity={1}
