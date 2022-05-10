@@ -8,7 +8,7 @@ import {
 import environment from 'environment';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: environment.apiRoute,
+  baseUrl: `${environment.apiRoute}/api/v1`,
 });
 
 const customBaseQuery: BaseQueryFn<
