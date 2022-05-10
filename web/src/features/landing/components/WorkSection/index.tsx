@@ -12,6 +12,8 @@ import HeadingSecondary from 'common/typography/HeadingSecondary';
 
 import { IWork } from 'common/models';
 
+import environment from 'environment';
+
 import {
   Container,
   ExploreMoreLink,
@@ -91,7 +93,7 @@ const WorkSection: FC<IWorkSection> = ({ finishIsFirstMount, worksData }) => {
                 workImageAlt={workData.title}
                 workImageSrc={
                   workData.logo_image
-                    ? `http://localhost:8000${workData.logo_image}`
+                    ? environment.apiRoute + workData.logo_image
                     : noImage
                 }
                 workLinkPath={`/work/${workData.meta.slug}`}
