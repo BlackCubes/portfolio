@@ -1,6 +1,6 @@
 const isLoadingOverall = (...isLoadingStates: Array<boolean>): boolean => {
   for (
-    let isLoadingStateIndex: number = 0;
+    let isLoadingStateIndex = 0;
     isLoadingStateIndex < isLoadingStates.length;
     isLoadingStateIndex += 1
   ) {
