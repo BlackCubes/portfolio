@@ -42,10 +42,10 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({
     getArticles: builder.query<TGetArticlesResponse, TGetArticlesRequest>({
       query: ({ category, limit, offset, tags }) => {
-        let categoryFiltering: string = '';
-        let limitPagination: string = '';
-        let offsetPagination: string = '';
-        let tagsFiltering: string = '';
+        let categoryFiltering = '';
+        let limitPagination = '';
+        let offsetPagination = '';
+        let tagsFiltering = '';
 
         if (category > 0) {
           categoryFiltering += `&category=${category}`;
