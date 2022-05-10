@@ -10,6 +10,8 @@ import { IWork } from 'common/models';
 
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 
+import environment from 'environment';
+
 import { Container, Section, SectionTitle } from './styles';
 import PersonalContainer from './PersonalContainer';
 
@@ -63,7 +65,7 @@ const PersonalList: FC<IPersonalList> = ({ personalsData }) => {
             personalImageAlt={personalData.title}
             personalImageSrc={
               personalData.logo_image
-                ? `http://localhost:8000${personalData.logo_image}`
+                ? environment.apiRoute + personalData.logo_image
                 : noImage
             }
             personalPath={`/work/${personalData.meta.slug}`}

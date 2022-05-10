@@ -11,6 +11,8 @@ import PageContainer from 'common/components/PageContainer';
 import SEO from 'common/components/SEO';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
+import environment from 'environment';
+
 import { WorkDetail } from 'features/work/components';
 
 import { isLoadingOverall } from 'utils';
@@ -58,7 +60,7 @@ const WorkDetailView: FC = () => {
             {
               property: 'og:image',
               content: workData.main_image
-                ? `http://localhost:8000${workData.main_image}`
+                ? environment.apiRoute + workData.main_image
                 : noImage,
             },
             {
@@ -121,7 +123,7 @@ const WorkDetailView: FC = () => {
             {
               property: 'twitter:image',
               content: workData.main_image
-                ? `http://localhost:8000${workData.main_image}`
+                ? environment.apiRoute + workData.main_image
                 : noImage,
             },
             {

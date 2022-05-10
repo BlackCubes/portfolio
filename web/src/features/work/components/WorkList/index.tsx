@@ -10,6 +10,8 @@ import { IWork } from 'common/models';
 
 import HeadingSecondary from 'common/typography/HeadingSecondary';
 
+import environment from 'environment';
+
 import { Container, Section, SectionTitle } from './styles';
 import WorkContainer from './WorkContainer';
 
@@ -63,7 +65,7 @@ const WorkList: FC<IWorkList> = ({ worksData }) => {
             workImageAlt={workData.title}
             workImageSrc={
               workData.logo_image
-                ? `http://localhost:8000${workData.logo_image}`
+                ? environment.apiRoute + workData.logo_image
                 : noImage
             }
             workLinkPath={`/work/${workData.meta.slug}`}
