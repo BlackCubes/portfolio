@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "modelcluster",
     "rest_framework",
+    "storages",
     "taggit",
     "wagtailcodeblock",
     "wagtailmath",
