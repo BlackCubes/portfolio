@@ -120,7 +120,11 @@ const ArticleSection: FC<IArticleSection> = ({
                   articleImageAlt={articleData.title}
                   articleImageSrc={
                     articleData.header_image
-                      ? environment.apiRoute + articleData.header_image
+                      ? `${
+                          environment.isProduction
+                            ? articleData.header_image
+                            : environment.apiRoute + articleData.header_image
+                        }`
                       : noImage
                   }
                   articleLinkPath={`/articles/${articleData.meta.slug}`}
