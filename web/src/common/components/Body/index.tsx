@@ -103,7 +103,13 @@ const Body: FC<IBody> = ({ bodyType, bodyValue }) => {
             glassLightShadowVerticalOffset={-0.1}
             imageAlt={bodyValue.caption}
             imageSrc={
-              bodyValue.image ? environment.apiRoute + bodyValue.image : noImage
+              bodyValue.image
+                ? `${
+                    environment.isProduction
+                      ? bodyValue.image
+                      : environment.apiRoute + bodyValue.image
+                  }`
+                : noImage
             }
             opacity={1}
           />

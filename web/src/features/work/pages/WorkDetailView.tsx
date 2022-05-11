@@ -60,7 +60,11 @@ const WorkDetailView: FC = () => {
             {
               property: 'og:image',
               content: workData.main_image
-                ? environment.apiRoute + workData.main_image
+                ? `${
+                    environment.isProduction
+                      ? workData.main_image
+                      : environment.apiRoute + workData.main_image
+                  }`
                 : noImage,
             },
             {
@@ -123,7 +127,11 @@ const WorkDetailView: FC = () => {
             {
               property: 'twitter:image',
               content: workData.main_image
-                ? environment.apiRoute + workData.main_image
+                ? `${
+                    environment.isProduction
+                      ? workData.main_image
+                      : environment.apiRoute + workData.main_image
+                  }`
                 : noImage,
             },
             {

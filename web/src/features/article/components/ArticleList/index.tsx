@@ -71,7 +71,11 @@ const ArticleList: FC<IArticleList> = ({ articlesData }) => {
               articleImageAlt={article.title}
               articleImageSrc={
                 article.header_image
-                  ? environment.apiRoute + article.header_image
+                  ? `${
+                      environment.isProduction
+                        ? article.header_image
+                        : environment.apiRoute + article.header_image
+                    }`
                   : noImage
               }
               articleLinkPath={`/articles/${article.meta.slug}`}
