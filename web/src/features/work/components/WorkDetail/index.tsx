@@ -196,7 +196,11 @@ const WorkDetail: FC<IWorkDetail> = ({ workData }) => {
           imageAlt="Header image for article"
           imageSrc={
             workData.main_image
-              ? environment.apiRoute + workData.main_image
+              ? `${
+                  environment.isProduction
+                    ? workData.main_image
+                    : environment.apiRoute + workData.main_image
+                }`
               : noImage
           }
           opacity={1}
