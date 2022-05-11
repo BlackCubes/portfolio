@@ -19,8 +19,8 @@ DEBUG = False
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 ALLOWED_HOSTS = (
-    "BlackCubes.pythonanywhere",
-    "www.BlackCubes.pythonanywhere",
+    "blackcubes.pythonanywhere.com",
+    "www.blackcubes.pythonanywhere.com",
 )
 
 CORS_ALLOWED_ORIGINS = [
