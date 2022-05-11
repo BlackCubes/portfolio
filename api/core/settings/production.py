@@ -31,6 +31,16 @@ CORS_ALLOW_METHODS = [
     "GET",
 ]
 
+# WHITENOISE
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+COMPRESS_OFFLINE = True
+COMPRESS_CSS_FILTERS = (
+    "compressor.filters.css_default.CssAbsoluteFilter",
+    "compressor.filters.cssmin.CSSMinFilter",
+)
+COMPRESS_CSS_HASHING_METHOD = "content"
+
 # HTTPS SETTINGS
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
