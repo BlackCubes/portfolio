@@ -157,7 +157,7 @@ const WorkDetailView: FC = () => {
           }
           isLoading={isLoadingOverall(workFetching)}
           loaderComponent={<LoadingIcon />}
-          loaderDuration={3000}
+          loaderDuration={1500}
         />
       </PageContainer>
     </>
