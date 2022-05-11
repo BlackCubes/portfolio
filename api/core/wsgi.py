@@ -11,6 +11,14 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings.dev")
+from whitenoise import WhiteNoise
+
+DJANGO_SETTINGS_MODULE = "core.settings.dev"
+
+if os.getenv("IN_PRODUCTION") == "yes":
+    DJANGO_SETTINGS_MODULE = "core.settings.production"
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", DJANGO_SETTINGS_MODULE)
 
 application = get_wsgi_application()
+application = WhiteNoise(application)
