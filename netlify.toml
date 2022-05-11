@@ -1,0 +1,22 @@
+[[redirects]]
+  from = "https://github.com/blackcubes"
+  to = "https://github.com/blackcubes"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.linkedin.com/in/eliasgutierrez1991/"
+  to = "https://www.linkedin.com/in/eliasgutierrez1991/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://twitter.com/_BlackCubes_"
+  to = "https://twitter.com/_BlackCubes_"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
