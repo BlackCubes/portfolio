@@ -93,7 +93,11 @@ const WorkSection: FC<IWorkSection> = ({ finishIsFirstMount, worksData }) => {
                 workImageAlt={workData.title}
                 workImageSrc={
                   workData.logo_image
-                    ? environment.apiRoute + workData.logo_image
+                    ? `${
+                        environment.isProduction
+                          ? workData.logo_image
+                          : environment.apiRoute + workData.logo_image
+                      }`
                     : noImage
                 }
                 workLinkPath={`/work/${workData.meta.slug}`}

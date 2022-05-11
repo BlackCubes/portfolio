@@ -268,7 +268,11 @@ const ArticleDetail: FC<IArticleDetail> = ({ articleData }) => {
           imageAlt="Header image for article"
           imageSrc={
             articleData.header_image
-              ? environment.apiRoute + articleData.header_image
+              ? `${
+                  environment.isProduction
+                    ? articleData.header_image
+                    : environment.apiRoute + articleData.header_image
+                }`
               : noImage
           }
           opacity={1}

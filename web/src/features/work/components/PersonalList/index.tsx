@@ -65,7 +65,11 @@ const PersonalList: FC<IPersonalList> = ({ personalsData }) => {
             personalImageAlt={personalData.title}
             personalImageSrc={
               personalData.logo_image
-                ? environment.apiRoute + personalData.logo_image
+                ? `${
+                    environment.isProduction
+                      ? personalData.logo_image
+                      : environment.apiRoute + personalData.logo_image
+                  }`
                 : noImage
             }
             personalPath={`/work/${personalData.meta.slug}`}
