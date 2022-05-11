@@ -2,7 +2,7 @@
   "homepage": "https://www.eliastgutierrez.com/",
   "name": "portfolio",
   "version": "2.0.0",
-  "description": "A portfolio website to showcase my skillsets and projects. The original version was part of a final project for \"Mobile Friendly Class\" at Bitwise Industries, and the newer version was for my React Apprenticeship.",
+  "description": "A portfolio website to showcase my skillsets, projects, and written articles. The original version was part of a final project for \"Mobile Friendly Class\" at Bitwise Industries, and the newer version was for my React Apprenticeship.",
   "author": "Elias Gutierrez",
   "private": true,
   "dependencies": {
