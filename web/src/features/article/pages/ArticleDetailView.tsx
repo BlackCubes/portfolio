@@ -117,7 +117,11 @@ const ArticleDetailView: FC = () => {
             {
               property: 'og:image',
               content: articleData.header_image
-                ? environment.apiRoute + articleData.header_image
+                ? `${
+                    environment.isProduction
+                      ? articleData.header_image
+                      : environment.apiRoute + articleData.header_image
+                  }`
                 : noImage,
             },
             {
@@ -188,7 +192,11 @@ const ArticleDetailView: FC = () => {
             {
               property: 'twitter:image',
               content: articleData.header_image
-                ? environment.apiRoute + articleData.header_image
+                ? `${
+                    environment.isProduction
+                      ? articleData.header_image
+                      : environment.apiRoute + articleData.header_image
+                  }`
                 : noImage,
             },
             {
