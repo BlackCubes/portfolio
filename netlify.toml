@@ -17,6 +17,78 @@
   force = true
 
 [[redirects]]
+  from = "https://reactjs.org/"
+  to = "https://reactjs.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.typescriptlang.org/"
+  to = "https://www.typescriptlang.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://redux-toolkit.js.org/"
+  to = "https://redux-toolkit.js.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://reactrouter.com/"
+  to = "https://reactrouter.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://styled-components.com/"
+  to = "https://styled-components.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.framer.com/"
+  to = "https://www.framer.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.netlify.com/"
+  to = "https://www.netlify.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.djangoproject.com/"
+  to = "https://www.djangoproject.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://wagtail.org/"
+  to = "https://wagtail.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.django-rest-framework.org/"
+  to = "https://www.django-rest-framework.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.pythonanywhere.com/"
+  to = "https://www.pythonanywhere.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://aws.amazon.com/s3/"
+  to = "https://aws.amazon.com/s3/"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

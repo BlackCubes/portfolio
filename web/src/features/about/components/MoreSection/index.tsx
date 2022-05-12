@@ -102,10 +102,103 @@ const MoreSection: FC = () => {
 
       <ParagraphWrapper>
         <Paragraph>
-          This site was created with React, TypeScript, Redux Toolkit, React
-          Router, Styled-Components, and Framer for the Frontend. It was also
-          created with Django, Wagtail CMS, and Django REST Framework for the
-          Backend.
+          This site was created with&nbsp;
+          <ExternalLink
+            href="https://reactjs.org/"
+            target="_blank"
+            rel="noopener"
+          >
+            React
+          </ExternalLink>
+          ,&nbsp;
+          <ExternalLink
+            href="https://www.typescriptlang.org/"
+            target="_blank"
+            rel="noopener"
+          >
+            TypeScript
+          </ExternalLink>
+          ,&nbsp;
+          <ExternalLink
+            href="https://redux-toolkit.js.org/"
+            target="_blank"
+            rel="noopener"
+          >
+            Redux Toolkit
+          </ExternalLink>
+          ,&nbsp;
+          <ExternalLink
+            href="https://reactrouter.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            React Router
+          </ExternalLink>
+          ,&nbsp;
+          <ExternalLink
+            href="https://styled-components.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Styled-Components
+          </ExternalLink>
+          , and&nbsp;
+          <ExternalLink
+            href="https://www.framer.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Framer
+          </ExternalLink>
+          &nbsp;for the Frontend being hosted in&nbsp;
+          <ExternalLink
+            href="https://www.netlify.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Netlify
+          </ExternalLink>
+          . It was also created with&nbsp;
+          <ExternalLink
+            href="https://www.djangoproject.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Django
+          </ExternalLink>
+          ,&nbsp;
+          <ExternalLink
+            href="https://wagtail.org/"
+            target="_blank"
+            rel="noopener"
+          >
+            Wagtail CMS
+          </ExternalLink>
+          , and&nbsp;
+          <ExternalLink
+            href="https://www.django-rest-framework.org/"
+            target="_blank"
+            rel="noopener"
+          >
+            Django REST Framework
+          </ExternalLink>
+          &nbsp;for the Backend being hosted in&nbsp;
+          <ExternalLink
+            href="https://www.pythonanywhere.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            PythonAnywhere
+          </ExternalLink>
+          . The images for the work and articles are stored in&nbsp;
+          <ExternalLink
+            href="https://aws.amazon.com/s3/"
+            target="_blank"
+            rel="noopener"
+          >
+            AWS S3
+          </ExternalLink>
+          .
         </Paragraph>
       </ParagraphWrapper>
     </Section>
