@@ -1,6 +1,3 @@
-[build]
-  ignore = "false"
-
 [[redirects]]
   from = "https://github.com/blackcubes"
   to = "https://github.com/blackcubes"
