@@ -1,34 +1,4 @@
 [[redirects]]
-  from = "https://docs.google.com/document/d/1vllJAqf62EALCMJjZ-haBh8pkwMnMUOvWLUZyWPkEj0/edit?usp=sharing"
-  to = "https://docs.google.com/document/d/1vllJAqf62EALCMJjZ-haBh8pkwMnMUOvWLUZyWPkEj0/edit?usp=sharing"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "https://errezshop.netlify.app/"
-  to = "https://errezshop.netlify.app/"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "https://blackcubes.github.io/react-weather/"
-  to = "https://blackcubes.github.io/react-weather/"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "https://kinetotickets.herokuapp.com/"
-  to = "https://kinetotickets.herokuapp.com/"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "https://filmecommerce.com/"
-  to = "https://filmecommerce.com/"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "https://github.com/blackcubes"
   to = "https://github.com/blackcubes"
   status = 200
@@ -41,14 +11,80 @@
   force = true
 
 [[redirects]]
-  from = "https://vimeo.com/blackcubes"
-  to = "https://vimeo.com/blackcubes"
+  from = "https://twitter.com/_BlackCubes_"
+  to = "https://twitter.com/_BlackCubes_"
   status = 200
   force = true
 
 [[redirects]]
-  from = "https://www.facebook.com/elias.gutierrez.5283/"
-  to = "https://www.facebook.com/elias.gutierrez.5283/"
+  from = "https://reactjs.org/"
+  to = "https://reactjs.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.typescriptlang.org/"
+  to = "https://www.typescriptlang.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://redux-toolkit.js.org/"
+  to = "https://redux-toolkit.js.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://reactrouter.com/"
+  to = "https://reactrouter.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://styled-components.com/"
+  to = "https://styled-components.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.framer.com/"
+  to = "https://www.framer.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.netlify.com/"
+  to = "https://www.netlify.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.djangoproject.com/"
+  to = "https://www.djangoproject.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://wagtail.org/"
+  to = "https://wagtail.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.django-rest-framework.org/"
+  to = "https://www.django-rest-framework.org/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.pythonanywhere.com/"
+  to = "https://www.pythonanywhere.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://aws.amazon.com/s3/"
+  to = "https://aws.amazon.com/s3/"
   status = 200
   force = true
 
