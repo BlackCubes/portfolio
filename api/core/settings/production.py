@@ -25,6 +25,7 @@ ALLOWED_HOSTS = (
 
 CORS_ALLOWED_ORIGINS = [
     "https://eliastgutierrez.com",
+    "https://www.eliastgutierrez.com",
 ]
 
 CORS_ALLOW_METHODS = [
