@@ -4,12 +4,11 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "no-param-reassign": "off",
     "import/extensions": "off",
     "import/no-unresolved": [0],
-    "prettier/prettier": ["error"],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/function-component-definition": [
