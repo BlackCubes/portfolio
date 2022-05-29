@@ -1,5 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "no-param-reassign": "off",
     "import/extensions": "off",
@@ -22,6 +27,8 @@
     "react/jsx-one-expression-per-line": [0],
     "react/jsx-props-no-spreading": "off",
     "react/prefer-stateless-function": [1],
-    "react/static-property-placement": [1, "property assignment"]
+    "react/static-property-placement": [1, "property assignment"],
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error"
   }
 }
