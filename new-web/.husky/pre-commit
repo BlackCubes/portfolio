@@ -12,6 +12,8 @@ npm run check-format ||
 )
 
 # Check ESLint Standards
+echo '✅🎨 Prettier check passed... ESLint check... 🎨✅'
+
 npm run check-lint ||
 (
         echo '🙅‍♀️✏️ ESLint Check Failed. Make the required changes listed above, add changes and try to commit again. ✏️🙅‍♀️'
@@ -19,6 +21,8 @@ npm run check-lint ||
 )
 
 # Check tsconfig standards
+echo '✅✏️ Prettier check passed... Type check... ✏️✅'
+
 npm run check-types ||
 (
     echo '🙅‍♀️🗒️ Failed Type check. 🗒️🙅‍♀️'
