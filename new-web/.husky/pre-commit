@@ -12,7 +12,7 @@ npm run check-format ||
 )
 
 # Check ESLint Standards
-echo '✅🎨 Prettier check passed... ESLint check... 🎨✅'
+echo '✅🎨 Prettier check passed... ESLint checking... 🎨✅'
 
 npm run check-lint ||
 (
@@ -21,7 +21,7 @@ npm run check-lint ||
 )
 
 # Check tsconfig standards
-echo '✅✏️ Prettier check passed... Type check... ✏️✅'
+echo '✅✏️ ESLint check passed... Type checking... ✏️✅'
 
 npm run check-types ||
 (
