@@ -35,7 +35,11 @@ const tagExtendedApi = coreSplitApi.injectEndpoints({
 });
 
 // Export hooks for usage in functional components.
-export const { useGetTagByIdQuery, useGetTagsQuery } = tagExtendedApi;
+export const {
+  useGetTagByIdQuery,
+  useGetTagsQuery,
+  util: { getRunningOperationPromises },
+} = tagExtendedApi;
 
 // Export endpoints for use in SRR (Next.js).
 export const { getTagById, getTags } = tagExtendedApi.endpoints;

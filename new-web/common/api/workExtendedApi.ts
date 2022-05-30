@@ -88,6 +88,7 @@ export const {
   useGetSlugsFromWorksQuery,
   useGetWorkBySlugQuery,
   useGetWorksByCategoryQuery,
+  util: { getRunningOperationPromises },
 } = workExtendedApi;
 
 // Export endpoints for use in SRR (Next.js).

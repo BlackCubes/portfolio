@@ -122,6 +122,7 @@ export const {
   useGetArticlesByRelatedCategoryQuery,
   useGetArticlesQuery,
   useGetSlugsFromArticlesQuery,
+  util: { getRunningOperationPromises },
 } = articleExtendedApi;
 
 // Export endpoints for use in SRR (Next.js).

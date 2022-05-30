@@ -35,8 +35,11 @@ const categoryExtendedApi = coreSplitApi.injectEndpoints({
 });
 
 // Export hooks for usage in functional components.
-export const { useGetCategoriesQuery, useGetCategoryByIdQuery } =
-  categoryExtendedApi;
+export const {
+  useGetCategoriesQuery,
+  useGetCategoryByIdQuery,
+  util: { getRunningOperationPromises },
+} = categoryExtendedApi;
 
 // Export endpoints for use in SRR (Next.js).
 export const { getCategories, getCategoryById } = categoryExtendedApi.endpoints;
