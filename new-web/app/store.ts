@@ -1,9 +1,9 @@
 import { configureStore, ConfigureStoreOptions } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 
-import portfolioApi from 'common/api/coreSplitApi';
-
 import environment from 'environment';
+
+import portfolioApi from './api/coreSplitApi';
 
 export const createAppStore = (
   options?: ConfigureStoreOptions['preloadedState'] | undefined
