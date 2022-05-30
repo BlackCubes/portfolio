@@ -2,7 +2,9 @@ import { ICategory, IPaginationResponse } from 'common/models';
 
 import coreSplitApi from './coreSplitApi';
 
-const fields = '_,uuid,name,id';
+const params = {
+  fields: '_,uuid,name,id',
+};
 
 type TGetCategoriesResponse = IPaginationResponse & {
   items: ICategory[];
@@ -13,7 +15,7 @@ const categoryExtendedApi = coreSplitApi.injectEndpoints({
     getCategories: builder.query<TGetCategoriesResponse, void>({
       query: () => ({
         url: '/article-categories/',
-        fields,
+        params,
       }),
 
       providesTags: ['Category'],
@@ -22,7 +24,7 @@ const categoryExtendedApi = coreSplitApi.injectEndpoints({
     getCategoryById: builder.query<ICategory, number>({
       query: (id) => ({
         url: `/article-categories/${id}/`,
-        fields,
+        params,
       }),
 
       providesTags: ['Category'],
