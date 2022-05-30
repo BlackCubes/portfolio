@@ -12,7 +12,8 @@ npm run check-format ||
 )
 
 # Check ESLint Standards
-echo '✅🎨 Prettier check passed... ESLint checking... 🎨✅'
+echo '✅🎨 Prettier check passed... 🎨✅'
+echo '🔄✏️ ESLint checking... ✏️🔄'
 
 npm run check-lint ||
 (
@@ -21,7 +22,8 @@ npm run check-lint ||
 )
 
 # Check tsconfig standards
-echo '✅✏️ ESLint check passed... Type checking... ✏️✅'
+echo '✅✏️ ESLint check passed... ✏️✅'
+echo '🔄🗒️ Type checking... 🗒️🔄'
 
 npm run check-types ||
 (
@@ -30,4 +32,4 @@ npm run check-types ||
 )
 
 # If everything passes... commit
-echo '✅ Everything successfully passed... Committing now. ✅'
+echo '✅✅ Everything successfully passed... Committing now. ✅✅'
