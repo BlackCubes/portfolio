@@ -18,14 +18,17 @@
     "test-all": "npm run check-format && npm run check-lint && npm run check-types"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-redux": "^8.0.2"
   },
   "devDependencies": {
     "@types/node": "17.0.36",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
+    "@types/react-redux": "^7.1.24",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
