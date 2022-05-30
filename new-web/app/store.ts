@@ -20,4 +20,4 @@ export const store = createAppStore();
 
 export type RootState = ReturnType<typeof store.getState>;
 
-export type ApiDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch;
