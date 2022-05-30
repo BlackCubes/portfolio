@@ -2,7 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 cd new-web
 
-echo '👷🏗️ Styling, testing and building your project before committing 🏗️👷'
+echo '👷🏗️ Styling and testing your project before committing 🏗️👷'
 
 # Check Prettier standards
 npm run check-format ||
