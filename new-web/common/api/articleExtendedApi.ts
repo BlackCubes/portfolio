@@ -116,9 +116,18 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
   overrideExisting: false,
 });
 
+// Export hooks for usage in functional components.
 export const {
   useGetArticleBySlugQuery,
   useGetArticlesByRelatedCategoryQuery,
   useGetArticlesQuery,
   useGetSlugsFromArticlesQuery,
 } = articleExtendedApi;
+
+// Export endpoints for use in SRR (Next.js).
+export const {
+  getArticleBySlug,
+  getArticles,
+  getArticlesByRelatedCategory,
+  getSlugsFromArticles,
+} = articleExtendedApi.endpoints;

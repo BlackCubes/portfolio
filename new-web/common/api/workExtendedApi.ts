@@ -83,8 +83,13 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
   overrideExisting: false,
 });
 
+// Export hooks for usage in functional components.
 export const {
   useGetSlugsFromWorksQuery,
   useGetWorkBySlugQuery,
   useGetWorksByCategoryQuery,
 } = workExtendedApi;
+
+// Export endpoints for use in SRR (Next.js).
+export const { getSlugsFromWorks, getWorkBySlug, getWorksByCategory } =
+  workExtendedApi.endpoints;
