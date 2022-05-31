@@ -51,7 +51,7 @@ const About: NextPage = () => (
 
     <meta property="twitter:creator" content="@_BlackCubes_" />
 
-    <meta property="twitter:site" content="@_BlackCubes" />
+    <meta property="twitter:site" content="@_BlackCubes_" />
 
     <meta property="twitter:url" content="/" />
   </Head>
