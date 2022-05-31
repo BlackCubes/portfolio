@@ -29,11 +29,11 @@ const About: NextPage = () => (
       content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathemical model to create beautiful user experiences."
     />
 
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="/website-preview.png" />
 
     <meta property="og:type" content="website" />
 
-    <meta property="og:url" content="" />
+    <meta property="og:url" content="/" />
 
     <meta
       property="twitter:title"
@@ -45,7 +45,7 @@ const About: NextPage = () => (
       content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathemical model to create beautiful user experiences."
     />
 
-    <meta property="twitter:image" content="" />
+    <meta property="twitter:image" content="/website-preview.png" />
 
     <meta property="twitter:card" content="summary" />
 
@@ -53,7 +53,7 @@ const About: NextPage = () => (
 
     <meta property="twitter:site" content="@_BlackCubes" />
 
-    <meta property="twitter:url" content="" />
+    <meta property="twitter:url" content="/" />
   </Head>
 );
 
