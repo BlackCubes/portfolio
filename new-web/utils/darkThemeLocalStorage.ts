@@ -3,14 +3,23 @@ const LOCAL_STORAGE_DARK_THEME_KEY = 'isDarkTheme';
 export type TDarkThemeState = boolean;
 
 export const saveDarkThemeState = (isDarkTheme: TDarkThemeState): void => {
-  localStorage.setItem(
-    LOCAL_STORAGE_DARK_THEME_KEY,
-    JSON.stringify(isDarkTheme)
-  );
+  // This conditional is done since this is a Next.js app, and not a regular
+  // React app
+  if (typeof window !== 'undefined') {
+    localStorage.setItem(
+      LOCAL_STORAGE_DARK_THEME_KEY,
+      JSON.stringify(isDarkTheme)
+    );
+  }
 };
 
 export const getDarkThemeState = (): TDarkThemeState => {
-  const theme = localStorage.getItem(LOCAL_STORAGE_DARK_THEME_KEY);
+  // This ternary is done since this is a Next.js app, and not a regular
+  // React app
+  const theme =
+    typeof window !== 'undefined'
+      ? localStorage.getItem(LOCAL_STORAGE_DARK_THEME_KEY)
+      : null;
 
   if (!theme) return false;
 
