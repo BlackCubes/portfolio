@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 
 const useScreenDimensions = () => {
   const [screenDimensions, setScreenDimensions] = useState({
-    screenHeight: window.innerHeight,
-    screenWidth: window.innerWidth,
+    screenHeight: typeof window !== 'undefined' ? window.innerHeight : 768,
+    screenWidth: typeof window !== 'undefined' ? window.innerWidth : 1366,
   });
 
   const getScreenDimensions = (): void =>
@@ -14,11 +14,13 @@ const useScreenDimensions = () => {
     }));
 
   useEffect(() => {
-    window.addEventListener('resize', getScreenDimensions);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', getScreenDimensions);
 
-    return () => {
-      window.removeEventListener('resize', getScreenDimensions);
-    };
+      return () => {
+        window.removeEventListener('resize', getScreenDimensions);
+      };
+    }
   }, [screenDimensions]);
 
   return screenDimensions;
