@@ -5,12 +5,16 @@ import { nextReduxWrapper } from 'app';
 
 import { GlobalStyle } from 'common/base';
 
+import Navbar from 'common/components/Navbar';
+
 import { ThemeProvider } from 'common/providers';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider>
       <GlobalStyle />
+
+      <Navbar />
 
       <Component {...pageProps} />
     </ThemeProvider>
