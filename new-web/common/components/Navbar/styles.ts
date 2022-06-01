@@ -67,6 +67,10 @@ export const LogoWrapper = styled.div`
 
 export const LogoLink = styled.a`
   display: inline-flex;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Logo = styled.img`
