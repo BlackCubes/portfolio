@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 
 type TItemsContainer = {
   windowHeight: number;
@@ -73,7 +74,7 @@ export const LogoLink = styled.a`
   }
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(Image)`
   width: 100%;
 `;
 
