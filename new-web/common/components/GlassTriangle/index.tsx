@@ -43,7 +43,7 @@ const GlassTriangle: FC<IGlassTriangle> = ({
   >
     <GlassShape>
       <GlassImageWrapper className={reverseClass} opacity={opacity}>
-        <GlassImage src={imageSrc} alt={imageAlt} />
+        <GlassImage src={imageSrc} alt={imageAlt} layout="fill" />
       </GlassImageWrapper>
     </GlassShape>
   </GlassContainer>

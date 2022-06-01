@@ -39,6 +39,7 @@ const Footer: FC = () => {
               <Logo
                 src={`/github-logo_${isDark ? 'white' : 'black'}.png`}
                 alt="Github Logo"
+                layout="fill"
                 title="Follow Elias Gutierrez on GitHub"
               />
             </LogoLink>
@@ -53,6 +54,7 @@ const Footer: FC = () => {
               <Logo
                 src={`/twitter-logo_${isDark ? 'white' : 'black'}.png`}
                 alt="Twitter Logo"
+                layout="fill"
                 title="Follow Elias Gutierrez on Twitter"
               />
             </LogoLink>
@@ -67,6 +69,7 @@ const Footer: FC = () => {
               <Logo
                 src={`/linkedin-logo_${isDark ? 'white' : 'black'}.png`}
                 alt="LinkedIn Logo"
+                layout="fill"
                 title="Follow Elias Gutierrez on LinkedIn"
               />
             </LogoLink>

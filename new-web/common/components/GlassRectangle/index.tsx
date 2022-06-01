@@ -59,7 +59,12 @@ const GlassRectangle: FC<IGlassRectangle> = ({
       imageSize={imageSize}
       opacity={opacity}
     >
-      <GlassImage className={customClassName} src={imageSrc} alt={imageAlt} />
+      <GlassImage
+        className={customClassName}
+        src={imageSrc}
+        alt={imageAlt}
+        layout="fill"
+      />
     </GlassImageWrapper>
 
     {glassContentElement && <GlassContent>{glassContentElement}</GlassContent>}

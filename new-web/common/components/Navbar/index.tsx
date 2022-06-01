@@ -46,6 +46,7 @@ const Navbar: FC = () => {
             <LogoLink>
               <Logo
                 alt="Portfolio logo"
+                layout="fill"
                 onClick={() => setIsMenuChecked(false)}
                 src="/logo192.png"
               />
