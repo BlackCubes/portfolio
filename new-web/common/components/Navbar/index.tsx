@@ -38,9 +38,7 @@ const Navbar: FC = () => {
 
   return (
     <Nav
-      {...(scrollPosition > 0 && {
-        className: 'scrolling',
-      })}
+      className={`default-container ${scrollPosition > 0 ? 'scrolling' : ''}`}
     >
       <Container>
         <LogoWrapper>
