@@ -5,6 +5,7 @@ import { nextReduxWrapper } from 'app';
 
 import { GlobalStyle } from 'common/base';
 
+import DarkMode from 'common/components/DarkMode';
 import Footer from 'common/components/Footer';
 import Navbar from 'common/components/Navbar';
 
@@ -16,6 +17,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <GlobalStyle />
 
       <Navbar />
+
+      <DarkMode />
 
       <Component {...pageProps} />
 
