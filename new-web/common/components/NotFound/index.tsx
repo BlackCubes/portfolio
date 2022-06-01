@@ -35,7 +35,6 @@ const NotFound: FC = () => {
       <ImageWrapper>
         <ImageStyled
           alt="An image that shows the website logo and a 404 code wrapped in a comic bubble"
-          layout="fill"
           src="/not-found.png"
         />
       </ImageWrapper>

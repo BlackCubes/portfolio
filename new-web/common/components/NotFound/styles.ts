@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 export const Container = styled(motion.div).attrs(() => ({
   initial: 'hidden',
@@ -40,7 +39,7 @@ export const ImageWrapper = styled.div`
   }
 `;
 
-export const ImageStyled = styled(Image)`
+export const ImageStyled = styled.img`
   width: 100%;
 `;
 

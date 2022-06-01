@@ -39,7 +39,7 @@ const GlassCircle: FC<IGlassCirlce> = ({
     className={glassContainerClassName}
   >
     <GlassImageWrapper className={glassImageWrapperClassName} opacity={opacity}>
-      <GlassImage src={imageSrc} alt={imageAlt} layout="fill" />
+      <GlassImage src={imageSrc} alt={imageAlt} />
     </GlassImageWrapper>
   </GlassContainer>
 );

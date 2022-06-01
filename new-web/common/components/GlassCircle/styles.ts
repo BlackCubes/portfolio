@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 
 interface IGlassContainer {
   boxDarkShadowBlur: number;
@@ -69,7 +68,7 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
   }
 `;
 
-export const GlassImage = styled(Image)`
+export const GlassImage = styled.img`
   position: absolute;
   top: 50%;
   left: 50%;
