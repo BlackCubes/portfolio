@@ -14,15 +14,11 @@ const ItemLink: FC<IItemLink> = ({ href, itemTitle, onClick }) => {
   const { pathname } = useRouter();
 
   return (
-    <Link
-      href={href}
-      {...(onClick && {
-        onClick,
-      })}
-    >
+    <Link href={href}>
       <ItemLinkStyle
-        {...(pathname.includes(itemTitle.toLowerCase()) && {
-          className: 'active',
+        className={pathname.includes(itemTitle.toLowerCase()) ? 'active' : ''}
+        {...(onClick && {
+          onClick,
         })}
       >
         {itemTitle}
