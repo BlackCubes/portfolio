@@ -42,7 +42,7 @@ const Navbar: FC = () => {
     >
       <Container>
         <LogoWrapper>
-          <Link href="/">
+          <Link href="/" passHref>
             <LogoLink>
               <Logo
                 alt="Portfolio logo"
