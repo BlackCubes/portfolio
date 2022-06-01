@@ -14,7 +14,7 @@ const ItemLink: FC<IItemLink> = ({ href, itemTitle, onClick }) => {
   const { pathname } = useRouter();
 
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <ItemLinkStyle
         className={pathname.includes(itemTitle.toLowerCase()) ? 'active' : ''}
         {...(onClick && {
