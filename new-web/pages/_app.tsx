@@ -5,6 +5,7 @@ import { nextReduxWrapper } from 'app';
 
 import { GlobalStyle } from 'common/base';
 
+import Footer from 'common/components/Footer';
 import Navbar from 'common/components/Navbar';
 
 import { ThemeProvider } from 'common/providers';
@@ -17,6 +18,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Navbar />
 
       <Component {...pageProps} />
+
+      <Footer />
     </ThemeProvider>
   );
 };
