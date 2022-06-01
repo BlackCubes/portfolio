@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 
 export const Foot = styled.footer`
   height: 11rem;
@@ -90,7 +91,7 @@ export const LogoLink = styled.a`
   }
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(Image)`
   width: 100%;
   transition: width 0.05s linear;
 `;
