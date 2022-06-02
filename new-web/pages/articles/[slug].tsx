@@ -32,7 +32,7 @@ export const getStaticPaths = async () => {
     getSlugsFromArticles.initiate()
   );
 
-  const paths = slugsFromArticles.data?.map((slugFromArticle) => ({
+  const paths = slugsFromArticles.data?.items.map((slugFromArticle) => ({
     params: {
       slug: slugFromArticle.meta.slug,
     },
