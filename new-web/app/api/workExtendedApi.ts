@@ -72,7 +72,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
       query: () => ({
         url: '/pages/',
         params: {
-          fields: '_id,uuid,slug',
+          fields: '_,id,uuid,slug',
           show_to_public: true,
           type: 'work.WorkPage',
         },
