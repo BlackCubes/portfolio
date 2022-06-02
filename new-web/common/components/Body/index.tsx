@@ -5,7 +5,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
   materialLight,
   materialDark,
-} from 'react-syntax-highlighter/dist/esm/styles/prism';
+} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import GlassRectangle from 'common/components/GlassRectangle';
 
