@@ -1,60 +1,131 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-const Work: NextPage = () => (
-  <Head>
-    <title>
-      Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer
-    </title>
+import { nextReduxWrapper } from 'app';
+import {
+  getWorksByCategory,
+  getRunningOperationPromises,
+  useGetWorksByCategoryQuery,
+} from 'app/api/workExtendedApi';
 
-    <meta
-      name="title"
-      content="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-    />
+import LoadingIcon from 'common/components/LoadingIcon';
+import PageContainer from 'common/components/PageContainer';
+import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
-    <meta
-      name="description"
-      content="Latest Work and Projects by Elias Gutierrez"
-    />
+import { PersonalList, WorkList } from 'components/work';
 
-    <meta property="og:site_name" content="Elias Gutierrez's Portfolio" />
+import { isLoadingOverall } from 'utils';
 
-    <meta
-      property="og:title"
-      content="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-    />
+export const getStaticProps = nextReduxWrapper.getStaticProps(
+  (store) => async () => {
+    store.dispatch(
+      getWorksByCategory.initiate({
+        category: 'Work',
+        limit: 4,
+      })
+    );
 
-    <meta
-      property="og:description"
-      content="Latest Work and Projects by Elias Gutierrez"
-    />
+    await Promise.all(getRunningOperationPromises());
 
-    <meta property="og:image" content="/website-preview.png" />
+    store.dispatch(
+      getWorksByCategory.initiate({
+        category: 'Personal',
+        limit: 4,
+      })
+    );
 
-    <meta property="og:type" content="website" />
+    await Promise.all(getRunningOperationPromises());
 
-    <meta property="og:url" content="/" />
-
-    <meta
-      property="twitter:title"
-      content="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-    />
-
-    <meta
-      property="twitter:description"
-      content="Latest Work and Projects by Elias Gutierrez"
-    />
-
-    <meta property="twitter:image" content="/website-preview.png" />
-
-    <meta property="twitter:card" content="summary" />
-
-    <meta property="twitter:creator" content="@_BlackCubes_" />
-
-    <meta property="twitter:site" content="@_BlackCubes_" />
-
-    <meta property="twitter:url" content="/" />
-  </Head>
+    return {
+      props: {},
+    };
+  }
 );
+
+const Work: NextPage = () => {
+  const { data: worksData, isFetching: worksFetching } =
+    useGetWorksByCategoryQuery({
+      category: 'Work',
+      limit: 4,
+    });
+  const { data: personalsData, isFetching: personalsFetching } =
+    useGetWorksByCategoryQuery({
+      category: 'Personal',
+      limit: 4,
+    });
+
+  return (
+    <>
+      <Head>
+        <title>
+          Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer
+        </title>
+
+        <meta
+          name="title"
+          content="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+        />
+
+        <meta
+          name="description"
+          content="Latest Work and Projects by Elias Gutierrez"
+        />
+
+        <meta property="og:site_name" content="Elias Gutierrez's Portfolio" />
+
+        <meta
+          property="og:title"
+          content="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+        />
+
+        <meta
+          property="og:description"
+          content="Latest Work and Projects by Elias Gutierrez"
+        />
+
+        <meta property="og:image" content="/website-preview.png" />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:url" content="/" />
+
+        <meta
+          property="twitter:title"
+          content="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+        />
+
+        <meta
+          property="twitter:description"
+          content="Latest Work and Projects by Elias Gutierrez"
+        />
+
+        <meta property="twitter:image" content="/website-preview.png" />
+
+        <meta property="twitter:card" content="summary" />
+
+        <meta property="twitter:creator" content="@_BlackCubes_" />
+
+        <meta property="twitter:site" content="@_BlackCubes_" />
+
+        <meta property="twitter:url" content="/" />
+      </Head>
+
+      <PageContainer>
+        <WithLoadingOverlay
+          contentComponent={
+            <>
+              <WorkList worksData={worksData?.items ?? []} />
+
+              <PersonalList personalsData={personalsData?.items ?? []} />
+            </>
+          }
+          isLoading={isLoadingOverall(worksFetching, personalsFetching)}
+          loaderComponent={<LoadingIcon />}
+          loaderDuration={1000}
+        />
+      </PageContainer>
+    </>
+  );
+};
 
 export default Work;
