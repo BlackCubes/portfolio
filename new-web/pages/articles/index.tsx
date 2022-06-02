@@ -38,7 +38,7 @@ type TCategoryTagIdQueryState = {
   tags: Array<number> | [];
 };
 
-export const nextStaticProps = nextReduxWrapper.getStaticProps(
+export const getStaticProps = nextReduxWrapper.getStaticProps(
   (store) => async () => {
     store.dispatch(
       getArticles.initiate({
