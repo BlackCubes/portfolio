@@ -94,14 +94,20 @@ export const Button = styled.button.attrs(() => ({
   color: ${({ theme }) => theme.colors.secondary.hex};
   background-color: transparent;
   padding: 0.7rem;
-  border: none;
+  border-top: ${({ theme }) =>
+    `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0)`};
+  border-right: ${({ theme }) =>
+    `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0)`};
+  border-bottom: ${({ theme }) =>
+    `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0)`};
+  border-left: ${({ theme }) =>
+    `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0)`};
+  border-radius: 1rem;
   text-decoration: none;
   transition: all 0.05s linear;
 
   &:hover {
     color: ${({ theme }) => `rgba(${theme.colors.secondary.rgb}, 0.6)`};
-    font-size: 1.89rem;
-    letter-spacing: 0.05rem;
     border-top: ${({ theme }) =>
       `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
     border-right: ${({ theme }) =>
@@ -110,7 +116,6 @@ export const Button = styled.button.attrs(() => ({
       `0.1rem solid rgba(${theme.colors.glassDarkShadow.rgb}, 0.27)`};
     border-left: ${({ theme }) =>
       `0.1rem solid rgba(${theme.colors.glassLightShadow.rgb}, 0.17)`};
-    border-radius: 1rem;
     cursor: pointer;
 
     @media ${({ theme }) => theme.responsive.below899} {
