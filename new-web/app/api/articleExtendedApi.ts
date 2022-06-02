@@ -42,7 +42,9 @@ type TGetSlugsFromArticles = Pick<IArticle, 'id' | 'uuid'> & {
   meta: Pick<IArticle['meta'], 'slug'>;
 };
 
-type TGetSlugsFromArticlesResponse = TGetSlugsFromArticles[];
+type TGetSlugsFromArticlesResponse = IPaginationResponse & {
+  items: TGetSlugsFromArticles[];
+};
 
 const articleExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({

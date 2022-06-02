@@ -29,7 +29,9 @@ type TGetSlugsFromWorks = Pick<IWork, 'id' | 'uuid'> & {
   meta: Pick<IWork['meta'], 'slug'>;
 };
 
-type TGetSlugsFromWorksResponse = TGetSlugsFromWorks[];
+type TGetSlugsFromWorksResponse = IPaginationResponse & {
+  items: TGetSlugsFromWorks[];
+};
 
 const workExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({
