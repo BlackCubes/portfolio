@@ -99,11 +99,9 @@ const Work: NextPage = () => {
           property="og:title"
           content={
             workData
-              ? `${
-                  workData.meta.seo_title.length > 0
-                    ? workData.meta.seo_title
-                    : workData.title
-                }`
+              ? workData.meta.seo_title.length > 0
+                ? workData.meta.seo_title
+                : workData.title
               : ''
           }
         />
