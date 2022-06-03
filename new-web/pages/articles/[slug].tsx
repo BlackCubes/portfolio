@@ -197,6 +197,28 @@ const Article: NextPage = () => {
               : '/'
           }
         />
+
+        <meta
+          property="article:published_time"
+          content={articleData ? articleData.meta.first_published_at : ''}
+        />
+
+        <meta
+          property="article:section"
+          content={
+            articleData
+              ? articleData.category
+                ? articleData.category.name
+                : ''
+              : ''
+          }
+        />
+
+        {articleData &&
+          articleData.tags.length > 0 &&
+          articleData.tags.map((tag) => (
+            <meta key={tag.id} property="article:tag" content={tag.name} />
+          ))}
       </Head>
 
       <PageContainer extraClassName="article-detail-page">
