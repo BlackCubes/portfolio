@@ -10,7 +10,6 @@ export const PageContainerStyle = styled(motion.div).attrs(() => ({
     ease: 'easeOut',
   },
 }))`
-  &.article-detail-page,
   &.article-list-page {
     display: flex;
     justify-content: space-between;
