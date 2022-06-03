@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 export interface IWithLoadingOverlay {
   contentComponent: JSX.Element | JSX.Element[];
