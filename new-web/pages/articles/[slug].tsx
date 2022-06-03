@@ -154,7 +154,10 @@ const Article: NextPage = () => {
 
         <meta property="og:type" content="article" />
 
-        <meta property="og:url" content={router.pathname} />
+        <meta
+          property="og:url"
+          content={typeof slug === 'string' ? `/articles/${slug}` : '/'}
+        />
 
         <meta
           property="twitter:title"
@@ -200,7 +203,10 @@ const Article: NextPage = () => {
 
         <meta property="twitter:site" content="@_BlackCubes_" />
 
-        <meta property="twitter:url" content={router.pathname} />
+        <meta
+          property="twitter:url"
+          content={typeof slug === 'string' ? `/articles/${slug}` : '/'}
+        />
       </Head>
 
       <PageContainer extraClassName="article-detail-page">
