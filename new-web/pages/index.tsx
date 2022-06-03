@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -14,17 +14,23 @@ import {
   useGetWorksByCategoryQuery,
 } from 'app/api/workExtendedApi';
 
+import LoadingIcon from 'common/components/LoadingIcon';
 import PageContainer from 'common/components/PageContainer';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import {
   ArticleSection,
   HeroBanner,
+  InitialSiteTransition,
   TalkSection,
   WorkSection,
 } from 'components/home';
 
 import { isLoadingOverall } from 'utils';
+
+interface IHome {
+  isFirstMount: boolean;
+}
 
 export const getStaticProps = nextReduxWrapper.getStaticProps(
   (store) => async () => {
@@ -53,7 +59,9 @@ export const getStaticProps = nextReduxWrapper.getStaticProps(
   }
 );
 
-const Home: NextPage = () => {
+const Home: NextPage<IHome> = ({ isFirstMount }) => {
+  const [finishIsFirstMount, setFinishIsFirstMount] = useState(isFirstMount);
+
   const { data: articlesData, isFetching: articlesFetching } =
     useGetArticlesQuery({
       category: 0,
@@ -76,6 +84,14 @@ const Home: NextPage = () => {
       }
     );
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isFirstMount) setFinishIsFirstMount(isFirstMount);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [isFirstMount]);
+
   return (
     <>
       <Head>
@@ -88,20 +104,30 @@ const Home: NextPage = () => {
         <WithLoadingOverlay
           contentComponent={
             <>
+              {finishIsFirstMount && (
+                <InitialSiteTransition isFirstMount={isFirstMount} />
+              )}
+
               <HeroBanner />
 
-              <WorkSection finishIsFirstMount={false} worksData={worksData} />
+              <WorkSection
+                finishIsFirstMount={finishIsFirstMount}
+                worksData={worksData}
+              />
 
               <ArticleSection
                 articlesData={articlesData?.items ?? []}
-                finishIsFirstMount={false}
+                finishIsFirstMount={finishIsFirstMount}
               />
 
-              <TalkSection finishIsFirstMount={false} />
+              <TalkSection finishIsFirstMount={finishIsFirstMount} />
             </>
           }
           isLoading={isLoadingOverall(worksFetching, articlesFetching)}
           loaderDuration={1000}
+          {...(!finishIsFirstMount && {
+            loaderComponent: <LoadingIcon />,
+          })}
         />
       </PageContainer>
     </>
