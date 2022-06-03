@@ -38,3 +38,7 @@ yarn-error.log*
 # sitemap & robots
 /public/robots.txt
 /public/sitemap*.xml
+
+# pwa
+/public/sw.js
+/public/workbox*.js
