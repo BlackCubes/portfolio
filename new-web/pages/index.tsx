@@ -97,32 +97,28 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
   return (
     <>
       <Head>
-        <title>
-          Elias Gutierrez, Software Engineer & Full-Stack Web Developer
-        </title>
-
-        <meta
-          name="title"
-          content="Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-        />
+        <title>Elias Gutierrez, Software Engineer</title>
 
         <meta
           name="description"
-          content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathemical model to create beautiful user experiences."
+          content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
         />
 
-        <meta property="og:site_name" content="Elias Gutierrez's Portfolio" />
+        <meta
+          property="og:site_name"
+          content="Elias Gutierrez, Software Engineer"
+        />
 
         <meta property="og:url" content={environment.webRoute} />
 
         <meta
           property="og:title"
-          content="Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+          content="Elias Gutierrez, Software Engineer"
         />
 
         <meta
           property="og:description"
-          content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathemical model to create beautiful user experiences."
+          content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
         />
 
         <meta property="og:type" content="website" />
@@ -135,12 +131,12 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
 
         <meta
           property="twitter:title"
-          content="Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+          content="Elias Gutierrez, Software Engineer"
         />
 
         <meta
           property="twitter:description"
-          content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathemical model to create beautiful user experiences."
+          content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
         />
 
         <meta property="twitter:image" content="/website-preview.png" />
