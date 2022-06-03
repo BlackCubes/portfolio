@@ -26,6 +26,8 @@ import {
   WorkSection,
 } from 'components/home';
 
+import environment from 'environment';
+
 import { isLoadingOverall } from 'utils';
 
 interface IHome {
@@ -111,7 +113,7 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
 
         <meta property="og:site_name" content="Elias Gutierrez's Portfolio" />
 
-        <meta property="og:url" content="/" />
+        <meta property="og:url" content={environment.webRoute} />
 
         <meta
           property="og:title"
@@ -129,7 +131,7 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
 
         <meta property="twitter:card" content="summary_large_image" />
 
-        <meta property="twitter:url" content="/" />
+        <meta property="twitter:url" content={environment.webRoute} />
 
         <meta
           property="twitter:title"
