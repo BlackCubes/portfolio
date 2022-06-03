@@ -44,7 +44,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
 
       <Navbar isFirstMount={isFirstMount} />
 
-      <DarkMode />
+      <DarkMode isFirstMount={isFirstMount} />
 
       <AnimatePresence
         exitBeforeEnter

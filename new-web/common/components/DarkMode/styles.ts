@@ -1,7 +1,16 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const DarkModeWrapper = styled.div`
+export const DarkModeWrapper = styled(motion.div).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.1 },
+    },
+  },
+}))`
   display: flex;
   justify-content: flex-end;
   margin-top: 4rem;

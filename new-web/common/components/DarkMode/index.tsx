@@ -1,13 +1,26 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import { useThemeContext } from 'common/contexts';
 
 import { DarkModeButton, DarkModeCircle, DarkModeWrapper } from './styles';
 
-const DarkModeToggle: FC = () => {
+interface IDarkModeToggle {
+  isFirstMount: boolean;
+}
+
+const DarkModeToggle: FC<IDarkModeToggle> = ({ isFirstMount }) => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const { isDark, toggleDark } = useThemeContext();
+
+  const wrapperAnimateControls = useAnimation();
+  const { inView: wrapperInView, ref: wrapperRef } = useInView();
+
+  useEffect(() => {
+    if (!isFirstMount && wrapperInView) wrapperAnimateControls.start('visible');
+  }, [isFirstMount, wrapperAnimateControls, wrapperInView]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,7 +37,11 @@ const DarkModeToggle: FC = () => {
   }
 
   return (
-    <DarkModeWrapper className="default-container">
+    <DarkModeWrapper
+      animate={wrapperAnimateControls}
+      className="default-container"
+      ref={wrapperRef}
+    >
       <DarkModeButton
         className={isDark ? 'dark-mode' : ''}
         onClick={() => {
