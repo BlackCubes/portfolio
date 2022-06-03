@@ -8,7 +8,7 @@ const environment: IEnvironment = {
   isProduction: process.env.NODE_ENV === 'production',
   name: packageJson.name,
   version: packageJson.version,
-  webRoute: 'https://eliastgutierrez.com',
+  webRoute: 'https://www.eliastgutierrez.com',
 };
 
 export default environment;
