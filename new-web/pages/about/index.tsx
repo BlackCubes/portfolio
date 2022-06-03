@@ -16,6 +16,8 @@ import {
   Row,
 } from 'components/about';
 
+import environment from 'environment';
+
 const About: NextPage = () => (
   <>
     <Head>
@@ -49,7 +51,7 @@ const About: NextPage = () => (
 
       <meta property="og:type" content="website" />
 
-      <meta property="og:url" content="/about" />
+      <meta property="og:url" content={`${environment.webRoute}/about`} />
 
       <meta
         property="twitter:title"
@@ -69,7 +71,7 @@ const About: NextPage = () => (
 
       <meta property="twitter:site" content="@_BlackCubes_" />
 
-      <meta property="twitter:url" content="/about" />
+      <meta property="twitter:url" content={`${environment.webRoute}/about`} />
     </Head>
 
     <PageContainer>
