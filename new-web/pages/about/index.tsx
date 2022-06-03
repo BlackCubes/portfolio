@@ -62,6 +62,12 @@ const About: NextPage = () => (
       <meta property="twitter:site" content="@_BlackCubes_" />
 
       <meta property="twitter:url" content={`${environment.webRoute}/about`} />
+
+      <link
+        rel="canonical"
+        href={`${environment.webRoute}/about`}
+        key="canonical"
+      />
     </Head>
 
     <PageContainer>

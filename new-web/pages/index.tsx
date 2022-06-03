@@ -140,6 +140,12 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
         />
 
         <meta property="twitter:image" content="/website-preview.png" />
+
+        <link
+          rel="canonical"
+          href={`${environment.webRoute}`}
+          key="canonical"
+        />
       </Head>
 
       <PageContainer extraClassName="landing-list-page" isFirstMount={false}>

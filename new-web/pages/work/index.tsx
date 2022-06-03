@@ -100,6 +100,12 @@ const Work: NextPage = () => {
         <meta property="twitter:site" content="@_BlackCubes_" />
 
         <meta property="twitter:url" content={`${environment.webRoute}/work`} />
+
+        <link
+          rel="canonical"
+          href={`${environment.webRoute}/work`}
+          key="canonical"
+        />
       </Head>
 
       <PageContainer>

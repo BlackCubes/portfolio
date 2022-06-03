@@ -225,6 +225,12 @@ const Articles: NextPage = () => {
           property="twitter:url"
           content={`${environment.webRoute}/articles`}
         />
+
+        <link
+          rel="canonical"
+          href={`${environment.webRoute}/articles`}
+          key="canonical"
+        />
       </Head>
 
       <PageContainer extraClassName="article-list-page">

@@ -192,6 +192,16 @@ const Work: NextPage = () => {
               : '/'
           }
         />
+
+        <link
+          rel="canonical"
+          href={
+            typeof slug === 'string'
+              ? `${environment.webRoute}/work/${slug}`
+              : '/'
+          }
+          key="canonical"
+        />
       </Head>
 
       <PageContainer>

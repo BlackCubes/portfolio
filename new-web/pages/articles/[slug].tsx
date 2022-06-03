@@ -219,6 +219,16 @@ const Article: NextPage = () => {
           articleData.tags.map((tag) => (
             <meta key={tag.id} property="article:tag" content={tag.name} />
           ))}
+
+        <link
+          rel="canonical"
+          href={
+            typeof slug === 'string'
+              ? `${environment.webRoute}/articles/${slug}`
+              : '/'
+          }
+          key="canonical"
+        />
       </Head>
 
       <PageContainer extraClassName="article-detail-page">
