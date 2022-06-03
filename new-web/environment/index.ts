@@ -6,7 +6,7 @@ import { EnvironmentConfiguration, IEnvironment } from './types';
 const getEnv = (): IEnvironment => {
   if (
     process.env.NODE_ENV === 'production' &&
-    process.env.REACT_APP_CONFIGURATION === EnvironmentConfiguration.Staging
+    process.env.NEXT_PUBLIC_CONFIGURATION === EnvironmentConfiguration.Staging
   ) {
     return staging;
   }
