@@ -11,7 +11,7 @@ export const Nav = styled(motion.nav).attrs(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.1 },
     },
   },
 }))`

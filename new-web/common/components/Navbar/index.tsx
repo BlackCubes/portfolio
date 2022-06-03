@@ -47,11 +47,7 @@ const Navbar: FC<INavbar> = ({ isFirstMount }) => {
   const { inView: navInView, ref: navRef } = useInView();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!isFirstMount && navInView) navAnimateControls.start('visible');
-    }, 2000);
-
-    return () => clearTimeout(timer);
+    if (!isFirstMount && navInView) navAnimateControls.start('visible');
   }, [isFirstMount, navAnimateControls, navInView]);
 
   return (
