@@ -1,8 +1,16 @@
-import React, { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { useThemeContext } from 'common/contexts';
 
 import { itemData, ItemLink } from '../ItemLink';
+
+const githubLogoBlack = '/github-logo_black.png';
+const linkedinLogoBlack = '/linkedin-logo_black.png';
+const twitterLogoBlack = '/twitter-logo_black.png';
+
+const githubLogoWhite = '/github-logo_white.png';
+const linkedinLogoWhite = '/linkedin-logo_white.png';
+const twitterLogoWhite = '/twitter-logo_white.png';
 
 import {
   Container,
@@ -16,7 +24,23 @@ import {
 } from './styles';
 
 const Footer: FC = () => {
+  const [githubLogo, setGithubLogo] = useState(githubLogoBlack);
+  const [linkedinLogo, setLinkedinLogo] = useState(linkedinLogoBlack);
+  const [twitterLogo, setTwitterLogo] = useState(twitterLogoBlack);
+
   const { isDark } = useThemeContext();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setGithubLogo(!isDark ? githubLogoBlack : githubLogoWhite);
+
+      setLinkedinLogo(!isDark ? linkedinLogoBlack : linkedinLogoWhite);
+
+      setTwitterLogo(!isDark ? twitterLogoBlack : twitterLogoWhite);
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [isDark]);
 
   return (
     <Foot className="default-container navbar-footer-space">
@@ -37,7 +61,7 @@ const Footer: FC = () => {
               target="_blank"
             >
               <Logo
-                src={`/github-logo_${isDark ? 'white' : 'black'}.png`}
+                src={githubLogo}
                 alt="Github Logo"
                 title="Follow Elias Gutierrez on GitHub"
               />
@@ -51,7 +75,7 @@ const Footer: FC = () => {
               target="_blank"
             >
               <Logo
-                src={`/twitter-logo_${isDark ? 'white' : 'black'}.png`}
+                src={twitterLogo}
                 alt="Twitter Logo"
                 title="Follow Elias Gutierrez on Twitter"
               />
@@ -65,7 +89,7 @@ const Footer: FC = () => {
               target="_blank"
             >
               <Logo
-                src={`/linkedin-logo_${isDark ? 'white' : 'black'}.png`}
+                src={linkedinLogo}
                 alt="LinkedIn Logo"
                 title="Follow Elias Gutierrez on LinkedIn"
               />
