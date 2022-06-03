@@ -147,7 +147,10 @@ const Work: NextPage = () => {
 
         <meta property="og:type" content="website" />
 
-        <meta property="og:url" content={router.pathname} />
+        <meta
+          property="og:url"
+          content={typeof slug === 'string' ? `/work/${slug}` : '/'}
+        />
 
         <meta
           property="twitter:title"
@@ -193,7 +196,10 @@ const Work: NextPage = () => {
 
         <meta property="twitter:site" content="@_BlackCubes_" />
 
-        <meta property="twitter:url" content={router.pathname} />
+        <meta
+          property="twitter:url"
+          content={typeof slug === 'string' ? `/work/${slug}` : '/'}
+        />
       </Head>
 
       <PageContainer>
