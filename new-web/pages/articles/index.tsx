@@ -31,6 +31,8 @@ import {
   Pagination,
 } from 'components/articles';
 
+import environment from 'environment';
+
 import { isLoadingOverall } from 'utils';
 
 type TCategoryTagIdQueryState = {
@@ -210,7 +212,7 @@ const Articles: NextPage = () => {
 
         <meta property="og:type" content="website" />
 
-        <meta property="og:url" content="/articles" />
+        <meta property="og:url" content={`${environment.webRoute}/articles`} />
 
         <meta
           property="twitter:title"
@@ -230,7 +232,10 @@ const Articles: NextPage = () => {
 
         <meta property="twitter:site" content="@_BlackCubes_" />
 
-        <meta property="twitter:url" content="/articles" />
+        <meta
+          property="twitter:url"
+          content={`${environment.webRoute}/articles`}
+        />
       </Head>
 
       <PageContainer extraClassName="article-list-page">

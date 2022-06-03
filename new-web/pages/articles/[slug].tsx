@@ -156,7 +156,11 @@ const Article: NextPage = () => {
 
         <meta
           property="og:url"
-          content={typeof slug === 'string' ? `/articles/${slug}` : '/'}
+          content={
+            typeof slug === 'string'
+              ? `${environment.webRoute}/articles/${slug}`
+              : '/'
+          }
         />
 
         <meta
@@ -205,7 +209,11 @@ const Article: NextPage = () => {
 
         <meta
           property="twitter:url"
-          content={typeof slug === 'string' ? `/articles/${slug}` : '/'}
+          content={
+            typeof slug === 'string'
+              ? `${environment.webRoute}/articles/${slug}`
+              : '/'
+          }
         />
       </Head>
 
