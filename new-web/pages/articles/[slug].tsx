@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -6,12 +6,10 @@ import { skipToken } from '@reduxjs/toolkit/dist/query';
 
 import { createAppStore, nextReduxWrapper } from 'app';
 import {
-  getArticlesByRelatedCategory,
   getArticleBySlug,
   getRunningOperationPromises,
   getSlugsFromArticles,
   useGetArticleBySlugQuery,
-  useGetArticlesByRelatedCategoryQuery,
 } from 'app/api/articleExtendedApi';
 
 import LoadingIcon from 'common/components/LoadingIcon';
@@ -21,7 +19,7 @@ import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import environment from 'environment';
 
-import { ArticleDetail, RelatedSidebar } from 'components/articles';
+import { ArticleDetail } from 'components/articles';
 
 import { isLoadingOverall } from 'utils';
 
@@ -53,10 +51,6 @@ export const getStaticProps = nextReduxWrapper.getStaticProps(
 
     await Promise.all(getRunningOperationPromises());
 
-    store.dispatch(getArticlesByRelatedCategory.initiate(0));
-
-    await Promise.all(getRunningOperationPromises());
-
     return {
       props: {},
     };
@@ -64,15 +58,9 @@ export const getStaticProps = nextReduxWrapper.getStaticProps(
 );
 
 const Article: NextPage = () => {
-  const [
-    doNotInitiateRelatedArticlesQuery,
-    setDoNotInitiateRelatedArticlesQuery,
-  ] = useState<boolean>(true);
-
   const router = useRouter();
 
   const slug = router.query.slug;
-  const [categoryId, setCategoryId] = useState<number>(0);
 
   const {
     data: articleData,
@@ -81,39 +69,6 @@ const Article: NextPage = () => {
   } = useGetArticleBySlugQuery(typeof slug === 'string' ? slug : skipToken, {
     skip: router.isFallback,
   });
-  const {
-    dataWithoutCurrentArticle: relatedArticlesByCategoryData,
-    isFetching: relatedArticlesFetching,
-  } = useGetArticlesByRelatedCategoryQuery(categoryId, {
-    skip: doNotInitiateRelatedArticlesQuery,
-    // selectFromResult is used to return related articles without the current
-    // article in the current page view.
-    selectFromResult: (result) => ({
-      // Return original result from RTK for any debugging or needing it.
-      ...result,
-      // Create new property that returns the related articles without the
-      // current one in the page view.
-      dataWithoutCurrentArticle: result.data
-        ? result.data.items.filter(
-            // articleId is a string from URL params.
-            (relatedArticle) =>
-              typeof slug === 'string' && relatedArticle.meta.slug !== slug
-          )
-        : [],
-    }),
-  });
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (articleData) {
-        setCategoryId(articleData.category?.id ?? 0);
-
-        setDoNotInitiateRelatedArticlesQuery(false);
-      }
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [articleData]);
 
   return (
     <>
@@ -255,20 +210,10 @@ const Article: NextPage = () => {
             articleError ? (
               <NotFound />
             ) : (
-              <>
-                {articleData && <ArticleDetail articleData={articleData} />}
-
-                {relatedArticlesByCategoryData.length > 0 && (
-                  <RelatedSidebar
-                    relatedArticlesByCategoryData={
-                      relatedArticlesByCategoryData
-                    }
-                  />
-                )}
-              </>
+              <>{articleData && <ArticleDetail articleData={articleData} />}</>
             )
           }
-          isLoading={isLoadingOverall(articleFetching, relatedArticlesFetching)}
+          isLoading={isLoadingOverall(articleFetching)}
           loaderComponent={<LoadingIcon />}
           loaderDuration={1500}
         />
