@@ -78,24 +78,9 @@ const Article: NextPage = () => {
                 articleData.meta.seo_title.length > 0
                   ? articleData.meta.seo_title
                   : articleData.title
-              } - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web
-          Developer`
+              } - Articles | Elias Gutierrez, Software Engineer`
             : ''}
         </title>
-
-        <meta
-          name="title"
-          content={
-            articleData
-              ? `${
-                  articleData.meta.seo_title.length > 0
-                    ? articleData.meta.seo_title
-                    : articleData.title
-                } - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web
-          Developer`
-              : ''
-          }
-        />
 
         <meta
           name="description"
@@ -108,18 +93,18 @@ const Article: NextPage = () => {
           }
         />
 
-        <meta property="og:site_name" content="Elias Gutierrez's Portfolio" />
+        <meta
+          property="og:site_name"
+          content="Elias Gutierrez, Software Engineer"
+        />
 
         <meta
           property="og:title"
           content={
             articleData
-              ? `${
-                  articleData.meta.seo_title.length > 0
-                    ? articleData.meta.seo_title
-                    : articleData.title
-                } - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web
-          Developer`
+              ? articleData.meta.seo_title.length > 0
+                ? articleData.meta.seo_title
+                : articleData.title
               : ''
           }
         />
@@ -167,12 +152,9 @@ const Article: NextPage = () => {
           property="twitter:title"
           content={
             articleData
-              ? `${
-                  articleData.meta.seo_title.length > 0
-                    ? articleData.meta.seo_title
-                    : articleData.title
-                } - Articles | Elias Gutierrez, Software Engineer & Full-Stack Web
-          Developer`
+              ? articleData.meta.seo_title.length > 0
+                ? articleData.meta.seo_title
+                : articleData.title
               : ''
           }
         />

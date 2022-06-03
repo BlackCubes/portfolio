@@ -184,24 +184,16 @@ const Articles: NextPage = () => {
   return (
     <>
       <Head>
-        <title>
-          Articles | Elias Gutierrez, Software Engineer & Full-Stack Web
-          Developer
-        </title>
-
-        <meta
-          name="title"
-          content="Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-        />
+        <title>Articles | Elias Gutierrez, Software Engineer</title>
 
         <meta name="description" content="Latest Articles by Elias Gutierrez" />
 
-        <meta property="og:site_name" content="Elias Gutierrez's Portfolio" />
-
         <meta
-          property="og:title"
-          content="Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+          property="og:site_name"
+          content="Elias Gutierrez, Software Engineer"
         />
+
+        <meta property="og:title" content="Articles" />
 
         <meta
           property="og:description"
@@ -210,14 +202,11 @@ const Articles: NextPage = () => {
 
         <meta property="og:image" content="/website-preview.png" />
 
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
 
         <meta property="og:url" content={`${environment.webRoute}/articles`} />
 
-        <meta
-          property="twitter:title"
-          content="Articles | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-        />
+        <meta property="twitter:title" content="Articles" />
 
         <meta
           property="twitter:description"
