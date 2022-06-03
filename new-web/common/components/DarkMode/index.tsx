@@ -43,6 +43,8 @@ const DarkModeToggle: FC<IDarkModeToggle> = ({ isFirstMount }) => {
       ref={wrapperRef}
     >
       <DarkModeButton
+        aria-label={isDark ? 'Disable dark mode' : 'Enable dark mode'}
+        title={isDark ? 'Disable' : 'Enable'}
         className={isDark ? 'dark-mode' : ''}
         onClick={() => {
           toggleDark();
