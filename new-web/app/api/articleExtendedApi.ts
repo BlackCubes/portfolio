@@ -27,17 +27,6 @@ type TGetArticlesResponse = IPaginationResponse & {
   items: TGetArticles[];
 };
 
-type TGetArticlesByRelatedCategory = Pick<
-  IArticle,
-  'header_image' | 'id' | 'title' | 'uuid'
-> & {
-  meta: Pick<IArticle['meta'], 'slug'>;
-};
-
-type TGetArticlesByRelatedCategoryResponse = IPaginationResponse & {
-  items: TGetArticlesByRelatedCategory[];
-};
-
 type TGetSlugsFromArticles = Pick<IArticle, 'id' | 'uuid'> & {
   meta: Pick<IArticle['meta'], 'slug'>;
 };
@@ -85,23 +74,6 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
       providesTags: ['Article'],
     }),
 
-    getArticlesByRelatedCategory: builder.query<
-      TGetArticlesByRelatedCategoryResponse,
-      number
-    >({
-      query: (categoryId) => ({
-        url: '/pages/',
-        params: {
-          category: categoryId,
-          fields: '_,id,uuid,title,slug,header_image',
-          limit: 5,
-          type: 'article.ArticlePage',
-        },
-      }),
-
-      providesTags: ['Article'],
-    }),
-
     getSlugsFromArticles: builder.query<TGetSlugsFromArticlesResponse, void>({
       query: () => ({
         url: '/pages/',
@@ -121,16 +93,11 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
 // Export hooks for usage in functional components.
 export const {
   useGetArticleBySlugQuery,
-  useGetArticlesByRelatedCategoryQuery,
   useGetArticlesQuery,
   useGetSlugsFromArticlesQuery,
   util: { getRunningOperationPromises },
 } = articleExtendedApi;
 
 // Export endpoints for use in SRR (Next.js).
-export const {
-  getArticleBySlug,
-  getArticles,
-  getArticlesByRelatedCategory,
-  getSlugsFromArticles,
-} = articleExtendedApi.endpoints;
+export const { getArticleBySlug, getArticles, getSlugsFromArticles } =
+  articleExtendedApi.endpoints;
