@@ -1,10 +1,20 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 type TItemsContainer = {
   windowHeight: number;
 };
 
-export const Nav = styled.nav`
+export const Nav = styled(motion.nav).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+  },
+}))`
   height: 11rem;
   background-color: ${({ theme }) => theme.colors.body.hex};
   transition: all 0.25s linear;

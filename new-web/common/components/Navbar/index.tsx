@@ -1,5 +1,7 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import { useScreenDimensions } from 'common/hooks';
 
@@ -18,7 +20,11 @@ import {
   Nav,
 } from './styles';
 
-const Navbar: FC = () => {
+interface INavbar {
+  isFirstMount: boolean;
+}
+
+const Navbar: FC<INavbar> = ({ isFirstMount }) => {
   const [isMenuChecked, setIsMenuChecked] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -36,9 +42,23 @@ const Navbar: FC = () => {
     };
   }, []);
 
+  const navAnimateControls = useAnimation();
+
+  const { inView: navInView, ref: navRef } = useInView();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isFirstMount && navInView) navAnimateControls.start('visible');
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [isFirstMount, navAnimateControls, navInView]);
+
   return (
     <Nav
+      animate={navAnimateControls}
       className={`default-container ${scrollPosition > 0 ? 'scrolling' : ''}`}
+      ref={navRef}
     >
       <Container>
         <LogoWrapper>

@@ -42,7 +42,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
     <ThemeProvider>
       <GlobalStyle />
 
-      <Navbar />
+      <Navbar isFirstMount={isFirstMount} />
 
       <DarkMode />
 
