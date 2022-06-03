@@ -21,30 +21,23 @@ import environment from 'environment';
 const About: NextPage = () => (
   <>
     <Head>
-      <title>
-        About | Elias Gutierrez, Software Engineer & Full-Stack Web Developer
-      </title>
-
-      <meta
-        name="title"
-        content="About | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-      />
+      <title>About | Elias Gutierrez, Software Engineer</title>
 
       <meta
         name="description"
-        content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathemical model to create beautiful user experiences."
+        content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
       />
-
-      <meta property="og:site_name" content="Elias Gutierrez's Portfolio" />
 
       <meta
-        property="og:title"
-        content="About | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+        property="og:site_name"
+        content="Elias Gutierrez, Software Engineer"
       />
+
+      <meta property="og:title" content="About" />
 
       <meta
         property="og:description"
-        content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathemical model to create beautiful user experiences."
+        content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
       />
 
       <meta property="og:image" content="/website-preview.png" />
@@ -53,14 +46,11 @@ const About: NextPage = () => (
 
       <meta property="og:url" content={`${environment.webRoute}/about`} />
 
-      <meta
-        property="twitter:title"
-        content="About | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-      />
+      <meta property="twitter:title" content="About" />
 
       <meta
         property="twitter:description"
-        content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathemical model to create beautiful user experiences."
+        content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
       />
 
       <meta property="twitter:image" content="/website-preview.png" />
