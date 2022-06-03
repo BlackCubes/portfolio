@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import Link from 'next/link';
 import { useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

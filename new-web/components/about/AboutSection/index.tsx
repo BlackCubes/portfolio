@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import HeadingPrimary from 'common/typography/HeadingPrimary';
 import Paragraph from 'common/typography/Paragraph';

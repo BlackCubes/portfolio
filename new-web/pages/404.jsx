@@ -1,5 +1,3 @@
-import React from 'react';
-
 import NotFound from 'common/components/NotFound';
 
 const Custom404 = () => (
