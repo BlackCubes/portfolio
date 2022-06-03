@@ -10,4 +10,5 @@ export interface IEnvironment {
   isProduction: boolean;
   name: string;
   version: string;
+  webRoute: string;
 }

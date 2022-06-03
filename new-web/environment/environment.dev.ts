@@ -8,6 +8,7 @@ const environment: IEnvironment = {
   isProduction: process.env.NODE_ENV === 'production',
   name: packageJson.name,
   version: packageJson.version,
+  webRoute: 'http://127.0.0.1:3000',
 };
 
 export default environment;
