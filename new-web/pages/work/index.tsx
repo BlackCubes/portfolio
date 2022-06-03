@@ -87,7 +87,7 @@ const Work: NextPage = () => {
 
         <meta property="og:type" content="website" />
 
-        <meta property="og:url" content="/" />
+        <meta property="og:url" content="/work" />
 
         <meta
           property="twitter:title"
@@ -107,7 +107,7 @@ const Work: NextPage = () => {
 
         <meta property="twitter:site" content="@_BlackCubes_" />
 
-        <meta property="twitter:url" content="/" />
+        <meta property="twitter:url" content="/work" />
       </Head>
 
       <PageContainer>
