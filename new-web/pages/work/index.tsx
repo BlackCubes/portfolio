@@ -59,26 +59,19 @@ const Work: NextPage = () => {
   return (
     <>
       <Head>
-        <title>
-          Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer
-        </title>
-
-        <meta
-          name="title"
-          content="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-        />
+        <title>Work | Elias Gutierrez, Software Engineer</title>
 
         <meta
           name="description"
           content="Latest Work and Projects by Elias Gutierrez"
         />
 
-        <meta property="og:site_name" content="Elias Gutierrez's Portfolio" />
-
         <meta
-          property="og:title"
-          content="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
+          property="og:site_name"
+          content="Elias Gutierrez, Software Engineer"
         />
+
+        <meta property="og:title" content="Work" />
 
         <meta
           property="og:description"
@@ -91,10 +84,7 @@ const Work: NextPage = () => {
 
         <meta property="og:url" content={`${environment.webRoute}/work`} />
 
-        <meta
-          property="twitter:title"
-          content="Work | Elias Gutierrez, Software Engineer & Full-Stack Web Developer"
-        />
+        <meta property="twitter:title" content="Work" />
 
         <meta
           property="twitter:description"
@@ -103,7 +93,7 @@ const Work: NextPage = () => {
 
         <meta property="twitter:image" content="/website-preview.png" />
 
-        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:card" content="summary_large_image" />
 
         <meta property="twitter:creator" content="@_BlackCubes_" />
 

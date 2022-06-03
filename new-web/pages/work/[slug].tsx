@@ -75,24 +75,9 @@ const Work: NextPage = () => {
                 workData.meta.seo_title.length > 0
                   ? workData.meta.seo_title
                   : workData.title
-              } - Work | Elias Gutierrez, Software Engineer & Full-Stack Web
-          Developer`
+              } - Work | Elias Gutierrez, Software Engineer`
             : ''}
         </title>
-
-        <meta
-          name="title"
-          content={
-            workData
-              ? `${
-                  workData.meta.seo_title.length > 0
-                    ? workData.meta.seo_title
-                    : workData.title
-                } - Work | Elias Gutierrez, Software Engineer & Full-Stack Web
-          Developer`
-              : ''
-          }
-        />
 
         <meta
           name="description"
@@ -105,7 +90,10 @@ const Work: NextPage = () => {
           }
         />
 
-        <meta property="og:site_name" content="Elias Gutierrez's Portfolio" />
+        <meta
+          property="og:site_name"
+          content="Elias Gutierrez, Software Engineer"
+        />
 
         <meta
           property="og:title"
@@ -115,8 +103,7 @@ const Work: NextPage = () => {
                   workData.meta.seo_title.length > 0
                     ? workData.meta.seo_title
                     : workData.title
-                } - Work | Elias Gutierrez, Software Engineer & Full-Stack Web
-          Developer`
+                }`
               : ''
           }
         />
@@ -164,8 +151,7 @@ const Work: NextPage = () => {
                   workData.meta.seo_title.length > 0
                     ? workData.meta.seo_title
                     : workData.title
-                } - Work | Elias Gutierrez, Software Engineer & Full-Stack Web
-          Developer`
+                }`
               : ''
           }
         />
