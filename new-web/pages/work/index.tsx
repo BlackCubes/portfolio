@@ -14,6 +14,8 @@ import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import { PersonalList, WorkList } from 'components/work';
 
+import environment from 'environment';
+
 import { isLoadingOverall } from 'utils';
 
 export const getStaticProps = nextReduxWrapper.getStaticProps(
@@ -87,7 +89,7 @@ const Work: NextPage = () => {
 
         <meta property="og:type" content="website" />
 
-        <meta property="og:url" content="/work" />
+        <meta property="og:url" content={`${environment.webRoute}/work`} />
 
         <meta
           property="twitter:title"
@@ -107,7 +109,7 @@ const Work: NextPage = () => {
 
         <meta property="twitter:site" content="@_BlackCubes_" />
 
-        <meta property="twitter:url" content="/work" />
+        <meta property="twitter:url" content={`${environment.webRoute}/work`} />
       </Head>
 
       <PageContainer>

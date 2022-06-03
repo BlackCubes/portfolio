@@ -149,7 +149,11 @@ const Work: NextPage = () => {
 
         <meta
           property="og:url"
-          content={typeof slug === 'string' ? `/work/${slug}` : '/'}
+          content={
+            typeof slug === 'string'
+              ? `${environment.webRoute}/work/${slug}`
+              : '/'
+          }
         />
 
         <meta
@@ -198,7 +202,11 @@ const Work: NextPage = () => {
 
         <meta
           property="twitter:url"
-          content={typeof slug === 'string' ? `/work/${slug}` : '/'}
+          content={
+            typeof slug === 'string'
+              ? `${environment.webRoute}/work/${slug}`
+              : '/'
+          }
         />
       </Head>
 
