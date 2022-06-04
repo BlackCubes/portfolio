@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react';
 import { useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 import { useThemeContext } from 'common/contexts';
 
@@ -50,17 +49,14 @@ const Footer: FC<IFooter> = ({ isFirstMount }) => {
 
   const footerAnimateControls = useAnimation();
 
-  const { inView: footerInView, ref: footerRef } = useInView();
-
   useEffect(() => {
-    if (!isFirstMount && footerInView) footerAnimateControls.start('visible');
-  }, [isFirstMount, footerAnimateControls, footerInView]);
+    if (!isFirstMount) footerAnimateControls.start('visible');
+  }, [isFirstMount, footerAnimateControls]);
 
   return (
     <Foot
       animate={footerAnimateControls}
       className="default-container navbar-footer-space"
-      ref={footerRef}
     >
       <Container>
         <ItemsContainer>
