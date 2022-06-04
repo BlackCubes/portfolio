@@ -1,8 +1,8 @@
 import withPWA from 'next-pwa';
-import runtimeCaching from 'next-pwa/cache';
+import runtimeCaching from 'next-pwa/cache.js';
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const initialNextConfig = {
   i18n: {
     locales: ['en'],
     defaultLocale: 'en',
@@ -10,10 +10,12 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = withPWA({
-  ...nextConfig,
+const nextConfig = withPWA({
+  ...initialNextConfig,
   pwa: {
     dest: 'public',
     runtimeCaching,
   },
 });
+
+export default nextConfig;
