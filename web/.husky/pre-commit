@@ -1,6 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-cd new-web
+cd web
 
 echo '👷🏗️ Styling and testing your project before committing 🏗️👷'
 
