@@ -1,4 +1,11 @@
-import Document, { DocumentContext, DocumentInitialProps } from 'next/document';
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
@@ -19,16 +26,34 @@ export default class MyDocument extends Document {
 
       return {
         ...initialProps,
-        styles: [
-          <>
-            {initialProps.styles}
-
-            {sheet.getStyleElement()}
-          </>,
-        ],
+        styles: [initialProps.styles, sheet.getStyleElement()],
       };
     } finally {
       sheet.seal();
     }
+  }
+
+  render(): JSX.Element {
+    return (
+      <Html lang="en">
+        <Head>
+          <meta charSet="utf-8" />
+
+          <link rel="icon" href="/favicon.ico" />
+
+          <meta name="theme-color" content="#000811" />
+
+          <link rel="apple-touch-icon" href="/logo192.png" />
+
+          <link rel="manifest" href="/manifest.json" />
+        </Head>
+
+        <body>
+          <Main />
+
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
