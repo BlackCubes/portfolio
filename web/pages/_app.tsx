@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import { useEffect, useState } from 'react';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { AnimatePresence } from 'framer-motion';
 
 import { nextReduxWrapper } from 'app';
@@ -39,26 +40,32 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
   }, [isFirstMount]);
 
   return (
-    <ThemeProvider>
-      <GlobalStyle />
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 
-      <Navbar isFirstMount={isFirstMount} />
+      <ThemeProvider>
+        <GlobalStyle />
 
-      <DarkMode isFirstMount={isFirstMount} />
+        <Navbar isFirstMount={isFirstMount} />
 
-      <AnimatePresence
-        exitBeforeEnter
-        onExitComplete={() => window.scrollTo(0, 0)}
-      >
-        <Component
-          {...pageProps}
-          isFirstMount={isFirstMount}
-          key={router.route}
-        />
-      </AnimatePresence>
+        <DarkMode isFirstMount={isFirstMount} />
 
-      <Footer isFirstMount={isFirstMount} />
-    </ThemeProvider>
+        <AnimatePresence
+          exitBeforeEnter
+          onExitComplete={() => window.scrollTo(0, 0)}
+        >
+          <Component
+            {...pageProps}
+            isFirstMount={isFirstMount}
+            key={router.route}
+          />
+        </AnimatePresence>
+
+        <Footer isFirstMount={isFirstMount} />
+      </ThemeProvider>
+    </>
   );
 };
 
