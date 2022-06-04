@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import { useEffect, useState } from 'react';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
 import { AnimatePresence } from 'framer-motion';
 
 import { nextReduxWrapper } from 'app';
@@ -40,42 +39,26 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
   }, [isFirstMount]);
 
   return (
-    <>
-      <Head>
-        <meta charSet="utf-8" />
+    <ThemeProvider>
+      <GlobalStyle />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <Navbar isFirstMount={isFirstMount} />
 
-        <link rel="icon" href="/favicon.ico" />
+      <DarkMode isFirstMount={isFirstMount} />
 
-        <meta name="theme-color" content="#000811" />
+      <AnimatePresence
+        exitBeforeEnter
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        <Component
+          {...pageProps}
+          isFirstMount={isFirstMount}
+          key={router.route}
+        />
+      </AnimatePresence>
 
-        <link rel="apple-touch-icon" href="/logo192.png" />
-
-        <link rel="manifest" href="/manifest.json" />
-      </Head>
-
-      <ThemeProvider>
-        <GlobalStyle />
-
-        <Navbar isFirstMount={isFirstMount} />
-
-        <DarkMode isFirstMount={isFirstMount} />
-
-        <AnimatePresence
-          exitBeforeEnter
-          onExitComplete={() => window.scrollTo(0, 0)}
-        >
-          <Component
-            {...pageProps}
-            isFirstMount={isFirstMount}
-            key={router.route}
-          />
-        </AnimatePresence>
-
-        <Footer isFirstMount={isFirstMount} />
-      </ThemeProvider>
-    </>
+      <Footer isFirstMount={isFirstMount} />
+    </ThemeProvider>
   );
 };
 
