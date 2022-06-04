@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 import { useScreenDimensions } from 'common/hooks';
 
@@ -44,17 +43,14 @@ const Navbar: FC<INavbar> = ({ isFirstMount }) => {
 
   const navAnimateControls = useAnimation();
 
-  const { inView: navInView, ref: navRef } = useInView();
-
   useEffect(() => {
-    if (!isFirstMount && navInView) navAnimateControls.start('visible');
-  }, [isFirstMount, navAnimateControls, navInView]);
+    if (!isFirstMount) navAnimateControls.start('visible');
+  }, [isFirstMount, navAnimateControls]);
 
   return (
     <Nav
       animate={navAnimateControls}
       className={`default-container ${scrollPosition > 0 ? 'scrolling' : ''}`}
-      ref={navRef}
     >
       <Container>
         <LogoWrapper>
