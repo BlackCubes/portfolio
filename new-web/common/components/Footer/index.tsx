@@ -1,4 +1,6 @@
 import { FC, useEffect, useState } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import { useThemeContext } from 'common/contexts';
 
@@ -23,7 +25,11 @@ import {
   LogosContainer,
 } from './styles';
 
-const Footer: FC = () => {
+interface IFooter {
+  isFirstMount: boolean;
+}
+
+const Footer: FC<IFooter> = ({ isFirstMount }) => {
   const [githubLogo, setGithubLogo] = useState(githubLogoBlack);
   const [linkedinLogo, setLinkedinLogo] = useState(linkedinLogoBlack);
   const [twitterLogo, setTwitterLogo] = useState(twitterLogoBlack);
@@ -42,8 +48,20 @@ const Footer: FC = () => {
     return () => clearTimeout(timer);
   }, [isDark]);
 
+  const footerAnimateControls = useAnimation();
+
+  const { inView: footerInView, ref: footerRef } = useInView();
+
+  useEffect(() => {
+    if (!isFirstMount && footerInView) footerAnimateControls.start('visible');
+  }, [isFirstMount, footerAnimateControls, footerInView]);
+
   return (
-    <Foot className="default-container navbar-footer-space">
+    <Foot
+      animate={footerAnimateControls}
+      className="default-container navbar-footer-space"
+      ref={footerRef}
+    >
       <Container>
         <ItemsContainer>
           {itemData.map((item) => (

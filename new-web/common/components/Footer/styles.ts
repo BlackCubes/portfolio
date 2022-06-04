@@ -1,6 +1,16 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Foot = styled.footer`
+export const Foot = styled(motion.footer).attrs(() => ({
+  initial: 'hidden',
+  variants: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.1 },
+    },
+  },
+}))`
   height: 11rem;
   margin-top: 4rem;
   padding-top: 1.5rem;

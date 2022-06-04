@@ -73,7 +73,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
           />
         </AnimatePresence>
 
-        <Footer />
+        <Footer isFirstMount={isFirstMount} />
       </ThemeProvider>
     </>
   );
