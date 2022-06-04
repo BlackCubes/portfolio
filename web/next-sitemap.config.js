@@ -1,7 +1,7 @@
 const siteUrl = 'https://www.eliastgutierrez.com';
 
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+const config = {
   siteUrl,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
@@ -14,3 +14,5 @@ module.exports = {
     ],
   },
 };
+
+export default config;
