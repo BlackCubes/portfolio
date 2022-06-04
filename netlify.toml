@@ -1,6 +1,3 @@
-[[plugins]]
-  package = "/web/@netlify/plugin-nextjs"
-
 [[redirects]]
   from = "https://github.com/blackcubes"
   to = "https://github.com/blackcubes"
