@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const withPWA = require('next-pwa');
-const runtimeCaching = require('next-pwa/cache');
+import withPWA from 'next-pwa';
+import runtimeCaching from 'next-pwa/cache';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
