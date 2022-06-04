@@ -11,7 +11,7 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "cd ../ && husky install ./new-web/.husky",
+    "prepare": "cd ../ && husky install ./web/.husky",
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check .",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
