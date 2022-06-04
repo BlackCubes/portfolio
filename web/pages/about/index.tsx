@@ -40,7 +40,10 @@ const About: NextPage = () => (
         content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
       />
 
-      <meta property="og:image" content="/website-preview.png" />
+      <meta
+        property="og:image"
+        content={`${environment.webRoute}/website-preview.png`}
+      />
 
       <meta property="og:type" content="website" />
 
@@ -53,7 +56,10 @@ const About: NextPage = () => (
         content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
       />
 
-      <meta property="twitter:image" content="/website-preview.png" />
+      <meta
+        property="twitter:image"
+        content={`${environment.webRoute}/website-preview.png`}
+      />
 
       <meta property="twitter:card" content="summary" />
 
