@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/29642735/167956760-ccf50a0c-0d4a-4b2b-a7ec-9c4669a86238.png" width="108" height="108" alt="Framer Motion" />
+  <img src="https://user-images.githubusercontent.com/29642735/167956760-ccf50a0c-0d4a-4b2b-a7ec-9c4669a86238.png" width="108" height="108" alt="Website logo" />
 </p>
 <h1 align="center">Personal Portfolio</h1>
 <h3 align="center">
@@ -10,8 +10,8 @@
     <a href="https://www.djangoproject.com/">
         <img src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
     </a>
-    <a href="https://reactjs.org/">
-        <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
+    <a href="https://nextjs.org/">
+        <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next" />
     </a>
     <a href="https://redux-toolkit.js.org/">
         <img src="https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white" alt="Redux Toolkit" />
@@ -28,13 +28,13 @@
 
 <br>
 
-A portfolio website to showcase my skillsets, projects, and written articles. The original version (viewed under `gh-pages` branch) was part of a final project for _Mobile Friendly Class_ at [Bitwise Industries](https://bitwiseindustries.com/), and the newer version was for my React Apprenticeship.
+A portfolio website to showcase my skillsets, projects, and written articles. The original version (viewed under `gh-pages` branch) was part of a final project for _Mobile Friendly Class_ at [Bitwise Industries](https://bitwiseindustries.com/), and the newer version was for my React Apprenticeship. _To view `v2` of the code that uses purely React.js without Next.js, go to the branch `non-nextjs`_.
 
 ![Portfolio screenshot](https://user-images.githubusercontent.com/29642735/167959468-9355a8bd-cf96-4a82-b513-16c0df8c90ae.png)
 
 ## 🔥 Demo
 
-You can see a demo of the portfolio project on the [production site](https://www.eliastgutierrez.com/).
+You can see a demo of the portfolio on the [production site](https://www.eliastgutierrez.com/).
 
 ## 📌 Project Requirements
 
@@ -44,7 +44,7 @@ You can see a demo of the portfolio project on the [production site](https://www
 
 ## 📖 Project Setup
 
-First things first: Clone the repo. Once that is done, there are two subdirectories: An `/api` folder for the backend using Django and Wagtail CMS, and a `/web` folder for the frontend using React Web. The following procedures are for development purposes only.
+First things first: Clone the repo. Once that is done, there are two subdirectories: An `/api` folder for the backend using Django and Wagtail CMS, and a `/web` folder for the frontend using Next.js. The following procedures are for development purposes only.
 
 - ### Backend
 
@@ -68,7 +68,7 @@ First things first: Clone the repo. Once that is done, there are two subdirector
 - ### Frontend
   - Navigate to the `/web` folder.
   - On this same directory, there is a `package.json` file. Install the dependencies inside this file to make the frontend work via `npm install` or `npm i`.
-  - Run the development server -> `npm start`.
+  - Run the development server -> `npm run dev`.
     - A tab should open automatically on your browser with the landing page.
 
 If you want to see data being displayed to the work and articles for the frontend, create some by going to the Wagtail admin panel.
@@ -85,13 +85,9 @@ The `SECRET_KEY` in `/api/core/settings/dev.py` is being hardcoded which is OK f
 
 ### Versioning
 
-When starting work on a new release version, increment `minor` version (`v2.0.0` -> `v2.1.0`), `major` version (`v2.0.0` -> `v3.0.0`), or `patch` (`v2.0.0` -> `v2.0.1`).
+When starting work on a new release version, increment `minor` version (`v3.0.0` -> `v3.1.0`), `major` version (`v3.0.0` -> `v4.0.0`), or `patch` (`v3.0.0` -> `v3.0.1`).
 
-### Template Repository
-
-This project is configured as a [template repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#about-repository-templates). It creates one commit in the new project based on the template instead of the entire original boilerplate history.
-
-#### Updating Code Owners
+### Updating Code Owners
 
 In the repository there should be a `.github/` folder with a `CODEOWNERS` file inside. This file represents who the owners of the repository code are. When you clone this repo, or use it as a template for a new project, you need to update this file to represent the new owners (you and whomever may be on your project). Simply remove the current owners in the file, and replace them with you and your teamates! The syntax is simply:
 
@@ -103,7 +99,7 @@ Be sure to add the github usernames of all developers on your project. Now, anyt
 
 [Github Codeowners](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-code-owners)
 
-#### Updating Issue Templates
+### Updating Issue Templates
 
 Currently the issue templates may have some things you don't want or need in your new project. This can be anything from the tags being set, to the person assigned for each issue. Be sure to go to the settings for the repository, and click `Set up templates` to configure them in a way that suits your needs. For more information you can click this link:
 
