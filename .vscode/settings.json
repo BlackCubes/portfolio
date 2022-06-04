@@ -1,4 +1,13 @@
 {
+  // FOR ESLINT/PRETTIER TO RUN WHEN SAVING
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.format": true
+  },
+  // FOR DJANGO
   "[django-html]": {
     "editor.formatOnSave": false
   },
