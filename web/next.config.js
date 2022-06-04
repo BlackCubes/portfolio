@@ -3,6 +3,9 @@ import runtimeCaching from 'next-pwa/cache.js';
 
 /** @type {import('next').NextConfig} */
 const initialNextConfig = {
+  compiler: {
+    styledComponents: true,
+  },
   i18n: {
     locales: ['en'],
     defaultLocale: 'en',
