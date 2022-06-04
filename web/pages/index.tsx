@@ -123,7 +123,10 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
 
         <meta property="og:type" content="website" />
 
-        <meta property="og:image" content="/website-preview.png" />
+        <meta
+          property="og:image"
+          content={`${environment.webRoute}/website-preview.png`}
+        />
 
         <meta property="twitter:card" content="summary_large_image" />
 
@@ -139,7 +142,10 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
           content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
         />
 
-        <meta property="twitter:image" content="/website-preview.png" />
+        <meta
+          property="twitter:image"
+          content={`${environment.webRoute}/website-preview.png`}
+        />
 
         <link
           rel="canonical"
