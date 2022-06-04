@@ -63,7 +63,7 @@ const Navbar: FC<INavbar> = ({ isFirstMount }) => {
               <Logo
                 alt="Portfolio logo"
                 onClick={() => setIsMenuChecked(false)}
-                src="/logo192.png"
+                src="/logo_main.png"
               />
             </LogoLink>
           </Link>
