@@ -3,7 +3,7 @@ const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
 
 /** @type {import('next').NextConfig} */
-const nextConfig = withPWA({
+module.exports = withPWA({
   compiler: {
     styledComponents: true,
   },
@@ -21,5 +21,3 @@ const nextConfig = withPWA({
     skipWaiting: true,
   },
 });
-
-export default nextConfig;
