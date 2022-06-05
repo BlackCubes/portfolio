@@ -292,8 +292,8 @@ export const WorkImageWrapper = styled(motion.div).attrs(({ className }) => ({
       y: className?.includes('reverse') ? -100 : -150,
     },
     hovering: {
-      rotate: className?.includes('reverse') ? 15 : -15,
-      scale: 1.1,
+      rotate: className?.includes('reverse') ? 5 : -5,
+      scale: 1.01,
       transition: {
         type: 'spring',
         bounce: 0.4,
