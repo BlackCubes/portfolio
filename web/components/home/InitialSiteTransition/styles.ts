@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const Container = styled(motion.div)`
+export const Container = styled(motion.div).attrs(() => ({
+  variants: {
+    animate: {
+      opacity: 0,
+      transition: { duration: 2 },
+    },
+  },
+}))`
   position: absolute;
   top: 0;
   left: 0;

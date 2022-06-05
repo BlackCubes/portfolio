@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
 
 import {
   Container,
@@ -17,42 +18,48 @@ interface IInitialSiteTransition {
 
 const InitialSiteTransition: FC<IInitialSiteTransition> = ({
   isFirstMount,
-}) => (
-  <Container
-    onAnimationComplete={() =>
-      document.body.classList.remove('hidden-overflow')
+}) => {
+  const containerControls = useAnimation();
+
+  useEffect(() => {
+    if (!isFirstMount) {
+      containerControls.start('animate');
+
+      const timer = setTimeout(() => {
+        document.body.classList.remove('hidden-overflow');
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    } else {
+      document.body.classList.add('hidden-overflow');
     }
-    {...(!isFirstMount && {
-      animate: {
-        opacity: 0,
-        transition: { duration: 2 },
-      },
-    })}
-  >
-    <Wrapper
-      onAnimationStart={() => document.body.classList.add('hidden-overflow')}
-    >
-      <Svg>
-        <Defs>
-          <LinearGradient1>
-            <Stop offset="0" stopColor="#fff" />
+  }, [isFirstMount, containerControls]);
 
-            <Stop offset="0.35" stopColor="#231f20" />
+  return (
+    <Container animate={containerControls}>
+      <Wrapper>
+        <Svg>
+          <Defs>
+            <LinearGradient1>
+              <Stop offset="0" stopColor="#fff" />
 
-            <Stop offset="1" stopColor="#000" />
-          </LinearGradient1>
+              <Stop offset="0.35" stopColor="#231f20" />
 
-          <LinearGradient2>
-            <Stop offset="0" stopColor="#fff" />
+              <Stop offset="1" stopColor="#000" />
+            </LinearGradient1>
 
-            <Stop offset="1" stopColor="#000" />
-          </LinearGradient2>
-        </Defs>
+            <LinearGradient2>
+              <Stop offset="0" stopColor="#fff" />
 
-        <Polygon />
-      </Svg>
-    </Wrapper>
-  </Container>
-);
+              <Stop offset="1" stopColor="#000" />
+            </LinearGradient2>
+          </Defs>
+
+          <Polygon />
+        </Svg>
+      </Wrapper>
+    </Container>
+  );
+};
 
 export default InitialSiteTransition;
