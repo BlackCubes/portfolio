@@ -144,7 +144,7 @@ const GlobalStyle = createGlobalStyle`
     margin-top: 10rem;
 
     @media ${({ theme }) => theme.responsive.below599} {
-      margin-top: 5rem;
+      margin-top: 9rem;
     }
   }
 
