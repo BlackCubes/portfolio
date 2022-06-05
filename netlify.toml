@@ -90,8 +90,3 @@
   to = "https://aws.amazon.com/s3/"
   status = 200
   force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
