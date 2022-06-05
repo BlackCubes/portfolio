@@ -323,13 +323,15 @@ export const WorkImageWrapper = styled(motion.div).attrs(({ className }) => ({
     margin-right: 3rem;
 
     @media ${({ theme }) => theme.responsive.below899} {
-      margin-right: 0;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 
   @media ${({ theme }) => theme.responsive.below899} {
-    width: 100%;
-    margin-left: 0;
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
     padding: 1rem 4.5rem;
   }
 
