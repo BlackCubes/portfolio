@@ -5,7 +5,6 @@
   "description": "A portfolio website to showcase my skillsets, projects, and written articles. The original version was part of a final project for \"Mobile Friendly Class\" at Bitwise Industries, and the newer version was for my React Apprenticeship.",
   "author": "Elias Gutierrez",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
