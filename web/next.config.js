@@ -1,8 +1,9 @@
-import withPWA from 'next-pwa';
-import runtimeCaching from 'next-pwa/cache.js';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const withPWA = require('next-pwa');
+const runtimeCaching = require('next-pwa/cache');
 
 /** @type {import('next').NextConfig} */
-const initialNextConfig = {
+module.exports = withPWA({
   compiler: {
     styledComponents: true,
   },
@@ -11,10 +12,6 @@ const initialNextConfig = {
     defaultLocale: 'en',
   },
   reactStrictMode: true,
-};
-
-const nextConfig = withPWA({
-  ...initialNextConfig,
   pwa: {
     disable: process.env.NODE_ENV === 'development',
     dest: 'public',
@@ -24,5 +21,3 @@ const nextConfig = withPWA({
     skipWaiting: true,
   },
 });
-
-export default nextConfig;
