@@ -25,7 +25,7 @@ const About: NextPage = () => (
 
       <meta
         name="description"
-        content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
+        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies."
       />
 
       <meta
@@ -37,7 +37,7 @@ const About: NextPage = () => (
 
       <meta
         property="og:description"
-        content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
+        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies."
       />
 
       <meta
@@ -53,7 +53,7 @@ const About: NextPage = () => (
 
       <meta
         property="twitter:description"
-        content="Software Engineer and Full-Stack Web Developer. Architecting the art and mathematical model to create beautiful user experiences."
+        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies."
       />
 
       <meta
