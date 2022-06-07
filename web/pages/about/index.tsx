@@ -25,7 +25,7 @@ const About: NextPage = () => (
 
       <meta
         name="description"
-        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies."
+        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies"
       />
 
       <meta
@@ -37,7 +37,7 @@ const About: NextPage = () => (
 
       <meta
         property="og:description"
-        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies."
+        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies"
       />
 
       <meta
@@ -53,7 +53,7 @@ const About: NextPage = () => (
 
       <meta
         property="twitter:description"
-        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies."
+        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies"
       />
 
       <meta
