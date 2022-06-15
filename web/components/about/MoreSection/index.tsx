@@ -104,11 +104,11 @@ const MoreSection: FC = () => {
         <Paragraph>
           This site was created with&nbsp;
           <ExternalLink
-            href="https://reactjs.org/"
+            href="https://nextjs.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            React
+            Next.js
           </ExternalLink>
           ,&nbsp;
           <ExternalLink
@@ -125,14 +125,6 @@ const MoreSection: FC = () => {
             rel="noopener noreferrer"
           >
             Redux Toolkit
-          </ExternalLink>
-          ,&nbsp;
-          <ExternalLink
-            href="https://reactrouter.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Router
           </ExternalLink>
           ,&nbsp;
           <ExternalLink
