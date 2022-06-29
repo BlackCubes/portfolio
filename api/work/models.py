@@ -184,7 +184,7 @@ def clean(self):
         title = cleaned_data.get("title", None)
         slug = cleaned_data.get("slug", None)
 
-        if title:
+        if title and not slug:
             cleaned_data["slug"] = unique_slug_generator(
                 instance=self.instance, new_slug=slug
             )
