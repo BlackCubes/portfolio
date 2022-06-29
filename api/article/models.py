@@ -108,7 +108,7 @@ class ArticlePage(Page):
     """
 
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
-    description = models.CharField(max_length=100)
+    description = models.CharField(max_length=250)
     header_image = models.ForeignKey(
         "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
     )
