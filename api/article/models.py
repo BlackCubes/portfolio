@@ -192,6 +192,9 @@ def clean(self):
     """
     A custom function to override the ``WagtailAdminModelForm`` ``clean`` function so that
     the ``slug`` field could be created uniquely if it exists in the DB.
+
+    If the user provides a slug whether it is updated or newly created, then
+    the slug would not autogenerate.
     """
 
     cleaned_data = super(WagtailAdminModelForm, self).clean()
