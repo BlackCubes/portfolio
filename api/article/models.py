@@ -108,7 +108,7 @@ class ArticlePage(Page):
     """
 
     uuid = models.UUIDField(unique=True, default=uuid4, editable=False)
-    description = models.CharField(max_length=100)
+    description = models.CharField(max_length=250)
     header_image = models.ForeignKey(
         "wagtailimages.Image", blank=True, null=True, on_delete=models.SET_NULL
     )
@@ -192,6 +192,9 @@ def clean(self):
     """
     A custom function to override the ``WagtailAdminModelForm`` ``clean`` function so that
     the ``slug`` field could be created uniquely if it exists in the DB.
+
+    If the user provides a slug whether it is updated or newly created, then
+    the slug would not autogenerate.
     """
 
     cleaned_data = super(WagtailAdminModelForm, self).clean()
@@ -200,7 +203,7 @@ def clean(self):
         title = cleaned_data.get("title", None)
         slug = cleaned_data.get("slug", None)
 
-        if title:
+        if title and not slug:
             cleaned_data["slug"] = unique_slug_generator(
                 instance=self.instance, new_slug=slug
             )
