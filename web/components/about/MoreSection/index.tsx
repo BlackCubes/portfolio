@@ -52,12 +52,12 @@ const MoreSection: FC = () => {
         <Paragraph>
           I enjoy reading as many books as I can. I am currently reading George
           R.R. Martin&apos;s&nbsp;<Italic>Game of Thrones</Italic> series
-          (currently at the fourth book 😄), Isaac Asimov&apos;s&nbsp;
-          <Italic>Foundation</Italic>
-          &nbsp;series (at the third book 😮), J.R.R. Tolkien&apos;s&nbsp;
-          <Italic>Unfinished Tales</Italic>, and Stephen King&apos;s&nbsp;
-          <Italic>It</Italic>. My favorite book is <Italic>Dune</Italic> by
-          Frank Herbert.
+          (currently at the fourth book 😄), <Italic>War and Peace</Italic> by
+          Leo Tolstoy 😮, Michael Mann&apos;s&nbsp;
+          <Italic>Heat 2</Italic> (the author is the actual famous film
+          director), and <Italic>Basic Writings of Nietzsche</Italic> translated
+          and edited by Walter Kaufmann. My favorite book is{' '}
+          <Italic>Dune</Italic> by Frank Herbert.
         </Paragraph>
       </ParagraphWrapper>
 

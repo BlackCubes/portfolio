@@ -1,10 +1,9 @@
 ---
-name: Bug report
+name: "🥺 Bug report"
 about: Create a report to help us improve
-title: ''
+title: "[bug][API/Web/Mobile]: "
 labels: bug
-assignees: ''
-
+assignees: ""
 ---
 
 ## Expected Behavior
@@ -17,15 +16,15 @@ _Describe what is currently happening._
 
 ## Steps to Reproduce the Problem
 
-  1. 
-  2. 
-  3. 
+1.
+2.
+3.
 
 ## Pre-Testing TODOs
 
 _What needs to be done before testing._
 
-  1. Change DB values in x collection to y.
+1. Change DB values in x collection to y.
 
 ## Testing Steps
 
@@ -33,9 +32,9 @@ _What needs to be done before testing._
 
 _How do the users test this change?_
 
-  1. Navigate to x screen
-  2. Click on y button
-  3. Observe z result
+1. Navigate to x screen
+2. Click on y button
+3. Observe z result
 
 ## Environment
 

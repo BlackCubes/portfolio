@@ -59,7 +59,7 @@ const Work: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Work | Elias Gutierrez, Software Engineer</title>
+        <title>Work | Elias Gutierrez, Software Developer</title>
 
         <meta
           name="description"
@@ -68,7 +68,7 @@ const Work: NextPage = () => {
 
         <meta
           property="og:site_name"
-          content="Elias Gutierrez, Software Engineer"
+          content="Elias Gutierrez, Software Developer"
         />
 
         <meta property="og:title" content="Work" />
