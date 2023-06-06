@@ -1,20 +1,28 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
-
+name: "🥳 Feature Issue Template"
+about: Issue templates used for Features
+title: "[feature][API/Web/Mobile]: "
+labels: feature
+assignees: ""
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## Desired Feature
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+_A clear and concise description of what the feature is and what it does._
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Actual/Current Behavior
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+_A clear and concise description of what is currently happening._
+
+## Steps to Implement
+
+_Add a list of the steps required to implement this feature_
+
+## Epic
+
+_Add the epic issue this feature is tied to_
+Epic related to #999
+
+## Additional context
+
+_Add any other context or screenshots about the feature request here._
