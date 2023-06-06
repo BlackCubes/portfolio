@@ -21,23 +21,23 @@ import environment from 'environment';
 const About: NextPage = () => (
   <>
     <Head>
-      <title>About | Elias Gutierrez, Software Engineer</title>
+      <title>About | Elias Gutierrez, Software Developer</title>
 
       <meta
         name="description"
-        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies"
+        content="Learn more about Elias Gutierrez. Elias is a software developer that loves to help others while learning on new technologies"
       />
 
       <meta
         property="og:site_name"
-        content="Elias Gutierrez, Software Engineer"
+        content="Elias Gutierrez, Software Developer"
       />
 
       <meta property="og:title" content="About" />
 
       <meta
         property="og:description"
-        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies"
+        content="Learn more about Elias Gutierrez. Elias is a software developer that loves to help others while learning on new technologies"
       />
 
       <meta
@@ -53,7 +53,7 @@ const About: NextPage = () => (
 
       <meta
         property="twitter:description"
-        content="Learn more about Elias Gutierrez. Elias is a software engineer that loves to help others while learning on new technologies"
+        content="Learn more about Elias Gutierrez. Elias is a software developer that loves to help others while learning on new technologies"
       />
 
       <meta
