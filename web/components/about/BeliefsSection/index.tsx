@@ -48,13 +48,12 @@ const BeliefsSection: FC = () => {
 
       <ParagraphWrapper>
         <Paragraph>
-          As an avid learner, I was a self-taught programmer long before
-          becoming an apprentice or taking the courses at Bitwise. Being
-          self-taught was difficult for me and created imposter syndrome. I
-          always felt like I was not good enough and needed to know more about
-          the magic of coding. Overtime, I have learned to have self-confidence
-          in my abilities, asking for guidance, and knowing when to just get up
-          and take a walk.
+          As an avid learner, I was a self-taught programmer many years before
+          Listing Alert or taking courses at Bitwise. Being self-taught was
+          difficult for me and created imposter syndrome. I always felt like I
+          was not good enough and needed to know more about the magic of coding.
+          Overtime, I have learned to have self-confidence in my abilities,
+          asking for guidance, and knowing when to just get up and take a walk.
         </Paragraph>
       </ParagraphWrapper>
 
