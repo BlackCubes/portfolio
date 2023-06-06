@@ -102,10 +102,9 @@ const ArticleSection: FC<IArticleSection> = ({
 
         <Introduction animate={introAnimateControls} ref={introRef}>
           <Paragraph>
-            I like to write that helps others understand programming,
-            mathematics, science, and other related technical fields. I also
-            like to write film and book analysis, philosophy, and other things
-            that I am interested in.
+            I love to write to help others understand programming, mathematics,
+            science, and other related technical fields. I also write film and
+            book analysis, philosophy, and other things that interest me.
           </Paragraph>
         </Introduction>
 

@@ -16,10 +16,12 @@ const AboutSection: FC = () => (
 
     <SecondaryAboutWrapper>
       <Paragraph>
-        I am based in California with a BS degree in Physics from UCLA currently
-        working as an apprentice on React and React Native under Bitwise
-        Industries. I have experience with Django, Node, React, and Figma on
-        creating and solving real-world problems for the users to enjoy
+        I am a California-based with a BS degree in Physics from UCLA currently
+        working as a Software Developer at Listing Alert under Bitwise
+        Industries. I have experiences with Django, Node, React, Figma/Lucid
+        Charts and other platforms and tools to facilitate on creating and
+        solving real-world problems for the users to enjoy, and the companies to
+        succeed their vision
       </Paragraph>
     </SecondaryAboutWrapper>
   </Section>

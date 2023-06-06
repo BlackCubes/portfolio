@@ -32,16 +32,16 @@ const HeroBanner: FC = () => (
     <BiographyContainer>
       <MainBiographyWrapper>
         <HeadingPrimary>
-          Hello! I&apos;m Elias Gutierrez, and I&apos;m a Software Engineer and
+          Hello! I&apos;m Elias Gutierrez, and I&apos;m a Software and
           Full-Stack Developer
         </HeadingPrimary>
       </MainBiographyWrapper>
 
       <SecondaryBiographyWrapper>
         <Paragraph>
-          I enjoy on architecting with the art and mathematical model of nature
-          to create beautiful user experiences for the web, native mobile apps,
-          and data science
+          I enjoy creating beautiful user-centered interactivity and experiences
+          for the web and mobile apps along with scalability on the API to
+          create efficiency for teams and companies
         </Paragraph>
       </SecondaryBiographyWrapper>
     </BiographyContainer>

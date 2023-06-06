@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Personal Portfolio</h1>
 <h3 align="center">
-  Software Engineer and Full-Stack Web Developer.<br>Architecting the art and mathematical model to create beautiful user experiences.
+  Software and Full-Stack Developer.<br>Creating beautiful user-centered interactivity and experiences.
 </h3>
 <p align="center">
     <br>
