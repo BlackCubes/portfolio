@@ -104,7 +104,7 @@ const ArticleSection: FC<IArticleSection> = ({
           <Paragraph>
             I love to write to help others understand programming, mathematics,
             science, and other related technical fields. I also write film and
-            book analysis, philosophy, and other things that interested me.
+            book analysis, philosophy, and other things that interest me.
           </Paragraph>
         </Introduction>
 
