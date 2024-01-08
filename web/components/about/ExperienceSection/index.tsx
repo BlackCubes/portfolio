@@ -48,25 +48,29 @@ const ExperienceSection: FC = () => {
 
       <ParagraphWrapper>
         <Paragraph>
-          At Listing Alert, I help to develop the mobile app with bare React
-          Native (non-Expo) along with developing our own API with Node,
-          Express, MongoDB and AWS S3 to be used for the real estate agents to
-          get notifications on property listings from potential buyers.
-          Additionally, the team and I developed a web dashboard with React for
-          companies to create agents, offices, and other tasks for their needs.
-          In all of the development process, we used Apollo GraphQL. Over 1600
-          agents across the country from RE/MAX to Century 21 Black Bear Realty
-          use Listing Alert.
+          At Aerobotics7, I spearheaded the creation of software architectures
+          for controlling drones and efficiently storing landmine detection data
+          at a high-speed receiver rate. Managing the full technology stack,
+          including DevOps, SQL databases, and security protocols, I
+          successfully ensured real-time communication and authentication
+          between the drone and users. Additionally, I presented our hardware
+          and software technology at the Geneva International Centre for
+          Humanitarian Demining (held in Switzerland once a year) to showcase
+          our capabilities to government officials, scientists, and engineers.
         </Paragraph>
       </ParagraphWrapper>
 
       <ParagraphWrapper>
         <Paragraph>
-          I am proud of what we do at Listing Alert. I am proud of the work and
-          vision we have. I am proud of the entire team from the devs to
-          marketing to the designers to the CEO and COO. Till this day and
-          forever in the future, I will have the Listing Alert logo sticker on
-          my MacBook 💙.
+          Previously at Listing Alert, I helped to develop the mobile app with
+          bare React Native (non-Expo) along with developing our own API with
+          Node.js, Express.js, MongoDB and AWS S3 to be used for the real estate
+          agents to get notifications on property listings from potential
+          buyers. Additionally, the team and I developed a web dashboard with
+          React.js for companies to create agents, offices, and other tasks for
+          their needs. In all of the development process, we used Apollo
+          GraphQL. Over 1600 agents across the country from RE/MAX to Century 21
+          Black Bear Realty use Listing Alert.
         </Paragraph>
       </ParagraphWrapper>
 
@@ -78,27 +82,6 @@ const ExperienceSection: FC = () => {
           PostgreSQL for three to four years. Over the course of these years, I
           learned how to make better and reusable code that is readable along
           with clean file structure which follows best practices.
-        </Paragraph>
-      </ParagraphWrapper>
-
-      <ParagraphWrapper>
-        <Paragraph>
-          Before becoming a React Developer for AlphaWorks under Bitwise
-          Industries, I was taking courses from Bitwise starting with React
-          which was an intensive 6-week journey on learning class and function
-          components, React Router, React Context API, and Redux. I also took
-          courses on CSS, JavaScript, and the Backend. For the Backend course,
-          it lasted for 8-weeks on learning Python and databases, different
-          types of databases (SQL and NoSQL), designing a database, using
-          Django, and creating a final project that is full-stack using React
-          and Django with our own database design.
-        </Paragraph>
-      </ParagraphWrapper>
-
-      <ParagraphWrapper>
-        <Paragraph>
-          I also teach React and other web development courses at Bitwise
-          Industries.
         </Paragraph>
       </ParagraphWrapper>
     </Section>
