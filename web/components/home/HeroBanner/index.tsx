@@ -24,7 +24,7 @@ const HeroBanner: FC = () => (
         glassLightShadowHorizontalOffset={-0.3}
         glassLightShadowVerticalOffset={-0.3}
         imageAlt="Profile image of Elias Gutierrez"
-        imageSrc="/profile-pic.jpg"
+        imageSrc="/profile-pic2.jpg"
         opacity={1}
       />
     </ProfileImageWrapper>
@@ -39,9 +39,9 @@ const HeroBanner: FC = () => (
 
       <SecondaryBiographyWrapper>
         <Paragraph>
-          I enjoy creating beautiful user-centered interactivity and experiences
-          for the web and mobile apps along with scalability on the API to
-          create efficiency for teams and companies
+          I enjoy creating beautiful user-centered interactivities and solving
+          abstract software puzzles to create efficiency and scalability for
+          teams and companies
         </Paragraph>
       </SecondaryBiographyWrapper>
     </BiographyContainer>

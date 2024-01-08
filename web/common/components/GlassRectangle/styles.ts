@@ -50,23 +50,23 @@ export const GlassContainer = styled.div<IGlassContainer>`
 
   &.about-page {
     width: 51rem;
-    height: 48rem;
+    height: 37rem;
     margin-right: auto;
     margin-left: auto;
 
     @media ${({ theme }) => theme.responsive.below1199} {
       width: 35rem;
-      height: 32rem;
+      height: 25rem;
     }
 
     @media ${({ theme }) => theme.responsive.below599} {
       width: 32rem;
-      height: 29rem;
+      height: 23rem;
     }
 
     @media ${({ theme }) => theme.responsive.below479} {
       width: 24rem;
-      height: 21rem;
+      height: 17rem;
     }
 
     @media ${({ theme }) => theme.responsive.below379} {
@@ -191,6 +191,10 @@ export const GlassImageWrapper = styled.div<IGlassImageWrapper>`
 
 export const GlassImage = styled.img`
   width: 100%;
+
+  &.about-page {
+    transform: scale(1.1);
+  }
 
   &.article-list-page {
     width: 110%;

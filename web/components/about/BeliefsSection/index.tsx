@@ -48,12 +48,12 @@ const BeliefsSection: FC = () => {
 
       <ParagraphWrapper>
         <Paragraph>
-          As an avid learner, I was a self-taught programmer many years before
-          Listing Alert or taking courses at Bitwise. Being self-taught was
-          difficult for me and created imposter syndrome. I always felt like I
-          was not good enough and needed to know more about the magic of coding.
-          Overtime, I have learned to have self-confidence in my abilities,
-          asking for guidance, and knowing when to just get up and take a walk.
+          As an avid learner, I was a self-taught programmer many years ago, and
+          being self-taught was difficult and created imposter syndrome within
+          myself. I always felt like I was not good enough and needed to know
+          more about the magic of coding. Overtime, I have learned to have
+          self-confidence in my abilities, asking for guidance, and knowing when
+          to just get up and take a walk.
         </Paragraph>
       </ParagraphWrapper>
 
@@ -62,7 +62,7 @@ const BeliefsSection: FC = () => {
           I believe that anyone can become a programmer no matter what
           background they come from. I believe that if you have tenacity,
           perseverance, and tolerance within yourself then you can understand
-          the complexity of programming.
+          the complexities of programming.
         </Paragraph>
       </ParagraphWrapper>
 
