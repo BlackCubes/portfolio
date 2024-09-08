@@ -1,6 +1,5 @@
 export { default as AboutImage } from './AboutImage';
 export { default as AboutSection } from './AboutSection';
-export { default as ArticleSection } from './ArticleSection';
 export { default as BeliefsSection } from './BeliefsSection';
 export { default as Col } from './Col';
 export { default as ExperienceSection } from './ExperienceSection';
@@ -8,5 +7,3 @@ export { default as HeroBanner } from './HeroBanner';
 export { default as InitialSiteTransition } from './InitialSiteTransition';
 export { default as MoreSection } from './MoreSection';
 export { default as Row } from './Row';
-export { default as TalkSection } from './TalkSection';
-export { default as WorkSection } from './WorkSection';
