@@ -7,10 +7,16 @@ import GlassRectangle from 'common/components/GlassRectangle';
 import { ImageWrapper } from './styles';
 
 interface IAboutImageProps {
+  customClassName?: string;
+  imgAlt: string;
   imgSrc: string;
 }
 
-const AboutImage: FC<IAboutImageProps> = ({ imgSrc }) => {
+const AboutImage: FC<IAboutImageProps> = ({
+  customClassName,
+  imgAlt,
+  imgSrc,
+}) => {
   const imageAnimateControls = useAnimation();
 
   const { inView: imageInView, ref: imageRef } = useInView();
@@ -32,14 +38,14 @@ const AboutImage: FC<IAboutImageProps> = ({ imgSrc }) => {
       ref={imageRef}
     >
       <GlassRectangle
-        customClassName="about-page"
+        customClassName={customClassName}
         glassDarkShadowBlur={0.4}
         glassDarkShadowHorizontalOffset={0.3}
         glassDarkShadowVerticalOffset={0.3}
         glassLightShadowBlur={0.4}
         glassLightShadowHorizontalOffset={-0.3}
         glassLightShadowVerticalOffset={-0.3}
-        imageAlt="Professional image of Elias Gutierrez"
+        imageAlt={imgAlt}
         imageSrc={imgSrc}
         opacity={1}
       />

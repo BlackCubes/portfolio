@@ -146,7 +146,11 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
 
               <Row className="default-margin-top">
                 <Col>
-                  <AboutImage imgSrc="/about-pic1.jpeg" />
+                  <AboutImage
+                    customClassName="home-page home-page--image-1"
+                    imgAlt="Elias at GICHD"
+                    imgSrc="/about-pic1.jpeg"
+                  />
                 </Col>
 
                 <Col>
@@ -158,6 +162,18 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
                 <Col>
                   <BeliefsSection />
                 </Col>
+
+                <Col>
+                  <AboutImage
+                    customClassName="home-page home-page--image-2"
+                    imgAlt="Elias with good friends"
+                    imgSrc="/about-pic3.jpg"
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col>{/* <BeliefsSection /> */}</Col>
 
                 <Col>
                   <MoreSection />

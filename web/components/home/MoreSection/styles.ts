@@ -15,6 +15,10 @@ export const Section = styled(motion.section).attrs(() => ({
   padding-left: 12rem;
   text-align: right;
 
+  &.home-page__more-section {
+    margin-top: 0;
+  }
+
   @media ${({ theme }) => theme.responsive.below1199} {
     padding-left: 3rem;
   }

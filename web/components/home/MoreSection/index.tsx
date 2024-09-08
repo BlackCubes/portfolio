@@ -41,7 +41,11 @@ const MoreSection: FC = () => {
   }, [titleAnimateControls, titleInView]);
 
   return (
-    <Section animate={sectionAnimateControls} ref={sectionRef}>
+    <Section
+      className="home-page__more-section"
+      animate={sectionAnimateControls}
+      ref={sectionRef}
+    >
       <SectionTitle animate={titleAnimateControls} ref={titleRef}>
         <HeadingSecondary letterSpacing={1.6} opacity={0.8}>
           More
