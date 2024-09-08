@@ -36,7 +36,7 @@ const AboutImage: FC = () => {
         glassLightShadowHorizontalOffset={-0.3}
         glassLightShadowVerticalOffset={-0.3}
         imageAlt="Professional image of Elias Gutierrez"
-        imageSrc="/about-pic.jpeg"
+        imageSrc="/about-pic1.jpeg"
         opacity={1}
       />
     </ImageWrapper>
