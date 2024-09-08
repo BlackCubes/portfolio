@@ -6,29 +6,29 @@ import { nextReduxWrapper } from 'app';
 import {
   getArticles,
   getRunningOperationPromises as getArticlesRunningOperationPromises,
-  useGetArticlesQuery,
 } from 'app/api/articleExtendedApi';
 import {
   getWorksByCategory,
   getRunningOperationPromises as getWorksRunningOperationPromises,
-  useGetWorksByCategoryQuery,
 } from 'app/api/workExtendedApi';
 
+import LineSeparator from 'common/components/LineSeparator';
 import LoadingIcon from 'common/components/LoadingIcon';
 import PageContainer from 'common/components/PageContainer';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
 import {
-  ArticleSection,
+  AboutImage,
+  BeliefsSection,
+  Col,
+  ExperienceSection,
   HeroBanner,
   InitialSiteTransition,
-  TalkSection,
-  WorkSection,
+  MoreSection,
+  Row,
 } from 'components/home';
 
 import environment from 'environment';
-
-import { isLoadingOverall } from 'utils';
 
 interface IHome {
   isFirstMount: boolean;
@@ -64,28 +64,6 @@ export const getStaticProps = nextReduxWrapper.getStaticProps(
 const Home: NextPage<IHome> = ({ isFirstMount }) => {
   const [finishIsFirstMount, setFinishIsFirstMount] = useState(isFirstMount);
 
-  const { data: articlesData, isFetching: articlesFetching } =
-    useGetArticlesQuery({
-      category: 0,
-      limit: 3,
-      tags: [],
-    });
-
-  const { selectedData: worksData, isFetching: worksFetching } =
-    useGetWorksByCategoryQuery(
-      { category: 'Work', limit: 5 },
-      {
-        selectFromResult: (result) => ({
-          ...result,
-          selectedData: result.data
-            ? result.data.items.filter(
-                (resultData) => resultData.title !== 'Node News API'
-              )
-            : [],
-        }),
-      }
-    );
-
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!isFirstMount) setFinishIsFirstMount(isFirstMount);
@@ -97,28 +75,28 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
   return (
     <>
       <Head>
-        <title>Elias Gutierrez, Software Developer</title>
+        <title>Elias Gutierrez, Software Engineer</title>
 
         <meta
           name="description"
-          content="Software and Full-Stack Developer. Creating beautiful user-centered interactivity and experiences."
+          content="Full-Stack Software Engineer. Drinking coffee while learning and improving on new and existing tech."
         />
 
         <meta
           property="og:site_name"
-          content="Elias Gutierrez, Software Developer"
+          content="Elias Gutierrez, Software Engineer"
         />
 
         <meta property="og:url" content={environment.webRoute} />
 
         <meta
           property="og:title"
-          content="Elias Gutierrez, Software Developer"
+          content="Elias Gutierrez, Software Engineer"
         />
 
         <meta
           property="og:description"
-          content="Software and Full-Stack Developer. Creating beautiful user-centered interactivity and experiences."
+          content="Full-Stack Software Engineer. Drinking coffee while learning and improving on new and existing tech."
         />
 
         <meta property="og:type" content="website" />
@@ -134,12 +112,12 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
 
         <meta
           property="twitter:title"
-          content="Elias Gutierrez, Software Developer"
+          content="Elias Gutierrez, Software Engineer"
         />
 
         <meta
           property="twitter:description"
-          content="Software and Full-Stack Developer. Creating beautiful user-centered interactivity and experiences."
+          content="Full-Stack Software Engineer. Drinking coffee while learning and improving on new and existing tech."
         />
 
         <meta
@@ -164,20 +142,46 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
 
               <HeroBanner />
 
-              <WorkSection
-                finishIsFirstMount={finishIsFirstMount}
-                worksData={worksData}
-              />
+              <LineSeparator />
 
-              <ArticleSection
-                articlesData={articlesData?.items ?? []}
-                finishIsFirstMount={finishIsFirstMount}
-              />
+              <Row className="default-margin-top">
+                <Col>
+                  <AboutImage
+                    customClassName="home-page home-page--image-1"
+                    imgAlt="Elias at GICHD"
+                    imgSrc="/about-pic1.jpeg"
+                  />
+                </Col>
 
-              <TalkSection finishIsFirstMount={finishIsFirstMount} />
+                <Col>
+                  <ExperienceSection />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col>
+                  <BeliefsSection />
+                </Col>
+
+                <Col>
+                  <AboutImage
+                    customClassName="home-page home-page--image-2"
+                    imgAlt="Elias with good friends"
+                    imgSrc="/about-pic3.jpg"
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col>{/* <BeliefsSection /> */}</Col>
+
+                <Col>
+                  <MoreSection />
+                </Col>
+              </Row>
             </>
           }
-          isLoading={isLoadingOverall(worksFetching, articlesFetching)}
+          isLoading={false}
           loaderDuration={1000}
           {...(!finishIsFirstMount && {
             loaderComponent: <LoadingIcon />,

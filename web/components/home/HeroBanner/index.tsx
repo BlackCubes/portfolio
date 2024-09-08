@@ -33,15 +33,20 @@ const HeroBanner: FC = () => (
       <MainBiographyWrapper>
         <HeadingPrimary>
           Hello! I&apos;m Elias Gutierrez, and I&apos;m a Full-Stack Software
-          Engineer
+          Engineer 🤓. I love drinking coffee ☕️ while learning and improving
+          on new and existing technologies 💾
         </HeadingPrimary>
       </MainBiographyWrapper>
 
       <SecondaryBiographyWrapper>
         <Paragraph>
-          I enjoy creating beautiful user-centered interactivities and solving
-          abstract software puzzles to create efficiency and scalability for
-          teams and companies
+          A passionate and curious individual with a BS degree in Physics from
+          UCLA currently working as a Full-Stack Software Engineer at
+          Aerobotics7 to remove landmines from around the world. I have
+          experiences with Python, Django, Node.js, React.js, Figma/Lucid Charts
+          and other platforms and tools to facilitate on creating and solving
+          real-world problems for the users to enjoy, and the companies to
+          succeed their vision
         </Paragraph>
       </SecondaryBiographyWrapper>
     </BiographyContainer>
