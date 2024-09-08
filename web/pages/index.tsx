@@ -146,7 +146,7 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
 
               <Row className="default-margin-top">
                 <Col>
-                  <AboutImage />
+                  <AboutImage imgSrc="/about-pic1.jpeg" />
                 </Col>
 
                 <Col>

@@ -6,7 +6,11 @@ import GlassRectangle from 'common/components/GlassRectangle';
 
 import { ImageWrapper } from './styles';
 
-const AboutImage: FC = () => {
+interface IAboutImageProps {
+  imgSrc: string;
+}
+
+const AboutImage: FC<IAboutImageProps> = ({ imgSrc }) => {
   const imageAnimateControls = useAnimation();
 
   const { inView: imageInView, ref: imageRef } = useInView();
@@ -36,7 +40,7 @@ const AboutImage: FC = () => {
         glassLightShadowHorizontalOffset={-0.3}
         glassLightShadowVerticalOffset={-0.3}
         imageAlt="Professional image of Elias Gutierrez"
-        imageSrc="/about-pic1.jpeg"
+        imageSrc={imgSrc}
         opacity={1}
       />
     </ImageWrapper>
