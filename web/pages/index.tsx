@@ -6,29 +6,29 @@ import { nextReduxWrapper } from 'app';
 import {
   getArticles,
   getRunningOperationPromises as getArticlesRunningOperationPromises,
-  useGetArticlesQuery,
 } from 'app/api/articleExtendedApi';
 import {
   getWorksByCategory,
   getRunningOperationPromises as getWorksRunningOperationPromises,
-  useGetWorksByCategoryQuery,
 } from 'app/api/workExtendedApi';
 
+import LineSeparator from 'common/components/LineSeparator';
 import LoadingIcon from 'common/components/LoadingIcon';
 import PageContainer from 'common/components/PageContainer';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
+import { HeroBanner, InitialSiteTransition } from 'components/home';
+
 import {
-  ArticleSection,
-  HeroBanner,
-  InitialSiteTransition,
-  TalkSection,
-  WorkSection,
-} from 'components/home';
+  AboutImage,
+  BeliefsSection,
+  Col,
+  ExperienceSection,
+  MoreSection,
+  Row,
+} from 'components/about';
 
 import environment from 'environment';
-
-import { isLoadingOverall } from 'utils';
 
 interface IHome {
   isFirstMount: boolean;
@@ -63,28 +63,6 @@ export const getStaticProps = nextReduxWrapper.getStaticProps(
 
 const Home: NextPage<IHome> = ({ isFirstMount }) => {
   const [finishIsFirstMount, setFinishIsFirstMount] = useState(isFirstMount);
-
-  const { data: articlesData, isFetching: articlesFetching } =
-    useGetArticlesQuery({
-      category: 0,
-      limit: 3,
-      tags: [],
-    });
-
-  const { selectedData: worksData, isFetching: worksFetching } =
-    useGetWorksByCategoryQuery(
-      { category: 'Work', limit: 5 },
-      {
-        selectFromResult: (result) => ({
-          ...result,
-          selectedData: result.data
-            ? result.data.items.filter(
-                (resultData) => resultData.title !== 'Node News API'
-              )
-            : [],
-        }),
-      }
-    );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -164,20 +142,30 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
 
               <HeroBanner />
 
-              <WorkSection
-                finishIsFirstMount={finishIsFirstMount}
-                worksData={worksData}
-              />
+              <LineSeparator />
 
-              <ArticleSection
-                articlesData={articlesData?.items ?? []}
-                finishIsFirstMount={finishIsFirstMount}
-              />
+              <Row className="default-margin-top">
+                <Col>
+                  <AboutImage />
+                </Col>
 
-              <TalkSection finishIsFirstMount={finishIsFirstMount} />
+                <Col>
+                  <ExperienceSection />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col>
+                  <BeliefsSection />
+                </Col>
+
+                <Col>
+                  <MoreSection />
+                </Col>
+              </Row>
             </>
           }
-          isLoading={isLoadingOverall(worksFetching, articlesFetching)}
+          isLoading={false}
           loaderDuration={1000}
           {...(!finishIsFirstMount && {
             loaderComponent: <LoadingIcon />,
