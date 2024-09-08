@@ -17,16 +17,16 @@ import LoadingIcon from 'common/components/LoadingIcon';
 import PageContainer from 'common/components/PageContainer';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
 
-import { HeroBanner, InitialSiteTransition } from 'components/home';
-
 import {
   AboutImage,
   BeliefsSection,
   Col,
   ExperienceSection,
+  HeroBanner,
+  InitialSiteTransition,
   MoreSection,
   Row,
-} from 'components/about';
+} from 'components/home';
 
 import environment from 'environment';
 
