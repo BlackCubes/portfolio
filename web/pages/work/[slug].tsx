@@ -75,7 +75,7 @@ const Work: NextPage = () => {
                 workData.meta.seo_title.length > 0
                   ? workData.meta.seo_title
                   : workData.title
-              } - Work | Elias Gutierrez, Software Developer`
+              } - Work | Elias Gutierrez, Software Engineer`
             : ''}
         </title>
 
@@ -92,7 +92,7 @@ const Work: NextPage = () => {
 
         <meta
           property="og:site_name"
-          content="Elias Gutierrez, Software Developer"
+          content="Elias Gutierrez, Software Engineer"
         />
 
         <meta

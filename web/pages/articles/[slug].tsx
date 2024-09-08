@@ -78,7 +78,7 @@ const Article: NextPage = () => {
                 articleData.meta.seo_title.length > 0
                   ? articleData.meta.seo_title
                   : articleData.title
-              } - Articles | Elias Gutierrez, Software Developer`
+              } - Articles | Elias Gutierrez, Software Engineer`
             : ''}
         </title>
 
@@ -95,7 +95,7 @@ const Article: NextPage = () => {
 
         <meta
           property="og:site_name"
-          content="Elias Gutierrez, Software Developer"
+          content="Elias Gutierrez, Software Engineer"
         />
 
         <meta

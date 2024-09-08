@@ -184,13 +184,13 @@ const Articles: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Articles | Elias Gutierrez, Software Developer</title>
+        <title>Articles | Elias Gutierrez, Software Engineer</title>
 
         <meta name="description" content="Latest Articles by Elias Gutierrez" />
 
         <meta
           property="og:site_name"
-          content="Elias Gutierrez, Software Developer"
+          content="Elias Gutierrez, Software Engineer"
         />
 
         <meta property="og:title" content="Articles" />
