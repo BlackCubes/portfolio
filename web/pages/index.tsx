@@ -2,16 +2,6 @@ import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { nextReduxWrapper } from 'app';
-import {
-  getArticles,
-  getRunningOperationPromises as getArticlesRunningOperationPromises,
-} from 'app/api/articleExtendedApi';
-import {
-  getWorksByCategory,
-  getRunningOperationPromises as getWorksRunningOperationPromises,
-} from 'app/api/workExtendedApi';
-
 import LineSeparator from 'common/components/LineSeparator';
 import LoadingIcon from 'common/components/LoadingIcon';
 import PageContainer from 'common/components/PageContainer';
@@ -33,34 +23,6 @@ import environment from 'environment';
 interface IHome {
   isFirstMount: boolean;
 }
-
-export const getStaticProps = nextReduxWrapper.getStaticProps(
-  (store) => async () => {
-    store.dispatch(
-      getArticles.initiate({
-        category: 0,
-        limit: 3,
-        tags: [],
-      })
-    );
-
-    await Promise.all(getArticlesRunningOperationPromises());
-
-    store.dispatch(
-      getWorksByCategory.initiate({
-        category: 'Work',
-        limit: 5,
-      })
-    );
-
-    await Promise.all(getWorksRunningOperationPromises());
-
-    return {
-      props: {},
-    };
-  }
-);
-
 const Home: NextPage<IHome> = ({ isFirstMount }) => {
   const [finishIsFirstMount, setFinishIsFirstMount] = useState(isFirstMount);
 
