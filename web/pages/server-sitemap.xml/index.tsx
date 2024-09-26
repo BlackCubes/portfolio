@@ -3,7 +3,7 @@ import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
 
 import { createAppStore } from 'app';
 import { getArticles } from 'app/api/articleExtendedApi';
-import { getWorksByCategory } from 'app/api/workExtendedApi';
+// import { getWorksByCategory } from 'app/api/workExtendedApi';
 
 import environment from 'environment';
 
@@ -27,44 +27,44 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       priority: 0.9,
     }));
 
-  const { data: works } = await store.dispatch(
-    getWorksByCategory.initiate({
-      category: 'Work',
-      limit: 4,
-    })
-  );
+  // const { data: works } = await store.dispatch(
+  //   getWorksByCategory.initiate({
+  //     category: 'Work',
+  //     limit: 4,
+  //   })
+  // );
 
-  let worksFields: ISitemapField[] = [];
+  // let worksFields: ISitemapField[] = [];
 
-  if (works)
-    worksFields = works.items.map((work) => ({
-      changefreq: 'monthly',
-      loc: `${environment.webRoute}/work/${work.meta.slug}`,
-      lastmod: new Date().toISOString(),
-      priority: 0.7,
-    }));
+  // if (works)
+  //   worksFields = works.items.map((work) => ({
+  //     changefreq: 'monthly',
+  //     loc: `${environment.webRoute}/work/${work.meta.slug}`,
+  //     lastmod: new Date().toISOString(),
+  //     priority: 0.7,
+  //   }));
 
-  const { data: personals } = await store.dispatch(
-    getWorksByCategory.initiate({
-      category: 'Personal',
-      limit: 4,
-    })
-  );
+  // const { data: personals } = await store.dispatch(
+  //   getWorksByCategory.initiate({
+  //     category: 'Personal',
+  //     limit: 4,
+  //   })
+  // );
 
-  let personalsFields: ISitemapField[] = [];
+  // let personalsFields: ISitemapField[] = [];
 
-  if (personals)
-    personalsFields = personals.items.map((personal) => ({
-      changefreq: 'monthly',
-      loc: `${environment.webRoute}/work/${personal.meta.slug}`,
-      lastmod: new Date().toISOString(),
-      priority: 0.7,
-    }));
+  // if (personals)
+  //   personalsFields = personals.items.map((personal) => ({
+  //     changefreq: 'monthly',
+  //     loc: `${environment.webRoute}/work/${personal.meta.slug}`,
+  //     lastmod: new Date().toISOString(),
+  //     priority: 0.7,
+  //   }));
 
   return getServerSideSitemap(ctx, [
     ...articlesFields,
-    ...worksFields,
-    ...personalsFields,
+    // ...worksFields,
+    // ...personalsFields,
   ]);
 };
 
