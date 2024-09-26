@@ -17,7 +17,7 @@ export default createApi({
   refetchOnMountOrArgChange: true,
   refetchOnReconnect: true,
 
-  tagTypes: ['Article', 'Category', 'Tag', 'Work'],
+  tagTypes: ['Article', 'Category', 'Tag'],
 
   endpoints: () => ({}),
 });
