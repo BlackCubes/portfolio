@@ -52,7 +52,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
         },
       }),
 
-      providesTags: ['Work'],
+      // providesTags: ['Work'],
     }),
 
     getWorkBySlug: builder.query<IWork, string>({
@@ -65,7 +65,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
         },
       }),
 
-      providesTags: ['Work'],
+      // providesTags: ['Work'],
     }),
 
     getSlugsFromWorks: builder.query<TGetSlugsFromWorksResponse, void>({
@@ -78,7 +78,7 @@ const workExtendedApi = coreSplitApi.injectEndpoints({
         },
       }),
 
-      providesTags: ['Work'],
+      // providesTags: ['Work'],
     }),
   }),
 
