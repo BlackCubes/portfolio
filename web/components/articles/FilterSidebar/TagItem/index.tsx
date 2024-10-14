@@ -36,7 +36,7 @@ const TagItem: FC<ITagItem> = ({
       if (isTagTitleBeingAnimated) {
         nameCheckboxAnimateControls.start('visible');
       }
-    }, 900);
+    }, 700);
 
     return () => clearTimeout(timer);
   }, [isTagTitleBeingAnimated, nameCheckboxAnimateControls]);
