@@ -20,6 +20,7 @@ type TGetArticlesRequest = {
   category: number;
   limit?: number;
   offset?: number;
+  orders: Array<{ name: 'first_published_at'; value: '' | '-' }>;
   tags: Array<number> | [];
 };
 
@@ -38,7 +39,7 @@ type TGetSlugsFromArticlesResponse = IPaginationResponse & {
 const articleExtendedApi = coreSplitApi.injectEndpoints({
   endpoints: (builder) => ({
     getArticles: builder.query<TGetArticlesResponse, TGetArticlesRequest>({
-      query: ({ category, limit, offset, tags }) => {
+      query: ({ category, limit, offset, orders, tags }) => {
         const params: Record<string, string | number> = {
           fields:
             '_,id,uuid,title,slug,description,header_image,tags,category,first_published_at,reading_time',
@@ -50,6 +51,12 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
         if (limit) params.limit = limit;
 
         if (offset) params.offset = offset;
+
+        if (orders.length) {
+          params.order = orders
+            .map((order) => order.value + order.name)
+            .join(',');
+        }
 
         if (tags.length) params.tags__in = tags.join(',');
 
