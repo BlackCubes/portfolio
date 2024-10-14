@@ -71,6 +71,10 @@ export const getStaticProps = nextReduxWrapper.getStaticProps(
   }
 );
 
+const initialOrdersQuery: TOrdersQueryState = [
+  { name: 'first_published_at', value: '-' },
+];
+
 const Articles: NextPage = () => {
   const [categoryTagIdQuery, setCategoryTagIdQuery] =
     useState<TCategoryTagIdQueryState>({
@@ -78,9 +82,8 @@ const Articles: NextPage = () => {
       tags: [],
     });
 
-  const [ordersQuery, setOrdersQuery] = useState<TOrdersQueryState>([
-    { name: 'first_published_at', value: '-' },
-  ]);
+  const [ordersQuery, setOrdersQuery] =
+    useState<TOrdersQueryState>(initialOrdersQuery);
 
   const paginationLimit = 5;
   const [paginationOffset, setPaginationOffset] = useState(0);
@@ -200,6 +203,14 @@ const Articles: NextPage = () => {
       return {
         ...prevCategoryTagIdQuery,
       };
+    });
+
+    setOrdersQuery((prevStates) => {
+      if (clearCase === 'clearAll') {
+        return [...initialOrdersQuery];
+      }
+
+      return [...prevStates];
     });
   };
 

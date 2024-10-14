@@ -153,6 +153,12 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                     indexNumber: -1,
                   },
                 });
+
+                setOrderCheckedState({
+                  checked: {
+                    indexNumber: -1,
+                  },
+                });
               }}
             >
               Clear filter
