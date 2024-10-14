@@ -13,6 +13,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { data: articles } = await store.dispatch(
     getArticles.initiate({
       category: 0,
+      orders: [],
       tags: [],
     })
   );

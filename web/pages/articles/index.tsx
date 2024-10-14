@@ -23,6 +23,7 @@ import {
 import LoadingIcon from 'common/components/LoadingIcon';
 import PageContainer from 'common/components/PageContainer';
 import WithLoadingOverlay from 'common/components/WithLoadingOverlay';
+import { IOrder } from 'common/models';
 
 import {
   ArticleList,
@@ -40,6 +41,8 @@ type TCategoryTagIdQueryState = {
   tags: Array<number> | [];
 };
 
+type TOrdersQueryState = Array<{ name: 'first_published_at'; value: '' | '-' }>;
+
 export const getStaticProps = nextReduxWrapper.getStaticProps(
   (store) => async () => {
     store.dispatch(
@@ -47,6 +50,7 @@ export const getStaticProps = nextReduxWrapper.getStaticProps(
         category: 0,
         limit: 5,
         offset: 0,
+        orders: [],
         tags: [],
       })
     );
@@ -74,6 +78,10 @@ const Articles: NextPage = () => {
       tags: [],
     });
 
+  const [ordersQuery, setOrdersQuery] = useState<TOrdersQueryState>([
+    { name: 'first_published_at', value: '-' },
+  ]);
+
   const paginationLimit = 5;
   const [paginationOffset, setPaginationOffset] = useState(0);
 
@@ -82,11 +90,29 @@ const Articles: NextPage = () => {
       category: categoryTagIdQuery.category,
       limit: paginationLimit,
       offset: paginationOffset,
+      orders: ordersQuery,
       tags: categoryTagIdQuery.tags,
     });
   const { data: categoriesData, isFetching: categoriesFetching } =
     useGetCategoriesQuery();
   const { data: tagsData, isFetching: tagsFetching } = useGetTagsQuery();
+  const ordersData: IOrder[] = [
+    { id: 'first_published_at', name: 'Published Date' },
+  ];
+
+  const handleOnOrdersQuery = (orderId: 'first_published_at') => {
+    setOrdersQuery((prevStates) =>
+      prevStates.map((prev) => {
+        const clonedState = { ...prev };
+
+        if (orderId === clonedState.name) {
+          clonedState.value = clonedState.value === '-' ? '' : '-';
+        }
+
+        return { ...clonedState };
+      })
+    );
+  };
 
   /**
    * Used to dynamically change the filtering to update the article API based
@@ -251,6 +277,8 @@ const Articles: NextPage = () => {
                     categoriesData={categoriesData.items}
                     handleCategoryTagQuery={handleCategoryTagQuery}
                     handleClearFilter={handleClearFiltering}
+                    handleOnOrdersQuery={handleOnOrdersQuery}
+                    ordersData={ordersData}
                     tagsData={tagsData.items}
                   />
                 )}
