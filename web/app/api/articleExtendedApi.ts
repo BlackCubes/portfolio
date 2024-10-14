@@ -20,7 +20,7 @@ type TGetArticlesRequest = {
   category: number;
   limit?: number;
   offset?: number;
-  orders: Array<{ name: 'first_published_at'; value: '' | '-' }>;
+  orders: Array<{ name: 'first_published_at'; value: '' | '-' }> | [];
   tags: Array<number> | [];
 };
 
@@ -56,6 +56,8 @@ const articleExtendedApi = coreSplitApi.injectEndpoints({
           params.order = orders
             .map((order) => order.value + order.name)
             .join(',');
+        } else {
+          params.order = '-first_published_at';
         }
 
         if (tags.length) params.tags__in = tags.join(',');

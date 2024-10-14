@@ -50,7 +50,7 @@ export const getStaticProps = nextReduxWrapper.getStaticProps(
         category: 0,
         limit: 5,
         offset: 0,
-        orders: [{ name: 'first_published_at', value: '-' }],
+        orders: [],
         tags: [],
       })
     );
