@@ -20,7 +20,7 @@ type TGetArticlesRequest = {
   category: number;
   limit?: number;
   offset?: number;
-  orders: Array<{ name: 'first_published_at'; value: '' | '-' }>;
+  orders: Array<{ name: 'first_published_at'; value: '' | '-' }> | [];
   tags: Array<number> | [];
 };
 
