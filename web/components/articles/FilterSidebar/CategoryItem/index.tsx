@@ -25,7 +25,7 @@ const CategoryItem: FC<ICategoryItem> = ({
       if (isCategoryTitleBeingAnimated) {
         nameAnimateControls.start('visible');
       }
-    }, 500);
+    }, 700);
 
     return () => clearTimeout(timer);
   }, [isCategoryTitleBeingAnimated, nameAnimateControls]);
