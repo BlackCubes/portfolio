@@ -360,7 +360,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 )
 
 # The maximum number of results a user can request at a time
-WAGTAILAPI_LIMIT_MAX = 10
+WAGTAILAPI_LIMIT_MAX = 30
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
