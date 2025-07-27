@@ -229,7 +229,7 @@ export const GlassImage = styled.img`
     }
 
     &--image-2 {
-      transform: scale(1.5);
+      transform: scale(1);
     }
   }
 
