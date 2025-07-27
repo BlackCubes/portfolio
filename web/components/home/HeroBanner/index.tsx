@@ -24,7 +24,7 @@ const HeroBanner: FC = () => (
         glassLightShadowHorizontalOffset={-0.3}
         glassLightShadowVerticalOffset={-0.3}
         imageAlt="Profile image of Elias Gutierrez"
-        imageSrc="/profile-pic.jpg"
+        imageSrc="/profile-pic3.jpg"
         opacity={1}
       />
     </ProfileImageWrapper>
