@@ -129,7 +129,7 @@ const Home: NextPage<IHome> = ({ isFirstMount }) => {
                   <AboutImage
                     customClassName="home-page home-page--image-2"
                     imgAlt="Elias with good friends"
-                    imgSrc="/about-pic3.jpg"
+                    imgSrc="/about-pic4.jpg"
                   />
                 </Col>
               </Row>
