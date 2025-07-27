@@ -20,6 +20,10 @@ export const PageContainerStyle = styled(motion.div).attrs(() => ({
     }
   }
 
+  &.article-detail-page {
+    overflow-wrap: break-word;
+  }
+
   &.landing-list-page {
     display: flex;
     flex-direction: column;

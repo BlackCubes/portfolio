@@ -247,6 +247,7 @@ export const ImageCaptionImgWrapper = styled.div`
 
 export const ImageCaptionContent = styled.span`
   font-size: 1.3rem;
+  color: ${({ theme }) => theme.colors.secondary.hex};
   width: 70%;
   margin-left: auto;
   margin-right: auto;
