@@ -7,8 +7,8 @@ const theme: Required<DefaultTheme> = {
       rgb: '0,0,0',
     },
     body: {
-      hex: '#fff',
-      rgb: '255,255,255',
+      hex: '#e6ebff',
+      rgb: '230,235,255',
     },
     white: {
       hex: '#fff',

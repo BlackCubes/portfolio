@@ -12,8 +12,8 @@ type TDarkThemeColors = Omit<IColorTheme, 'black' | 'white'>;
 
 const darkThemeColors: Required<TDarkThemeColors> = {
   body: {
-    hex: '#000',
-    rgb: '0,0,0',
+    hex: '#00051f',
+    rgb: '0,5,31',
   },
   glass: {
     hex: '#98b5ff',
